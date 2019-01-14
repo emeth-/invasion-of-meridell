@@ -32,9 +32,9 @@
 <?
 include("game_functions.php");
 $board = [];
-$mission = 1;
-$battle = 1;
-$board = set_up_treasure($board);
+$mission = 1;//rand(1,10);
+$battle = 1;//rand(1,3);
+$board = set_up_treasure($board, $mission, $battle);
 $board = set_up_enemies($board, $mission, $battle);
 $board = set_up_mountains($board);
 $board = set_up_villages($board);
@@ -42,10 +42,10 @@ $soldiers = get_team();
 $board = set_up_soldiers($board, $soldiers);
 $board = set_up_items($board, $mission, $battle);
 
-
-
-
+print "<h3>Mission: {$mission} / Battle: {$battle}</h3>";
 ?>
+
+
 
 <table border=1 id="board">
     <?
