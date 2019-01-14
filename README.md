@@ -11,3 +11,8 @@ https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
 http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
 http://neopointsdeals.com/neopets-invasion-of-meridell-guide/
 http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+
+
+Videos:
+https://www.youtube.com/watch?v=QJCtRCyfVww (levels 1, 2, 3)
+https://www.youtube.com/watch?v=644qdG2yd1w

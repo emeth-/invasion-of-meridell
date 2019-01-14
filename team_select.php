@@ -51,7 +51,7 @@
 
 $soldiers = [
     [
-        "image" => "Moeh00.jpg",
+        "image" => "java-clone/game/MeriImages/Moeh00.jpg",
         "breed" => "Moehog",
         "rank" => "Villager",
         "name" => "Soldier 0",
@@ -65,7 +65,7 @@ $soldiers = [
         "saves" => 0,
     ],
     [
-        "image" => "Skei01.jpg",
+        "image" => "java-clone/game/MeriImages/Skei01.jpg",
         "breed" => "Skeith",
         "rank" => "Villager",
         "name" => "Soldier 1",
@@ -79,7 +79,7 @@ $soldiers = [
         "saves" => 0,
     ],
     [
-        "image" => "Tech02.jpg",
+        "image" => "java-clone/game/MeriImages/Tech02.jpg",
         "breed" => "Techo",
         "rank" => "Villager",
         "name" => "Soldier 2",
@@ -93,7 +93,7 @@ $soldiers = [
         "saves" => 0,
     ],
     [
-        "image" => "Scor03.jpg",
+        "image" => "java-clone/game/MeriImages/Scor03.jpg",
         "breed" => "Scorchio",
         "rank" => "Villager",
         "name" => "Soldier 3",
@@ -107,7 +107,7 @@ $soldiers = [
         "saves" => 0,
     ],
     [
-        "image" => "Grun04.jpg",
+        "image" => "java-clone/game/MeriImages/Grun04.jpg",
         "breed" => "Grundo",
         "rank" => "Villager",
         "name" => "Soldier 4",
@@ -129,7 +129,7 @@ foreach($soldiers as $s) {
     ?>
     <tr>
         <td bgcolor="#821B80" style="color:white">
-            <img src='java-clone/game/MeriImages/<?=$s['image']?>'><br>
+            <img src='<?=$s['image']?>'><br>
             <?=$s['breed']?><br>
             .:<?=$s['rank']?>:.
         </td>
