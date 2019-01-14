@@ -1,5 +1,19 @@
 <?
 
+//10 missions, 3 battles per mission, 30 battles total
+/*
+Mission 1 - Draco Moehogs
+Mission 2 - Draco Techos
+Mission 3 - Draco Skeith
+Mission 4 - Draco Scorchio
+Mission 5 - Draco Grundos
+Mission 6 - Draco Moehogs + Draco Buzz
+Mission 7 - Draco Moehogs + Draco Buzz
+Mission 8 - Draco Grarrl
+Mission 9 - (sorry haven't come this far yet)
+Mission 10 - (sorry haven't come this far yet)
+*/
+
 function set_up_treasure($board) {
     //Treasure
     $board[0][4] = [
