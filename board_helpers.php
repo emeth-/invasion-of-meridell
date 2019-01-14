@@ -52,31 +52,16 @@ function set_up_mountains($board) {
 }
 
 function set_up_villages($board) {
-    for($i=0; $i<4; $i++) {
-        $mtn = [
-            "type" => "mountain",
-            "image" => "java-clone/game/MeriImages/mtn.jpg"
-        ];
-        $mtn_layout = rand(1,3);
-        if ($mtn_layout == 1) {
-            $board[($i+1)*2][0] = $mtn;
-            $board[($i+1)*2][9] = $mtn;
-        }
-        elseif ($mtn_layout == 2) {
-            $board[($i+1)*2][1] = $mtn;
-            $board[($i+1)*2][8] = $mtn;
-        }
-        elseif ($mtn_layout == 3) {
-            $board[($i+1)*2][5] = $mtn;
-            //...
-            if($i>0) {
-                //In first mountain row, this is skipped because an invader can spawn here...
-                //Note my board layouts are incomplete, it's possible this spawns and can just be overwritten by invader
-                //UNKNOWN
-                $board[($i+1)*2][4] = $mtn;
-            }
-        }
-    }
+    $vlg = [
+        "type" => "village",
+        "image" => "java-clone/game/MeriImages/vlg.jpg"
+    ];
+    $board[6][rand(0,4)] = $vlg;
+    $board[7][rand(0,4)] = $vlg;
+    $board[8][rand(0,4)] = $vlg;
+    $board[6][rand(0,4)+5] = $vlg;
+    $board[7][rand(0,4)+5] = $vlg;
+    $board[8][rand(0,4)+5] = $vlg;
     return $board;
 }
 
