@@ -12,6 +12,11 @@ Mission 7 - Draco Moehogs + Draco Buzz
 Mission 8 - Draco Grarrl
 Mission 9 - (sorry haven't come this far yet)
 Mission 10 - (sorry haven't come this far yet)
+
+
+
+/////MISSION 1
+
 */
 
 function set_up_treasure($board) {
@@ -23,13 +28,67 @@ function set_up_treasure($board) {
     return $board;
 }
 
-function set_up_enemies($board) {
-    //Enemies
-    for($i=0; $i<5; $i++) {
-        $board[0][($i*2)+1] = [
-            "type" => "enemy",
-            "image" => "java-clone/game/MeriImages/Draco_Moehog00.jpg"
-        ];
+function set_up_items($board, $mission, $battle) {
+
+    //potions
+    $board[5][4] = [
+        "type" => "potion",
+        "image" => "java-clone/game/MeriImages/Health_Potion.jpg"
+    ];
+    $board[5][6] = [
+        "type" => "potion",
+        "image" => "java-clone/game/MeriImages/Health_Potion.jpg"
+    ];
+
+    $empty_spaces = [];
+    for($i=4; $i<9; $i++) {
+        for($j=0; $j<10; $j++) {
+            if(!$board[$i][$j]['type']) {
+                $empty_spaces[]=[$i, $j];
+            }
+        }
+    }
+
+    $rand_keys = array_rand($empty_spaces, 4);
+
+    $board[$empty_spaces[$rand_keys[0]][0]][$empty_spaces[$rand_keys[0]][1]] = [
+        "type" => "item",
+        "image" => "java-clone/game/MeriImages/Magic_Staff_of_Thunder.jpg"
+    ];
+    $board[$empty_spaces[$rand_keys[1]][0]][$empty_spaces[$rand_keys[1]][1]] = [
+        "type" => "item",
+        "image" => "java-clone/game/MeriImages/Magic_Staff_of_Thunder.jpg"
+    ];
+    $board[$empty_spaces[$rand_keys[2]][0]][$empty_spaces[$rand_keys[2]][1]] = [
+        "type" => "item",
+        "image" => "java-clone/game/MeriImages/Mace.jpg"
+    ];
+    $board[$empty_spaces[$rand_keys[3]][0]][$empty_spaces[$rand_keys[3]][1]] = [
+        "type" => "item",
+        "image" => "java-clone/game/MeriImages/Mace.jpg"
+    ];
+
+    return $board;
+}
+
+function set_up_enemies($board, $mission, $battle) {
+
+    if(!$mission) {
+        $mission = 1;
+    }
+
+    if(!$battle) {
+        $battle = 1;
+    }
+
+    //Mission 1, Battle 1
+    if($mission == 1 && $battle == 1) {
+        for($i=0; $i<5; $i++) {
+            $board[0][($i*2)+1] = [
+                "type" => "enemy",
+                "image" => "java-clone/game/MeriImages/Draco_Moehog00.jpg"
+            ];
+        }
     }
     return $board;
 }
