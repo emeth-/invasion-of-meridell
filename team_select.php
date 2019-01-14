@@ -48,132 +48,54 @@
         </td>
     </tr>
 <?
+include('game_functions.php');
+$soldiers = get_team();
 
-$soldiers = [
-    [
-        "image" => "java-clone/game/MeriImages/Moeh00.jpg",
-        "breed" => "Moehog",
-        "rank" => "Villager",
-        "name" => "Soldier 0",
-        "health" => 16,
-        "base_attack_strength" => 8,
-        "bonus_attack_strength" => 0,
-        "attack_item" => "",
-        "base_defense_strength" => 9,
-        "bonus_defense_strength" => 0,
-        "defense_item" => "",
-        "saves" => 0,
-    ],
-    [
-        "image" => "java-clone/game/MeriImages/Skei01.jpg",
-        "breed" => "Skeith",
-        "rank" => "Villager",
-        "name" => "Soldier 1",
-        "health" => 17,
-        "base_attack_strength" => 18,
-        "bonus_attack_strength" => 4,
-        "attack_item" => "",
-        "base_defense_strength" => 8,
-        "bonus_defense_strength" => 0,
-        "defense_item" => "",
-        "saves" => 0,
-    ],
-    [
-        "image" => "java-clone/game/MeriImages/Tech02.jpg",
-        "breed" => "Techo",
-        "rank" => "Villager",
-        "name" => "Soldier 2",
-        "health" => 14,
-        "base_attack_strength" => 9,
-        "bonus_attack_strength" => 1,
-        "attack_item" => "",
-        "base_defense_strength" => 12,
-        "bonus_defense_strength" => 0,
-        "defense_item" => "",
-        "saves" => 0,
-    ],
-    [
-        "image" => "java-clone/game/MeriImages/Scor03.jpg",
-        "breed" => "Scorchio",
-        "rank" => "Villager",
-        "name" => "Soldier 3",
-        "health" => 16,
-        "base_attack_strength" => 13,
-        "bonus_attack_strength" => 2,
-        "attack_item" => "",
-        "base_defense_strength" => 12,
-        "bonus_defense_strength" => 0,
-        "defense_item" => "",
-        "saves" => 0,
-    ],
-    [
-        "image" => "java-clone/game/MeriImages/Grun04.jpg",
-        "breed" => "Grundo",
-        "rank" => "Villager",
-        "name" => "Soldier 4",
-        "health" => 15,
-        "base_attack_strength" => 13,
-        "bonus_attack_strength" => 2,
-        "attack_item" => "",
-        "base_defense_strength" => 13,
-        "bonus_defense_strength" => 0,
-        "defense_item" => "",
-        "saves" => 0,
-    ]
-];
-
-?>
-
-<?
 foreach($soldiers as $s) {
-    ?>
+$bonus_attack_strength_string = "";
+if($s['bonus_attack_strength']) {
+    $bonus_attack_strength_string = "<span style='font-size:12px'>(+{$s['bonus_attack_strength']})</span>";
+}
+$bonus_defense_strength_string = "";
+if($s['bonus_defense_strength']) {
+    $bonus_defense_strength_string = "<span style='font-size:12px'>(+{$s['bonus_defense_strength']})</span>";
+}
+print <<<EOF
     <tr>
         <td bgcolor="#821B80" style="color:white">
-            <img src='<?=$s['image']?>'><br>
-            <?=$s['breed']?><br>
-            .:<?=$s['rank']?>:.
+            <img src='{$s['image']}'><br>
+            {$s['breed']}<br>
+            .:{$s['rank']}:.
         </td>
         <td style="text-align:left">
-            <input type='text' value='<?=$s['name']?>'>
+            <input type='text' value='{$s['name']}'>
         </td>
         <td>
-            <?=$s['health']?>
+            {$s['health']}
         </td>
         <td>
-            <?=$s['base_attack_strength']?>
-            <?
-            if($s['bonus_attack_strength']) {
-                ?>
-                <span style='font-size:12px'>(+<?=$s['bonus_attack_strength']?>)</span>
-                <?
-            }
-            ?>
+            {$s['base_attack_strength']}
+            {$bonus_attack_strength_string}
         </td>
         <td>
-            <?=$s['attack_item']?>
+            {$s['attack_item']}
         </td>
         <td>
-            <?=$s['base_defense_strength']?>
-            <?
-            if($s['bonus_defense_strength']) {
-                ?>
-                <span style='font-size:12px'>(+<?=$s['bonus_defense_strength']?>)</span>
-                <?
-            }
-            ?>
+            {$s['base_defense_strength']}
+            {$bonus_defense_strength_string}
         </td>
         <td>
-            <?=$s['defense_item']?>
+            {$s['defense_item']}
         </td>
         <td>
             <center>
                 <table border=1 width=40% cellpadding=4><tr><td><center>
-                <?=$s['saves']?>
+                {$s['saves']}
                 </center></td></tr></table>
             </center>
         </td>
     </tr>
-    <?
+EOF;
 }
 ?>
 </table>

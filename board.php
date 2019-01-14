@@ -30,12 +30,14 @@
 </head>
 <body>
 <?
-include("board_helpers.php");
+include("game_functions.php");
 $board = [];
 $board = set_up_treasure($board);
 $board = set_up_enemies($board);
 $board = set_up_mountains($board);
 $board = set_up_villages($board);
+$soldiers = get_team();
+$board = set_up_soldiers($board, $soldiers);
 
 
 
