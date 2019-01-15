@@ -124,11 +124,11 @@ function set_up_items($board, $mission, $battle) {
         //potions
         $board[5][4] = [
             "type" => "potion",
-            "image" => "java-clone/game/MeriImages/Health_Potion.jpg"
+            "image" => "java-clone/game/MeriImages/Mega_Potion.jpg"
         ];
         $board[5][6] = [
             "type" => "potion",
-            "image" => "java-clone/game/MeriImages/Health_Potion.jpg"
+            "image" => "java-clone/game/MeriImages/Mega_Potion.jpg"
         ];
 
         $empty_spaces = [];
@@ -142,43 +142,134 @@ function set_up_items($board, $mission, $battle) {
 
         $rand_keys = array_rand($empty_spaces, 4);
 
-        $board[$empty_spaces[$rand_keys[0]][0]][$empty_spaces[$rand_keys[0]][1]] = [
-            "type" => "item",
-            "image" => "java-clone/game/MeriImages/Magic_Staff_of_Thunder.jpg"
-        ];
-        $board[$empty_spaces[$rand_keys[1]][0]][$empty_spaces[$rand_keys[1]][1]] = [
-            "type" => "item",
-            "image" => "java-clone/game/MeriImages/Magic_Staff_of_Thunder.jpg"
-        ];
+        if(rand(1,2) == 1) {
+            $board[$empty_spaces[$rand_keys[0]][0]][$empty_spaces[$rand_keys[0]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Magic_Force_Spell.jpg"
+            ];
+        }
+        else {
+            $board[$empty_spaces[$rand_keys[0]][0]][$empty_spaces[$rand_keys[0]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Berserker_Battleaxe.jpg"
+            ];
+        }
+
+        if(rand(1,2) == 1) {
+            $board[$empty_spaces[$rand_keys[1]][0]][$empty_spaces[$rand_keys[1]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Magic_Force_Spell.jpg"
+            ];
+        }
+        else {
+            $board[$empty_spaces[$rand_keys[1]][0]][$empty_spaces[$rand_keys[1]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Berserker_Battleaxe.jpg"
+            ];
+        }
 
         if(rand(1,2) == 1) {
             $board[$empty_spaces[$rand_keys[2]][0]][$empty_spaces[$rand_keys[2]][1]] = [
                 "type" => "item",
-                "image" => "java-clone/game/MeriImages/Mace.jpg"
+                "image" => "java-clone/game/MeriImages/Helmet.jpg"
             ];
         }
         else {
             $board[$empty_spaces[$rand_keys[2]][0]][$empty_spaces[$rand_keys[2]][1]] = [
                 "type" => "item",
-                "image" => "java-clone/game/MeriImages/Broadsword.jpg"
+                "image" => "java-clone/game/MeriImages/Shield.jpg"
             ];
         }
 
         if(rand(1,2) == 1) {
             $board[$empty_spaces[$rand_keys[3]][0]][$empty_spaces[$rand_keys[3]][1]] = [
                 "type" => "item",
-                "image" => "java-clone/game/MeriImages/Mace.jpg"
+                "image" => "java-clone/game/MeriImages/Helmet.jpg"
             ];
         }
         else {
             $board[$empty_spaces[$rand_keys[3]][0]][$empty_spaces[$rand_keys[3]][1]] = [
                 "type" => "item",
-                "image" => "java-clone/game/MeriImages/Broadsword.jpg"
+                "image" => "java-clone/game/MeriImages/Shield.jpg"
             ];
         }
     }
     elseif($mission == 3) {
-        $image = "java-clone/game/MeriImages/Urn_of_Abundance.jpg";
+
+        //potions
+        $board[5][4] = [
+            "type" => "potion",
+            "image" => "java-clone/game/MeriImages/Potion_of_Well-Being.jpg"
+        ];
+        $board[5][6] = [
+            "type" => "potion",
+            "image" => "java-clone/game/MeriImages/Potion_of_Well-Being.jpg"
+        ];
+
+        $empty_spaces = [];
+        for($i=4; $i<9; $i++) {
+            for($j=0; $j<10; $j++) {
+                if(!$board[$i][$j]['type']) {
+                    $empty_spaces[]=[$i, $j];
+                }
+            }
+        }
+
+        $rand_keys = array_rand($empty_spaces, 4);
+
+
+
+        if(rand(1,2) == 1) {
+            $board[$empty_spaces[$rand_keys[0]][0]][$empty_spaces[$rand_keys[0]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Magic_Force_Spell.jpg"
+            ];
+        }
+        else {
+            $board[$empty_spaces[$rand_keys[0]][0]][$empty_spaces[$rand_keys[0]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Bow.jpg"
+            ];
+        }
+
+        if(rand(1,2) == 1) {
+            $board[$empty_spaces[$rand_keys[1]][0]][$empty_spaces[$rand_keys[1]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Magic_Force_Spell.jpg"
+            ];
+        }
+        else {
+            $board[$empty_spaces[$rand_keys[1]][0]][$empty_spaces[$rand_keys[1]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Bow.jpg"
+            ];
+        }
+
+        if(rand(1,2) == 1) {
+            $board[$empty_spaces[$rand_keys[2]][0]][$empty_spaces[$rand_keys[2]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Amulet_of_Teleportation.jpg"
+            ];
+        }
+        else {
+            $board[$empty_spaces[$rand_keys[2]][0]][$empty_spaces[$rand_keys[2]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Magic_Cloak_of_Invisibility.jpg"
+            ];
+        }
+
+        if(rand(1,2) == 1) {
+            $board[$empty_spaces[$rand_keys[3]][0]][$empty_spaces[$rand_keys[3]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Amulet_of_Teleportation.jpg"
+            ];
+        }
+        else {
+            $board[$empty_spaces[$rand_keys[3]][0]][$empty_spaces[$rand_keys[3]][1]] = [
+                "type" => "item",
+                "image" => "java-clone/game/MeriImages/Magic_Cloak_of_Invisibility.jpg"
+            ];
+        }
     }
     elseif($mission == 4) {
         $image = "java-clone/game/MeriImages/Ancient_Book.jpg";
@@ -203,15 +294,6 @@ function set_up_items($board, $mission, $battle) {
     }
 
     /*
-	Scenario M1=new Scenario("Mission 2",GOLDIX,P_FORT,new int[]{WBOW_,WHAMM,DTELE,DTELE},new int[][]{
-		new int[]{D_TEC,12,16,9,13,8,14}
-	},6);
-	Scenario M2=new Scenario("Mission 3",URNABU,P_MEGA,new int[]{SFORC,WBBAX,DHELM,DSHIE},new int[][]{
-		new int[]{D_SKE,12,16,9,13,8,14}
-	},6);
-	Scenario M3=new Scenario("Mission 4",ANCBOO,P_WELL,new int[]{SFORC,WBOW_,DTELE,DINVI},new int[][]{
-		new int[]{D_SCO,14,18,12,16,12,16}
-	},7);
 	Scenario M4=new Scenario("Mission 5",CROWN_,P_FORT,new int[]{SFORC,WBBAX,DHELM,DSHIE},new int[][]{
 		new int[]{D_GRU,15,19,13,16,15,17}
 	},8);
