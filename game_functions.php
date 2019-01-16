@@ -13,10 +13,6 @@ Mission 8 - Draco Grarrl
 Mission 9 - (sorry haven't come this far yet)
 Mission 10 - (sorry haven't come this far yet)
 
-
-
-/////MISSION 1
-
 */
 
 function set_up_treasure($board, $mission, $battle) {
@@ -158,15 +154,92 @@ function set_up_items($board, $mission, $battle) {
 
 function set_up_enemies($board, $mission, $battle) {
 
-    //Mission 1, Battle 1
-    if($mission == 1 && $battle == 1) {
-        for($i=0; $i<5; $i++) {
-            $board[0][($i*2)+1] = [
-                "type" => "enemy",
-                "image" => "java-clone/game/MeriImages/Draco_Moehog00.jpg"
-            ];
-        }
+    //Also note max is 8, don't add_each_wave if already 8 enemies
+    $enemies_by_mission = [
+        1 => [
+            "foes" => ["Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00"],
+            "add_each_wave" => "Draco_Moehog00"
+        ],
+        2 => [
+            "foes" => ["Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00"],
+            "add_each_wave" => "Draco_Techo00"
+        ],
+        3 => [
+            "foes" => ["Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00"],
+            "add_each_wave" => "Draco_Skeith00"
+        ],
+        4 => [
+            "foes" => ["Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00"],
+            "add_each_wave" => "Draco_Scorchio00"
+        ],
+        5 => [
+            "foes" => ["Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00"]
+        ],
+        6 => [
+            "foes" => ["Draco_Buzz00", "Draco_Buzz00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00"]
+        ],
+        7 => [
+            "foes" => ["Draco_Buzz00", "Draco_Buzz00", "Draco_Buzz00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00"]
+        ],
+        8 => [
+            "foes" => ["Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00"]
+        ],
+        9 => [
+            "foes" => ["Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00"]
+        ],
+        10 => [
+            "foes" => ["Draco_Buzz00", "Draco_Buzz00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00"]
+        ],
+    ];
+
+    $enemies_obj = $enemies_by_mission[$mission];
+
+    $enemies_to_add_in_wave = $battle - 1;
+    while(count($enemies_obj['foes']) < 8 && $enemies_to_add_in_wave > 0) {
+        //In each wave, add an additional enemy if less than 8 foes
+        $enemies_obj['foes'][] = $enemies_obj['add_each_wave'];
+        $enemies_to_add_in_wave = $enemies_to_add_in_wave - 1;
     }
+
+    $board[0][1] = [
+        "type" => "enemy",
+        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][0].".jpg"
+    ];
+    $board[0][3] = [
+        "type" => "enemy",
+        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][1].".jpg"
+    ];
+    $board[0][5] = [
+        "type" => "enemy",
+        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][2].".jpg"
+    ];
+    $board[0][7] = [
+        "type" => "enemy",
+        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][3].".jpg"
+    ];
+    $board[0][9] = [
+        "type" => "enemy",
+        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][4].".jpg"
+    ];
+    if($enemies_obj['foes'][5]) {
+        $board[2][2] = [
+            "type" => "enemy",
+            "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][5].".jpg"
+        ];
+    }
+    if($enemies_obj['foes'][6]) {
+        $board[2][4] = [
+            "type" => "enemy",
+            "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][6].".jpg"
+        ];
+    }
+    if($enemies_obj['foes'][7]) {
+        $board[2][6] = [
+            "type" => "enemy",
+            "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][7].".jpg"
+        ];
+    }
+
     return $board;
 }
 
