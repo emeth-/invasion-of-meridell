@@ -98,7 +98,9 @@ function set_up_items($board, $mission, $battle) {
         //Mega_Potion verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
 
         9 => "Mega_Potion",
+
         10 => "Potion_of_Well-Being",
+
     ];
 
     $attack_items_by_mission = [
@@ -108,14 +110,18 @@ function set_up_items($board, $mission, $battle) {
 
         2 => ["Bow", "Hammer"],
         //Bow verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+        //Note that http://i52.tinypic.com/2hmq2h5.jpg (http://www.neopets.com/~Demeanours) shows a Broadsword and two Magic_Staff_of_Thunder, but after significant gameplay. Rather than being an error, assume that the pets dropped those (which they picked up in Mission 1) for the newly spawned items in Mission 2
 
         3 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
+        //TODO: review Berserker_Battleaxe
         //Magic_Force_Spell verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
         //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Berserker_Battleaxe unverified? Mission 3 here: http://www.neopets.com/~Demeanours shows team after successfully beating mission, nobody has Berserker_Battleaxe
 
         4 => ["Magic_Force_Spell", "Bow"],
         //Magic_Force_Spell verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
         //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Bow verified http://www.neopets.com/~Demeanours (http://i50.tinypic.com/358791z.jpg)
 
         5 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
         //Berserker_Battleaxe verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
@@ -148,12 +154,14 @@ function set_up_items($board, $mission, $battle) {
 
         3 => ["Helmet", "Shield"],
         //Helmet verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Shield verified in Mission 3 team items here: http://www.neopets.com/~Demeanours (http://i54.tinypic.com/28mmsz8.jpg)
 
         4 => ["Amulet_of_Teleportation", "Magic_Cloak_of_Invisibility"],
         //TODO, fix
         //JAVA GAME ERROR - Does not include Plate_Armor here
         //Plate_Armor verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
         //Plate_Armor verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Magic_Cloak_of_Invisibility verified in team items on http://www.neopets.com/~Demeanours (http://i54.tinypic.com/33bfl83.jpg)
 
         5 => ["Counter_Enchantment_Helmet", "Shield"],
         //TODO, fix
@@ -170,6 +178,7 @@ function set_up_items($board, $mission, $battle) {
         7 => ["Chainmail", "Leather_Armor"],
         //Chainmail verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
         //Chainmail verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Chainmail verified http://i53.tinypic.com/j9r147.jpg (http://www.neopets.com/~Demeanours)
         //Comment:  It is not necessary to get the Chainmails and Halberds (if any) since their attack and defence bonuses should be less than those that are already equipped by your fighters. from http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         8 => ["Plate_Armor", "Chainmail"],

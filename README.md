@@ -17,3 +17,6 @@ http://www.neopets.com/~Demeanours
 Videos:
 https://www.youtube.com/watch?v=QJCtRCyfVww (levels 1, 2, 3)
 https://www.youtube.com/watch?v=644qdG2yd1w
+
+Correct stat numbers:
+http://www.neopets.com/~Demeanours
