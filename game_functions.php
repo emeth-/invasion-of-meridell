@@ -88,18 +88,8 @@ function set_up_items($board, $mission, $battle) {
 
     $attack_items_by_mission = [
         1 => ["Mace", "Broadsword"],
-        //Broadsword verified http://www.jellyneo.net/images/guides/game_iom_04.png
-        //Mace verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-
         2 => ["Bow", "Hammer"],
-        //Bow verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //Note that http://i52.tinypic.com/2hmq2h5.jpg (http://www.neopets.com/~Demeanours) shows a Broadsword and two Magic_Staff_of_Thunder, but after significant gameplay. Rather than being an error, assume that the pets dropped those (which they picked up in Mission 1) for the newly spawned items in Mission 2
-
-        3 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
-        //TODO: review Berserker_Battleaxe
-        //Magic_Force_Spell verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Berserker_Battleaxe unverified? Mission 3 here: http://www.neopets.com/~Demeanours shows team after successfully beating mission, nobody has Berserker_Battleaxe
+        3 => ["Magic_Force_Spell", "Magic_Force_Spell"],
 
         4 => ["Magic_Force_Spell", "Bow"],
         //Magic_Force_Spell verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
