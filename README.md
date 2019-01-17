@@ -22,8 +22,4 @@ https://www.youtube.com/watch?v=644qdG2yd1w
 Correct stat numbers:
 http://www.neopets.com/~Demeanours
 
-
-Java Clone:
-Source: https://drive.google.com/drive/folders/0B2Y0VMXUm08mRkNremE5ZVV0bnc
-Download: https://drive.google.com/file/d/0B2Y0VMXUm08maEFyTE5meG9hOFk/view?usp=sharing
-Announcement: http://www.bay12forums.com/smf/index.php?topic=154262.0
+Much appreciation to darkflagrance, the author of the Java clone of this game which helped me get started. See Java_Clone.md for more details on his version.
