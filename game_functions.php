@@ -1,12 +1,8 @@
 <?
 
 /*
-Next steps...
-
-Board states = items, enemies, token up top
-1) Compare board states to those in java app
-2) Compare board states to images
-*/
+ NEXT... build full layout of board page.
+ */
 
 /*
 Notes on enemy movement...
