@@ -78,19 +78,24 @@ function set_up_items($board, $mission, $battle) {
 
         4 => "Potion_of_Well-Being",
         //Potion_of_Well-Being verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+        //Potion_of_Well-Being verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         5 => "Potion_of_Fortitude",
-        //verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Potion_of_Fortitude verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Potion_of_Fortitude verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
-        6 => "Mega_Potion",
+        6 => "Potion_of_Well-Being",
+        //JAVA GAME ERROR - improperly puts Mega_Potion here
+        //Potion_of_Well-Being.jpg verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         7 => "Potion_of_Fortitude",
         //JAVA GAME ERROR - improperly puts Potion_of_Well-Being here
-        //Potion_of_Fortitude verified on screenshot at  https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Potion_of_Fortitude verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Potion_of_Fortitude verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         8 => "Mega_Potion",
         //JAVA GAME ERROR - improperly puts Potion_of_Fortitude here
-        //Mega_Potion verified on screenshot at  https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Mega_Potion verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
 
         9 => "Mega_Potion",
         10 => "Potion_of_Well-Being",
@@ -110,15 +115,20 @@ function set_up_items($board, $mission, $battle) {
 
         4 => ["Magic_Force_Spell", "Bow"],
         //Magic_Force_Spell verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+        //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         5 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
         //Berserker_Battleaxe verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Berserker_Battleaxe verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         6 => ["Sword_of_Deflection", "Sword_of_Deflection"],
         //Sword_of_Deflection verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+        //Sword_of_Deflection verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         7 => ["Double_Sword", "Halberd"],
         //Halberd verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Halberd verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Comment:  It is not necessary to get the Chainmails and Halberds (if any) since their attack and defence bonuses should be less than those that are already equipped by your fighters. from http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         8 => ["Magic_Lightening_Spell", "Magic_Lightening_Spell"],
 
@@ -143,17 +153,24 @@ function set_up_items($board, $mission, $battle) {
         //TODO, fix
         //JAVA GAME ERROR - Does not include Plate_Armor here
         //Plate_Armor verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+        //Plate_Armor verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         5 => ["Counter_Enchantment_Helmet", "Shield"],
+        //TODO, fix
+        //JAVA GAME ERROR - improperly puts "Helmet" here
         //Counter_Enchantment_Helmet verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
         //Counter_Enchantment_Helmet verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //JAVA GAME ERROR - improperly puts "Helmet" here
-
+        //Counter_Enchantment_Helmet verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         6 => ["Counter_Enchantment_Helmet", "Counter_Enchantment_Helmet"],
+        //TODO, fix
+        //JAVA GAME ERROR - Does not include Plate_Armor here
+        //Plate_Armor verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         7 => ["Chainmail", "Leather_Armor"],
         //Chainmail verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Chainmail verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Comment:  It is not necessary to get the Chainmails and Halberds (if any) since their attack and defence bonuses should be less than those that are already equipped by your fighters. from http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         8 => ["Plate_Armor", "Chainmail"],
         //TODO, fix
