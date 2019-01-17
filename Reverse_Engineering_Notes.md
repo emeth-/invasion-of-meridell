@@ -86,3 +86,19 @@ There is some randomness in which weapon combinations will spawn. For example, i
 # Foes
 
 All foes spawns were correct in the Java clone for Missions 1-8 that we were able to verify with screenshots. Therefore, we just trust the Java clone to be correct for Missions 9 and 10.
+
+# Map - Mountains
+
+Reviewing all game board screenshots, we see there are all four sets of two mountains, and they are connected symmetrically by row. Each set of two mountains may spawn on the far right and left, or one block in from the right and left, or in the middle two squares. The only exception is the top-most row, which if it spawns in the middle, then the left mountain remains an empty space (because in later levels an enemy troop will spawn in that square).
+
+# Map - Villages
+
+The villages always spawn in rows 2-4 (counting from the bottom up). There are two villages per row, and each row has one in the first 5 squares and one in the second 5 squares.
+
+# Map - Items
+
+Potions always spawn in the same two slots.
+
+Attack/Defense items always spawn in rows 2-6 (counting from the bottom up). Note that they only spawn in empty spaces, calculated AFTER everything else has spawned. This means villages, mountains, and potions spawn before them.
+
+I believe that it is a purely random chance, but my screenshots make it seem like rows 4-6 have a greater chance of getting items. I believe this is just due to the fact that villages spawn in the lower rows, reducing the number of empty squares and thus reducing the likelihood for items to spawn there.
