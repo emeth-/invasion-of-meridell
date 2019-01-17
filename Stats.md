@@ -152,3 +152,20 @@ STRENGTH AND DEFENSE: This determines how hard you hit your enemies, and vice ve
 Ranking up grants +1 base attack and +1 base defense
 
 First 5 missions are a breeze, second 5 are hard
+
+
+
+
+https://www.youtube.com/watch?v=QJCtRCyfVww
+When you make your army, look at the attack strength of the techo. It must be 9. If not, click 'delete' to get a new army. No other stats matter.
+
+-In missions 1-5, the different attackers have different attack and defense stats from each other. It is smart to target the ones with weakest defense first, or if they have the same, the one with strongest attack first.
+- In missions 6+, the basic attackers all have identical stats so just try to defeat the ones that may be ganging up on a single troop of yours.
+
+
+--Mission Five--
+Not much new here, just keep doing what you've been doing. If you can beat this, you'll get a runner up medal and missions 6 and 7 should actually be a bit easier, but take a tad longer.
+
+
+--Mission 6--
+-Don't be scared off by the buzz's stats. They don't seem to be able to attack you much at all. The defence is true, however. Kill off all the grundos first (oops, *save) and then bring out your grundo to attack the buzzes with the skeith and techo.
