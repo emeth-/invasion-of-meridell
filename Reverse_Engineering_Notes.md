@@ -82,3 +82,7 @@ There is some randomness in which weapon combinations will spawn. For example, i
 * Mission 9 = ["Amulet_of_Teleportation", "Chainmail"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.
 
 * Mission 10 = ["Plate_Armor", "Chainmail"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.
+
+# Foes
+
+All foes spawns were correct in the Java clone for Missions 1-8 that we were able to verify with screenshots. Therefore, we just trust the Java clone to be correct for Missions 9 and 10.
