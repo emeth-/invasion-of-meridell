@@ -21,7 +21,7 @@ All treasures were correct in the Java version, verified by numerous screenshots
 * Mission 7 = Potion_of_Fortitude, verified in screenshots. Note Java version improperly puts Potion_of_Well-Being here.
 * Mission 8 = Mega_Potion, verified in screenshots. Note Java version improperly puts Potion_of_Fortitude here.
 
-Missions 9 and 10 lack screenshots. The Java version uses Mega_Potion for Mission 9 - but as we discovered, Mega_Potion was in Mission 8, and there is no spot in the first 8 missions where a mission uses the same potion from a previous mission.
+Missions 9 and 10 lack screenshots. The Java version uses Mega_Potion for Mission 9 - but as we discovered, Mega_Potion was in Mission 8, and there is no spot in the first 8 missions where a mission uses the same potion from a previous mission... I felt Mega_Potion was probably wrong.
 
 We do note a slight pattern... Excluding missions 1 (which uses a unique potion) and 2, the next 6 missions go Mega / Well-Being / Fortitude and then Well-Being / Fortitude / Mega.
 
