@@ -1,19 +1,27 @@
 <?
 
-//10 missions, 3 battles per mission, 30 battles total
 /*
-Mission 1 - Draco Moehogs
-Mission 2 - Draco Techos
-Mission 3 - Draco Skeith
-Mission 4 - Draco Scorchio
-Mission 5 - Draco Grundos
-Mission 6 - Draco Moehogs + Draco Buzz
-Mission 7 - Draco Moehogs + Draco Buzz
-Mission 8 - Draco Grarrl
-Mission 9 - (sorry haven't come this far yet)
-Mission 10 - (sorry haven't come this far yet)
+Next steps...
 
+Board states = items, enemies, token up top
+1) Compare board states to those in java app
+2) Compare board states to images
 */
+
+/*
+Notes on enemy movement...
+
+https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+- Observe that enemies never move backwards, so after sacking all villages they just chill and do nothing
+
+
+Invaders always target villages to sack them first, but if there's no village adjacent (even diagonally) to them they'll always attack your army with the same priorities (assume X is the invader) -
+3 1 6
+4 X 7
+5 2 8
+(sometimes 345/678 is swapped)
+
+ */
 
 function set_up_treasure($board, $mission, $battle) {
     //Treasure
@@ -63,38 +71,71 @@ function set_up_items($board, $mission, $battle) {
         2 => "Potion_of_Fortitude",
         3 => "Mega_Potion",
         4 => "Potion_of_Well-Being",
+
         5 => "Potion_of_Fortitude",
+        //verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+
         6 => "Mega_Potion",
-        7 => "Potion_of_Well-Being",
-        8 => "Potion_of_Fortitude",
+
+        7 => "Potion_of_Fortitude",
+        //JAVA GAME ERROR - improperly puts Potion_of_Well-Being here
+        //Potion_of_Fortitude verified on screenshot at  https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+
+        8 => "Potion_of_Well-Being",
         9 => "Mega_Potion",
         10 => "Potion_of_Well-Being",
     ];
 
     $attack_items_by_mission = [
         1 => ["Mace", "Broadsword"],
+
         2 => ["Bow", "Hammer"],
+
         3 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
+
         4 => ["Magic_Force_Spell", "Bow"],
+
         5 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
+        //Berserker_Battleaxe verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+
         6 => ["Sword_of_Deflection", "Sword_of_Deflection"],
+
         7 => ["Double_Sword", "Halberd"],
+        //Halberd verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+
         8 => ["Magic_Lightening_Spell", "Magic_Lightening_Spell"],
+
         9 => ["Double_Axe", "Double_Axe"],
+
         10 => ["Double_Axe", "Magic_Lightening_Spell"],
+
     ];
 
     $defense_items_by_mission = [
-        1 => ["Magic Staff of Thunder", "Magic Staff of Thunder"],
+        1 => ["Magic_Staff_of_Thunder", "Magic_Staff_of_Thunder"],
+
         2 => ["Amulet_of_Teleportation", "Amulet_of_Teleportation"],
+
         3 => ["Helmet", "Shield"],
+
         4 => ["Amulet_of_Teleportation", "Magic_Cloak_of_Invisibility"],
-        5 => ["Helmet", "Shield"],
+
+        5 => ["Counter_Enchantment_Helmet", "Shield"],
+        //Counter_Enchantment_Helmet verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //JAVA GAME ERROR - improperly puts "Helmet" here
+
+
         6 => ["Counter_Enchantment_Helmet", "Counter_Enchantment_Helmet"],
+
         7 => ["Chainmail", "Leather_Armor"],
+        //Chainmail verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+
         8 => ["Plate_Armor", "Chainmail"],
+
         9 => ["Amulet_of_Teleportation", "Chainmail"],
+
         10 => ["Plate_Armor", "Chainmail"],
+
     ];
 
     //potions
@@ -182,7 +223,7 @@ function set_up_enemies($board, $mission, $battle) {
             "foes" => ["Draco_Buzz00", "Draco_Buzz00", "Draco_Buzz00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00"]
         ],
         8 => [
-            "foes" => ["Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00"]
+            "foes" => ["Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00"]
         ],
         9 => [
             "foes" => ["Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00"]
