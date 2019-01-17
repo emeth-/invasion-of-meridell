@@ -38,42 +38,22 @@ Every mission will spawn four items - two Attack items, and two Defense items.
 
 There is some randomness in which weapon combinations will spawn. For example, in Mission 4 both the Magic_Force_Spell and the Bow are in the spawn pool - the possible spawns are two Bows, two Magic_Force_Spells, or one of each. Because of this, just because an item does not appear in a screenshot does not mean we can 100% rule it out.
 
-* Mission 1 = ["Mace", "Broadsword"], verified in screenshots
+* Mission 1 = ["Mace", "Broadsword"]. Verified in screenshots
+
 * Mission 2 = ["Bow", "???Hammer???"]. Two screenshots have double bows. One screenshot shows a broadsword, which was likely picked up in Mission 1 and then dropped here when a new weapon was picked up. Unable to verify "Hammer".
+
 * Mission 3 = ["Magic_Force_Spell", "Magic_Force_Spell"]. We have three unique game screenshots, all three of which have double Magic_Force_Spell spawned. The Java clone includes Berserker_Battleaxe as a possible spawn here - but I believe that is incorrect. None of our three unique screenshots support that. Also there is an advanced guide at http://www.neopets.com/~Demeanours which shows the items his team holds after beating Mission 3 and Mission 4, and in neither of them does any soldier have a Berserker_Battleaxe, even though it would be far better than the Magic_Force_Spell they are holding. So with that, I'm removing Berserker_Battleaxe from this spawn, and doing double Magic_Force_Spell, which fits all our screenshots and the guide.
 
+* Mission  4 = ["Magic_Force_Spell", "Bow"]. Both Magic_Force_Spell and Bow are verified in screenshots showing the start of a Mission 4 level, giving us a high degree of certainty. The only variable is that the text in the description/guide on this video (https://www.youtube.com/watch?v=644qdG2yd1w) suggests a Berserker_Battleaxe should spawn in this level. We're going to assume that textual guide was in error, and trust the screenshots.
 
-    3 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
-    //TODO: review Berserker_Battleaxe
-    //Magic_Force_Spell verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-    //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-    //Berserker_Battleaxe unverified? Mission 3 here: http://www.neopets.com/~Demeanours shows team after successfully beating mission, nobody has Berserker_Battleaxe
+* Mission 5 = ["Berserker_Battleaxe", "Berserker_Battleaxe"]. The Java clone includes Magic_Force_Spell as a possible spawn here. I believe that is incorrect - all three unique game screenshots we have include double Berserker_Battleaxe. In Mission 3 we concluded that the Java Clone removed one Magic_Force_Spell spawn and replaced it with a Berserker_Battleaxe spawn, so it's not far-fetched to believe it did the opposite here - and our screenshots support the theory.
 
-    4 => ["Magic_Force_Spell", "Bow"],
-    //Magic_Force_Spell verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-    //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-    //Bow verified http://www.neopets.com/~Demeanours (http://i50.tinypic.com/358791z.jpg)
-    //Text on this video implies Berserker Batleaxe should be here https://www.youtube.com/watch?v=644qdG2yd1w
+* Mission 6 = ["Sword_of_Deflection", "Sword_of_Deflection"]. Our one start of match screenshot has double Sword_of_Deflection. On a mid-game screenshot, a Berserker_Battleaxe is seen. However, it is within the path of the Techo, who likely dropped it to pickup a Sword_of_Deflection - so I believe the Berserker_Battleaxe was not spawned in this Mission, but just carried over from the previous mission and then dropped.
 
-    5 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
-    //Berserker_Battleaxe verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
-    //Berserker_Battleaxe verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-    //Berserker_Battleaxe verified http://www.neopets.com/~Demeanours
+* Mission 7 = ["Double_Sword", "Halberd"]. We have two Mission 7 screenshots, and both are double Halberds. The guide at http://home.neopets.com/templates/homepage.phtml?pet_name=happylark notes that it's unnecessary to pick up Halberds here, as their attack bonuses (+4) aren't any better than what you already have. The Java clone includes "Double_Sword" here, which is identical in stats to the Sword of Deflection from the last level but without the ability to disenchant. I elected to keep this spawn chance here, even though not supported by screenshots, because the java game has it, and it fits in with the guide's note that the weapons here aren't worth picking up because they aren't better than what you already have (so gameplay is unchanged if I'm wrong and its Halberd). Also if Double_Sword does not go here... then it doesn't have a mission it spawns in.
 
-    6 => ["Sword_of_Deflection", "Sword_of_Deflection"],
-    //Sword_of_Deflection verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-    //Sword_of_Deflection verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-    //Sword_of_Deflection verified http://www.neopets.com/~Demeanours
+* Mission 8 = ["Magic_Lightening_Spell", "Magic_Lightening_Spell"]. Single screenshot we have shows double Magic_Lightening_Spell. Text on video https://www.youtube.com/watch?v=644qdG2yd1w notes that you need to pickup a Magic_Lightening_Spell here for your Grundo. Java clone includes double "Magic_Lightening_Spell", so we'll roll with it.
 
-    7 => ["Double_Sword", "Halberd"],
-    //Halberd verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
-    //Halberd verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-    //Halberd verified http://www.neopets.com/~Demeanours
-    //Comment:  It is not necessary to get the Chainmails and Halberds (if any) since their attack and defence bonuses should be less than those that are already equipped by your fighters. from http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+* Mission 9 = ["Double_Axe", "Double_Axe"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.
 
-    8 => ["Magic_Lightening_Spell", "Magic_Lightening_Spell"],
-    //text on this video https://www.youtube.com/watch?v=644qdG2yd1w says Get the new healer for your grundo. It packs a much nicer heal. However, there is one catch. It heals every friendly person in the same vertical column as the troop you select and takes as many moves as the troops it heals. So just try to keep any saved invaders away from accidental healing. Also, although the healing power is increased, the attack bonus is decreased by one.
-
-    9 => ["Double_Axe", "Double_Axe"],
-
-    10 => ["Double_Axe", "Magic_Lightening_Spell"],
+* Mission 10 = ["Double_Axe", "Magic_Lightening_Spell"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.

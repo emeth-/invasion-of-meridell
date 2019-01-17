@@ -90,36 +90,13 @@ function set_up_items($board, $mission, $battle) {
         1 => ["Mace", "Broadsword"],
         2 => ["Bow", "Hammer"],
         3 => ["Magic_Force_Spell", "Magic_Force_Spell"],
-
         4 => ["Magic_Force_Spell", "Bow"],
-        //Magic_Force_Spell verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Bow verified http://www.neopets.com/~Demeanours (http://i50.tinypic.com/358791z.jpg)
-        //Text on this video implies Berserker Batleaxe should be here https://www.youtube.com/watch?v=644qdG2yd1w
-
-        5 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
-        //Berserker_Battleaxe verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
-        //Berserker_Battleaxe verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Berserker_Battleaxe verified http://www.neopets.com/~Demeanours
-
+        5 => ["Berserker_Battleaxe", "Berserker_Battleaxe"],
         6 => ["Sword_of_Deflection", "Sword_of_Deflection"],
-        //Sword_of_Deflection verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //Sword_of_Deflection verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Sword_of_Deflection verified http://www.neopets.com/~Demeanours
-
         7 => ["Double_Sword", "Halberd"],
-        //Halberd verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
-        //Halberd verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Halberd verified http://www.neopets.com/~Demeanours
-        //Comment:  It is not necessary to get the Chainmails and Halberds (if any) since their attack and defence bonuses should be less than those that are already equipped by your fighters. from http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-
         8 => ["Magic_Lightening_Spell", "Magic_Lightening_Spell"],
-        //text on this video https://www.youtube.com/watch?v=644qdG2yd1w says Get the new healer for your grundo. It packs a much nicer heal. However, there is one catch. It heals every friendly person in the same vertical column as the troop you select and takes as many moves as the troops it heals. So just try to keep any saved invaders away from accidental healing. Also, although the healing power is increased, the attack bonus is decreased by one.
-
         9 => ["Double_Axe", "Double_Axe"],
-
         10 => ["Double_Axe", "Magic_Lightening_Spell"],
-
     ];
 
     $defense_items_by_mission = [
