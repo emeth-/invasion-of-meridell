@@ -34,7 +34,7 @@ include("game_functions.php");
 $board = [];
 $mission = rand(1,10);
 $battle = rand(1,3);
-$mission = 4;
+$mission = 7;
 $battle = 2;
 $board = set_up_treasure($board, $mission, $battle);
 $board = set_up_enemies($board, $mission, $battle);

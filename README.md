@@ -3,6 +3,7 @@ clone of neopet's old game that they removed, rewritten
 
 Rewrite strategy...
 Maybe write it in PHP, as an example of a super simple script
+BETTER YET - rewrite it in jquery + html, using html as the database as an example, super simple
 
 Old guides:
 http://www.jellyneo.net/?go=invasion_of_meridell

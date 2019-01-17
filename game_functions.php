@@ -21,6 +21,12 @@ Invaders always target villages to sack them first, but if there's no village ad
 5 2 8
 (sometimes 345/678 is swapped)
 
+On invader stats, video description (https://www.youtube.com/watch?v=QJCtRCyfVww):
+-The larger number in the attack strength colum, from 7 to 19, does not actually factor directly into your fighting. That is explained in the instructions.
+-The damage you deal is actually the sum of the number in parenthesis in that column, the dice roll (1-20), and any weapon bonus you have, minus the enemies defense.
+-In missions 1-5, the different attackers have different attack and defense stats from each other. It is smart to target the ones with weakest defense first, or if they have the same, the one with strongest attack first.
+- In missions 6+, the basic attackers all have identical stats so just try to defeat the ones that may be ganging up on a single troop of yours.
+
  */
 
 function set_up_treasure($board, $mission, $battle) {
@@ -87,6 +93,7 @@ function set_up_items($board, $mission, $battle) {
         6 => "Potion_of_Well-Being",
         //JAVA GAME ERROR - improperly puts Mega_Potion here
         //Potion_of_Well-Being.jpg verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Potion_of_Well-Being.jpg verified http://www.neopets.com/~Demeanours
 
         7 => "Potion_of_Fortitude",
         //JAVA GAME ERROR - improperly puts Potion_of_Well-Being here
@@ -122,21 +129,26 @@ function set_up_items($board, $mission, $battle) {
         //Magic_Force_Spell verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
         //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
         //Bow verified http://www.neopets.com/~Demeanours (http://i50.tinypic.com/358791z.jpg)
+        //Text on this video implies Berserker Batleaxe should be here https://www.youtube.com/watch?v=644qdG2yd1w
 
         5 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
         //Berserker_Battleaxe verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
         //Berserker_Battleaxe verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Berserker_Battleaxe verified http://www.neopets.com/~Demeanours
 
         6 => ["Sword_of_Deflection", "Sword_of_Deflection"],
         //Sword_of_Deflection verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
         //Sword_of_Deflection verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Sword_of_Deflection verified http://www.neopets.com/~Demeanours
 
         7 => ["Double_Sword", "Halberd"],
         //Halberd verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
         //Halberd verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Halberd verified http://www.neopets.com/~Demeanours
         //Comment:  It is not necessary to get the Chainmails and Halberds (if any) since their attack and defence bonuses should be less than those that are already equipped by your fighters. from http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         8 => ["Magic_Lightening_Spell", "Magic_Lightening_Spell"],
+        //text on this video https://www.youtube.com/watch?v=644qdG2yd1w says Get the new healer for your grundo. It packs a much nicer heal. However, there is one catch. It heals every friendly person in the same vertical column as the troop you select and takes as many moves as the troops it heals. So just try to keep any saved invaders away from accidental healing. Also, although the healing power is increased, the attack bonus is decreased by one.
 
         9 => ["Double_Axe", "Double_Axe"],
 
@@ -169,11 +181,13 @@ function set_up_items($board, $mission, $battle) {
         //Counter_Enchantment_Helmet verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
         //Counter_Enchantment_Helmet verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
         //Counter_Enchantment_Helmet verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Counter_Enchantment_Helmet verified http://www.neopets.com/~Demeanours
 
         6 => ["Counter_Enchantment_Helmet", "Counter_Enchantment_Helmet"],
         //TODO, fix
         //JAVA GAME ERROR - Does not include Plate_Armor here
         //Plate_Armor verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+        //Plate_Armor verified http://www.neopets.com/~Demeanours
 
         7 => ["Chainmail", "Leather_Armor"],
         //Chainmail verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
