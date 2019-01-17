@@ -102,3 +102,15 @@ Potions always spawn in the same two slots.
 Attack/Defense items always spawn in rows 2-6 (counting from the bottom up). Note that they only spawn in empty spaces, calculated AFTER everything else has spawned. This means villages, mountains, and potions spawn before them.
 
 I believe that it is a purely random chance, but my screenshots make it seem like rows 4-6 have a greater chance of getting items. I believe this is just due to the fact that villages spawn in the lower rows, reducing the number of empty squares and thus reducing the likelihood for items to spawn there.
+
+# List of Unknowns
+
+* We do not know which potions spawn in Mission 9 and 10. (Does not change gameplay)
+
+* We assume item spawn chances do not change between battles in a mission. Is it possible they do? (If so, does change gameplay)
+
+* We have no proof that "Hammer" should spawn as an attack item in Mission 2.
+
+* We have no proof that "Double_Sword" should spawn as an attack item in Mission 7.
+
+* We have no knowledge of what ATTACK or DEFENSE items spawn in Missions 9 and 10 - but at that point, a players items should be maxed out, so this shouldn't affect gameplay unless one of their soldiers gets converted.
