@@ -68,9 +68,16 @@ function set_up_items($board, $mission, $battle) {
 
     $potions_by_mission = [
         1 => "Health_Potion",
+        //Health_Potion verified http://www.jellyneo.net/images/guides/game_iom_04.png
+
         2 => "Potion_of_Fortitude",
+        //Potion_of_Fortitude verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+
         3 => "Mega_Potion",
+        //Mega_Potion verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
+
         4 => "Potion_of_Well-Being",
+        //Potion_of_Well-Being verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
 
         5 => "Potion_of_Fortitude",
         //verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
@@ -81,24 +88,34 @@ function set_up_items($board, $mission, $battle) {
         //JAVA GAME ERROR - improperly puts Potion_of_Well-Being here
         //Potion_of_Fortitude verified on screenshot at  https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
 
-        8 => "Potion_of_Well-Being",
+        8 => "Mega_Potion",
+        //JAVA GAME ERROR - improperly puts Potion_of_Fortitude here
+        //Mega_Potion verified on screenshot at  https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+
         9 => "Mega_Potion",
         10 => "Potion_of_Well-Being",
     ];
 
     $attack_items_by_mission = [
         1 => ["Mace", "Broadsword"],
+        //Broadsword verified http://www.jellyneo.net/images/guides/game_iom_04.png
+        //Mace verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         2 => ["Bow", "Hammer"],
+        //Bow verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
 
         3 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
+        //Magic_Force_Spell verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+        //Magic_Force_Spell verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         4 => ["Magic_Force_Spell", "Bow"],
+        //Magic_Force_Spell verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
 
         5 => ["Magic_Force_Spell", "Berserker_Battleaxe"],
         //Berserker_Battleaxe verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
 
         6 => ["Sword_of_Deflection", "Sword_of_Deflection"],
+        //Sword_of_Deflection verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
 
         7 => ["Double_Sword", "Halberd"],
         //Halberd verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
@@ -113,15 +130,23 @@ function set_up_items($board, $mission, $battle) {
 
     $defense_items_by_mission = [
         1 => ["Magic_Staff_of_Thunder", "Magic_Staff_of_Thunder"],
+        //Magic_Staff_of_Thunder verified http://www.jellyneo.net/images/guides/game_iom_04.png
 
         2 => ["Amulet_of_Teleportation", "Amulet_of_Teleportation"],
+        //Amulet_of_Teleportation verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
+        //Double Amulet_of_Teleportation verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         3 => ["Helmet", "Shield"],
+        //Helmet verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 
         4 => ["Amulet_of_Teleportation", "Magic_Cloak_of_Invisibility"],
+        //TODO, fix
+        //JAVA GAME ERROR - Does not include Plate_Armor here
+        //Plate_Armor verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
 
         5 => ["Counter_Enchantment_Helmet", "Shield"],
         //Counter_Enchantment_Helmet verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
+        //Counter_Enchantment_Helmet verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
         //JAVA GAME ERROR - improperly puts "Helmet" here
 
 
@@ -131,6 +156,9 @@ function set_up_items($board, $mission, $battle) {
         //Chainmail verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
 
         8 => ["Plate_Armor", "Chainmail"],
+        //TODO, fix
+        //JAVA GAME ERROR - Does not include Leather_Armor here
+        //Leather_Armor verified on screenshot at  http://www.jellyneo.net/?go=invasion_of_meridell
 
         9 => ["Amulet_of_Teleportation", "Chainmail"],
 
