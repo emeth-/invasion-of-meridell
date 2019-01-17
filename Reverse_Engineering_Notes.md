@@ -40,7 +40,7 @@ There is some randomness in which weapon combinations will spawn. For example, i
 
 * Mission 1 = ["Mace", "Broadsword"]. Verified in screenshots
 
-* Mission 2 = ["Bow", "???Hammer???"]. Two screenshots have double bows. One screenshot shows a broadsword, which was likely picked up in Mission 1 and then dropped here when a new weapon was picked up. Unable to verify "Hammer".
+* Mission 2 = ["Bow", "Hammer"]. Two screenshots have double bows. One screenshot shows a broadsword, which was likely picked up in Mission 1 and then dropped here when a new weapon was picked up. The Java clone includes Hammer, which we are unable to verify, but we include it here because it's the same base stat-line as bow and if we don't put it here it wouldn't fit anywhere.
 
 * Mission 3 = ["Magic_Force_Spell", "Magic_Force_Spell"]. We have three unique game screenshots, all three of which have double Magic_Force_Spell spawned. The Java clone includes Berserker_Battleaxe as a possible spawn here - but I believe that is incorrect. None of our three unique screenshots support that. Also there is an advanced guide at http://www.neopets.com/~Demeanours which shows the items his team holds after beating Mission 3 and Mission 4, and in neither of them does any soldier have a Berserker_Battleaxe, even though it would be far better than the Magic_Force_Spell they are holding. So with that, I'm removing Berserker_Battleaxe from this spawn, and doing double Magic_Force_Spell, which fits all our screenshots and the guide.
 
