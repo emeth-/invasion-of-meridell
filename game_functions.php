@@ -101,52 +101,15 @@ function set_up_items($board, $mission, $battle) {
 
     $defense_items_by_mission = [
         1 => ["Magic_Staff_of_Thunder", "Magic_Staff_of_Thunder"],
-        //Magic_Staff_of_Thunder verified http://www.jellyneo.net/images/guides/game_iom_04.png
-
         2 => ["Amulet_of_Teleportation", "Amulet_of_Teleportation"],
-        //Amulet_of_Teleportation verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //Double Amulet_of_Teleportation verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-
         3 => ["Helmet", "Shield"],
-        //Helmet verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Shield verified in Mission 3 team items here: http://www.neopets.com/~Demeanours (http://i54.tinypic.com/28mmsz8.jpg)
-
-        4 => ["Amulet_of_Teleportation", "Magic_Cloak_of_Invisibility"],
-        //TODO, fix
-        //JAVA GAME ERROR - Does not include Plate_Armor here
-        //Plate_Armor verified http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //Plate_Armor verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Magic_Cloak_of_Invisibility verified in team items on http://www.neopets.com/~Demeanours (http://i54.tinypic.com/33bfl83.jpg)
-
-        5 => ["Counter_Enchantment_Helmet", "Shield"],
-        //TODO, fix
-        //JAVA GAME ERROR - improperly puts "Helmet" here
-        //Counter_Enchantment_Helmet verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
-        //Counter_Enchantment_Helmet verified in text http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
-        //Counter_Enchantment_Helmet verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Counter_Enchantment_Helmet verified http://www.neopets.com/~Demeanours
-
-        6 => ["Counter_Enchantment_Helmet", "Counter_Enchantment_Helmet"],
-        //TODO, fix
-        //JAVA GAME ERROR - Does not include Plate_Armor here
-        //Plate_Armor verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Plate_Armor verified http://www.neopets.com/~Demeanours
-
-        7 => ["Chainmail", "Leather_Armor"],
-        //Chainmail verified https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/
-        //Chainmail verified http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-        //Chainmail verified http://i53.tinypic.com/j9r147.jpg (http://www.neopets.com/~Demeanours)
-        //Comment:  It is not necessary to get the Chainmails and Halberds (if any) since their attack and defence bonuses should be less than those that are already equipped by your fighters. from http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
-
-        8 => ["Plate_Armor", "Chainmail"],
-        //TODO, fix
-        //JAVA GAME ERROR - Does not include Leather_Armor here
-        //Leather_Armor verified on screenshot at  http://www.jellyneo.net/?go=invasion_of_meridell
-
+        4 => ["Plate_Armor", "Magic_Cloak_of_Invisibility"],
+        5 => ["Counter_Enchantment_Helmet", "Counter_Enchantment_Helmet"],
+        6 => ["Plate_Armor", "Plate_Armor"],
+        7 => ["Chainmail", "Chainmail"],
+        8 => ["Leather_Armor", "Leather_Armor"],
         9 => ["Amulet_of_Teleportation", "Chainmail"],
-
         10 => ["Plate_Armor", "Chainmail"],
-
     ];
 
     //potions

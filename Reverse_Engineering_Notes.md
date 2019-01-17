@@ -32,7 +32,7 @@ Based on this, I did the following:
 
 Note that in the end it's not super important, as I believe all potions have the same effect - it's merely a visual thing.
 
-# Weapons
+# Attack Items
 
 Every mission will spawn four items - two Attack items, and two Defense items.
 
@@ -57,3 +57,28 @@ There is some randomness in which weapon combinations will spawn. For example, i
 * Mission 9 = ["Double_Axe", "Double_Axe"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.
 
 * Mission 10 = ["Double_Axe", "Magic_Lightening_Spell"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.
+
+
+
+
+# Defense Items
+
+* Mission 1 = ["Magic_Staff_of_Thunder", "Magic_Staff_of_Thunder"]. All screenshots and guides show double Magic_Staff_of_Thunder, as does the Java clone.
+
+* Mission 2 = ["Amulet_of_Teleportation", "Amulet_of_Teleportation"]. All start of game screenshots show double Amulet_of_Teleportation. Some mid game screenshots show Magic_Staff_of_Thunder, which we assume was dropped to pick up an Amulet_of_Teleportation.
+
+* Mission 3 = ["Helmet", "Shield"]. We have 3 unique screenshots, all of which show double Helmet. However the guide at http://www.neopets.com/~Demeanours shows his team with Shields after beating Mission 3. Therefore, we accept the Java clone value of Helmet and Shield.
+
+* Mission 4 = ["Plate_Armor", "Magic_Cloak_of_Invisibility"]. We have three unique screenshots of this Mission, all of which show double Plate_Armor here. The Java clone does not include Plate_Armor as a spawn option, including instead Amulet_of_Teleportation and Magic_Cloak_of_Invisibility. The guide at http://www.neopets.com/~Demeanours shows his team with a Magic_Cloak_of_Invisibility after beating this mission. Therefore, we take the Java clone value, but swap Amulet_of_Teleportation for Plate_Armor.
+
+* Mission 5 = ["Counter_Enchantment_Helmet", "Counter_Enchantment_Helmet"]. We have three screenshots here, all of which show only Counter_Enchantment_Helmet. The Java clone uses (normal) Helmet and Shield as spawn options. We know "Helmet" is wrong and should be "Counter_Enchantment_Helmet". The only evidence for "Shield" is that the Java clone includes it, but since we already know the Java clone is wrong, we'll just go double "Counter_Enchantment_Helmet" here (which matches all screenshots). This makes up for the next mission, where the Java clone spawns too many Counter_Enchantment_Helmet so we need to reduce them.
+
+* Mission 6 = ["Plate_Armor", "Plate_Armor"]. All screenshots solely support Plate_Armor spawning here. The Java clone has a double Counter_Enchantment_Helmet here. We'll roll with double Plate_Armor to support the screenshots.
+
+* Mission 7 = ["Chainmail", "Chainmail"]. We have only 2 screenshots, which both have double Chainmail. The guide at http://home.neopets.com/templates/homepage.phtml?pet_name=happylark notes that it's unnecessary to pick up Chainmails here, as their defense bonuses (+4) aren't any better than what you already have. The Java clone includes Leather_Armor here alongside Chainmail. Leather_Armor is supposed to be in Mission 8 according to screenshots, but the Java clone is missing it - so assume the Java clone is wrong here and misplaced Leather_Armor, but it's really supposed to be double Chainmail.
+
+* Mission 8 = ["Leather_Armor", "Leather_Armor"]. Our sole screenshot has double Leather_Armor. The Java clone has Plate_Armor and Chainmail as the spawn options, so it's wrong for leaving out Leather_Armor. We cannot know whether double Leather_Armor or Leather_Armor + X is correct here. I elect to go with double Leather_Armor to match the screenshots. The core concept seems to be that this armor (at +3) is worse than what you already have, but better than nothing. Including Plate_Armor (+5) or Chainmail (+4) would go against that concept.
+
+* Mission 9 = ["Amulet_of_Teleportation", "Chainmail"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.
+
+* Mission 10 = ["Plate_Armor", "Chainmail"]. We have no screenshots or guides for this, so we'll just accept the Java clone's value.
