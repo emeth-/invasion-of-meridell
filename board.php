@@ -30,7 +30,9 @@
         text-decoration: none;
     }
     </style>
+	<link href="jquery-ui.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="jquery-ui.js"></script>
 </head>
 <body>
 <?
@@ -160,6 +162,14 @@ Maximum moves total per pet:
         </td>
     </tr>
 </table>
+
+
+
+<div id="popup" title="">
+  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
+</div>
+
+
 <script>
 
 function image_to_name(img) {
@@ -168,35 +178,45 @@ function image_to_name(img) {
     return img.split('/').reverse()[0].split('.')[0];
 }
 
+function clicked_item_popup(item_name) {
+    cleaned_item_name = item_name.replace(/[_]/g, ' ');
+    item_popup.dialog('option', 'title', cleaned_item_name);
+    item_popup.dialog('open');
+}
+
 function add_item_help_links() {
 
     var items = {};
-    $('img[data-type=treasure]').each(function() {
-        var item_image_url = $(this).attr('src');
-        var item_name = image_to_name(item_image_url);
-
-        var htmlz = "<img src='"+item_image_url+"' border=2 height=32 width=32 style='border: 1px solid #0000FF;'>&nbsp;";
-        $('#items_on_map').append(htmlz);
-        items[item_name] = 1;
-    });
-
-    $('img[data-type=item]').each(function() {
+    $('img[data-type=treasure], img[data-type=item]').each(function() {
         var item_image_url = $(this).attr('src');
         var item_name = image_to_name(item_image_url);
 
         if (!items[item_name]) { //only want to show each item once
-            var htmlz = "<img src='"+item_image_url+"' border=2 height=32 width=32 style='border: 1px solid #0000FF;'>&nbsp;";
+            var htmlz = `<img src='${item_image_url}' border=2 height=32 width=32 style='border: 1px solid #0000FF;' onclick='clicked_item_popup("${item_name}")'>&nbsp;`;
             $('#items_on_map').append(htmlz);
             items[item_name] = 1;
         }
-
     });
-
-
 
 }
 
 add_item_help_links();
+var item_popup;
+$(function() {
+    item_popup = $("#popup").dialog({
+        autoOpen: false,
+        height: 500,
+        width: 550,
+        modal: true,
+        buttons: {
+          Close: function() {
+            item_popup.dialog( "close" );
+          }
+        },
+    });
+
+
+});
 </script>
 </body>
 </html>
