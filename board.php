@@ -8,7 +8,7 @@
         font-weight: 400;
         line-height: 18.5714px;
     }
-    table, th, td {
+    #board table, th, td {
         border: 3px solid #AAAAAA;
         border-collapse: collapse;
     }
@@ -46,8 +46,11 @@ $board = set_up_items($board, $mission, $battle);
 
 print "<h3>Mission: {$mission} / Battle: {$battle}</h3>";
 ?>
+<table width=100% border=0 style="border:0px">
+    <tr>
+        <td style="border:0px; text-align:center">
 
-
+<center>
 
 <table border=1 id="board">
     <?
@@ -72,6 +75,55 @@ print "<h3>Mission: {$mission} / Battle: {$battle}</h3>";
         print "</tr>";
     }
     ?>
+</table>
+
+<br><br>
+
+<span style="font-size:10px;line-height: 10px;">
+Maximum moves total per turn: 5<br>
+Maximum moves total per pet:
+</span>
+<table style="border: 1px solid #000000;padding:0px;border-collapse: collapse;">
+    <tr>
+        <td style="border: 3px solid #000000;">
+            <img src='java-clone/game/MeriImages/Moeh00.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            4
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='java-clone/game/MeriImages/Tech02.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            2
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='java-clone/game/MeriImages/Scor03.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            2
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='java-clone/game/MeriImages/Grun04.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            2
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='java-clone/game/MeriImages/Skei01.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;border-right: 3px solid #AAAAAA">
+            1
+        </td>
+    </tr>
+</table>
+</center>
+
+        </td>
+        <td style="border:0px">
+            Other side.
+        </td>
+    </tr>
 </table>
 </body>
 </html>
