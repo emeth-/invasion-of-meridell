@@ -29,34 +29,34 @@ function set_up_treasure($board, $mission, $battle) {
     //Treasure
 
     if($mission == 1) {
-        $image = "java-clone/game/MeriImages/Goblet.jpg";
+        $image = "images/Goblet.jpg";
     }
     elseif($mission == 2) {
-        $image = "java-clone/game/MeriImages/Gold_Ixi.jpg";
+        $image = "images/Gold_Ixi.jpg";
     }
     elseif($mission == 3) {
-        $image = "java-clone/game/MeriImages/Urn_of_Abundance.jpg";
+        $image = "images/Urn_of_Abundance.jpg";
     }
     elseif($mission == 4) {
-        $image = "java-clone/game/MeriImages/Ancient_Book.jpg";
+        $image = "images/Ancient_Book.jpg";
     }
     elseif($mission == 5) {
-        $image = "java-clone/game/MeriImages/Crown.jpg";
+        $image = "images/Crown.jpg";
     }
     elseif($mission == 6) {
-        $image = "java-clone/game/MeriImages/Royal_Plate.jpg";
+        $image = "images/Royal_Plate.jpg";
     }
     elseif($mission == 7) {
-        $image = "java-clone/game/MeriImages/Royal_Tapestry.jpg";
+        $image = "images/Royal_Tapestry.jpg";
     }
     elseif($mission == 8) {
-        $image = "java-clone/game/MeriImages/Treasure_Chest.jpg";
+        $image = "images/Treasure_Chest.jpg";
     }
     elseif($mission == 9) {
-        $image = "java-clone/game/MeriImages/Vase_of_Plenty.jpg";
+        $image = "images/Vase_of_Plenty.jpg";
     }
     elseif($mission == 10) {
-        $image = "java-clone/game/MeriImages/Orb.jpg";
+        $image = "images/Orb.jpg";
     }
 
     $board[0][4] = [
@@ -111,11 +111,11 @@ function set_up_items($board, $mission, $battle) {
     //potions
     $board[5][4] = [
         "type" => "potion",
-        "image" => "java-clone/game/MeriImages/".$potions_by_mission[$mission].".jpg"
+        "image" => "images/".$potions_by_mission[$mission].".jpg"
     ];
     $board[5][6] = [
         "type" => "potion",
-        "image" => "java-clone/game/MeriImages/".$potions_by_mission[$mission].".jpg"
+        "image" => "images/".$potions_by_mission[$mission].".jpg"
     ];
 
     $empty_spaces_for_item_spawns = [];
@@ -142,22 +142,22 @@ function set_up_items($board, $mission, $battle) {
 
     $board[$item_1_spawn[0]][$item_1_spawn[1]] = [
         "type" => "item",
-        "image" => "java-clone/game/MeriImages/".$attack_items_by_mission[$mission][$attack_item_key_one].".jpg"
+        "image" => "images/".$attack_items_by_mission[$mission][$attack_item_key_one].".jpg"
     ];
 
     $board[$item_2_spawn[0]][$item_2_spawn[1]] = [
         "type" => "item",
-        "image" => "java-clone/game/MeriImages/".$attack_items_by_mission[$mission][$attack_item_key_two].".jpg"
+        "image" => "images/".$attack_items_by_mission[$mission][$attack_item_key_two].".jpg"
     ];
 
     $board[$item_3_spawn[0]][$item_3_spawn[1]] = [
         "type" => "item",
-        "image" => "java-clone/game/MeriImages/".$defense_items_by_mission[$mission][$defense_item_key_one].".jpg"
+        "image" => "images/".$defense_items_by_mission[$mission][$defense_item_key_one].".jpg"
     ];
 
     $board[$item_4_spawn[0]][$item_4_spawn[1]] = [
         "type" => "item",
-        "image" => "java-clone/game/MeriImages/".$defense_items_by_mission[$mission][$defense_item_key_two].".jpg"
+        "image" => "images/".$defense_items_by_mission[$mission][$defense_item_key_two].".jpg"
     ];
 
     return $board;
@@ -214,40 +214,40 @@ function set_up_enemies($board, $mission, $battle) {
 
     $board[0][1] = [
         "type" => "enemy",
-        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][0].".jpg"
+        "image" => "images/".$enemies_obj['foes'][0].".jpg"
     ];
     $board[0][3] = [
         "type" => "enemy",
-        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][1].".jpg"
+        "image" => "images/".$enemies_obj['foes'][1].".jpg"
     ];
     $board[0][5] = [
         "type" => "enemy",
-        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][2].".jpg"
+        "image" => "images/".$enemies_obj['foes'][2].".jpg"
     ];
     $board[0][7] = [
         "type" => "enemy",
-        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][3].".jpg"
+        "image" => "images/".$enemies_obj['foes'][3].".jpg"
     ];
     $board[0][9] = [
         "type" => "enemy",
-        "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][4].".jpg"
+        "image" => "images/".$enemies_obj['foes'][4].".jpg"
     ];
     if($enemies_obj['foes'][5]) {
         $board[2][2] = [
             "type" => "enemy",
-            "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][5].".jpg"
+            "image" => "images/".$enemies_obj['foes'][5].".jpg"
         ];
     }
     if($enemies_obj['foes'][6]) {
         $board[2][4] = [
             "type" => "enemy",
-            "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][6].".jpg"
+            "image" => "images/".$enemies_obj['foes'][6].".jpg"
         ];
     }
     if($enemies_obj['foes'][7]) {
         $board[2][6] = [
             "type" => "enemy",
-            "image" => "java-clone/game/MeriImages/".$enemies_obj['foes'][7].".jpg"
+            "image" => "images/".$enemies_obj['foes'][7].".jpg"
         ];
     }
 
@@ -260,7 +260,7 @@ function set_up_mountains($board) {
     for($i=0; $i<4; $i++) {
         $mtn = [
             "type" => "mountain",
-            "image" => "java-clone/game/MeriImages/mtn.jpg"
+            "image" => "images/mtn.jpg"
         ];
         $mtn_layout = rand(1,3);
         if ($mtn_layout == 1) {
@@ -288,7 +288,7 @@ function set_up_mountains($board) {
 function set_up_villages($board) {
     $vlg = [
         "type" => "village",
-        "image" => "java-clone/game/MeriImages/vlg.jpg"
+        "image" => "images/vlg.jpg"
     ];
     $board[6][rand(0,4)] = $vlg;
     $board[7][rand(0,4)] = $vlg;
@@ -313,7 +313,7 @@ function set_up_soldiers($board, $soldiers) {
 function get_team() {
     $soldiers = [
         [
-            "image" => "java-clone/game/MeriImages/Moeh00.jpg",
+            "image" => "images/Moeh00.jpg",
             "breed" => "Moehog",
             "rank" => "Villager",
             "name" => "Soldier 0",
@@ -327,7 +327,7 @@ function get_team() {
             "saves" => 0,
         ],
         [
-            "image" => "java-clone/game/MeriImages/Skei01.jpg",
+            "image" => "images/Skei01.jpg",
             "breed" => "Skeith",
             "rank" => "Villager",
             "name" => "Soldier 1",
@@ -341,7 +341,7 @@ function get_team() {
             "saves" => 0,
         ],
         [
-            "image" => "java-clone/game/MeriImages/Tech02.jpg",
+            "image" => "images/Tech02.jpg",
             "breed" => "Techo",
             "rank" => "Villager",
             "name" => "Soldier 2",
@@ -355,7 +355,7 @@ function get_team() {
             "saves" => 0,
         ],
         [
-            "image" => "java-clone/game/MeriImages/Scor03.jpg",
+            "image" => "images/Scor03.jpg",
             "breed" => "Scorchio",
             "rank" => "Villager",
             "name" => "Soldier 3",
@@ -369,7 +369,7 @@ function get_team() {
             "saves" => 0,
         ],
         [
-            "image" => "java-clone/game/MeriImages/Grun04.jpg",
+            "image" => "images/Grun04.jpg",
             "breed" => "Grundo",
             "rank" => "Villager",
             "name" => "Soldier 4",

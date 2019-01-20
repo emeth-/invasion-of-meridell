@@ -30,9 +30,7 @@
         text-decoration: none;
     }
     </style>
-	<link href="jquery-ui.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="jquery-ui.js"></script>
 </head>
 <body>
 <?
@@ -68,7 +66,7 @@ print "<h3>Mission: {$mission} / Battle: {$battle}</h3>";
                 print "<img src='{$board[$i][$j]['image']}' border=2 data-type='{$board[$i][$j]['type']}' height=32 width=32>";
             }
             else {
-                print "<img src='java-clone/game/MeriImages/blank.png' border=2>";
+                print "<img src='images/blank.png' border=2>";
             }
 
             print "</td>";
@@ -100,31 +98,31 @@ Maximum moves total per pet:
 <table style="border: 1px solid #000000;padding:0px;border-collapse: collapse;">
     <tr>
         <td style="border: 3px solid #000000;">
-            <img src='java-clone/game/MeriImages/Moeh00.jpg'>
+            <img src='images/Moeh00.jpg'>
         </td>
         <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
             4
         </td>
         <td style="border: 3px solid #000000;">
-            <img src='java-clone/game/MeriImages/Tech02.jpg'>
+            <img src='images/Tech02.jpg'>
         </td>
         <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
             2
         </td>
         <td style="border: 3px solid #000000;">
-            <img src='java-clone/game/MeriImages/Scor03.jpg'>
+            <img src='images/Scor03.jpg'>
         </td>
         <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
             2
         </td>
         <td style="border: 3px solid #000000;">
-            <img src='java-clone/game/MeriImages/Grun04.jpg'>
+            <img src='images/Grun04.jpg'>
         </td>
         <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
             2
         </td>
         <td style="border: 3px solid #000000;">
-            <img src='java-clone/game/MeriImages/Skei01.jpg'>
+            <img src='images/Skei01.jpg'>
         </td>
         <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;border-right: 3px solid #AAAAAA">
             1
@@ -135,7 +133,7 @@ Maximum moves total per pet:
 <table>
     <tr>
         <td style="border:0px">
-            <img src='java-clone/game/MeriImages/blank.png' border=3 style="border-color: red;">
+            <img src='images/blank.png' border=3 style="border-color: red;">
         </td>
         <td style="border:0px">
             <span style="font-size:10px;line-height: 10px;">
@@ -164,24 +162,19 @@ Maximum moves total per pet:
 </table>
 
 
-
-<div id="popup" title="">
-  <p>This is the default dialog which is useful for displaying information. The dialog window can be moved, resized and closed with the 'x' icon.</p>
-</div>
-
-
 <script>
 
 function image_to_name(img) {
-    //Input = "java-clone/game/MeriImages/Chainmail.jpg"
+    //Input = "images/Chainmail.jpg"
     //Output = "Chainmail"
     return img.split('/').reverse()[0].split('.')[0];
 }
 
 function clicked_item_popup(item_name) {
     cleaned_item_name = item_name.replace(/[_]/g, ' ');
-    item_popup.dialog('option', 'title', cleaned_item_name);
-    item_popup.dialog('open');
+    //item_popup.dialog('option', 'title', cleaned_item_name);
+    //item_popup.dialog('open');
+    window.open('popup.php?item='+item_name, cleaned_item_name, 'status=1, height=450, width=550, left=100, top=100, resizable=0');
 }
 
 function add_item_help_links() {
@@ -192,7 +185,7 @@ function add_item_help_links() {
         var item_name = image_to_name(item_image_url);
 
         if (!items[item_name]) { //only want to show each item once
-            var htmlz = `<img src='${item_image_url}' border=2 height=32 width=32 style='border: 1px solid #0000FF;' onclick='clicked_item_popup("${item_name}")'>&nbsp;`;
+            var htmlz = `<img src='${item_image_url}' border=2 height=32 width=32 style='border: 1px solid #0000FF;' onclick='clicked_item_popup("${item_image_url}")'>&nbsp;`;
             $('#items_on_map').append(htmlz);
             items[item_name] = 1;
         }
@@ -201,22 +194,6 @@ function add_item_help_links() {
 }
 
 add_item_help_links();
-var item_popup;
-$(function() {
-    item_popup = $("#popup").dialog({
-        autoOpen: false,
-        height: 500,
-        width: 550,
-        modal: true,
-        buttons: {
-          Close: function() {
-            item_popup.dialog( "close" );
-          }
-        },
-    });
-
-
-});
 </script>
 </body>
 </html>
