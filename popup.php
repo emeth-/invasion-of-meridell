@@ -196,6 +196,89 @@ content = {
 		"stats": "<table><tr><td>Attack Bonus:</td><td>+0</td></tr><tr><td>Defence Bonus:</td><td>+3</td></tr><tr><td>In the hands of a Moehog:</td><td>+5</td></tr></table>"
 	},
 
+	//////////////////////////////
+	//Lost Items
+	//////////////////////////////
+
+
+	"Goblet": {
+		"image": "images/Goblet.jpg",
+		"title": "Goblet",
+		"text": "This is the lost item for Mission 1!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Gold_Ixi": {
+		"image": "images/Gold_Ixi.jpg",
+		"title": "Gold Ixi",
+		"text": "This is the lost item for Mission 2!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Goblet": {
+		"image": "images/Goblet.jpg",
+		"title": "Goblet",
+		"text": "This is the lost item for Mission 1!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Urn_of_Abundance": {
+		"image": "images/Urn_of_Abundance.jpg",
+		"title": "Urn of Abundance",
+		"text": "This is the lost item for Mission 3!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Ancient_Book": {
+		"image": "images/Ancient_Book.jpg",
+		"title": "Ancient Book",
+		"text": "This is the lost item for Mission 4!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Crown": {
+		"image": "images/Crown.jpg",
+		"title": "Crown",
+		"text": "This is the lost item for Mission 5!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Royal_Plate": {
+		"image": "images/Royal_Plate.jpg",
+		"title": "Royal Plate",
+		"text": "This is the lost item for Mission 6!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Royal_Tapestry": {
+		"image": "images/Royal_Tapestry.jpg",
+		"title": "Royal Tapestry",
+		"text": "This is the lost item for Mission 7!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Treasure_Chest": {
+		"image": "images/Treasure_Chest.jpg",
+		"title": "Treasure Chest",
+		"text": "This is the lost item for Mission 8!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Vase_of_Plenty": {
+		"image": "images/Vase_of_Plenty.jpg",
+		"title": "Vase of Plenty",
+		"text": "This is the lost item for Mission 9!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+	"Orb": {
+		"image": "images/Orb.jpg",
+		"title": "Orb",
+		"text": "This is the lost item for Mission 10!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
+	},
+
+
 }
 $('#stats_content').html(content[item_name].stats);
 $('#text_content').html(content[item_name].text);
