@@ -87,7 +87,7 @@ content = {
 	"Berserker_Battleaxe": {
 		"image": "images/Berserker_Battleaxe_large.jpg",
 		"title": "Berserker Battleaxe",
-		"text": "Heavy weaponry only the strong dare brandish! <br><br>When a Skeith has this Battleaxe along with teleportation power... whoa!!!",
+		"text": "Heavy weaponry only the strong dare brandish! <br><br>When a Skeith has this Battleaxe along with teleportation power... whoa!!! <br><br>(Note: Skeiths get extra move after teleporting with this equipped)",
 		"stats": "<table><tr><td>Attack Bonus:</td><td>+5</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr></table>"
 	},
 
@@ -116,7 +116,7 @@ content = {
 		"image": "images/Halberd.jpg",
 		"title": "Halberd",
 		"text": "Touched with the Magic of Meridell, this item grants its owner unlimited moves (Max 5)!",
-		"stats": "<table><tr><td>Attack Bonus:</td><td>+5</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr></table>"
+		"stats": "<table><tr><td>Attack Bonus:</td><td>+4</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr></table>"
 	},
 
 	"Double_Axe": {
@@ -131,13 +131,6 @@ content = {
 		"title": "Magic Lightening Spell",
 		"text": "Zap Invaders with a lightning bolt! <br><br>When used by Grundos, this powerful spell can attack Invaders from 2 spaces away! It can also heal multiple fellow fighters in the same column! To use the healing power, click a fellow fighter in the column you wish to target. (Costs 1 move per healing).",
 		"stats": "<table><tr><td>Attack Bonus:</td><td>+2</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr><tr><td>In the hands of a Grundo:</td><td>+4</td></tr></table>"
-	},
-
-	"Amulet_of_Teleportation": {
-		"image": "images/Amulet_of_Teleportation_large.jpg",
-		"title": "Amulet of Teleportation",
-		"text": "When a Skeith wears this Amulet, he can teleport to any unoccupied space in rows 3 through 10!<br><br>It also provides +2 defence points when worn by Skeiths and non-Skeiths alike!",
-		"stats": "<table><tr><td>Attack Bonus:</td><td>+0</td></tr><tr><td>Defence Bonus:</td><td>+2</td></tr><tr><td>In the hands of a Skeith:</td><td>+4</td></tr></table>"
 	},
 
 	"Amulet_of_Teleportation": {

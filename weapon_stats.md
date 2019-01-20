@@ -36,7 +36,9 @@ Double Sword
 
 Halberd
 - Java Clone: +4 attack for all, grants unlimited moves (max 5)
-- Guide screenshot says +5 attack for all, grants unlimited moves, but skeith will not have extra moves after teleport. Accepting guide value over java clone value.
+- Guide screenshot says +5 attack for all, grants unlimited moves, but skeith will not have extra moves after teleport.
+- But lower on that same guide says... "You may want to equip your Skeith with the Halberd so that it can have unlimited moves, but be aware that the Halberd has 1 less attack bonus than the Berseker Battleaxe."
+- Going with +4 value to match tip in guide about Halberd 1 less attack bonus than Berseker Battleaxe, and matching Java clone value.
 
 Double Axe
 - Java Clone: +5 attack for all. If it hits, minimum 5 points of damage
@@ -88,7 +90,7 @@ Counter Enchantment Helmet
 
 # Summary
 - Berserker Battleaxe: Java clone incorrectly has +3 for all, +5 for Skeith. True value is +5 for all.
-- Double Sword: Cannot be confirmed. Maybe de-activated in game?
-- Double Axe: Cannot be confirmed. Maybe de-activated in game?
-- Leather Armor: Cannot be confirmed. Maybe de-activated in game?
 - Plate Armor: Java clone has correct +5 to all, but incorrect +7 for Moehog. All other guides agree it's solely +5 for all, except for one guide which says +7 to all (but we're betting that's a typo).
+- Leather Armor: Cannot be confirmed, no guides include it - but our sole screenshot of Mission 8 includes it as a spawn. Assume it's just not included because most people stopped after beating Mission 7, which gave them the avatar reward.
+- Double Sword: Cannot be confirmed. Maybe de-activated in game? According to java clone, only spawns in mission 7, but no guides appear to mention it. Dubious...
+- Double Axe: Cannot be confirmed. Maybe de-activated in game? According to java clone, only spawns in missions 9 and 10, which no guides cover and no screenshots exist for... so it's possible.
