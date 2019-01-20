@@ -164,17 +164,8 @@ Maximum moves total per pet:
 
 <script>
 
-function image_to_name(img) {
-    //Input = "images/Chainmail.jpg"
-    //Output = "Chainmail"
-    return img.split('/').reverse()[0].split('.')[0];
-}
-
-function clicked_item_popup(item_name) {
-    cleaned_item_name = item_name.replace(/[_]/g, ' ');
-    //item_popup.dialog('option', 'title', cleaned_item_name);
-    //item_popup.dialog('open');
-    window.open('popup.php?item='+item_name, cleaned_item_name, 'status=1, height=450, width=550, left=100, top=100, resizable=0');
+function clicked_item_popup(item_url) {
+    window.open('popup.php?item='+item_url, 'Item Popup', 'status=1, height=450, width=550, left=100, top=100, resizable=0');
 }
 
 function add_item_help_links() {
@@ -182,12 +173,11 @@ function add_item_help_links() {
     var items = {};
     $('img[data-type=treasure], img[data-type=item]').each(function() {
         var item_image_url = $(this).attr('src');
-        var item_name = image_to_name(item_image_url);
 
-        if (!items[item_name]) { //only want to show each item once
+        if (!items[item_image_url]) { //only want to show each item once
             var htmlz = `<img src='${item_image_url}' border=2 height=32 width=32 style='border: 1px solid #0000FF;' onclick='clicked_item_popup("${item_image_url}")'>&nbsp;`;
             $('#items_on_map').append(htmlz);
-            items[item_name] = 1;
+            items[item_image_url] = 1;
         }
     });
 
