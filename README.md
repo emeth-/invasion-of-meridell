@@ -13,6 +13,7 @@ http://www.neocodex.us/forum/topic/109241-invasion-of-meridell-guide/
 http://neopointsdeals.com/neopets-invasion-of-meridell-guide/
 http://home.neopets.com/templates/homepage.phtml?pet_name=happylark
 http://www.neopets.com/~Demeanours
+http://www.angelfire.com/pop2/krillin373/invasionm.html
 
 
 Videos:

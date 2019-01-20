@@ -88,7 +88,7 @@ content = {
 		"image": "images/Berserker_Battleaxe_large.jpg",
 		"title": "Berserker Battleaxe",
 		"text": "Heavy weaponry only the strong dare brandish! <br><br>When a Skeith has this Battleaxe along with teleportation power... whoa!!!",
-		"stats": "<table><tr><td>Attack Bonus:</td><td>+3</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr><tr><td>In the hands of a Skeith:</td><td>+5</td></tr></table>"
+		"stats": "<table><tr><td>Attack Bonus:</td><td>+5</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr></table>"
 	},
 
 	"Bow": {
@@ -116,7 +116,7 @@ content = {
 		"image": "images/Halberd.jpg",
 		"title": "Halberd",
 		"text": "Touched with the Magic of Meridell, this item grants its owner unlimited moves (Max 5)!",
-		"stats": "<table><tr><td>Attack Bonus:</td><td>+4</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr></table>"
+		"stats": "<table><tr><td>Attack Bonus:</td><td>+5</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr></table>"
 	},
 
 	"Double_Axe": {
@@ -186,7 +186,7 @@ content = {
 		"image": "images/Plate_Armor.jpg",
 		"title": "Plate Armor",
 		"text": "The strongest armor, but a bit cumbersome. All Meridellians can wear it.",
-		"stats": "<table><tr><td>Attack Bonus:</td><td>+0</td></tr><tr><td>Defence Bonus:</td><td>+5</td></tr><tr><td>In the hands of a Moehog:</td><td>+7</td></tr></table>"
+		"stats": "<table><tr><td>Attack Bonus:</td><td>+0</td></tr><tr><td>Defence Bonus:</td><td>+5</td></tr></table>"
 	},
 
 	"Sword_of_Deflection": {
