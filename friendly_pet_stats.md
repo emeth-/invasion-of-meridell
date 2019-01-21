@@ -84,7 +84,7 @@ Final:
 
     - Grundo
     -- Attack = 12,13,14 (12,13,14) (Java clone shows 10-14, screenshots show 12-14. Let's do 12-14)
-    -- Defence = 11,12,13,14 (11,12,13,14) (Java clone shows 8-12, screenshots show 11-14 - so java clone is way off. Let's do 10-12)
+    -- Defence = 11,12,13,14 (11,12,13,14) (Java clone shows 8-12, screenshots show 11-14 - so java clone is way off. Let's do 11-14)
     -- Health = 15,16,17,18
 
 Note that the above numbers match this metric from a guide as well:
