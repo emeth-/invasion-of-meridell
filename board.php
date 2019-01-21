@@ -17,6 +17,12 @@
         height: 32px;
         text-align:center;
     }
+    #pets, #pets td{
+        text-align:center;
+        border:2px solid #AAAAAA;
+        border-collapse: collapse;
+        font-size: 12px;
+    }
     img {
         border-color: lightgrey;
     }
@@ -52,9 +58,10 @@ print "<h3>Mission: {$mission} / Battle: {$battle}</h3>";
 ?>
 <table width=100% border=0 style="border:0px">
     <tr>
-        <td style="border:0px; text-align:center">
+        <td style="border:0px; text-align:center;vertical-align:top;">
 
 <center>
+<b>You've moved 4 out of 5</b>
 
 <table border=1 id="board">
     <?
@@ -155,8 +162,120 @@ Maximum moves total per pet:
 </center>
 
         </td>
-        <td style="border:0px">
-            Other side.
+        <td style="border:0px;vertical-align:top;text-align:right">
+            <!--////////////////////////////
+            //Right Side
+            ////////////////////////////-->
+
+            Minimal Stats
+
+
+
+
+            <table id='pets' width=100%>
+
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Name<br>
+                        .:Rank:.
+                    </td>
+                    <td>
+                        Health<br>
+                        max<br>
+                        18
+                    </td>
+                    <td>
+                        Attack<br>
+                        Strength
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Defence<br>
+                        Strength
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Saves
+                    </td>
+                </tr>
+
+<?
+$soldiers = get_team();
+foreach($soldiers as $s) {
+
+$bonus_attack_strength_string = "";
+if($s['bonus_attack_strength']) {
+    $bonus_attack_strength_string = "<span style='font-size:12px'>(+{$s['bonus_attack_strength']})</span>";
+}
+$bonus_defense_strength_string = "";
+if($s['bonus_defense_strength']) {
+    $bonus_defense_strength_string = "<span style='font-size:12px'>(+{$s['bonus_defense_strength']})</span>";
+}
+
+$attack_image = "images/blank.png";
+if($s['attack_item']) {
+    $attack_image = "...?";
+}
+
+$defense_image = "images/blank.png";
+if($s['defense_item']) {
+    $defense_image = "...?";
+}
+
+print <<<EOF
+                <tr>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='{$s['image']}'>
+                    </td>
+                    <td>
+                        {$s['breed']}<br>
+                        .:{$s['rank']}:.
+                    </td>
+                    <td>
+                        {$s['health']}
+                    </td>
+                    <td>
+                        {$s['base_attack_strength']}
+                        {$bonus_attack_strength_string}
+                    </td>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='{$attack_image}'>
+                    </td>
+                    <td>
+                        {$s['base_defense_strength']}
+                        {$bonus_defense_strength_string}
+                    </td>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='{$defense_image}'>
+                    </td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+
+EOF;
+}
+?>
+
+            </table>
+
+
+
+
+
+
+
+
+
+
+
         </td>
     </tr>
 </table>
