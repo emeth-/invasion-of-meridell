@@ -1,6 +1,10 @@
 # invasion-of-meridell
 clone of neopet's old game that they removed, rewritten
 
+Next steps...
+- create_enemies and create_team need to generate an array of stats that is sent to frontend in ADDITION to placing them on the board. Then tie the stats into the interface on the right.
+
+
 Rewrite strategy...
 Maybe write it in PHP, as an example of a super simple script
 BETTER YET - rewrite it in jquery + html, using html as the database as an example, super simple
