@@ -82,7 +82,7 @@ function generate_new_team() {
 }
 
 function team_select() {
-    var htmlz = `
+    var htmlz = `<center>
     <table border=0 style="text-align:center;border: 2px solid #000000;" width="50%" cellpadding=4 bgcolor="#FFCC00">
         <tr>
             <td width=33%>
@@ -262,6 +262,6 @@ function team_select() {
 
     }
 
-    htmlz += `</table>`;
+    htmlz += `</table></center>`;
     $('#content').html(htmlz);
 }
