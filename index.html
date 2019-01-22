@@ -21,24 +21,13 @@
         return Math.floor(Math.random()*(max-min+1)+min);
     }
 
-    function loadJavascriptFileNoCache(filename){
-        var cachebuster = Math.round(new Date().getTime() / 1000);
-        var head = document.getElementsByTagName('head')[0];
-
-        var script = document.createElement('script');
-        script.src = filename+"?cb="+cachebuster;
-        script.type = 'text/javascript';
-
-        head.append(script);
-    }
-
     mission = rand(1,10);
     battle = rand(1,3);
     //mission = 7;
     //battle = 2;
-
-    loadJavascriptFileNoCache('team_select.js');
-    loadJavascriptFileNoCache('board.js');
 </script>
+
+    <script src='team_select.js?v=1'></script>
+    <script src='board.js?v=1'></script>
 </body>
 </html>
