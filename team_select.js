@@ -83,35 +83,126 @@ function generate_new_team() {
 
 function team_select() {
     var htmlz = `
-    <table border=1 style="text-align:center" width="50%" cellpadding=4>
+    <table border=0 style="text-align:center;border: 2px solid #000000;" width="50%" cellpadding=4 bgcolor="#FFCC00">
         <tr>
-            <td bgcolor="#DDDDDD">
+            <td width=33%>
+                <img src='images/jubjub.gif' border=2 style='border: 2px solid #000000;'>
+            </td>
+
+            <td width=33%>
+            <b>YOURNAME</b><br>
+            <img src='images/Duke.jpg' border=2 style='border: 2px solid #000000;'><br>
+            <b>Stablehand</b><br>
+            <b>Villages Unturned: </b><br>
+            <b>6</b> (Out of 6)
+
+            </td>
+
+            <td width=33%>
+                <table class='lost_items' bgcolor="#FFFFFF" width=100%>
+                    <tr>
+                        <td class='lost_items' style="text-align:center" colspan=4>
+                            <b>Lost Items Recovered</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
+                            Mission:<br>
+                            1
+                        </td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">6</td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
+                            Mission:<br>
+                            2
+                        </td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">7</td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
+                            Mission:<br>
+                            3
+                        </td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">8</td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                    <tr>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
+                            Mission:<br>
+                            4
+                        </td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">9</td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                    <tr>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
+                            Mission:<br>
+                            5
+                        </td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">10</td>
+                        <td class='lost_items' width=32px>
+                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
+                        </td>
+                    </tr>
+                    </tr>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+    <table class='team_select' border=1 style="text-align:center" width="50%" cellpadding=4>
+        <tr>
+            <td class='team_select' bgcolor="#DDDDDD">
                 Pet<br>
                 .:Rank:.
             </td>
-            <td bgcolor="#DDDDDD" style="text-align:left">
+            <td class='team_select' bgcolor="#DDDDDD" style="text-align:left">
                 Name
             </td>
-            <td bgcolor="#DDDDDD">
+            <td class='team_select' bgcolor="#DDDDDD">
                 Health
             </td>
-            <td bgcolor="#DDDDDD">
+            <td class='team_select' bgcolor="#DDDDDD">
                 Attack<br>
                 Strength
             </td>
-            <td bgcolor="#DDDDDD">
+            <td class='team_select' bgcolor="#DDDDDD">
                 Attack<br>
                 Item
             </td>
-            <td bgcolor="#DDDDDD">
+            <td class='team_select' bgcolor="#DDDDDD">
                 Defense<br>
                 Strength
             </td>
-            <td bgcolor="#DDDDDD">
+            <td class='team_select' bgcolor="#DDDDDD">
                 Defense<br>
                 Item
             </td>
-            <td bgcolor="#DDDDDD">
+            <td class='team_select' bgcolor="#DDDDDD">
                 Saves
             </td>
         </tr>
@@ -134,34 +225,34 @@ function team_select() {
 
         htmlz += `
          <tr>
-            <td bgcolor="#821B80" style="color:white">
+            <td class='team_select' bgcolor="#821B80" style="color:white">
                 <img src='${s['image']}'><br>
                 ${s['breed']}<br>
                 .:${s['rank']}:.
             </td>
-            <td style="text-align:left">
+            <td class='team_select' style="text-align:left">
                 <input type='text' value='${s['name']}'>
             </td>
-            <td>
+            <td class='team_select'>
                 ${s['health']}
             </td>
-            <td>
+            <td class='team_select'>
                 ${s['base_attack_strength']}
                 ${bonus_attack_strength_string}
             </td>
-            <td>
+            <td class='team_select'>
                 ${s['attack_item']}
             </td>
-            <td>
+            <td class='team_select'>
                 ${s['base_defense_strength']}
                 ${bonus_defense_strength_string}
             </td>
-            <td>
+            <td class='team_select'>
                 ${s['defense_item']}
             </td>
-            <td>
+            <td class='team_select'>
                 <center>
-                    <table border=1 width=40% cellpadding=4><tr><td><center>
+                    <table border=1 width=40% cellpadding=4 class='team_select'><tr><td class='team_select'><center>
                     ${s['saves']}
                     </center></td></tr></table>
                 </center>
