@@ -1,0 +1,33 @@
+<html>
+<head>
+    <!--
+# TODO
+- Save state automatically updated in base64 url string. Note does not save current board, reloading it restarts your current mission (same as losing a match).
+    -->
+    <style>
+    body {
+        font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+        font-style: normal;
+        font-variant: normal;
+        font-weight: 400;
+        line-height: 18.5714px;
+    }
+    table, th, td {
+        border: 3px solid #AAAAAA;
+        border-collapse: collapse;
+    }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="game_functions.js"></script>
+    <script src="team_select.js"></script>
+    <script>
+        var my_team;
+    </script>
+</head>
+<body>
+    <div id='content'></div>
+<script>
+team_select();
+</script>
+</body>
+</html>
