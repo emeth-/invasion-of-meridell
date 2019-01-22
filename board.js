@@ -15,6 +15,35 @@ function start_mission() {
     set_up_villages();
     set_up_soldiers();
     set_up_items();
+
+    var htmlz = `
+<table width=100% border=0 style="border:0px">
+    <tr>
+        <td style="border:0px; text-align:center;vertical-align:top;">
+
+<center>
+<b>You've moved 4 out of 5</b>
+
+<table border=1 id="board">`;
+
+    for(var i=0; i<10; i++) {
+        htmlz += `<tr>`;
+        for(var j=0; j<10; j++) {
+            htmlz += `<td id='i${i}j${j}'>`;
+            if (board[i][j]['image']) {
+                htmlz += "<img src='"+board[i][j]['image']+"' border=2 data-type='"+board[i][j]['type']+"' height=32 width=32>";
+            }
+            else {
+                htmlz += `<img src='images/blank.png' border=2>`;
+            }
+
+            htmlz += `</td>`;
+        }
+        htmlz += `</tr>`;
+    }
+
+    htmlz += `</table>`;
+    $('#content').html(htmlz);
 }
 
 function set_up_treasure() {
@@ -111,40 +140,40 @@ function set_up_enemies() {
 
     window.board[0][1] = {
         "type": "enemy",
-        "image": "images/".enemies_obj['foes'][0].".jpg"
+        "image": "images/"+enemies_obj['foes'][0]+".jpg"
     };
     window.board[0][3] = {
         "type": "enemy",
-        "image": "images/".enemies_obj['foes'][1].".jpg"
+        "image": "images/"+enemies_obj['foes'][1]+".jpg"
     };
     window.board[0][5] = {
         "type": "enemy",
-        "image": "images/".enemies_obj['foes'][2].".jpg"
+        "image": "images/"+enemies_obj['foes'][2]+".jpg"
     };
     window.board[0][7] = {
         "type": "enemy",
-        "image": "images/".enemies_obj['foes'][3].".jpg"
+        "image": "images/"+enemies_obj['foes'][3]+".jpg"
     };
     window.board[0][9] = {
         "type": "enemy",
-        "image": "images/".enemies_obj['foes'][4].".jpg"
+        "image": "images/"+enemies_obj['foes'][4]+".jpg"
     };
     if(enemies_obj['foes'][5]) {
         window.board[2][2] = {
             "type": "enemy",
-            "image": "images/".enemies_obj['foes'][5].".jpg"
+            "image": "images/"+enemies_obj['foes'][5]+".jpg"
         };
     }
     if(enemies_obj['foes'][6]) {
         window.board[2][4] = {
             "type": "enemy",
-            "image": "images/".enemies_obj['foes'][6].".jpg"
+            "image": "images/"+enemies_obj['foes'][6]+".jpg"
         };
     }
     if(enemies_obj['foes'][7]) {
         window.board[2][6] = {
             "type": "enemy",
-            "image": "images/".enemies_obj['foes'][7].".jpg"
+            "image": "images/"+enemies_obj['foes'][7]+".jpg"
         };
     }
 }
@@ -153,10 +182,10 @@ function set_up_enemies() {
 function set_up_mountains() {
     //Notes... mountains can be overwritten by items AND villages
     for(var i=0; i<4; i++) {
-        var mtn = [
-            "type" => "mountain",
-            "image" => "images/mtn.jpg"
-        ];
+        var mtn = {
+            "type": "mountain",
+            "image": "images/mtn.jpg"
+        };
         var mtn_layout = rand(1,3);
         if (mtn_layout == 1) {
             window.board[(i+1)*2][0] = mtn;
@@ -196,7 +225,7 @@ function set_up_soldiers() {
         var soldier = window.my_team[i];
         window.board[9][i*2] = {
             "type": "team",
-            "image": soldier[i]['image']
+            "image": soldier['image']
         };
     }
 }
@@ -246,17 +275,17 @@ function set_up_items() {
     //potions
     window.board[5][4] = {
         "type": "potion",
-        "image": "images/".potions_by_mission[mission].".jpg"
+        "image": "images/"+potions_by_mission[mission]+".jpg"
     };
     window.board[5][6] = {
         "type": "potion",
-        "image": "images/".potions_by_mission[mission].".jpg"
+        "image": "images/"+potions_by_mission[mission]+".jpg"
     };
 
     empty_spaces_for_item_spawns = [];
     for(i=4; i<9; i++) {
         for(j=0; j<10; j++) {
-            if(!window.board[i][j]['type']) {
+            if(window.board[i][j]['type']=="blank") {
                 empty_spaces_for_item_spawns.push([i, j]);
             }
         }
@@ -277,22 +306,22 @@ function set_up_items() {
 
     board[item_1_spawn[0]][item_1_spawn[1]] = {
         "type": "item",
-        "image": "images/".attack_items_by_mission[mission][attack_item_key_one].".jpg"
+        "image": "images/"+attack_items_by_mission[mission][attack_item_key_one]+".jpg"
     };
 
     board[item_2_spawn[0]][item_2_spawn[1]] = {
         "type": "item",
-        "image": "images/".attack_items_by_mission[mission][attack_item_key_two].".jpg"
+        "image": "images/"+attack_items_by_mission[mission][attack_item_key_two]+".jpg"
     };
 
     board[item_3_spawn[0]][item_3_spawn[1]] = {
         "type": "item",
-        "image": "images/".defense_items_by_mission[mission][defense_item_key_one].".jpg"
+        "image": "images/"+defense_items_by_mission[mission][defense_item_key_one]+".jpg"
     };
 
     board[item_4_spawn[0]][item_4_spawn[1]] = {
         "type": "item",
-        "image": "images/".defense_items_by_mission[mission][defense_item_key_two].".jpg"
+        "image": "images/"+defense_items_by_mission[mission][defense_item_key_two]+".jpg"
     };
 }
 
