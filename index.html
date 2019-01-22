@@ -4,33 +4,41 @@
 # TODO
 - Save state automatically updated in base64 url string. Note does not save current board, reloading it restarts your current mission (same as losing a match).
     -->
-    <style>
-    body {
-        font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
-        font-style: normal;
-        font-variant: normal;
-        font-weight: 400;
-        line-height: 18.5714px;
-    }
-    .team_select {
-        border: 3px solid #AAAAAA;
-        border-collapse: collapse;
-    }
-    .lost_items {
-        border: 3px solid #000000;
-        border-collapse: collapse;
-    }
-    </style>
+    <link rel="stylesheet" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="team_select.js"></script>
     <script>
-        var my_team;
+        var my_team, board, mission, battle;
     </script>
 </head>
 <body>
     <div id='content'></div>
 <script>
-team_select();
+
+    function rand(min,max) {
+        // From https://stackoverflow.com/a/7228322/8967723
+        // min and max included
+        //mimics php's rand(min, max)
+        return Math.floor(Math.random()*(max-min+1)+min);
+    }
+
+    function loadJavascriptFileNoCache(filename){
+        var cachebuster = Math.round(new Date().getTime() / 1000);
+        var head = document.getElementsByTagName('head')[0];
+
+        var script = document.createElement('script');
+        script.src = filename+"?cb="+cachebuster;
+        script.type = 'text/javascript';
+
+        head.append(script);
+    }
+
+    mission = rand(1,10);
+    battle = rand(1,3);
+    //mission = 7;
+    //battle = 2;
+
+    loadJavascriptFileNoCache('team_select.js');
+    loadJavascriptFileNoCache('board.js');
 </script>
 </body>
 </html>

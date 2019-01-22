@@ -1,10 +1,3 @@
-function rand(min,max) {
-    // From https://stackoverflow.com/a/7228322/8967723
-    // min and max included
-    //mimics php's rand(min, max)
-    return Math.floor(Math.random()*(max-min+1)+min);
-}
-
 function generate_new_team() {
     var soldiers = [
         {
@@ -17,7 +10,6 @@ function generate_new_team() {
             "bonus_attack_strength": 0,
             "attack_item": "",
             "base_defense_strength": 9 + rand(0, 2), //9-11
-            "bonus_defense_strength": 0,
             "defense_item": "",
             "saves": 0,
         },
@@ -28,10 +20,9 @@ function generate_new_team() {
             "name": "Soldier 1",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 15 + rand(0, 3), //15-18
-            "bonus_attack_strength": 4,
+            "bonus_attack_strength": 0,
             "attack_item": "",
             "base_defense_strength": 8 + rand(0, 4), //8-12
-            "bonus_defense_strength": 0,
             "defense_item": "",
             "saves": 0,
         },
@@ -42,10 +33,9 @@ function generate_new_team() {
             "name": "Soldier 2",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 7 + rand(0, 4), //7-11
-            "bonus_attack_strength": 1,
+            "bonus_attack_strength": 0,
             "attack_item": "",
             "base_defense_strength": 10 + rand(0, 2), //10-12
-            "bonus_defense_strength": 0,
             "defense_item": "",
             "saves": 0,
         },
@@ -56,10 +46,9 @@ function generate_new_team() {
             "name": "Soldier 3",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 11 + rand(0, 2), //11-13
-            "bonus_attack_strength": 2,
+            "bonus_attack_strength": 0,
             "attack_item": "",
             "base_defense_strength": 10 + rand(0, 2), //10-12
-            "bonus_defense_strength": 0,
             "defense_item": "",
             "saves": 0,
         },
@@ -70,14 +59,40 @@ function generate_new_team() {
             "name": "Soldier 4",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 12 + rand(0, 2), //12-14
-            "bonus_attack_strength": 2,
+            "bonus_attack_strength": 0,
             "attack_item": "",
             "base_defense_strength": 11 + rand(0, 4), //11-14
-            "bonus_defense_strength": 0,
             "defense_item": "",
             "saves": 0,
         }
     ];
+
+
+    for(var i=0; i<soldiers.length; i++) {
+        soldiers[i]['bonus_attack_strength'] = 0;
+
+        if (soldiers[i]['base_attack_strength'] >= 9 && soldiers[i]['base_attack_strength'] <= 11) {
+            soldiers[i]['bonus_attack_strength'] = 1;
+        }
+
+        if (soldiers[i]['base_attack_strength'] >= 12 && soldiers[i]['base_attack_strength'] <= 14) {
+            soldiers[i]['bonus_attack_strength'] = 2;
+        }
+
+        if (soldiers[i]['base_attack_strength'] >= 15 && soldiers[i]['base_attack_strength'] <= 17) {
+            soldiers[i]['bonus_attack_strength'] = 3;
+        }
+
+        if (soldiers[i]['base_attack_strength'] == 18) {
+            soldiers[i]['bonus_attack_strength'] = 4;
+        }
+
+        if (soldiers[i]['base_attack_strength'] == 19) {
+            soldiers[i]['bonus_attack_strength'] = 5;
+        }
+
+    }
+
     return soldiers;
 }
 
@@ -218,11 +233,6 @@ function team_select() {
             bonus_attack_strength_string = `<span style='font-size:12px'>(+${s['bonus_attack_strength']})</span>`;
         }
 
-        var bonus_defense_strength_string = "";
-        if(s['bonus_defense_strength']) {
-            bonus_defense_strength_string = `<span style='font-size:12px'>(+${s['bonus_defense_strength']})</span>`;
-        }
-
         htmlz += `
          <tr>
             <td class='team_select' bgcolor="#821B80" style="color:white">
@@ -245,7 +255,6 @@ function team_select() {
             </td>
             <td class='team_select'>
                 ${s['base_defense_strength']}
-                ${bonus_defense_strength_string}
             </td>
             <td class='team_select'>
                 ${s['defense_item']}
@@ -262,6 +271,9 @@ function team_select() {
 
     }
 
-    htmlz += `</table></center>`;
+    htmlz += `</table><br><button onclick='start_mission()'>Submit Team & Go To Next Mission</button></center>`;
     $('#content').html(htmlz);
 }
+
+
+team_select();
