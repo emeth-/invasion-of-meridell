@@ -87,94 +87,383 @@ function set_up_treasure() {
 }
 
 
+function attack_strength_bonus_calc(base_attack_strength) {
+    bonus_attack_strength = 0
+    if (base_attack_strength >= 9 && base_attack_strength <= 11) {
+        bonus_attack_strength = 1;
+    }
 
+    if (base_attack_strength >= 12 && base_attack_strength <= 14) {
+        bonus_attack_strength = 2;
+    }
+
+    if (base_attack_strength >= 15 && base_attack_strength <= 17) {
+        bonus_attack_strength = 3;
+    }
+
+    if (base_attack_strength == 18) {
+        bonus_attack_strength = 4;
+    }
+
+    if (base_attack_strength == 19) {
+        bonus_attack_strength = 5;
+    }
+    return bonus_attack_strength;
+}
 
 function set_up_enemies() {
 
     //Also note max is 8, don't add_each_wave if already 8 enemies
-    var enemies_by_mission = {
-        1: {
-            "foes": ["Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00"],
-            "add_each_wave": "Draco_Moehog00"
-        },
-        2: {
-            "foes": ["Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00"],
-            "add_each_wave": "Draco_Techo00"
-        },
-        3: {
-            "foes": ["Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00"],
-            "add_each_wave": "Draco_Skeith00"
-        },
-        4: {
-            "foes": ["Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00"],
-            "add_each_wave": "Draco_Scorchio00"
-        },
-        5: {
-            "foes": ["Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00"]
-        },
-        6: {
-            "foes": ["Draco_Buzz00", "Draco_Buzz00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00", "Draco_Moehog00"]
-        },
-        7: {
-            "foes": ["Draco_Buzz00", "Draco_Buzz00", "Draco_Buzz00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00", "Draco_Techo00"]
-        },
-        8: {
-            "foes": ["Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00", "Draco_Skeith00"]
-        },
-        9: {
-            "foes": ["Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Scorchio00", "Draco_Scorchio00", "Draco_Scorchio00"]
-        },
-        10: {
-            "foes": ["Draco_Buzz00", "Draco_Buzz00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grarrl00", "Draco_Grundo00", "Draco_Grundo00", "Draco_Grundo00"]
-        },
-    };
+    var e = []
+    if (mission == 1) {
+        var total_enemies = 5;
+        if (battle == 2) {
+            total_enemies = 6;
+        }
+        if (battle == 3) {
+            total_enemies = 7;
+        }
+        for (var i=0; i<total_enemies; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Moehog00.jpg",
+                "name": "Invader Moehog 0"+i,
+                "breed": "Moehog",
+                "health": 8 + rand(0, 4), //8-12
+                "base_attack_strength": 5 + rand(0, 4), //5-9
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 6 + rand(0, 6), //6-12
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 2) {
+        var total_enemies = 6;
+        if (battle == 2) {
+            total_enemies = 7;
+        }
+        if (battle == 3) {
+            total_enemies = 8;
+        }
+        for (var i=0; i<total_enemies; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Techo00.jpg",
+                "name": "Invader Techo 0"+i,
+                "breed": "Techo",
+                "health": 12 + rand(0, 4), //12-16
+                "base_attack_strength": 9 + rand(0, 4), //9-13
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 8 + rand(0, 6), //8-14
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 3) {
+        var total_enemies = 6;
+        if (battle == 2) {
+            total_enemies = 7;
+        }
+        if (battle == 3) {
+            total_enemies = 8;
+        }
+        for (var i=0; i<total_enemies; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Skeith00.jpg",
+                "name": "Invader Skeith 0"+i,
+                "breed": "Skeith",
+                "health": 12 + rand(0, 4), //12-16
+                "base_attack_strength": 9 + rand(0, 4), //9-13
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 8 + rand(0, 6), //8-14
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 4) {
+        var total_enemies = 7;
+        if (battle == 2 || battle == 3) {
+            total_enemies = 8;
+        }
+        for (var i=0; i<total_enemies; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Scorchio00.jpg",
+                "name": "Invader Scorchio 0"+i,
+                "breed": "Scorchio",
+                "health": 14 + rand(0, 4), //14-18
+                "base_attack_strength": 12 + rand(0, 4), //12-16
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 12 + rand(0, 4), //12-16
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 5) {
+        var total_enemies = 8;
+        for (var i=0; i<total_enemies; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Grundo00.jpg",
+                "name": "Invader Grundo 0"+i,
+                "breed": "Grundo",
+                "health": 15 + rand(0, 4), //15-19
+                "base_attack_strength": 13 + rand(0, 3), //13-16
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 15 + rand(0, 2), //15-17
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 6) {
+        for (var i=0; i<2; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Buzz00.jpg",
+                "name": "Dark Lord Buzz 0"+i,
+                "breed": "Buzz",
+                "health": 21,
+                "base_attack_strength": 21,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 21
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
 
-    var enemies_obj = enemies_by_mission[mission];
+        for (var i=0; i<6; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Moehog00.jpg",
+                "name": "Invader Moehog 0"+i,
+                "breed": "Moehog",
+                "health": 17,
+                "base_attack_strength": 17,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 17
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 7) {
+        var thise = {
+            "type": "enemy",
+            "image": "images/Draco_Buzz00.jpg",
+            "name": "Dark Lord Buzz 00",
+            "breed": "Buzz",
+            "health": 29,
+            "base_attack_strength": 25,
+            "bonus_attack_strength": 0,
+            "base_defense_strength": 25
+        };
+        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+        e.push(thise);
 
-    var enemies_to_add_in_wave = battle - 1;
-    while(enemies_obj['foes'].length < 8 && enemies_to_add_in_wave > 0) {
-        //In each wave, add an additional enemy if less than 8 foes
-        enemies_obj['foes'].push(enemies_obj['add_each_wave']);
-        enemies_to_add_in_wave = enemies_to_add_in_wave - 1;
+        for (var i=0; i<2; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Buzz00.jpg",
+                "name": "Dark Lord Buzz 0"+(i+1),
+                "breed": "Buzz",
+                "health": 21,
+                "base_attack_strength": 21,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 21
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+
+        for (var i=0; i<5; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Techo00.jpg",
+                "name": "Invader Techo 0"+i,
+                "breed": "Techo",
+                "health": 18,
+                "base_attack_strength": 18,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 18
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 8) {
+
+        for (var i=0; i<2; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Grarrl00.jpg",
+                "name": "Dark Master Grarrl 0"+i,
+                "breed": "Grarrl",
+                "health": 22,
+                "base_attack_strength": 22,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 22
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+
+        for (var i=0; i<2; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Grarrl00.jpg",
+                "name": "Dark Master Grarrl 0"+(i+2),
+                "breed": "Grarrl",
+                "health": 23,
+                "base_attack_strength": 21,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 21
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+
+        for (var i=0; i<4; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Skeith00.jpg",
+                "name": "Invader Skeith 0"+i,
+                "breed": "Skeith",
+                "health": 19,
+                "base_attack_strength": 19,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 19
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 9) {
+
+        var thise = {
+            "type": "enemy",
+            "image": "images/Draco_Grarrl00.jpg",
+            "name": "Dark Master Grarrl 00",
+            "breed": "Grarrl",
+            "health": 29,
+            "base_attack_strength": 26,
+            "bonus_attack_strength": 0,
+            "base_defense_strength": 26
+        };
+        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+        e.push(thise);
+
+        for (var i=0; i<4; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Grarrl00.jpg",
+                "name": "Dark Master Grarrl 0"+(i+1),
+                "breed": "Grarrl",
+                "health": 22,
+                "base_attack_strength": 22,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 22
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+
+        for (var i=0; i<3; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Scorchio00.jpg",
+                "name": "Invader Scorchio 0"+i,
+                "breed": "Scorchio",
+                "health": 20,
+                "base_attack_strength": 20,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 20
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+    } else if (mission == 10) {
+
+        var thise = {
+            "type": "enemy",
+            "image": "images/Draco_Buzz00.jpg",
+            "name": "Dark Lord Buzz 00",
+            "breed": "Buzz",
+            "health": 29,
+            "base_attack_strength": 27,
+            "bonus_attack_strength": 0,
+            "base_defense_strength": 27
+        };
+        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+        e.push(thise);
+
+        var thise = {
+            "type": "enemy",
+            "image": "images/Draco_Buzz00.jpg",
+            "name": "Dark Lord Buzz 01",
+            "breed": "Buzz",
+            "health": 21,
+            "base_attack_strength": 21,
+            "bonus_attack_strength": 0,
+            "base_defense_strength": 21
+        };
+        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+        e.push(thise);
+
+        var thise = {
+            "type": "enemy",
+            "image": "images/Draco_Grarrl00.jpg",
+            "name": "Dark Master Grarrl 00",
+            "breed": "Grarrl",
+            "health": 29,
+            "base_attack_strength": 27,
+            "bonus_attack_strength": 0,
+            "base_defense_strength": 27
+        };
+        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+        e.push(thise);
+
+        for (var i=0; i<2; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Grarrl00.jpg",
+                "name": "Dark Master Grarrl 0"+(i+1),
+                "breed": "Grarrl",
+                "health": 22,
+                "base_attack_strength": 22,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 22
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+
+        for (var i=0; i<3; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Grundo00.jpg",
+                "name": "Invader Grundo 0"+i,
+                "breed": "Grundo",
+                "health": 23,
+                "base_attack_strength": 23,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 23
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
     }
 
-    window.board[0][1] = {
-        "type": "enemy",
-        "image": "images/"+enemies_obj['foes'][0]+".jpg"
-    };
-    window.board[0][3] = {
-        "type": "enemy",
-        "image": "images/"+enemies_obj['foes'][1]+".jpg"
-    };
-    window.board[0][5] = {
-        "type": "enemy",
-        "image": "images/"+enemies_obj['foes'][2]+".jpg"
-    };
-    window.board[0][7] = {
-        "type": "enemy",
-        "image": "images/"+enemies_obj['foes'][3]+".jpg"
-    };
-    window.board[0][9] = {
-        "type": "enemy",
-        "image": "images/"+enemies_obj['foes'][4]+".jpg"
-    };
-    if(enemies_obj['foes'][5]) {
-        window.board[2][2] = {
-            "type": "enemy",
-            "image": "images/"+enemies_obj['foes'][5]+".jpg"
-        };
+    window.board[0][1] = e[0];
+    window.board[0][3] = e[1];
+    window.board[0][5] = e[2];
+    window.board[0][7] = e[3];
+    window.board[0][9] = e[4];
+    if(e[5]) {
+        window.board[2][2] = e[5];
     }
-    if(enemies_obj['foes'][6]) {
-        window.board[2][4] = {
-            "type": "enemy",
-            "image": "images/"+enemies_obj['foes'][6]+".jpg"
-        };
+    if(e[6]) {
+        window.board[2][4] = e[6];
     }
-    if(enemies_obj['foes'][7]) {
-        window.board[2][6] = {
-            "type": "enemy",
-            "image": "images/"+enemies_obj['foes'][7]+".jpg"
-        };
+    if(e[7]) {
+        window.board[2][6] = e[7];
     }
 }
 
