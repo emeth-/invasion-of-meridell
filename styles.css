@@ -41,3 +41,8 @@ img .inactive {
 .plain_link {
     text-decoration: none;
 }
+
+.clickable{
+    cursor: pointer;
+    cursor: hand;
+}
