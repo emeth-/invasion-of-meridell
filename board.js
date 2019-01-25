@@ -58,10 +58,181 @@ function start_mission() {
             </td>
         </tr>
     </table>
+
+<br>
+<span style="font-size:10px;line-height: 10px;">
+Maximum moves total per turn: 5<br>
+Maximum moves total per pet:
+</span>
+<table style="border: 1px solid #000000;padding:0px;border-collapse: collapse;">
+    <tr>
+        <td style="border: 3px solid #000000;">
+            <img src='images/Moeh00.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            4
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='images/Tech02.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            2
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='images/Scor03.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            2
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='images/Grun04.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;">
+            2
+        </td>
+        <td style="border: 3px solid #000000;">
+            <img src='images/Skei01.jpg'>
+        </td>
+        <td width=25px style="text-align:center; border: 0px; border-top: 3px solid #AAAAAA;border-bottom: 3px solid #AAAAAA;border-right: 3px solid #AAAAAA">
+            1
+        </td>
+    </tr>
+</table>
+<br>
+<table>
+    <tr>
+        <td style="border:0px">
+            <img src='images/blank.png' border=3 style="border-color: red;">
+        </td>
+        <td style="border:0px">
+            <span style="font-size:10px;line-height: 10px;">
+            A red background means the maximum moves for that piece <br>have been reached.
+            </span>
+        </td>
+    </tr>
+</table>
+
+<span style="font-size:12px;line-height: 10px;font-weight:bold;">
+<a href='#' class='plain_link'>Instructions</a> | <a href='#' class='plain_link'>Strategy Guide</a> | <a href='#' class='plain_link'>Troops</a>
+</span>
+
+<br><br>
+
+<span style="font-size:12px;line-height: 10px;">
+<a href='#' class='plain_link'>End Turn Now</a>
+</span>
 `;
 
+    //stats
+    htmlz += `
+        </center>
+
+        </td>
+        <td style="border:0px;vertical-align:top;text-align:right">
+            <!--////////////////////////////
+            //Right Side
+            ////////////////////////////-->
+
+            Minimal Stats
 
 
+
+
+            <table id='pets' width=100%>
+
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Name<br>
+                        .:Rank:.
+                    </td>
+                    <td>
+                        Health<br>
+                        max<br>
+                        18
+                    </td>
+                    <td>
+                        Attack<br>
+                        Strength
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Defence<br>
+                        Strength
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Saves
+                    </td>
+                </tr>
+    `;
+
+
+    for(var i=0; i<10; i++) {
+        for(var j=0; j<10; j++) {
+            var space = window.board[i][j];
+            console.log("**", space);
+            if (space['type'] == 'team') {
+
+                var bonus_attack_strength_string = "";
+                if(space.bonus_attack_strength) {
+                    bonus_attack_strength_string = `<span style='font-size:12px'>(+${space.bonus_attack_strength})</span>`;
+                }
+                bonus_defense_strength_string = "";
+                if(space.bonus_defense_strength) {
+                    bonus_defense_strength_string = `<span style='font-size:12px'>(+${space.bonus_defense_strength})</span>`;
+                }
+
+                attack_image = "images/blank.png";
+                if(space.attack_item) {
+                    attack_image = "...?";
+                }
+
+                defense_image = "images/blank.png";
+                if(space.defense_item) {
+                    defense_image = "...?";
+                }
+
+                htmlz += `
+                 <tr>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='${space.image}'>
+                    </td>
+                    <td>
+                        ${space.breed}<br>
+                        .:${space.rank}:.
+                    </td>
+                    <td>
+                        ${space.health}
+                    </td>
+                    <td>
+                        ${space.base_attack_strength}
+                        ${bonus_attack_strength_string}
+                    </td>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='${attack_image}'>
+                    </td>
+                    <td>
+                        ${space.base_defense_strength}
+                        ${bonus_defense_strength_string}
+                    </td>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='${defense_image}'>
+                    </td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+                `;
+            }
+        }
+    }
 
 
 
@@ -556,10 +727,8 @@ function set_up_villages() {
 function set_up_soldiers() {
     for(var i=0; i<5; i++) {
         var soldier = window.my_team[i];
-        window.board[9][i*2] = {
-            "type": "team",
-            "image": soldier['image']
-        };
+        soldier['type'] = "team";
+        window.board[9][i*2] = soldier;
     }
 }
 
