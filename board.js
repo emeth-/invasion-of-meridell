@@ -177,7 +177,6 @@ Maximum moves total per pet:
     for(var i=0; i<10; i++) {
         for(var j=0; j<10; j++) {
             var space = window.board[i][j];
-            console.log("**", space);
             if (space['type'] == 'team') {
 
                 var bonus_attack_strength_string = "";
