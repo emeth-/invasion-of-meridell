@@ -29,6 +29,12 @@ body {
     border-collapse: collapse;
     font-size: 12px;
 }
+#bottomright, #bottomright td{
+    text-align:center;
+    border:2px solid #AAAAAA;
+    border-collapse: collapse;
+    font-size: 13px;
+}
 img {
     border-color: lightgrey;
 }

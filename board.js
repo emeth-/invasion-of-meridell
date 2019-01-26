@@ -305,7 +305,27 @@ Maximum moves total per pet:
 
     htmlz += foe_pets_html;
 
-    htmlz += `</table></td></tr></table>`;
+    htmlz += `</table>
+
+    <br><br>
+    <table id='bottomright'>
+    <tr>
+    <td>
+    <img src='images/Peon.jpg'>
+    <br><b>Peon</b>
+    </td>
+    <td>
+    Mission<br>1<br>Battle<br>3
+    </td>
+    </tr>
+    <tr>
+    <td colspan=2>
+    Lost Item: Found for this mission!
+    </td>
+    </tr>
+    </table>
+
+    </td></tr></table>`;
 
     $('#content').html(htmlz);
     add_item_help_links();
