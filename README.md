@@ -2,8 +2,14 @@
 clone of neopet's old game that they removed, rewritten
 
 Next steps...
-- create_enemies and create_team need to generate an array of stats that is sent to frontend in ADDITION to placing them on the board. Then tie the stats into the interface on the right.
-
+- Make characters on the board moveable
+    -- Our team
+        --- Moving onto an item picks it up (and drops old item)
+        --- Moving onto a potion consumes it
+        --- Moving onto an enemy attacks it
+    -- Enemy
+        --- Get movement pattern + attacks in place
+Taking a break at this point.
 
 Rewrite strategy...
 Maybe write it in PHP, as an example of a super simple script
