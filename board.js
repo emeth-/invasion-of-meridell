@@ -174,6 +174,8 @@ Maximum moves total per pet:
     `;
 
 
+    var my_pets_html = "";
+    var foe_pets_html = "";
     for(var i=0; i<10; i++) {
         for(var j=0; j<10; j++) {
             var space = window.board[i][j];
@@ -198,13 +200,13 @@ Maximum moves total per pet:
                     defense_image = "...?";
                 }
 
-                htmlz += `
+                my_pets_html += `
                  <tr>
                     <td style="width: 30px;height: 30px;">
                         <img src='${space.image}'>
                     </td>
                     <td>
-                        ${space.breed}<br>
+                        ${space.name}<br>
                         .:${space.rank}:.
                     </td>
                     <td>
@@ -230,12 +232,80 @@ Maximum moves total per pet:
                 </tr>
                 `;
             }
+            else if (space['type'] == 'enemy') {
+
+                var bonus_attack_strength_string = "";
+                if(space.bonus_attack_strength) {
+                    bonus_attack_strength_string = `<span style='font-size:12px'>(+${space.bonus_attack_strength})</span>`;
+                }
+
+                foe_pets_html += `
+                 <tr>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='${space.image}'>
+                    </td>
+                    <td>
+                        ${space.name}
+                    </td>
+                    <td>
+                        ${space.health}
+                    </td>
+                    <td>
+                        ${space.base_attack_strength}
+                        ${bonus_attack_strength_string}
+                    </td>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='images/blank.png'>
+                    </td>
+                    <td>
+                        ${space.base_defense_strength}
+                    </td>
+                    <td style="width: 30px;height: 30px;">
+                        <img src='images/blank.png'>
+                    </td>
+                    <td>
+                        0
+                    </td>
+                </tr>
+                `;
+            }
         }
     }
 
+    htmlz += my_pets_html;
 
+    htmlz += `
+                <tr>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Name
+                    </td>
+                    <td>
+                        Health
+                    </td>
+                    <td>
+                        Attack
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        Defence
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                    <td>
+                        &nbsp;
+                    </td>
+                </tr>
+    `;
 
+    htmlz += foe_pets_html;
 
+    htmlz += `</table></td></tr></table>`;
 
     $('#content').html(htmlz);
     add_item_help_links();

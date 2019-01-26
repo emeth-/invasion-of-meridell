@@ -4,7 +4,7 @@ function generate_new_team() {
             "image": "images/Moeh00.jpg",
             "breed": "Moehog",
             "rank": "Villager",
-            "name": "Soldier 0",
+            "name": "Moehog",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 7 + rand(0, 2), //7-9
             "bonus_attack_strength": 0,
@@ -17,7 +17,7 @@ function generate_new_team() {
             "image": "images/Skei01.jpg",
             "breed": "Skeith",
             "rank": "Villager",
-            "name": "Soldier 1",
+            "name": "Skeith",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 15 + rand(0, 3), //15-18
             "bonus_attack_strength": 0,
@@ -30,7 +30,7 @@ function generate_new_team() {
             "image": "images/Tech02.jpg",
             "breed": "Techo",
             "rank": "Villager",
-            "name": "Soldier 2",
+            "name": "Techo",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 7 + rand(0, 4), //7-11
             "bonus_attack_strength": 0,
@@ -43,7 +43,7 @@ function generate_new_team() {
             "image": "images/Scor03.jpg",
             "breed": "Scorchio",
             "rank": "Villager",
-            "name": "Soldier 3",
+            "name": "Scorchio",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 11 + rand(0, 2), //11-13
             "bonus_attack_strength": 0,
@@ -56,7 +56,7 @@ function generate_new_team() {
             "image": "images/Grun04.jpg",
             "breed": "Grundo",
             "rank": "Villager",
-            "name": "Soldier 4",
+            "name": "Grundo",
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 12 + rand(0, 2), //12-14
             "bonus_attack_strength": 0,
