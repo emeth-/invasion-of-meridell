@@ -12,6 +12,7 @@ function generate_new_team() {
             "base_defense_strength": 9 + rand(0, 2), //9-11
             "defense_item": "",
             "saves": 0,
+            "type": "team"
         },
         {
             "image": "images/Skei01.jpg",
@@ -25,6 +26,7 @@ function generate_new_team() {
             "base_defense_strength": 8 + rand(0, 4), //8-12
             "defense_item": "",
             "saves": 0,
+            "type": "team"
         },
         {
             "image": "images/Tech02.jpg",
@@ -38,6 +40,7 @@ function generate_new_team() {
             "base_defense_strength": 10 + rand(0, 2), //10-12
             "defense_item": "",
             "saves": 0,
+            "type": "team"
         },
         {
             "image": "images/Scor03.jpg",
@@ -51,6 +54,7 @@ function generate_new_team() {
             "base_defense_strength": 10 + rand(0, 2), //10-12
             "defense_item": "",
             "saves": 0,
+            "type": "team"
         },
         {
             "image": "images/Grun04.jpg",
@@ -64,6 +68,7 @@ function generate_new_team() {
             "base_defense_strength": 11 + rand(0, 4), //11-14
             "defense_item": "",
             "saves": 0,
+            "type": "team"
         }
     ];
 

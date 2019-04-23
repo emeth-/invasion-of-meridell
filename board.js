@@ -139,6 +139,7 @@ function start_mission() {
 
             var image = "images/blank.png";
             var data_type = "blank";
+            var name = "";
 
             if (board[i][j]['image']) {
                 image = board[i][j]['image'];
@@ -148,8 +149,12 @@ function start_mission() {
                 data_type = board[i][j]['type'];
             }
 
+            if (board[i][j]['name']) {
+                name = board[i][j]['name'];
+            }
 
-            htmlz += "<img src='"+image+"' border=2 data-type='"+data_type+"' height=32 width=32 onclick='board_click("+i+", "+j+")' data-boardi='"+i+"' data-boardj='"+j+"'>";
+
+            htmlz += "<img src='"+image+"' border=2 data-type='"+data_type+"' data-name='"+name+"' height=32 width=32 onclick='board_click("+i+", "+j+")' data-boardi='"+i+"' data-boardj='"+j+"'>";
 
             htmlz += `</td>`;
         }
@@ -934,7 +939,6 @@ function set_up_villages(board) {
 function set_up_soldiers(board) {
     for(var i=0; i<5; i++) {
         var soldier = window.my_team[i];
-        soldier['type'] = "team";
         board[9][i*2] = soldier;
     }
     return board;
@@ -1016,22 +1020,26 @@ function set_up_items(board) {
 
     board[item_1_spawn[0]][item_1_spawn[1]] = {
         "type": "attack_item",
-        "image": "images/"+attack_items_by_mission[mission][attack_item_key_one]+".jpg"
+        "image": "images/"+attack_items_by_mission[mission][attack_item_key_one]+".jpg",
+        "name": attack_items_by_mission[mission][attack_item_key_one]
     };
 
     board[item_2_spawn[0]][item_2_spawn[1]] = {
         "type": "attack_item",
-        "image": "images/"+attack_items_by_mission[mission][attack_item_key_two]+".jpg"
+        "image": "images/"+attack_items_by_mission[mission][attack_item_key_two]+".jpg",
+        "name": attack_items_by_mission[mission][attack_item_key_two]
     };
 
     board[item_3_spawn[0]][item_3_spawn[1]] = {
         "type": "defense_item",
-        "image": "images/"+defense_items_by_mission[mission][defense_item_key_one]+".jpg"
+        "image": "images/"+defense_items_by_mission[mission][defense_item_key_one]+".jpg",
+        "name": defense_items_by_mission[mission][defense_item_key_one]
     };
 
     board[item_4_spawn[0]][item_4_spawn[1]] = {
         "type": "defense_item",
-        "image": "images/"+defense_items_by_mission[mission][defense_item_key_two]+".jpg"
+        "image": "images/"+defense_items_by_mission[mission][defense_item_key_two]+".jpg",
+        "name": defense_items_by_mission[mission][defense_item_key_two]
     };
 
     return board;
