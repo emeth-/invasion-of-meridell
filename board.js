@@ -1,12 +1,15 @@
+//HTML board is truth
+//Team is kept in window.my_team
+//Enemies are kept in window.enemies
+
 function board_click(i, j) {
 
-    var clicked_square_data = board[i][j];
     var clicked_square_html = $("#i"+i+"j"+j).find('img');
 
-    console.log("board clicked", i, j, board[i][j], clicked_square_html);
+    console.log("board clicked", i, j, clicked_square_html);
 
     //If a member of my team was clicked
-    if (clicked_square_html.attr('data-type')== 'team') {
+    if (clicked_square_html.attr('data-type') == 'team') {
         console.log("TEAM MEMBER CLICKED");
         //If they were previously selected, unselect them.
         if (clicked_square_html.attr('data-selected')) {
@@ -28,57 +31,96 @@ function board_click(i, j) {
     }
 
     //If an empty square was clicked
-    if (clicked_square_html.attr('data-type')== 'blank') {
+    else if (clicked_square_html.attr('data-type') == 'blank') {
         console.log("BLANK SQUARE CLICKED");
+
         //If I have a member of my team selected.
-        if ($('img[data-selected]').length) {
+        var selected_team_member = $('img[data-selected]');
+        if (selected_team_member.length) {
 
-            var team_member_i = $('img[data-selected]').attr('data-boardi');
-            var team_member_j = $('img[data-selected]').attr('data-boardj');
-            var team_square_data = board[team_member_i][team_member_j];
-            var team_square_html = $("#i"+team_member_i+"j"+team_member_j).find('img');
-            var error = "";
+            //Move them
+            var selected_team_member_i = selected_team_member.attr('data-boardi');
+            var selected_team_member_j = selected_team_member.attr('data-boardj');
+            move_team_member(selected_team_member_i, selected_team_member_j, i, j);
 
-            //Confirm the movement is a max of 1 unit in any direction.
-            if (Math.abs(i - team_member_i) > 1 || Math.abs(j - team_member_j) > 1) {
-                error = "Unit cannot move more than one square in any direction."
-            }
-
-            //Move my selected team member to that square.
-            if (!error) {
-                //Team member is now on new square
-                clicked_square_html.attr('src', team_square_html.attr('data-selected'));
-                clicked_square_html.attr('data-type', team_square_html.attr('data-type'));
-
-                //Old square is set to blank
-                team_square_html.attr('src', 'images/blank.png');
-                team_square_html.attr('data-type', 'blank');
-                team_square_html.removeAttr('data-selected');
-            }
-            else {
-                alert(error);
-            }
         }
     }
+
+    //If an attack item square was clicked
+    else if (clicked_square_html.attr('data-type') == 'attack_item') {
+        console.log("Attack Item SQUARE CLICKED");
+
+        //If I have a member of my team selected.
+        var selected_team_member = $('img[data-selected]');
+        if (selected_team_member.length) {
+
+            var selected_team_member_i = selected_team_member.attr('data-boardi');
+            var selected_team_member_j = selected_team_member.attr('data-boardj');
+
+            //Pickup item
+            //TODO
+
+            //Move my character
+            move_team_member(selected_team_member_i, selected_team_member_j, i, j);
+
+            //Drop old item (if necessary)
+            //TODO
+
+
+        }
+
+    }
+
+    //defense_item
+}
+
+function move_team_member(from_i, from_j, to_i, to_j) {
+
+    var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
+    var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
+    var error = "";
+
+    //Confirm the movement is a max of 1 unit in any direction.
+    if (Math.abs(from_i - to_i) > 1 || Math.abs(from_j - to_j) > 1) {
+        error = "Unit cannot move more than one square in any direction."
+    }
+
+    //Move my selected team member to that square.
+    if (!error) {
+        //Team member is now on new square
+        to_square_html.attr('src', from_square_html.attr('data-selected'));
+        to_square_html.attr('data-type', from_square_html.attr('data-type'));
+
+        //Old square is set to blank
+        from_square_html.attr('src', 'images/blank.png');
+        from_square_html.attr('data-type', 'blank');
+        from_square_html.removeAttr('data-selected');
+    }
+    else {
+        alert(error);
+        return false;
+    }
+
+    return true;
 }
 
 function start_mission() {
-    window.board = [];
+    var board = [];
     for($i=0; $i<10; $i++) {
-        window.board[$i] = [];
+        board[$i] = [];
         for($j=0; $j<10; $j++) {
-            window.board[$i][$j] = {
+            board[$i][$j] = {
                 "type": "blank",
                 "image": "images/blank.png"
             };
         }
     }
-    set_up_treasure();
-    set_up_enemies();
-    set_up_mountains();
-    set_up_villages();
-    set_up_soldiers();
-    set_up_items();
+    board = set_up_treasure(board);
+    board = set_up_enemies(board);
+    board = set_up_mountains(board);
+    board = set_up_villages(board);
+    board = set_up_soldiers(board);
+    board = set_up_items(board);
 
     var htmlz = `
 <table width=100% border=0 style="border:0px">
@@ -247,101 +289,99 @@ Maximum moves total per pet:
 
 
     var my_pets_html = "";
-    var foe_pets_html = "";
-    for(var i=0; i<10; i++) {
-        for(var j=0; j<10; j++) {
-            var space = window.board[i][j];
-            if (space['type'] == 'team') {
-
-                var bonus_attack_strength_string = "";
-                if(space.bonus_attack_strength) {
-                    bonus_attack_strength_string = `<span style='font-size:12px'>(+${space.bonus_attack_strength})</span>`;
-                }
-                bonus_defense_strength_string = "";
-                if(space.bonus_defense_strength) {
-                    bonus_defense_strength_string = `<span style='font-size:12px'>(+${space.bonus_defense_strength})</span>`;
-                }
-
-                attack_image = "images/blank.png";
-                if(space.attack_item) {
-                    attack_image = "...?";
-                }
-
-                defense_image = "images/blank.png";
-                if(space.defense_item) {
-                    defense_image = "...?";
-                }
-
-                my_pets_html += `
-                 <tr>
-                    <td style="width: 30px;height: 30px;">
-                        <img src='${space.image}'>
-                    </td>
-                    <td>
-                        ${space.name}<br>
-                        .:${space.rank}:.
-                    </td>
-                    <td>
-                        ${space.health}
-                    </td>
-                    <td>
-                        ${space.base_attack_strength}
-                        ${bonus_attack_strength_string}
-                    </td>
-                    <td style="width: 30px;height: 30px;">
-                        <img src='${attack_image}'>
-                    </td>
-                    <td>
-                        ${space.base_defense_strength}
-                        ${bonus_defense_strength_string}
-                    </td>
-                    <td style="width: 30px;height: 30px;">
-                        <img src='${defense_image}'>
-                    </td>
-                    <td>
-                        0
-                    </td>
-                </tr>
-                `;
-            }
-            else if (space['type'] == 'enemy') {
-
-                var bonus_attack_strength_string = "";
-                if(space.bonus_attack_strength) {
-                    bonus_attack_strength_string = `<span style='font-size:12px'>(+${space.bonus_attack_strength})</span>`;
-                }
-
-                foe_pets_html += `
-                 <tr>
-                    <td style="width: 30px;height: 30px;">
-                        <img src='${space.image}'>
-                    </td>
-                    <td>
-                        ${space.name}
-                    </td>
-                    <td>
-                        ${space.health}
-                    </td>
-                    <td>
-                        ${space.base_attack_strength}
-                        ${bonus_attack_strength_string}
-                    </td>
-                    <td style="width: 30px;height: 30px;">
-                        <img src='images/blank.png'>
-                    </td>
-                    <td>
-                        ${space.base_defense_strength}
-                    </td>
-                    <td style="width: 30px;height: 30px;">
-                        <img src='images/blank.png'>
-                    </td>
-                    <td>
-                        0
-                    </td>
-                </tr>
-                `;
-            }
+    for (var i=0; i<window.my_team.length; i++) {
+        var pet = window.my_team[i];
+        var bonus_attack_strength_string = "";
+        if(pet.bonus_attack_strength) {
+            bonus_attack_strength_string = `<span style='font-size:12px'>(+${pet.bonus_attack_strength})</span>`;
         }
+        bonus_defense_strength_string = "";
+        if(pet.bonus_defense_strength) {
+            bonus_defense_strength_string = `<span style='font-size:12px'>(+${pet.bonus_defense_strength})</span>`;
+        }
+
+        attack_image = "images/blank.png";
+        if(pet.attack_item) {
+            attack_image = "...?";
+        }
+
+        defense_image = "images/blank.png";
+        if(pet.defense_item) {
+            defense_image = "...?";
+        }
+
+        my_pets_html += `
+         <tr>
+            <td style="width: 30px;height: 30px;">
+                <img src='${pet.image}'>
+            </td>
+            <td>
+                ${pet.name}<br>
+                .:${pet.rank}:.
+            </td>
+            <td>
+                ${pet.health}
+            </td>
+            <td>
+                ${pet.base_attack_strength}
+                ${bonus_attack_strength_string}
+            </td>
+            <td style="width: 30px;height: 30px;">
+                <img src='${attack_image}'>
+            </td>
+            <td>
+                ${pet.base_defense_strength}
+                ${bonus_defense_strength_string}
+            </td>
+            <td style="width: 30px;height: 30px;">
+                <img src='${defense_image}'>
+            </td>
+            <td>
+                0
+            </td>
+        </tr>
+        `;
+    }
+
+    var foe_pets_html = "";
+    for (var i=0; i<window.enemies.length; i++) {
+
+        var enemy_pet = window.enemies[i];
+
+        var bonus_attack_strength_string = "";
+        if(enemy_pet.bonus_attack_strength) {
+            bonus_attack_strength_string = `<span style='font-size:12px'>(+${enemy_pet.bonus_attack_strength})</span>`;
+        }
+
+        foe_pets_html += `
+         <tr>
+            <td style="width: 30px;height: 30px;">
+                <img src='${enemy_pet.image}'>
+            </td>
+            <td>
+                ${enemy_pet.name}
+            </td>
+            <td>
+                ${enemy_pet.health}
+            </td>
+            <td>
+                ${enemy_pet.base_attack_strength}
+                ${bonus_attack_strength_string}
+            </td>
+            <td style="width: 30px;height: 30px;">
+                <img src='images/blank.png'>
+            </td>
+            <td>
+                ${enemy_pet.base_defense_strength}
+            </td>
+            <td style="width: 30px;height: 30px;">
+                <img src='images/blank.png'>
+            </td>
+            <td>
+                0
+            </td>
+        </tr>
+        `;
     }
 
     htmlz += my_pets_html;
@@ -410,7 +450,7 @@ function clicked_item_popup(item_url) {
 function add_item_help_links() {
 
     var items = {};
-    $('img[data-type=treasure], img[data-type=item]').each(function() {
+    $('img[data-type=treasure], img[data-type=attack_item], img[data-type=defense_item]').each(function() {
         var item_image_url = $(this).attr('src');
 
         if (!items[item_image_url]) { //only want to show each item once
@@ -422,7 +462,7 @@ function add_item_help_links() {
 
 }
 
-function set_up_treasure() {
+function set_up_treasure(board) {
     var image = "images/blank.png";
 
     if(mission == 1) {
@@ -456,10 +496,11 @@ function set_up_treasure() {
         image = "images/Orb.jpg";
     }
 
-    window.board[0][4] = {
+    board[0][4] = {
         "type": "treasure",
         "image": image
     };
+    return board;
 }
 
 
@@ -487,7 +528,7 @@ function attack_strength_bonus_calc(base_attack_strength) {
     return bonus_attack_strength;
 }
 
-function set_up_enemies() {
+function set_up_enemies(board) {
 
     //Also note max is 8, don't add_each_wave if already 8 enemies
     var e = []
@@ -827,24 +868,27 @@ function set_up_enemies() {
         }
     }
 
-    window.board[0][1] = e[0];
-    window.board[0][3] = e[1];
-    window.board[0][5] = e[2];
-    window.board[0][7] = e[3];
-    window.board[0][9] = e[4];
+    window.enemies = e;
+
+    board[0][1] = e[0];
+    board[0][3] = e[1];
+    board[0][5] = e[2];
+    board[0][7] = e[3];
+    board[0][9] = e[4];
     if(e[5]) {
-        window.board[2][2] = e[5];
+        board[2][2] = e[5];
     }
     if(e[6]) {
-        window.board[2][4] = e[6];
+        board[2][4] = e[6];
     }
     if(e[7]) {
-        window.board[2][6] = e[7];
+        board[2][6] = e[7];
     }
+    return board;
 }
 
 
-function set_up_mountains() {
+function set_up_mountains(board) {
     //Notes... mountains can be overwritten by items AND villages
     for(var i=0; i<4; i++) {
         var mtn = {
@@ -853,48 +897,51 @@ function set_up_mountains() {
         };
         var mtn_layout = rand(1,3);
         if (mtn_layout == 1) {
-            window.board[(i+1)*2][0] = mtn;
-            window.board[(i+1)*2][9] = mtn;
+            board[(i+1)*2][0] = mtn;
+            board[(i+1)*2][9] = mtn;
         }
         else if (mtn_layout == 2) {
-            window.board[(i+1)*2][1] = mtn;
-            window.board[(i+1)*2][8] = mtn;
+            board[(i+1)*2][1] = mtn;
+            board[(i+1)*2][8] = mtn;
         }
         else if (mtn_layout == 3) {
-            window.board[(i+1)*2][5] = mtn;
+            board[(i+1)*2][5] = mtn;
             if(i>0) {
                 //In first mountain row, this is skipped because an invader can spawn here...
-                window.board[(i+1)*2][4] = mtn;
+                board[(i+1)*2][4] = mtn;
             }
         }
     }
+    return board;
 }
 
 
-function set_up_villages() {
+function set_up_villages(board) {
     var vlg = {
         "type": "village",
         "image": "images/vlg.jpg"
     };
-    window.board[6][rand(0,4)] = vlg;
-    window.board[7][rand(0,4)] = vlg;
-    window.board[8][rand(0,4)] = vlg;
-    window.board[6][rand(0,4)+5] = vlg;
-    window.board[7][rand(0,4)+5] = vlg;
-    window.board[8][rand(0,4)+5] = vlg;
+    board[6][rand(0,4)] = vlg;
+    board[7][rand(0,4)] = vlg;
+    board[8][rand(0,4)] = vlg;
+    board[6][rand(0,4)+5] = vlg;
+    board[7][rand(0,4)+5] = vlg;
+    board[8][rand(0,4)+5] = vlg;
+    return board;
 }
 
 
-function set_up_soldiers() {
+function set_up_soldiers(board) {
     for(var i=0; i<5; i++) {
         var soldier = window.my_team[i];
         soldier['type'] = "team";
-        window.board[9][i*2] = soldier;
+        board[9][i*2] = soldier;
     }
+    return board;
 }
 
 
-function set_up_items() {
+function set_up_items(board) {
 
     potions_by_mission = {
         1: "Health_Potion",
@@ -936,11 +983,11 @@ function set_up_items() {
     };
 
     //potions
-    window.board[5][4] = {
+    board[5][4] = {
         "type": "potion",
         "image": "images/"+potions_by_mission[mission]+".jpg"
     };
-    window.board[5][6] = {
+    board[5][6] = {
         "type": "potion",
         "image": "images/"+potions_by_mission[mission]+".jpg"
     };
@@ -948,7 +995,7 @@ function set_up_items() {
     empty_spaces_for_item_spawns = [];
     for(i=4; i<9; i++) {
         for(j=0; j<10; j++) {
-            if(window.board[i][j]['type']=="blank") {
+            if(board[i][j]['type']=="blank") {
                 empty_spaces_for_item_spawns.push([i, j]);
             }
         }
@@ -968,29 +1015,46 @@ function set_up_items() {
     item_4_spawn = empty_spaces_for_item_spawns[item_spawn_spaces[3]];
 
     board[item_1_spawn[0]][item_1_spawn[1]] = {
-        "type": "item",
+        "type": "attack_item",
         "image": "images/"+attack_items_by_mission[mission][attack_item_key_one]+".jpg"
     };
 
     board[item_2_spawn[0]][item_2_spawn[1]] = {
-        "type": "item",
+        "type": "attack_item",
         "image": "images/"+attack_items_by_mission[mission][attack_item_key_two]+".jpg"
     };
 
     board[item_3_spawn[0]][item_3_spawn[1]] = {
-        "type": "item",
+        "type": "defense_item",
         "image": "images/"+defense_items_by_mission[mission][defense_item_key_one]+".jpg"
     };
 
     board[item_4_spawn[0]][item_4_spawn[1]] = {
-        "type": "item",
+        "type": "defense_item",
         "image": "images/"+defense_items_by_mission[mission][defense_item_key_two]+".jpg"
     };
+
+    return board;
 }
 
 
 
 
+function get_team_member_by_name(name) {
+    for (var i=0; i<window.my_team.length; i++) {
+        if (window.my_team[i].name == name) {
+            return window.my_team[i];
+        }
+    }
+}
+
+function get_enemy_by_name(name) {
+    for (var i=0; i<window.enemies.length; i++) {
+        if (window.enemies[i].name == name) {
+            return window.enemies[i];
+        }
+    }
+}
 
 
 

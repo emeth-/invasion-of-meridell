@@ -223,10 +223,10 @@ function team_select() {
         </tr>
     `;
 
-    my_team = generate_new_team();
+    window.my_team = generate_new_team();
 
-    for(var i=0; i<my_team.length; i++) {
-        var s = my_team[i];
+    for(var i=0; i<window.my_team.length; i++) {
+        var s = window.my_team[i];
 
         var bonus_attack_strength_string = "";
         if(s['bonus_attack_strength']) {
