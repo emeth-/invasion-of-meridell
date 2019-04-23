@@ -1,3 +1,56 @@
+function board_click(i, j) {
+
+    var clicked_square_data = board[i][j];
+    var clicked_square_html = $("#i"+i+"j"+j).find('img');
+
+    console.log("board clicked", i, j, board[i][j], clicked_square_html);
+
+    //If a member of my team was clicked
+    if (clicked_square_html.attr('data-type')== 'team') {
+        console.log("TEAM MEMBER CLICKED");
+        //If they were previously selected, unselect them.
+        if (clicked_square_html.attr('data-selected')) {
+            clicked_square_html.attr('src', clicked_square_html.attr('data-selected'));
+            clicked_square_html.removeAttr('data-selected');
+        }
+        else { //Else...
+
+            // Unselect any other team members that were selected...
+            $('img[data-selected]').each(function(){
+                $(this).attr('src', $(this).attr('data-selected'));
+                $(this).removeAttr('data-selected');
+            });
+
+            // Select this team member
+            clicked_square_html.attr('data-selected', clicked_square_html.attr('src'));
+            clicked_square_html.attr('src', 'images/grey.png');
+        }
+    }
+
+    //If an empty square was clicked
+    if (clicked_square_html.attr('data-type')== 'blank') {
+        console.log("BLANK SQUARE CLICKED");
+        //If I have a member of my team selected.
+        if ($('img[data-selected]').length) {
+
+            //Move my selected team member to that square.
+            var team_member_old_i = $('img[data-selected]').attr('data-boardi');
+            var team_member_old_j = $('img[data-selected]').attr('data-boardj');
+            var team_square_data = board[team_member_old_i][team_member_old_j];
+            var team_square_html = $("#i"+team_member_old_i+"j"+team_member_old_j).find('img');
+
+            //Team member is now on new square
+            clicked_square_html.attr('src', team_square_html.attr('data-selected'));
+            clicked_square_html.attr('data-type', team_square_html.attr('data-type'));
+
+            //Old square is set to blank
+            team_square_html.attr('src', 'images/blank.png');
+            team_square_html.attr('data-type', 'blank');
+            team_square_html.removeAttr('data-selected');
+        }
+    }
+}
+
 function start_mission() {
     window.board = [];
     for($i=0; $i<10; $i++) {
@@ -30,12 +83,20 @@ function start_mission() {
         htmlz += `<tr>`;
         for(var j=0; j<10; j++) {
             htmlz += `<td id='i${i}j${j}'>`;
+
+            var image = "images/blank.png";
+            var data_type = "blank";
+
             if (board[i][j]['image']) {
-                htmlz += "<img src='"+board[i][j]['image']+"' border=2 data-type='"+board[i][j]['type']+"' height=32 width=32>";
+                image = board[i][j]['image'];
             }
-            else {
-                htmlz += `<img src='images/blank.png' border=2>`;
+
+            if (board[i][j]['type']) {
+                data_type = board[i][j]['type'];
             }
+
+
+            htmlz += "<img src='"+image+"' border=2 data-type='"+data_type+"' height=32 width=32 onclick='board_click("+i+", "+j+")' data-boardi='"+i+"' data-boardj='"+j+"'>";
 
             htmlz += `</td>`;
         }
