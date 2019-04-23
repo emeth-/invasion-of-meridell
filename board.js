@@ -33,20 +33,31 @@ function board_click(i, j) {
         //If I have a member of my team selected.
         if ($('img[data-selected]').length) {
 
+            var team_member_i = $('img[data-selected]').attr('data-boardi');
+            var team_member_j = $('img[data-selected]').attr('data-boardj');
+            var team_square_data = board[team_member_i][team_member_j];
+            var team_square_html = $("#i"+team_member_i+"j"+team_member_j).find('img');
+            var error = "";
+
+            //Confirm the movement is a max of 1 unit in any direction.
+            if (Math.abs(i - team_member_i) > 1 || Math.abs(j - team_member_j) > 1) {
+                error = "Unit cannot move more than one square in any direction."
+            }
+
             //Move my selected team member to that square.
-            var team_member_old_i = $('img[data-selected]').attr('data-boardi');
-            var team_member_old_j = $('img[data-selected]').attr('data-boardj');
-            var team_square_data = board[team_member_old_i][team_member_old_j];
-            var team_square_html = $("#i"+team_member_old_i+"j"+team_member_old_j).find('img');
+            if (!error) {
+                //Team member is now on new square
+                clicked_square_html.attr('src', team_square_html.attr('data-selected'));
+                clicked_square_html.attr('data-type', team_square_html.attr('data-type'));
 
-            //Team member is now on new square
-            clicked_square_html.attr('src', team_square_html.attr('data-selected'));
-            clicked_square_html.attr('data-type', team_square_html.attr('data-type'));
-
-            //Old square is set to blank
-            team_square_html.attr('src', 'images/blank.png');
-            team_square_html.attr('data-type', 'blank');
-            team_square_html.removeAttr('data-selected');
+                //Old square is set to blank
+                team_square_html.attr('src', 'images/blank.png');
+                team_square_html.attr('data-type', 'blank');
+                team_square_html.removeAttr('data-selected');
+            }
+            else {
+                alert(error);
+            }
         }
     }
 }
