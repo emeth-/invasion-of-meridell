@@ -47,8 +47,8 @@ function board_click(i, j) {
     }
 
     //If an attack item square was clicked
-    else if (clicked_square_html.attr('data-type') == 'attack_item') {
-        console.log("Attack Item SQUARE CLICKED");
+    else if (clicked_square_html.attr('data-type') == 'attack_item' || clicked_square_html.attr('data-type') == 'defense_item') {
+        console.log("Attack/Defense Item SQUARE CLICKED");
 
         //If I have a member of my team selected.
         var selected_team_member = $('img[data-selected]');
@@ -57,8 +57,18 @@ function board_click(i, j) {
             var selected_team_member_i = selected_team_member.attr('data-boardi');
             var selected_team_member_j = selected_team_member.attr('data-boardj');
 
+            var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
+            console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
             //Pickup item
-            //TODO
+            if (clicked_square_html.attr('data-type') == 'attack_item') {
+                team_member_data.attack_item_name = clicked_square_html.attr('data-name');
+                team_member_data.attack_item_img = clicked_square_html.attr('src');
+            }
+            if (clicked_square_html.attr('data-type') == 'defense_item') {
+                team_member_data.defense_item_name = clicked_square_html.attr('data-name');
+                team_member_data.defense_item_img = clicked_square_html.attr('src');
+            }
+            render_pets_stats();
 
             //Move my character
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
@@ -90,10 +100,12 @@ function move_team_member(from_i, from_j, to_i, to_j) {
         //Team member is now on new square
         to_square_html.attr('src', from_square_html.attr('data-selected'));
         to_square_html.attr('data-type', from_square_html.attr('data-type'));
+        to_square_html.attr('data-name', from_square_html.attr('data-name'));
 
         //Old square is set to blank
         from_square_html.attr('src', 'images/blank.png');
         from_square_html.attr('data-type', 'blank');
+        from_square_html.attr('data-name', '');
         from_square_html.removeAttr('data-selected');
     }
     else {
@@ -240,14 +252,44 @@ Maximum moves total per pet:
 <span style="font-size:12px;line-height: 10px;">
 <a href='#' class='plain_link'>End Turn Now</a>
 </span>
-`;
-
-    //stats
-    htmlz += `
         </center>
-
         </td>
         <td style="border:0px;vertical-align:top;text-align:right">
+        <div id='my_pets_stats'>
+
+`;
+    //stats
+
+    htmlz += `
+    </div>
+    <br><br>
+    <table id='bottomright'>
+    <tr>
+    <td>
+    <img src='images/Peon.jpg'>
+    <br><b>Peon</b>
+    </td>
+    <td>
+    Mission<br>1<br>Battle<br>3
+    </td>
+    </tr>
+    <tr>
+    <td colspan=2>
+    Lost Item: Found for this mission!
+    </td>
+    </tr>
+    </table>
+
+    </td></tr></table>`;
+
+    $('#content').html(htmlz);
+    render_pets_stats();
+    add_item_help_links();
+}
+
+function render_pets_stats() {
+    var htmlz = '';
+    htmlz += `
             <!--////////////////////////////
             //Right Side
             ////////////////////////////-->
@@ -306,17 +348,17 @@ Maximum moves total per pet:
         }
 
         attack_image = "images/blank.png";
-        if(pet.attack_item) {
-            attack_image = "...?";
+        if(pet.attack_item_img) {
+            attack_image = pet.attack_item_img;
         }
 
         defense_image = "images/blank.png";
-        if(pet.defense_item) {
-            defense_image = "...?";
+        if(pet.defense_item_img) {
+            defense_image = pet.defense_item_img;
         }
 
         my_pets_html += `
-         <tr>
+         <tr class='my_team_row' data-name='${pet.name}'>
             <td style="width: 30px;height: 30px;">
                 <img src='${pet.image}'>
             </td>
@@ -331,14 +373,14 @@ Maximum moves total per pet:
                 ${pet.base_attack_strength}
                 ${bonus_attack_strength_string}
             </td>
-            <td style="width: 30px;height: 30px;">
+            <td style="width: 30px;height: 30px;" class='attack_item'>
                 <img src='${attack_image}'>
             </td>
             <td>
                 ${pet.base_defense_strength}
                 ${bonus_defense_strength_string}
             </td>
-            <td style="width: 30px;height: 30px;">
+            <td style="width: 30px;height: 30px;" class='defense_item'>
                 <img src='${defense_image}'>
             </td>
             <td>
@@ -422,30 +464,8 @@ Maximum moves total per pet:
 
     htmlz += foe_pets_html;
 
-    htmlz += `</table>
-
-    <br><br>
-    <table id='bottomright'>
-    <tr>
-    <td>
-    <img src='images/Peon.jpg'>
-    <br><b>Peon</b>
-    </td>
-    <td>
-    Mission<br>1<br>Battle<br>3
-    </td>
-    </tr>
-    <tr>
-    <td colspan=2>
-    Lost Item: Found for this mission!
-    </td>
-    </tr>
-    </table>
-
-    </td></tr></table>`;
-
-    $('#content').html(htmlz);
-    add_item_help_links();
+    htmlz += `</table>`;
+    $('#my_pets_stats').html(htmlz);
 }
 
 function clicked_item_popup(item_url) {

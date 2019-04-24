@@ -8,9 +8,11 @@ function generate_new_team() {
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 7 + rand(0, 2), //7-9
             "bonus_attack_strength": 0,
-            "attack_item": "",
+            "attack_item_name": "",
+            "attack_item_img": "",
             "base_defense_strength": 9 + rand(0, 2), //9-11
-            "defense_item": "",
+            "defense_item_name": "",
+            "defense_item_img": "",
             "saves": 0,
             "type": "team"
         },
@@ -22,9 +24,11 @@ function generate_new_team() {
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 15 + rand(0, 3), //15-18
             "bonus_attack_strength": 0,
-            "attack_item": "",
+            "attack_item_name": "",
+            "attack_item_img": "",
             "base_defense_strength": 8 + rand(0, 4), //8-12
-            "defense_item": "",
+            "defense_item_name": "",
+            "defense_item_img": "",
             "saves": 0,
             "type": "team"
         },
@@ -36,9 +40,11 @@ function generate_new_team() {
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 7 + rand(0, 4), //7-11
             "bonus_attack_strength": 0,
-            "attack_item": "",
+            "attack_item_name": "",
+            "attack_item_img": "",
             "base_defense_strength": 10 + rand(0, 2), //10-12
-            "defense_item": "",
+            "defense_item_name": "",
+            "defense_item_img": "",
             "saves": 0,
             "type": "team"
         },
@@ -50,9 +56,11 @@ function generate_new_team() {
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 11 + rand(0, 2), //11-13
             "bonus_attack_strength": 0,
-            "attack_item": "",
+            "attack_item_name": "",
+            "attack_item_img": "",
             "base_defense_strength": 10 + rand(0, 2), //10-12
-            "defense_item": "",
+            "defense_item_name": "",
+            "defense_item_img": "",
             "saves": 0,
             "type": "team"
         },
@@ -64,9 +72,11 @@ function generate_new_team() {
             "health": 15 + rand(0, 3), //15-18
             "base_attack_strength": 12 + rand(0, 2), //12-14
             "bonus_attack_strength": 0,
-            "attack_item": "",
+            "attack_item_name": "",
+            "attack_item_img": "",
             "base_defense_strength": 11 + rand(0, 4), //11-14
-            "defense_item": "",
+            "defense_item_name": "",
+            "defense_item_img": "",
             "saves": 0,
             "type": "team"
         }
@@ -256,13 +266,13 @@ function team_select() {
                 ${bonus_attack_strength_string}
             </td>
             <td class='team_select'>
-                ${s['attack_item']}
+                <img src='${s['attack_item_img']}'>
             </td>
             <td class='team_select'>
                 ${s['base_defense_strength']}
             </td>
             <td class='team_select'>
-                ${s['defense_item']}
+                <img src='${s['defense_item_img']}'>
             </td>
             <td class='team_select'>
                 <center>
