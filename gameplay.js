@@ -5,9 +5,11 @@ function board_click(i, j) {
 
     console.log("board clicked", i, j, clicked_square_html);
 
+    console.log(clicked_square_html.attr('data-type'), " CLICKED");
+
     //If a member of my team was clicked
     if (clicked_square_html.attr('data-type') == 'team') {
-        console.log("TEAM MEMBER CLICKED");
+
         //If they were previously selected, unselect them.
         if (clicked_square_html.attr('data-selected')) {
             clicked_square_html.attr('src', clicked_square_html.attr('data-selected'));
@@ -29,7 +31,6 @@ function board_click(i, j) {
 
     //If an empty square was clicked
     else if (clicked_square_html.attr('data-type') == 'blank') {
-        console.log("BLANK SQUARE CLICKED");
 
         //If I have a member of my team selected.
         var selected_team_member = $('img[data-selected]');
@@ -45,7 +46,6 @@ function board_click(i, j) {
 
     //If an attack item square was clicked
     else if (clicked_square_html.attr('data-type') == 'attack_item' || clicked_square_html.attr('data-type') == 'defense_item') {
-        console.log("Attack/Defense Item SQUARE CLICKED");
 
         //If I have a member of my team selected.
         var selected_team_member = $('img[data-selected]');
@@ -56,12 +56,39 @@ function board_click(i, j) {
 
             var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
             console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
+
+            var drop_item_name = "";
+            var drop_item_img = "";
+            var drop_item_type = "";
+            var drop_item_i = "";
+            var drop_item_j = "";
+
             //Pickup item
             if (clicked_square_html.attr('data-type') == 'attack_item') {
+
+                if (team_member_data.attack_item_name) {
+                    //team member already holding an item, so drop it.
+                    drop_item_name = team_member_data.attack_item_name;
+                    drop_item_img = team_member_data.attack_item_img;
+                    drop_item_type = clicked_square_html.attr('data-type');
+                    drop_item_i = selected_team_member_i;
+                    drop_item_j = selected_team_member_j;
+                }
+
                 team_member_data.attack_item_name = clicked_square_html.attr('data-name');
                 team_member_data.attack_item_img = clicked_square_html.attr('src');
             }
             if (clicked_square_html.attr('data-type') == 'defense_item') {
+
+                if (team_member_data.attack_item_name) {
+                    //team member already holding an item, so drop it.
+                    drop_item_name = team_member_data.defense_item_name;
+                    drop_item_img = team_member_data.defense_item_img;
+                    drop_item_type = clicked_square_html.attr('data-type');
+                    drop_item_i = selected_team_member_i;
+                    drop_item_j = selected_team_member_j;
+                }
+
                 team_member_data.defense_item_name = clicked_square_html.attr('data-name');
                 team_member_data.defense_item_img = clicked_square_html.attr('src');
             }
@@ -71,7 +98,9 @@ function board_click(i, j) {
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
 
             //Drop old item (if necessary)
-            //TODO
+            if (drop_item_name) {
+                drop_item(drop_item_name, drop_item_img, drop_item_type, drop_item_i, drop_item_j);
+            }
 
 
         }
@@ -79,6 +108,18 @@ function board_click(i, j) {
     }
 
     //defense_item
+}
+
+function drop_item(item_name, item_img, item_type, i, j) {
+
+    var square_html = $("#i"+i+"j"+j).find('img');
+
+    set_square_to_blank(i, j);
+
+    //Team member is now on new square
+    square_html.attr('src', item_img);
+    square_html.attr('data-type', item_type);
+    square_html.attr('data-name', item_name);
 }
 
 function move_team_member(from_i, from_j, to_i, to_j) {
@@ -100,10 +141,7 @@ function move_team_member(from_i, from_j, to_i, to_j) {
         to_square_html.attr('data-name', from_square_html.attr('data-name'));
 
         //Old square is set to blank
-        from_square_html.attr('src', 'images/blank.png');
-        from_square_html.attr('data-type', 'blank');
-        from_square_html.attr('data-name', '');
-        from_square_html.removeAttr('data-selected');
+        set_square_to_blank(from_i, from_j);
     }
     else {
         alert(error);
@@ -111,6 +149,16 @@ function move_team_member(from_i, from_j, to_i, to_j) {
     }
 
     return true;
+}
+
+function set_square_to_blank(i, j) {
+
+    var square_html = $("#i"+i+"j"+j).find('img');
+
+    square_html.attr('src', 'images/blank.png');
+    square_html.attr('data-type', 'blank');
+    square_html.attr('data-name', '');
+    square_html.removeAttr('data-selected');
 }
 
 
