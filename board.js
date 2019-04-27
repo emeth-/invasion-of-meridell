@@ -212,7 +212,7 @@ function render_pets_stats() {
                         Strength
                     </td>
                     <td>
-                        &nbsp;
+                         &nbsp;
                     </td>
                     <td>
                         Saves
@@ -233,12 +233,12 @@ function render_pets_stats() {
             bonus_defense_strength_string = `<span style='font-size:12px'>(+${pet.bonus_defense_strength})</span>`;
         }
 
-        attack_image_html = "<img src='images/blank.png' height=34 width=34>";
+        attack_image_html = "<span>-</span>";
         if(pet.attack_item_img) {
             attack_image_html = `<img src='${pet.attack_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.attack_item_img}")' class='clickable'>`;
         }
 
-        defense_image_html = "<img src='images/blank.png' height=34 width=34>";
+        defense_image_html = "<span>-</span>";
         if(pet.defense_item_img) {
             defense_image_html = `<img src='${pet.defense_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.defense_item_img}")' class='clickable'>`;
         }
@@ -355,7 +355,7 @@ function render_pets_stats() {
 }
 
 function clicked_item_popup(item_url) {
-    window.open('popup.php?item='+item_url, 'Item Popup', 'status=1, height=450, width=550, left=100, top=100, resizable=0');
+    window.open('popup.html?item='+item_url, 'Item Popup', 'status=1, height=450, width=550, left=100, top=100, resizable=0');
 }
 
 function add_item_help_links() {
