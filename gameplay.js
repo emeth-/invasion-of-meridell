@@ -39,12 +39,18 @@ function board_click(i, j) {
             //Move them
             var selected_team_member_i = selected_team_member.attr('data-boardi');
             var selected_team_member_j = selected_team_member.attr('data-boardj');
-            move_team_member(selected_team_member_i, selected_team_member_j, i, j);
 
+            var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
+            if (error) {
+                alert(error);
+                return;
+            }
+
+            move_team_member(selected_team_member_i, selected_team_member_j, i, j);
         }
     }
 
-    //If an attack item square was clicked
+    //If an attack/defense item square was clicked
     else if (clicked_square_html.attr('data-type') == 'attack_item' || clicked_square_html.attr('data-type') == 'defense_item') {
 
         //If I have a member of my team selected.
@@ -53,6 +59,12 @@ function board_click(i, j) {
 
             var selected_team_member_i = selected_team_member.attr('data-boardi');
             var selected_team_member_j = selected_team_member.attr('data-boardj');
+
+            var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
+            if (error) {
+                alert(error);
+                return;
+            }
 
             var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
             console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
@@ -103,11 +115,95 @@ function board_click(i, j) {
             }
 
 
+
         }
 
     }
 
-    //defense_item
+    //If an enemy was clicked
+    else if (clicked_square_html.attr('data-type') == 'enemy') {
+
+        //If I have a member of my team selected.
+        var selected_team_member = $('img[data-selected]');
+        if (selected_team_member.length) {
+
+            //Move them
+            var selected_team_member_i = selected_team_member.attr('data-boardi');
+            var selected_team_member_j = selected_team_member.attr('data-boardj');
+
+            //Commented out for ease of testing
+            /*
+            var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
+            if (error) {
+                alert(error);
+                return;
+            }
+            */
+            var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
+            var enemy_data = get_enemy_by_name(clicked_square_html.attr('data-name'));
+            console.log( team_member_data, enemy_data  );
+            do_attack(team_member_data, enemy_data);
+
+
+            // Unselect this team member
+            selected_team_member.attr('src', selected_team_member.attr('data-selected'));
+            selected_team_member.removeAttr('data-selected');
+
+        }
+    }
+}
+
+function get_weapon_bonus(attack_item_name, pet_breed) {
+    return 0;
+}
+
+function do_attack(team_member_data, enemy_data) {
+    var htmlz = "";
+
+    var roll = Math.floor(Math.random() * 20 + 1);
+    var weapon_bonus = get_weapon_bonus(team_member_data.attack_item_name, team_member_data.breed);
+    var total_attack = team_member_data.bonus_attack_strength + weapon_bonus + roll;
+    var total_damage = total_attack - enemy_data.base_defense_strength;
+    if (total_damage < 0) {
+        total_damage = 0;
+    }
+    var remaining_health = enemy_data.health - total_damage;
+
+    htmlz += `
+    <center>
+        <ul>
+            <li>${team_member_data.name} has struck ${enemy_data.name} for 6 points.</li>
+        </ul>
+        <table class="attack_table">
+            <tr>
+                <td>Attack Str. Bonus</td>
+                <td>Weapon Bonus</td>
+                <td>Roll (1-20)</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td>${team_member_data.bonus_attack_strength}</td>
+                <td>${weapon_bonus}</td>
+                <td>${roll}</td>
+                <td>${total_attack}</td>
+            </tr>
+            <tr>
+                <td colspan=3 style="text-align:right">${enemy_data.name} Defence:</td>
+                <td>${enemy_data.base_defense_strength}</td>
+            </tr>
+            <tr>
+                <td colspan=3 style="text-align:right">Damage:</td>
+                <td>${total_damage}</td>
+            </tr>
+            <tr>
+                <td colspan=3 style="text-align:right">${enemy_data.name} Health:</td>
+                <td>${remaining_health}</td>
+            </tr>
+        </table>
+        <br><br>
+    </center>
+    `;
+    $('#person_attack_text').html(htmlz);
 }
 
 function drop_item(item_name, item_img, item_type, i, j) {
@@ -122,8 +218,7 @@ function drop_item(item_name, item_img, item_type, i, j) {
     square_html.attr('data-name', item_name);
 }
 
-function move_team_member(from_i, from_j, to_i, to_j) {
-
+function is_invalid_move(from_i, from_j, to_i, to_j) {
     var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
     var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
     var error = "";
@@ -132,23 +227,26 @@ function move_team_member(from_i, from_j, to_i, to_j) {
     if (Math.abs(from_i - to_i) > 1 || Math.abs(from_j - to_j) > 1) {
         error = "Unit cannot move more than one square in any direction."
     }
-
-    //Move my selected team member to that square.
     if (!error) {
-        //Team member is now on new square
-        to_square_html.attr('src', from_square_html.attr('data-selected'));
-        to_square_html.attr('data-type', from_square_html.attr('data-type'));
-        to_square_html.attr('data-name', from_square_html.attr('data-name'));
-
-        //Old square is set to blank
-        set_square_to_blank(from_i, from_j);
-    }
-    else {
-        alert(error);
         return false;
     }
+    else {
+        return error;
+    }
+}
 
-    return true;
+function move_team_member(from_i, from_j, to_i, to_j) {
+
+    var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
+    var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
+
+    //Team member is now on new square
+    to_square_html.attr('src', from_square_html.attr('data-selected'));
+    to_square_html.attr('data-type', from_square_html.attr('data-type'));
+    to_square_html.attr('data-name', from_square_html.attr('data-name'));
+
+    //Old square is set to blank
+    set_square_to_blank(from_i, from_j);
 }
 
 function set_square_to_blank(i, j) {

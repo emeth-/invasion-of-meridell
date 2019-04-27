@@ -23,6 +23,12 @@ body {
     height: 32px;
     text-align:center;
 }
+.attack_table, .attack_table td{
+    text-align:center;
+    border:2px solid #AAAAAA;
+    border-collapse: collapse;
+    font-size: 12px;
+}
 #pets, #pets td{
     text-align:center;
     border:2px solid #AAAAAA;
