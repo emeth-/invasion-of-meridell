@@ -154,6 +154,12 @@ function board_click(i, j) {
 }
 
 function get_weapon_bonus(attack_item_name, pet_breed) {
+    if (item_lookup[attack_item_name]['bonuses'][pet_breed]) {
+        return item_lookup[attack_item_name]['bonuses'][pet_breed];
+    }
+    if (item_lookup[attack_item_name]['bonuses']['All']) {
+        return item_lookup[attack_item_name]['bonuses']['All'];
+    }
     return 0;
 }
 
