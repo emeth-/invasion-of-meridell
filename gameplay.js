@@ -143,6 +143,7 @@ function board_click(i, j) {
             var enemy_data = get_enemy_by_name(clicked_square_html.attr('data-name'));
             console.log( team_member_data, enemy_data  );
             do_attack(team_member_data, enemy_data);
+            render_pets_stats();
 
 
             // Unselect this team member
@@ -151,16 +152,6 @@ function board_click(i, j) {
 
         }
     }
-}
-
-function get_weapon_bonus(attack_item_name, pet_breed) {
-    if (item_lookup[attack_item_name]['bonuses'][pet_breed]) {
-        return item_lookup[attack_item_name]['bonuses'][pet_breed];
-    }
-    if (item_lookup[attack_item_name]['bonuses']['All']) {
-        return item_lookup[attack_item_name]['bonuses']['All'];
-    }
-    return 0;
 }
 
 function do_attack(team_member_data, enemy_data) {
@@ -173,12 +164,17 @@ function do_attack(team_member_data, enemy_data) {
     if (total_damage < 0) {
         total_damage = 0;
     }
-    var remaining_health = enemy_data.health - total_damage;
+    enemy_data.health = enemy_data.health - total_damage;
+    if (enemy_data.health < 0) {
+        enemy_data.health = 0;
+    }
+
+    //TODO, all enemies with 0 health should convert
 
     htmlz += `
     <center>
         <ul>
-            <li>${team_member_data.name} has struck ${enemy_data.name} for 6 points.</li>
+            <li>${team_member_data.name} has struck ${enemy_data.name} for ${total_damage} points.</li>
         </ul>
         <table class="attack_table">
             <tr>
@@ -203,7 +199,7 @@ function do_attack(team_member_data, enemy_data) {
             </tr>
             <tr>
                 <td colspan=3 style="text-align:right">${enemy_data.name} Health:</td>
-                <td>${remaining_health}</td>
+                <td>${enemy_data.health}</td>
             </tr>
         </table>
         <br><br>
@@ -280,4 +276,21 @@ function get_enemy_by_name(name) {
             return window.enemies[i];
         }
     }
+}
+
+function get_weapon_bonus(attack_item_name, pet_breed) {
+
+    if (!attack_item_name) {
+        return 0;
+    }
+
+    if (item_lookup[attack_item_name]['bonuses'][pet_breed]) {
+        return item_lookup[attack_item_name]['bonuses'][pet_breed];
+    }
+
+    if (item_lookup[attack_item_name]['bonuses']['All']) {
+        return item_lookup[attack_item_name]['bonuses']['All'];
+    }
+
+    return 0;
 }
