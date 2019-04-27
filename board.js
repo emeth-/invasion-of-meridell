@@ -233,14 +233,14 @@ function render_pets_stats() {
             bonus_defense_strength_string = `<span style='font-size:12px'>(+${pet.bonus_defense_strength})</span>`;
         }
 
-        attack_image = "images/blank.png";
+        attack_image_html = "<img src='images/blank.png' height=34 width=34>";
         if(pet.attack_item_img) {
-            attack_image = pet.attack_item_img;
+            attack_image_html = `<img src='${pet.attack_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.attack_item_img}")' class='clickable'>`;
         }
 
-        defense_image = "images/blank.png";
+        defense_image_html = "<img src='images/blank.png' height=34 width=34>";
         if(pet.defense_item_img) {
-            defense_image = pet.defense_item_img;
+            defense_image_html = `<img src='${pet.defense_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.defense_item_img}")' class='clickable'>`;
         }
 
         my_pets_html += `
@@ -260,14 +260,14 @@ function render_pets_stats() {
                 ${bonus_attack_strength_string}
             </td>
             <td style="width: 30px;height: 30px;" class='attack_item'>
-                <img src='${attack_image}'>
+                ${attack_image_html}
             </td>
             <td>
                 ${pet.base_defense_strength}
                 ${bonus_defense_strength_string}
             </td>
             <td style="width: 30px;height: 30px;" class='defense_item'>
-                <img src='${defense_image}'>
+                ${defense_image_html}
             </td>
             <td>
                 0
