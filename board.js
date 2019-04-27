@@ -239,12 +239,12 @@ function render_pets_stats() {
 
         attack_image_html = "<span>-</span>";
         if(pet.attack_item_img) {
-            attack_image_html = `<img src='${pet.attack_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.attack_item_img}")' class='clickable'>`;
+            attack_image_html = `<img src='${pet.attack_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.attack_item_name}")' class='clickable'>`;
         }
 
         defense_image_html = "<span>-</span>";
         if(pet.defense_item_img) {
-            defense_image_html = `<img src='${pet.defense_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.defense_item_img}")' class='clickable'>`;
+            defense_image_html = `<img src='${pet.defense_item_img}' border=2 height=32 width=32 style='border: 1px solid #000000;' onclick='clicked_item_popup("${pet.defense_item_name}")' class='clickable'>`;
         }
 
         my_pets_html += `
@@ -358,8 +358,8 @@ function render_pets_stats() {
     $('#my_pets_stats').html(htmlz);
 }
 
-function clicked_item_popup(item_url) {
-    window.open('popup.html?item='+item_url, 'Item Popup', 'status=1, height=450, width=550, left=100, top=100, resizable=0');
+function clicked_item_popup(item_name) {
+    window.open('popup.html?item='+item_name, item_name, 'status=1, height=450, width=550, left=100, top=100, resizable=0');
 }
 
 function add_item_help_links() {
@@ -367,9 +367,10 @@ function add_item_help_links() {
     var items = {};
     $('img[data-type=treasure], img[data-type=attack_item], img[data-type=defense_item]').each(function() {
         var item_image_url = $(this).attr('src');
+        var item_name = $(this).attr('data-name');
 
         if (!items[item_image_url]) { //only want to show each item once
-            var htmlz = `<img src='${item_image_url}' border=2 height=32 width=32 style='border: 1px solid #0000FF;' onclick='clicked_item_popup("${item_image_url}")' class='clickable'>&nbsp;`;
+            var htmlz = `<img src='${item_image_url}' border=2 height=32 width=32 style='border: 1px solid #0000FF;' onclick='clicked_item_popup("${item_name}")' class='clickable'>&nbsp;`;
             $('#items_on_map').append(htmlz);
             items[item_image_url] = 1;
         }
@@ -378,42 +379,54 @@ function add_item_help_links() {
 }
 
 function set_up_treasure(board) {
+    var name = "blank";
     var image = "images/blank.png";
 
     if(mission == 1) {
-        image = "images/Goblet.jpg";
+        name = "Goblet";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 2) {
-        image = "images/Gold_Ixi.jpg";
+        name = "Gold_Ixi";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 3) {
-        image = "images/Urn_of_Abundance.jpg";
+        name = "Urn_of_Abundance";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 4) {
-        image = "images/Ancient_Book.jpg";
+        name = "Ancient_Book";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 5) {
-        image = "images/Crown.jpg";
+        name = "Crown";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 6) {
-        image = "images/Royal_Plate.jpg";
+        name = "Royal_Plate";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 7) {
-        image = "images/Royal_Tapestry.jpg";
+        name = "Royal_Tapestry";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 8) {
-        image = "images/Treasure_Chest.jpg";
+        name = "Treasure_Chest";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 9) {
-        image = "images/Vase_of_Plenty.jpg";
+        name = "Vase_of_Plenty";
+        image = "images/"+name+".jpg";
     }
     else if(mission == 10) {
-        image = "images/Orb.jpg";
+        name = "Orb";
+        image = "images/"+name+".jpg";
     }
 
     board[0][4] = {
         "type": "treasure",
-        "image": image
+        "image": image,
+        "name": name
     };
     return board;
 }
@@ -954,8 +967,6 @@ function set_up_items(board) {
 
     return board;
 }
-
-
 
 
 
