@@ -91,8 +91,7 @@ function board_click(i, j) {
                 team_member_data.attack_item_img = clicked_square_html.attr('src');
             }
             if (clicked_square_html.attr('data-type') == 'defense_item') {
-
-                if (team_member_data.attack_item_name) {
+                if (team_member_data.defense_item_name) {
                     //team member already holding an item, so drop it.
                     drop_item_name = team_member_data.defense_item_name;
                     drop_item_img = team_member_data.defense_item_img;
@@ -278,18 +277,18 @@ function get_enemy_by_name(name) {
     }
 }
 
-function get_weapon_bonus(attack_item_name, pet_breed) {
+function get_item_bonus(item_name, pet_breed) {
 
-    if (!attack_item_name) {
+    if (!item_name) {
         return 0;
     }
 
-    if (item_lookup[attack_item_name]['bonuses'][pet_breed]) {
-        return item_lookup[attack_item_name]['bonuses'][pet_breed];
+    if (item_lookup[item_name]['bonuses'][pet_breed]) {
+        return item_lookup[item_name]['bonuses'][pet_breed];
     }
 
-    if (item_lookup[attack_item_name]['bonuses']['All']) {
-        return item_lookup[attack_item_name]['bonuses']['All'];
+    if (item_lookup[item_name]['bonuses']['All']) {
+        return item_lookup[item_name]['bonuses']['All'];
     }
 
     return 0;

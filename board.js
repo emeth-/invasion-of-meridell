@@ -184,7 +184,7 @@ function render_pets_stats() {
             //Right Side
             ////////////////////////////-->
 
-            Minimal Stats
+            <span style="visibility:hidden;">Minimal Stats</span>
 
 
 
@@ -228,13 +228,29 @@ function render_pets_stats() {
     var my_pets_html = "";
     for (var i=0; i<window.my_team.length; i++) {
         var pet = window.my_team[i];
+
+        var weapon_bonus = get_item_bonus(pet.attack_item_name, pet.breed);
+
         var bonus_attack_strength_string = "";
-        if(pet.bonus_attack_strength) {
-            bonus_attack_strength_string = `<span style='font-size:12px'>(+${pet.bonus_attack_strength})</span>`;
+        var bonus_attack_num = weapon_bonus;
+        if (pet.bonus_attack_strength) {
+            bonus_attack_num += pet.bonus_attack_strength;
         }
-        bonus_defense_strength_string = "";
-        if(pet.bonus_defense_strength) {
-            bonus_defense_strength_string = `<span style='font-size:12px'>(+${pet.bonus_defense_strength})</span>`;
+
+        if(bonus_attack_num) {
+            bonus_attack_strength_string = `<span style='font-size:12px'>(+${bonus_attack_num})</span>`;
+        }
+
+        var armor_bonus = get_item_bonus(pet.defense_item_name, pet.breed);
+
+        var bonus_defense_strength_string = "";
+        var bonus_defense_num = armor_bonus;
+        if (pet.bonus_defense_strength) {
+            bonus_defense_num += pet.bonus_defense_strength;
+        }
+
+        if(bonus_defense_num) {
+            bonus_defense_strength_string = `<span style='font-size:12px'>(+${bonus_defense_num})</span>`;
         }
 
         attack_image_html = "<span>-</span>";
