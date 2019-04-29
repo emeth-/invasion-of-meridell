@@ -448,29 +448,6 @@ function set_up_treasure(board) {
 }
 
 
-function attack_strength_bonus_calc(base_attack_strength) {
-    bonus_attack_strength = 0
-    if (base_attack_strength >= 9 && base_attack_strength <= 11) {
-        bonus_attack_strength = 1;
-    }
-
-    if (base_attack_strength >= 12 && base_attack_strength <= 14) {
-        bonus_attack_strength = 2;
-    }
-
-    if (base_attack_strength >= 15 && base_attack_strength <= 17) {
-        bonus_attack_strength = 3;
-    }
-
-    if (base_attack_strength == 18) {
-        bonus_attack_strength = 4;
-    }
-
-    if (base_attack_strength == 19) {
-        bonus_attack_strength = 5;
-    }
-    return bonus_attack_strength;
-}
 
 function set_up_enemies(board) {
 

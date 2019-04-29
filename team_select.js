@@ -1,112 +1,65 @@
-function generate_new_team() {
-    var soldiers = [
-        {
-            "image": "images/Moeh00.jpg",
-            "breed": "Moehog",
-            "rank": "Villager",
-            "name": "Moehog",
-            "health": 15 + rand(0, 3), //15-18
-            "base_attack_strength": 7 + rand(0, 2), //7-9
-            "bonus_attack_strength": 0,
-            "attack_item_name": "",
-            "attack_item_img": "",
-            "base_defense_strength": 9 + rand(0, 2), //9-11
-            "defense_item_name": "",
-            "defense_item_img": "",
-            "saves": 0,
-            "type": "team"
-        },
-        {
-            "image": "images/Skei01.jpg",
-            "breed": "Skeith",
-            "rank": "Villager",
-            "name": "Skeith",
-            "health": 15 + rand(0, 3), //15-18
-            "base_attack_strength": 15 + rand(0, 3), //15-18
-            "bonus_attack_strength": 0,
-            "attack_item_name": "",
-            "attack_item_img": "",
-            "base_defense_strength": 8 + rand(0, 4), //8-12
-            "defense_item_name": "",
-            "defense_item_img": "",
-            "saves": 0,
-            "type": "team"
-        },
-        {
-            "image": "images/Tech02.jpg",
-            "breed": "Techo",
-            "rank": "Villager",
-            "name": "Techo",
-            "health": 15 + rand(0, 3), //15-18
-            "base_attack_strength": 7 + rand(0, 4), //7-11
-            "bonus_attack_strength": 0,
-            "attack_item_name": "",
-            "attack_item_img": "",
-            "base_defense_strength": 10 + rand(0, 2), //10-12
-            "defense_item_name": "",
-            "defense_item_img": "",
-            "saves": 0,
-            "type": "team"
-        },
-        {
-            "image": "images/Scor03.jpg",
-            "breed": "Scorchio",
-            "rank": "Villager",
-            "name": "Scorchio",
-            "health": 15 + rand(0, 3), //15-18
-            "base_attack_strength": 11 + rand(0, 2), //11-13
-            "bonus_attack_strength": 0,
-            "attack_item_name": "",
-            "attack_item_img": "",
-            "base_defense_strength": 10 + rand(0, 2), //10-12
-            "defense_item_name": "",
-            "defense_item_img": "",
-            "saves": 0,
-            "type": "team"
-        },
-        {
-            "image": "images/Grun04.jpg",
-            "breed": "Grundo",
-            "rank": "Villager",
-            "name": "Grundo",
-            "health": 15 + rand(0, 3), //15-18
-            "base_attack_strength": 12 + rand(0, 2), //12-14
-            "bonus_attack_strength": 0,
-            "attack_item_name": "",
-            "attack_item_img": "",
-            "base_defense_strength": 11 + rand(0, 4), //11-14
-            "defense_item_name": "",
-            "defense_item_img": "",
-            "saves": 0,
-            "type": "team"
-        }
-    ];
+function generate_team_member(breed, name) {
+    var new_team_member = {
+        "breed": breed,
+        "rank": "Villager",
+        "name": name,
+        "bonus_attack_strength": 0,
+        "attack_item_name": "",
+        "attack_item_img": "",
+        "defense_item_name": "",
+        "defense_item_img": "",
+        "saves": 0,
+        "type": "team"
+    };
 
-
-    for(var i=0; i<soldiers.length; i++) {
-        soldiers[i]['bonus_attack_strength'] = 0;
-
-        if (soldiers[i]['base_attack_strength'] >= 9 && soldiers[i]['base_attack_strength'] <= 11) {
-            soldiers[i]['bonus_attack_strength'] = 1;
-        }
-
-        if (soldiers[i]['base_attack_strength'] >= 12 && soldiers[i]['base_attack_strength'] <= 14) {
-            soldiers[i]['bonus_attack_strength'] = 2;
-        }
-
-        if (soldiers[i]['base_attack_strength'] >= 15 && soldiers[i]['base_attack_strength'] <= 17) {
-            soldiers[i]['bonus_attack_strength'] = 3;
-        }
-
-        if (soldiers[i]['base_attack_strength'] == 18) {
-            soldiers[i]['bonus_attack_strength'] = 4;
-        }
-
-        if (soldiers[i]['base_attack_strength'] == 19) {
-            soldiers[i]['bonus_attack_strength'] = 5;
-        }
-
+    if (breed == "Moehog") {
+        new_team_member['image'] = "images/Moeh00.jpg";
+        new_team_member['health'] = 15 + rand(0, 3); //15-18
+        new_team_member['base_attack_strength'] = 7 + rand(0, 2); //7-9
+        new_team_member['base_defense_strength'] = 9 + rand(0, 2); //9-11
     }
+
+    if (breed == "Skeith") {
+        new_team_member['image'] = "images/Skei01.jpg";
+        new_team_member['health'] = 15 + rand(0, 3); //15-18
+        new_team_member['base_attack_strength'] = 15 + rand(0, 3); //15-18
+        new_team_member['base_defense_strength'] = 8 + rand(0, 4); //8-12
+    }
+
+    if (breed == "Techo") {
+        new_team_member['image'] = "images/Tech02.jpg";
+        new_team_member['health'] = 15 + rand(0, 3); //15-18
+        new_team_member['base_attack_strength'] = 7 + rand(0, 4); //7-11
+        new_team_member['base_defense_strength'] = 10 + rand(0, 2); //10-12
+    }
+
+    if (breed == "Scorchio") {
+        new_team_member['image'] = "images/Scor03.jpg";
+        new_team_member['health'] = 15 + rand(0, 3); //15-18
+        new_team_member['base_attack_strength'] = 11 + rand(0, 2); //11-13
+        new_team_member['base_defense_strength'] = 10 + rand(0, 2); //10-12
+    }
+
+    if (breed == "Grundo") {
+        new_team_member['image'] = "images/Grun04.jpg";
+        new_team_member['health'] = 15 + rand(0, 3); //15-18
+        new_team_member['base_attack_strength'] = 12 + rand(0, 2); //12-14
+        new_team_member['base_defense_strength'] = 11 + rand(0, 4); //11-14
+    }
+
+    new_team_member['bonus_attack_strength'] = attack_strength_bonus_calc(new_team_member['base_attack_strength']);
+
+    return new_team_member;
+}
+
+function generate_new_team() {
+    var soldiers = [];
+
+    soldiers.push(generate_team_member("Moehog", "Soldier 0"));
+    soldiers.push(generate_team_member("Skeith", "Soldier 1"));
+    soldiers.push(generate_team_member("Techo", "Soldier 2"));
+    soldiers.push(generate_team_member("Scorchio", "Soldier 3"));
+    soldiers.push(generate_team_member("Grundo", "Soldier 4"));
 
     return soldiers;
 }

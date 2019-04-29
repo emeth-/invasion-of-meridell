@@ -142,6 +142,7 @@ function board_click(i, j) {
             var enemy_data = get_enemy_by_name(clicked_square_html.attr('data-name'));
             console.log( team_member_data, enemy_data  );
             do_attack(team_member_data, enemy_data);
+            convert_enemies_at_zero_health();
             render_pets_stats();
 
 
@@ -149,6 +150,30 @@ function board_click(i, j) {
             selected_team_member.attr('src', selected_team_member.attr('data-selected'));
             selected_team_member.removeAttr('data-selected');
 
+        }
+    }
+}
+
+function convert_enemies_at_zero_health() {
+    for (var i=0; i<window.enemies.length; i++) {
+        if (window.enemies[i].health <= 0) {
+            //Add ally
+            //TODO, ensure this name is unique
+            var name = "Soldier "+window.my_team.length;
+            var new_soldier = generate_team_member(window.enemies[i].breed, name);
+            window.my_team.push(new_soldier);
+
+            //enemy location
+            var convert_square = $('img[data-name="'+window.enemies[i].name+'"]');
+            set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
+
+            //insert our new team member at this blank square
+            convert_square.attr('src', new_soldier['image']);
+            convert_square.attr('data-type', new_soldier['type']);
+            convert_square.attr('data-name', new_soldier['name']);
+
+            //Remove enemy
+            window.enemies.splice(i, 1);
         }
     }
 }
@@ -248,6 +273,9 @@ function move_team_member(from_i, from_j, to_i, to_j) {
 
     //Old square is set to blank
     set_square_to_blank(from_i, from_j);
+
+    //Clear any old attack text
+    $('#person_attack_text').html('');
 }
 
 function set_square_to_blank(i, j) {
@@ -261,35 +289,3 @@ function set_square_to_blank(i, j) {
 }
 
 
-function get_team_member_by_name(name) {
-    for (var i=0; i<window.my_team.length; i++) {
-        if (window.my_team[i].name == name) {
-            return window.my_team[i];
-        }
-    }
-}
-
-function get_enemy_by_name(name) {
-    for (var i=0; i<window.enemies.length; i++) {
-        if (window.enemies[i].name == name) {
-            return window.enemies[i];
-        }
-    }
-}
-
-function get_item_bonus(item_name, pet_breed) {
-
-    if (!item_name) {
-        return 0;
-    }
-
-    if (item_lookup[item_name]['bonuses'][pet_breed]) {
-        return item_lookup[item_name]['bonuses'][pet_breed];
-    }
-
-    if (item_lookup[item_name]['bonuses']['All']) {
-        return item_lookup[item_name]['bonuses']['All'];
-    }
-
-    return 0;
-}

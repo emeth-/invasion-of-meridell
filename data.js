@@ -295,3 +295,60 @@ var item_lookup = {
 		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
 	},
 };
+
+function attack_strength_bonus_calc(base_attack_strength) {
+    bonus_attack_strength = 0
+    if (base_attack_strength >= 9 && base_attack_strength <= 11) {
+        bonus_attack_strength = 1;
+    }
+
+    if (base_attack_strength >= 12 && base_attack_strength <= 14) {
+        bonus_attack_strength = 2;
+    }
+
+    if (base_attack_strength >= 15 && base_attack_strength <= 17) {
+        bonus_attack_strength = 3;
+    }
+
+    if (base_attack_strength == 18) {
+        bonus_attack_strength = 4;
+    }
+
+    if (base_attack_strength == 19) {
+        bonus_attack_strength = 5;
+    }
+    return bonus_attack_strength;
+}
+
+function get_team_member_by_name(name) {
+    for (var i=0; i<window.my_team.length; i++) {
+        if (window.my_team[i].name == name) {
+            return window.my_team[i];
+        }
+    }
+}
+
+function get_enemy_by_name(name) {
+    for (var i=0; i<window.enemies.length; i++) {
+        if (window.enemies[i].name == name) {
+            return window.enemies[i];
+        }
+    }
+}
+
+function get_item_bonus(item_name, pet_breed) {
+
+    if (!item_name) {
+        return 0;
+    }
+
+    if (item_lookup[item_name]['bonuses'][pet_breed]) {
+        return item_lookup[item_name]['bonuses'][pet_breed];
+    }
+
+    if (item_lookup[item_name]['bonuses']['All']) {
+        return item_lookup[item_name]['bonuses']['All'];
+    }
+
+    return 0;
+}
