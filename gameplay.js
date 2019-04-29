@@ -154,13 +154,27 @@ function board_click(i, j) {
     }
 }
 
+function get_next_available_team_name(start){
+    for(var i=0; i<20; i++) {
+        var test_name = "Soldier "+(start+i).toString();
+        var is_available = true;
+        for(var j=0; j<window.my_team.length; j++) {
+            if(window.my_team[j].name == test_name) {
+                is_available = false;
+            }
+        }
+        if (is_available) {
+            return test_name;
+        }
+    }
+    return "Soldier "+(start+100).toString();
+}
+
 function convert_enemies_at_zero_health() {
     for (var i=0; i<window.enemies.length; i++) {
         if (window.enemies[i].health <= 0) {
             //Add ally
-            //TODO, ensure this name is unique
-            var name = "Soldier "+window.my_team.length;
-            var new_soldier = generate_team_member(window.enemies[i].breed, name);
+            var new_soldier = generate_team_member(window.enemies[i].breed, get_next_available_team_name(window.my_team.length));
             window.my_team.push(new_soldier);
 
             //enemy location
