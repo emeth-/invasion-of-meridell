@@ -1,3 +1,143 @@
+function move_enemies() {
+    for(var index=0; index<window.enemies.length; index++) {
+        var e = window.enemies[index];
+        var e_square = $('img[data-name="'+window.enemies[index].name+'"]');
+        var e_i = parseInt(e_square.attr('data-boardi'));
+        var e_j = parseInt(e_square.attr('data-boardj'));
+
+        //j = horizontal
+        //i = vertical
+
+        //invader attack pattern...
+        //1 = i-1
+        //2 = i+1
+        //3 = i-1, j-1
+        //4 = j-1
+        //5 = i+1, j-1
+        //6 = i-1, j+1
+        //7 = j+1
+        //8 = i+1, j+1
+
+        //alternate invader attack pattern
+        //1 = i-1
+        //2 = i+1
+        //3 = i-1, j+1
+        //4 = j+1
+        //5 = i+1, j+1
+        //6 = i+1, j-1
+        //7 = j-1
+        //8 = i-1, j-1
+
+
+        invader_move(e_i, e_j);
+
+        //invader_check_move(i-1, j);
+        //Steps...
+        //Invader checks to see if any adjacent villages. If so, moves their.
+        //Invader checks to see if any adjacent fighters. If so, attacks them.
+        //Invader
+
+
+
+        console.log("e", e);
+
+
+
+        //var convert_square = $('img[data-name="'+window.enemies[i].name+'"]');
+        //set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
+    }
+}
+
+function move_enemy(from_i, from_j, to_i, to_j) {
+    console.log("move_enemy", from_i, from_j, to_i, to_j);
+    var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
+    var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
+
+    //new square is set to blank first
+    set_square_to_blank(to_i, to_j);
+
+    //Team member is now on new square
+    to_square_html.attr('src', from_square_html.attr('src'));
+    to_square_html.attr('data-type', from_square_html.attr('data-type'));
+    to_square_html.attr('data-name', from_square_html.attr('data-name'));
+
+    //Old square is set to blank
+    set_square_to_blank(from_i, from_j);
+}
+
+function invader_move(i, j) {
+    console.log("invader_move", i, j);
+    //Invader move pattern
+    //1 = i+1
+    //2 = i+1, j + or - 1 (random)
+    //3 = j + or - 1 (random)
+    //return true if move made, false if no move made
+
+
+    var test_i, test_j, to_square_datatype;
+
+    //1 = i+1
+    test_i = i+1;
+    test_j = j;
+
+    to_square_datatype = $("#i"+test_i+"j"+test_j).find('img').attr('data-type');
+    if (to_square_datatype == "blank" || to_square_datatype == "potion" || to_square_datatype == "attack_item" || to_square_datatype == "defense_item") {
+        move_enemy(i, j, test_i, test_j);
+        return true;
+    }
+
+    //2 = i+1, j + or - 1 (random)
+    test_i = i+1;
+    rand_j_delta = random_1_or_n1();
+    test_j = j+rand_j_delta;
+
+    to_square_datatype = $("#i"+test_i+"j"+test_j).find('img').attr('data-type');
+    if (to_square_datatype == "blank" || to_square_datatype == "potion" || to_square_datatype == "attack_item" || to_square_datatype == "defense_item") {
+        move_enemy(i, j, test_i, test_j);
+        return true;
+    }
+
+    test_i = i+1;
+    test_j = j+(rand_j_delta*-1);
+
+    to_square_datatype = $("#i"+test_i+"j"+test_j).find('img').attr('data-type');
+    if (to_square_datatype == "blank" || to_square_datatype == "potion" || to_square_datatype == "attack_item" || to_square_datatype == "defense_item") {
+        move_enemy(i, j, test_i, test_j);
+        return true;
+    }
+
+    //3 = j + or - 1 (random)
+    test_i = i;
+    rand_j_delta = random_1_or_n1();
+    test_j = j+rand_j_delta;
+
+    to_square_datatype = $("#i"+test_i+"j"+test_j).find('img').attr('data-type');
+    if (to_square_datatype == "blank" || to_square_datatype == "potion" || to_square_datatype == "attack_item" || to_square_datatype == "defense_item") {
+        move_enemy(i, j, test_i, test_j);
+        return true;
+    }
+
+    test_i = i;
+    test_j = j+(rand_j_delta*-1);
+
+    to_square_datatype = $("#i"+test_i+"j"+test_j).find('img').attr('data-type');
+    if (to_square_datatype == "blank" || to_square_datatype == "potion" || to_square_datatype == "attack_item" || to_square_datatype == "defense_item") {
+        move_enemy(i, j, test_i, test_j);
+        return true;
+    }
+
+    return false;
+}
+
+function random_1_or_n1() {
+    var num = Math.floor(Math.random() * 2 + 1);
+    if (num == 2) {
+        return -1;
+    }
+    else {
+        return 1;
+    }
+}
 
 function board_click(i, j) {
 
