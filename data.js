@@ -352,3 +352,29 @@ function get_item_bonus(item_name, pet_breed) {
 
     return 0;
 }
+
+function random_1_or_n1() {
+    var num = Math.floor(Math.random() * 2 + 1);
+    if (num == 2) {
+        return -1;
+    }
+    else {
+        return 1;
+    }
+}
+
+function get_next_available_team_name(start){
+    for(var i=0; i<20; i++) {
+        var test_name = "Soldier "+(start+i).toString();
+        var is_available = true;
+        for(var j=0; j<window.my_team.length; j++) {
+            if(window.my_team[j].name == test_name) {
+                is_available = false;
+            }
+        }
+        if (is_available) {
+            return test_name;
+        }
+    }
+    return "Soldier "+(start+100).toString();
+}
