@@ -1,36 +1,44 @@
-function generate_enemy_from_conversion(breed, name, base_attack_strength, base_defense_strength) {
+function generate_enemy_from_conversion(breed, name) {
 
     var new_enemy = {
         "type": "enemy",
         "name": name,
-        "breed": breed,
-        "base_attack_strength": base_attack_strength,
-        "base_defense_strength": base_defense_strength
+        "breed": breed
     };
 
     if (breed == "Moehog") {
         new_enemy['image'] = "images/Draco_Moehog00.jpg";
         new_enemy['health'] = 8 + rand(0, 4); //8-12
+        new_enemy['base_attack_strength'] = 5 + rand(0, 4); //5-9
+        new_enemy['base_defense_strength'] = 6 + rand(0, 6); //6-12
     }
 
     if (breed == "Skeith") {
         new_enemy['image'] = "images/Draco_Skeith00.jpg";
         new_enemy['health'] = 12 + rand(0, 4); //12-16
+        new_enemy['base_attack_strength'] = 9 + rand(0, 4); //9-13
+        new_enemy['base_defense_strength'] = 8 + rand(0, 6); //8-14
     }
 
     if (breed == "Techo") {
         new_enemy['image'] = "images/Draco_Techo00.jpg";
         new_enemy['health'] = 12 + rand(0, 4); //12-16
+        new_enemy['base_attack_strength'] = 9 + rand(0, 4); //9-13
+        new_enemy['base_defense_strength'] = 8 + rand(0, 6); //8-14
     }
 
     if (breed == "Scorchio") {
         new_enemy['image'] = "images/Draco_Scorchio00.jpg";
         new_enemy['health'] = 14 + rand(0, 4); //14-18
+        new_enemy['base_attack_strength'] = 12 + rand(0, 4); //12-16
+        new_enemy['base_defense_strength'] = 12 + rand(0, 4); //12-16
     }
 
     if (breed == "Grundo") {
         new_enemy['image'] = "images/Draco_Grundo00.jpg";
-        new_enemy['health'] = 15 + rand(0, 4); //15-19
+        new_enemy['health'] = 15 + rand(0, 3); //15-18 (normally it's 15-19, but cheat here because of max 18 at early levels)
+        new_enemy['base_attack_strength'] = 13 + rand(0, 3); //13-16
+        new_enemy['base_defense_strength'] = 15 + rand(0, 2); //15-17
     }
 
     new_enemy['bonus_attack_strength'] = attack_strength_bonus_calc(new_enemy['base_attack_strength']);

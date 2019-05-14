@@ -539,7 +539,7 @@ function convert_team_members_at_zero_health() {
     for (var i=0; i<window.my_team.length; i++) {
         if (window.my_team[i].health <= 0) {
             //Add enemy
-            var new_soldier = generate_enemy_from_conversion(window.my_team[i].breed, window.my_team[i].name, window.my_team[i].base_attack_strength, window.my_team[i].base_defense_strength)
+            var new_soldier = generate_enemy_from_conversion(window.my_team[i].breed, window.my_team[i].name)
             window.enemies.push(new_soldier);
 
             //my team member location
