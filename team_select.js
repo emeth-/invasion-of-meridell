@@ -1,3 +1,43 @@
+function generate_enemy_from_conversion(breed, name, base_attack_strength, base_defense_strength) {
+
+    var new_enemy = {
+        "type": "enemy",
+        "name": name,
+        "breed": breed,
+        "base_attack_strength": base_attack_strength,
+        "base_defense_strength": base_defense_strength
+    };
+
+    if (breed == "Moehog") {
+        new_enemy['image'] = "images/Draco_Moehog00.jpg";
+        new_enemy['health'] = 8 + rand(0, 4); //8-12
+    }
+
+    if (breed == "Skeith") {
+        new_enemy['image'] = "images/Draco_Skeith00.jpg";
+        new_enemy['health'] = 12 + rand(0, 4); //12-16
+    }
+
+    if (breed == "Techo") {
+        new_enemy['image'] = "images/Draco_Techo00.jpg";
+        new_enemy['health'] = 12 + rand(0, 4); //12-16
+    }
+
+    if (breed == "Scorchio") {
+        new_enemy['image'] = "images/Draco_Scorchio00.jpg";
+        new_enemy['health'] = 14 + rand(0, 4); //14-18
+    }
+
+    if (breed == "Grundo") {
+        new_enemy['image'] = "images/Draco_Grundo00.jpg";
+        new_enemy['health'] = 15 + rand(0, 4); //15-19
+    }
+
+    new_enemy['bonus_attack_strength'] = attack_strength_bonus_calc(new_enemy['base_attack_strength']);
+
+    return new_enemy;
+}
+
 function generate_team_member(breed, name) {
     var new_team_member = {
         "breed": breed,

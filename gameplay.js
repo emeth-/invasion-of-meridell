@@ -92,12 +92,7 @@ function invader_move_execute(from_i, from_j, to_i, to_j) {
     //Old square is set to blank
     set_square_to_blank(from_i, from_j);
 }
-/*
-var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
-var enemy_data = get_enemy_by_name(clicked_square_html.attr('data-name'));
-console.log( team_member_data, enemy_data  );
-do_attack(team_member_data, enemy_data);
-*/
+
 function do_invader_attack(enemy_data, team_member_data) {
     var htmlz = "";
     var damage_message = " ";
@@ -123,8 +118,11 @@ function do_invader_attack(enemy_data, team_member_data) {
     }
 
     if (team_member_data.health == 0) {
-        damage_message += ` <b>${team_member_data.name} has been converted!</b>`;
+        damage_message += ` </li><li><b>${team_member_data.name} has been converted!</b>`;
     }
+
+    convert_team_members_at_zero_health();
+    render_pets_stats();
 
     return damage_message;
 }
@@ -533,6 +531,28 @@ function board_click(i, j) {
             selected_team_member.attr('src', selected_team_member.attr('data-selected'));
             selected_team_member.removeAttr('data-selected');
 
+        }
+    }
+}
+
+function convert_team_members_at_zero_health() {
+    for (var i=0; i<window.my_team.length; i++) {
+        if (window.my_team[i].health <= 0) {
+            //Add enemy
+            var new_soldier = generate_enemy_from_conversion(window.my_team[i].breed, window.my_team[i].name, window.my_team[i].base_attack_strength, window.my_team[i].base_defense_strength)
+            window.enemies.push(new_soldier);
+
+            //my team member location
+            var convert_square = $('img[data-name="'+window.my_team[i].name+'"]');
+            set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
+
+            //insert our new enemy at this blank square
+            convert_square.attr('src', new_soldier['image']);
+            convert_square.attr('data-type', new_soldier['type']);
+            convert_square.attr('data-name', new_soldier['name']);
+
+            //Remove my team member
+            window.my_team.splice(i, 1);
         }
     }
 }
