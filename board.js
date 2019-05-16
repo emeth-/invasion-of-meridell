@@ -2,6 +2,24 @@
 //Team is kept in window.my_team
 //Enemies are kept in window.enemies
 
+function render_top_message() {
+    var moves_made = 5-window.turns_left;
+    var htmlz = "";
+
+    if (window.turns_left <= 0) {
+        htmlz += `
+    <div style="display: inline-block; background: #DDDDDD">
+        <b>- Invaders Turn -<br>
+        <a href='javascript: void(0)' onclick="move_enemies()">Click here to continue</a></b>
+    </div><br><br>`;
+    }
+    else {
+        htmlz += `<b>You've moved ${moves_made} out of 5</b>`;
+    }
+
+    $("#moves_left_text_area").html(htmlz);
+}
+
 function start_mission() {
     var board = [];
     for($i=0; $i<10; $i++) {
@@ -26,7 +44,9 @@ function start_mission() {
         <td style="border:0px; text-align:center;vertical-align:top;">
 
 <center>
-<b>You've moved 4 out of 5</b>
+<div id='moves_left_text_area'>
+<b>You've moved 0 out of 5</b>
+</div>
 
 <table border=1 id="board">`;
 
