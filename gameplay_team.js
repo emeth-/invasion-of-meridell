@@ -74,6 +74,9 @@ function board_click(i, j) {
             var drop_item_type = "";
             var drop_item_i = "";
             var drop_item_j = "";
+            var drop_message = "";
+            var pickup_message = "";
+            //Kirby picks up a Bow worth 2 attack point(s)!
 
             //Pickup item
             if (clicked_square_html.attr('data-type') == 'attack_item') {
@@ -85,10 +88,12 @@ function board_click(i, j) {
                     drop_item_type = clicked_square_html.attr('data-type');
                     drop_item_i = selected_team_member_i;
                     drop_item_j = selected_team_member_j;
+                    drop_message = selected_team_member.attr('data-name') + "'s " + item_lookup[drop_item_name].title + " is dropped";
                 }
 
                 team_member_data.attack_item_name = clicked_square_html.attr('data-name');
                 team_member_data.attack_item_img = clicked_square_html.attr('src');
+                pickup_message = selected_team_member.attr('data-name')+" picks up a "+item_lookup[clicked_square_html.attr('data-name')].title+" worth "+get_item_bonus(team_member_data.attack_item_name, team_member_data.breed)+" attack point(s)!";
             }
             if (clicked_square_html.attr('data-type') == 'defense_item') {
                 if (team_member_data.defense_item_name) {
@@ -98,10 +103,12 @@ function board_click(i, j) {
                     drop_item_type = clicked_square_html.attr('data-type');
                     drop_item_i = selected_team_member_i;
                     drop_item_j = selected_team_member_j;
+                    drop_message = selected_team_member.attr('data-name') + "'s " + item_lookup[drop_item_name].title + " is dropped";
                 }
 
                 team_member_data.defense_item_name = clicked_square_html.attr('data-name');
                 team_member_data.defense_item_img = clicked_square_html.attr('src');
+                pickup_message = selected_team_member.attr('data-name')+" picks up a "+item_lookup[clicked_square_html.attr('data-name')].title+" worth "+get_item_bonus(team_member_data.defense_item_name, team_member_data.breed)+" defense point(s)!";
             }
             render_pets_stats();
 
@@ -113,6 +120,28 @@ function board_click(i, j) {
             if (drop_item_name) {
                 drop_item(drop_item_name, drop_item_img, drop_item_type, drop_item_i, drop_item_j);
             }
+
+
+
+            if (drop_message) {
+                drop_message = `<li>${drop_message}</li>`;
+            }
+            if (pickup_message) {
+                pickup_message = `<li>${pickup_message}</li>`;
+            }
+            var htmlz = "";
+            if (drop_message || pickup_message) {
+                htmlz += `
+                <center>
+                    <ul style='text-align:left'>
+                        ${drop_message}
+                        ${pickup_message}
+                    </ul>
+                    <br><br>
+                </center>
+                `;
+            }
+            $('#person_attack_text').html(htmlz);
 
 
 

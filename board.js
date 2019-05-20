@@ -84,7 +84,7 @@ function start_mission() {
     htmlz += `
     <br><br>
 
-    <table>
+    <table style="width:390px">
         <tr>
             <td colspan=2 id='person_attack_text'></td>
         </tr>
