@@ -925,11 +925,13 @@ function set_up_items(board) {
     //potions
     board[5][4] = {
         "type": "potion",
-        "image": "images/"+potions_by_mission[mission]+".jpg"
+        "image": "images/"+potions_by_mission[mission]+".jpg",
+        "name": potions_by_mission[mission]
     };
     board[5][6] = {
         "type": "potion",
-        "image": "images/"+potions_by_mission[mission]+".jpg"
+        "image": "images/"+potions_by_mission[mission]+".jpg",
+        "name": potions_by_mission[mission]
     };
 
     empty_spaces_for_item_spawns = [];

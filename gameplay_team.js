@@ -76,7 +76,6 @@ function board_click(i, j) {
             var drop_item_j = "";
             var drop_message = "";
             var pickup_message = "";
-            //Kirby picks up a Bow worth 2 attack point(s)!
 
             //Pickup item
             if (clicked_square_html.attr('data-type') == 'attack_item') {
@@ -136,6 +135,70 @@ function board_click(i, j) {
                     <ul style='text-align:left'>
                         ${drop_message}
                         ${pickup_message}
+                    </ul>
+                    <br><br>
+                </center>
+                `;
+            }
+            $('#person_attack_text').html(htmlz);
+
+
+
+        }
+
+    }
+
+
+    //If a potion item square was clicked
+    else if (clicked_square_html.attr('data-type') == 'potion') {
+
+        //If I have a member of my team selected.
+        var selected_team_member = $('img[data-selected]');
+        if (selected_team_member.length) {
+
+            var selected_team_member_i = selected_team_member.attr('data-boardi');
+            var selected_team_member_j = selected_team_member.attr('data-boardj');
+
+            var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
+            if (error) {
+                alert(error);
+                return;
+            }
+
+            var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
+            console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
+
+            var pickup_message = "";
+            var tm_health = team_member_data.health;
+
+            //---During the First Wave (Missions 1-5) your troops can have a maximum of 18 points.
+            //---During the Second Wave (Missions 6-10) your troops can have a maximum of 21 points.
+
+            if ((tm_health >= 18 && mission <= 5) || tm_health >= 21) {
+                pickup_message = selected_team_member.attr('data-name')+" consumes the "+clicked_square_html.attr('data-name').replace(/[_]/g, ' ').replace('-', ' ')+", but it has no effect (already at max health).";
+            }
+            else {
+                var max_health = 21;
+                if (mission <= 5) {
+                    max_health = 18;
+                }
+                var health_gain = max_health - team_member_data.health;
+                team_member_data.health = max_health;
+                pickup_message = selected_team_member.attr('data-name')+" consumes the "+clicked_square_html.attr('data-name').replace(/[_]/g, ' ').replace('-', ' ')+", gaining "+health_gain+" health.";
+            }
+
+            render_pets_stats();
+
+            //Move my character
+            move_team_member(selected_team_member_i, selected_team_member_j, i, j);
+            window.turns_left = window.turns_left - 1;
+
+            var htmlz = "";
+            if (pickup_message) {
+                htmlz += `
+                <center>
+                    <ul style='text-align:left'>
+                        <li>${pickup_message}</li>
                     </ul>
                     <br><br>
                 </center>
