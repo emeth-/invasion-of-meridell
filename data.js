@@ -317,6 +317,14 @@ function attack_strength_bonus_calc(base_attack_strength) {
     if (base_attack_strength == 19) {
         bonus_attack_strength = 5;
     }
+
+	if (base_attack_strength > 19) {
+		//Unknown... enemy bosses hit this, but we have no record of how it changes things.
+		//This is how the Java clone handles it, and makes sense to me.
+		//It does mean the comment in the youtube video about the Graarls in Mission 8 having high attack doesn't really make sense or matter.
+        bonus_attack_strength = 5;
+    }
+
     return bonus_attack_strength;
 }
 
