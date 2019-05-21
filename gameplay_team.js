@@ -212,6 +212,70 @@ function board_click(i, j) {
 
     }
 
+    //If a treasure item square was clicked
+    else if (clicked_square_html.attr('data-type') == 'treasure') {
+
+        //If I have a member of my team selected.
+        var selected_team_member = $('img[data-selected]');
+        if (selected_team_member.length) {
+
+            var selected_team_member_i = selected_team_member.attr('data-boardi');
+            var selected_team_member_j = selected_team_member.attr('data-boardj');
+
+            var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
+            if (error) {
+                alert(error);
+                return;
+            }
+
+            var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
+            var treasure_name = clicked_square_html.attr('data-name');
+            var treasure_name_formatted = treasure_name.replace(/[_]/g, ' ');
+            var treasure_img = clicked_square_html.attr('src');
+
+            if (!lost_items_retrieved.includes(treasure_name)) {
+                for (var i=0; i<window.my_team.length; i++) {
+                    window.my_team[i].base_attack_strength += 1;
+                    window.my_team[i].bonus_attack_strength = attack_strength_bonus_calc(window.my_team[i].base_attack_strength);
+                    window.my_team[i].base_defense_strength += 1;
+                }
+                lost_items_retrieved.push(treasure_name);
+            }
+            console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
+
+            render_pets_stats();
+            move_team_member(selected_team_member_i, selected_team_member_j, i, j);
+
+            var htmlz = "";
+            htmlz += `
+            <center>
+            <ul style='text-align:left'>
+                <li>You found the ${treasure_name_formatted}! Hooray!</li>
+            </ul>
+                `;
+
+            htmlz += `
+<img src="${treasure_img}" border="2" height="50" width="50" style="border: 1px solid #0000FF;" onclick="clicked_item_popup('${treasure_name}')" class="clickable">
+            `;
+
+            htmlz += `
+            <ul style='text-align:left'>
+                <li>The returned lost item boosts everyone's attack and defence strength by 1 point!</li>
+                <li>It also earns you 50 <span style='text-decoration:line-through'>neopoints</span> internet points!</li>
+            </ul>
+
+                <br><br>
+            </center>
+            `;
+            $('#person_attack_text').html(htmlz);
+
+            window.turns_left = window.turns_left - 1;
+
+
+        }
+
+    }
+
     //If an enemy was clicked
     else if (clicked_square_html.attr('data-type') == 'enemy') {
 
@@ -289,6 +353,13 @@ function convert_enemies_at_zero_health() {
 
             //Remove enemy
             window.enemies.splice(i, 1);
+        }
+    }
+
+    if (window.enemies.length < 2) {
+        var treasure = $("img[data-type=treasure]");
+        if (treasure && treasure.attr('data-boardi')) {
+            set_square_to_blank(treasure.attr('data-boardi'), treasure.attr('data-boardj'));
         }
     }
 }

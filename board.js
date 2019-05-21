@@ -459,11 +459,13 @@ function set_up_treasure(board) {
         image = "images/"+name+".jpg";
     }
 
-    board[0][4] = {
-        "type": "treasure",
-        "image": image,
-        "name": name
-    };
+    if (!lost_items_retrieved.includes(name)) {
+        board[0][4] = {
+            "type": "treasure",
+            "image": image,
+            "name": name
+        };
+    }
     return board;
 }
 
