@@ -1,5 +1,5 @@
 # invasion-of-meridell
-clone of neopet's old game that they removed, rewritten
+clone of neopet's old game that they [removed](https://clraik.com/forum/showthread.php?30654-Invasion-of-Meridell/page2), rewritten
 
 Next steps...
 - Make characters on the board moveable
