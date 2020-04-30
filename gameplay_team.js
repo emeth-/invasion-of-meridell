@@ -338,7 +338,7 @@ function convert_team_members_at_zero_health() {
 function convert_enemies_at_zero_health() {
     for (var i=0; i<window.enemies.length; i++) {
         if (window.enemies[i].health <= 0) {
-          if(window.enemies[i].breed == 'Buzz') {
+          if(window.enemies[i].breed == 'Buzz' || window.enemies[i].breed == 'Grarrl') {
               //enemy location
               var convert_square = $('img[data-name="'+window.enemies[i].name+'"]');
               set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
