@@ -1,19 +1,8 @@
 # invasion-of-meridell
 clone of neopet's old game that they [removed](https://clraik.com/forum/showthread.php?30654-Invasion-of-Meridell/page2), rewritten
 
-Next steps...
-- Make characters on the board moveable
-    -- Our team
-        --- Moving onto an item picks it up (and drops old item)
-        --- Moving onto a potion consumes it
-        --- Moving onto an enemy attacks it
-    -- Enemy
-        --- Get movement pattern + attacks in place
-Taking a break at this point.
-
-Rewrite strategy...
-Maybe write it in PHP, as an example of a super simple script
-BETTER YET - rewrite it in jquery + html, using html as the database as an example, super simple
+Things to do in the future:
+- Seems buzzes were tanks that barely hit (high defence but low attack), while graarl has high attack but low defence - but in mission 9 the graarl defence gets boosted a bit.
 
 Old guides:
 http://www.jellyneo.net/?go=invasion_of_meridell

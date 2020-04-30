@@ -124,3 +124,7 @@ Mission 9
 [youtube description]
 --Mission 6--
 -Don't be scared off by the buzz's stats. They don't seem to be able to attack you much at all. The defence is true, however. [Java clone does NOT match this]
+
+-------------
+
+From above, seems buzzes were tanks that barely hit (high defence but low attack), while graarl has high attack but low defence - but in mission 9 the graarl defence gets boosted a bit.
