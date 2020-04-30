@@ -338,6 +338,19 @@ function convert_team_members_at_zero_health() {
 function convert_enemies_at_zero_health() {
     for (var i=0; i<window.enemies.length; i++) {
         if (window.enemies[i].health <= 0) {
+          if(window.enemies[i].breed == 'Buzz') {
+              //enemy location
+              var convert_square = $('img[data-name="'+window.enemies[i].name+'"]');
+              set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
+
+              //insert a smoking crater at this blank square
+              convert_square.attr('src', 'images/Smoking_Crater.jpg');
+              convert_square.attr('data-type', 'crater');
+
+              //Remove enemy
+              window.enemies.splice(i, 1);
+          }
+          else {
             //Add ally
             var new_soldier = generate_team_member(window.enemies[i].breed, get_next_available_team_name(window.my_team.length));
             window.my_team.push(new_soldier);
@@ -353,6 +366,7 @@ function convert_enemies_at_zero_health() {
 
             //Remove enemy
             window.enemies.splice(i, 1);
+          }
         }
     }
 
@@ -369,7 +383,9 @@ function do_attack(team_member_data, enemy_data) {
     var damage_message = "";
 
     var roll = Math.floor(Math.random() * 20 + 1);
+    roll = 20;
     var weapon_bonus = get_item_bonus(team_member_data.attack_item_name, team_member_data.breed);
+    weapon_bonus = 10;
     var total_attack = team_member_data.bonus_attack_strength + weapon_bonus + roll;
     var total_damage = total_attack - enemy_data.base_defense_strength;
     if (total_damage < 0) {
