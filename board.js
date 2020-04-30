@@ -160,7 +160,7 @@ Maximum moves total per pet:
 <br><br>
 
 <span style="font-size:12px;line-height: 10px;">
-<a href='#' class='plain_link'>End Turn Now</a>
+<a href='#' class='plain_link' onclick='window.turns_left=0;render_top_message();'>End Turn Now</a>
 </span>
         </center>
         </td>
