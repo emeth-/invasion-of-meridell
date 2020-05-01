@@ -584,9 +584,9 @@ function set_up_enemies(board) {
                 "name": "Dark Lord Buzz 0"+i,
                 "breed": "Buzz",
                 "health": 21,
-                "base_attack_strength": 21,
+                "base_attack_strength": 18,
                 "bonus_attack_strength": 0,
-                "base_defense_strength": 21
+                "base_defense_strength": 25
             };
             thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
             e.push(thise);
@@ -607,29 +607,17 @@ function set_up_enemies(board) {
             e.push(thise);
         }
     } else if (mission == 7) {
-        var thise = {
-            "type": "enemy",
-            "image": "images/Draco_Buzz00.jpg",
-            "name": "Dark Lord Buzz 00",
-            "breed": "Buzz",
-            "health": 29,
-            "base_attack_strength": 25,
-            "bonus_attack_strength": 0,
-            "base_defense_strength": 25
-        };
-        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
-        e.push(thise);
 
-        for (var i=0; i<2; i++) {
+        for (var i=0; i<3; i++) {
             var thise = {
                 "type": "enemy",
                 "image": "images/Draco_Buzz00.jpg",
-                "name": "Dark Lord Buzz 0"+(i+1),
+                "name": "Dark Lord Buzz 0"+i,
                 "breed": "Buzz",
                 "health": 21,
-                "base_attack_strength": 21,
+                "base_attack_strength": 18,
                 "bonus_attack_strength": 0,
-                "base_defense_strength": 21
+                "base_defense_strength": 25
             };
             thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
             e.push(thise);
@@ -651,31 +639,16 @@ function set_up_enemies(board) {
         }
     } else if (mission == 8) {
 
-        for (var i=0; i<2; i++) {
+        for (var i=0; i<4; i++) {
             var thise = {
                 "type": "enemy",
                 "image": "images/Draco_Grarrl00.jpg",
                 "name": "Dark Master Grarrl 0"+i,
                 "breed": "Grarrl",
-                "health": 22,
-                "base_attack_strength": 22,
+                "health": 21,
+                "base_attack_strength": 25,
                 "bonus_attack_strength": 0,
-                "base_defense_strength": 22
-            };
-            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
-            e.push(thise);
-        }
-
-        for (var i=0; i<2; i++) {
-            var thise = {
-                "type": "enemy",
-                "image": "images/Draco_Grarrl00.jpg",
-                "name": "Dark Master Grarrl 0"+(i+2),
-                "breed": "Grarrl",
-                "health": 23,
-                "base_attack_strength": 21,
-                "bonus_attack_strength": 0,
-                "base_defense_strength": 21
+                "base_defense_strength": 18
             };
             thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
             e.push(thise);
@@ -697,29 +670,16 @@ function set_up_enemies(board) {
         }
     } else if (mission == 9) {
 
-        var thise = {
-            "type": "enemy",
-            "image": "images/Draco_Grarrl00.jpg",
-            "name": "Dark Master Grarrl 00",
-            "breed": "Grarrl",
-            "health": 29,
-            "base_attack_strength": 26,
-            "bonus_attack_strength": 0,
-            "base_defense_strength": 26
-        };
-        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
-        e.push(thise);
-
-        for (var i=0; i<4; i++) {
+        for (var i=0; i<5; i++) {
             var thise = {
                 "type": "enemy",
                 "image": "images/Draco_Grarrl00.jpg",
-                "name": "Dark Master Grarrl 0"+(i+1),
+                "name": "Dark Master Grarrl 0"+i,
                 "breed": "Grarrl",
-                "health": 22,
-                "base_attack_strength": 22,
+                "health": 23,
+                "base_attack_strength": 21,
                 "bonus_attack_strength": 0,
-                "base_defense_strength": 22
+                "base_defense_strength": 21
             };
             thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
             e.push(thise);
@@ -741,55 +701,31 @@ function set_up_enemies(board) {
         }
     } else if (mission == 10) {
 
-        var thise = {
-            "type": "enemy",
-            "image": "images/Draco_Buzz00.jpg",
-            "name": "Dark Lord Buzz 00",
-            "breed": "Buzz",
-            "health": 29,
-            "base_attack_strength": 27,
-            "bonus_attack_strength": 0,
-            "base_defense_strength": 27
-        };
-        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
-        e.push(thise);
-
-        var thise = {
-            "type": "enemy",
-            "image": "images/Draco_Buzz00.jpg",
-            "name": "Dark Lord Buzz 01",
-            "breed": "Buzz",
-            "health": 21,
-            "base_attack_strength": 21,
-            "bonus_attack_strength": 0,
-            "base_defense_strength": 21
-        };
-        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
-        e.push(thise);
-
-        var thise = {
-            "type": "enemy",
-            "image": "images/Draco_Grarrl00.jpg",
-            "name": "Dark Master Grarrl 00",
-            "breed": "Grarrl",
-            "health": 29,
-            "base_attack_strength": 27,
-            "bonus_attack_strength": 0,
-            "base_defense_strength": 27
-        };
-        thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
-        e.push(thise);
-
         for (var i=0; i<2; i++) {
             var thise = {
                 "type": "enemy",
-                "image": "images/Draco_Grarrl00.jpg",
-                "name": "Dark Master Grarrl 0"+(i+1),
-                "breed": "Grarrl",
-                "health": 22,
-                "base_attack_strength": 22,
+                "image": "images/Draco_Buzz00.jpg",
+                "name": "Dark Lord Buzz 0"+i,
+                "breed": "Buzz",
+                "health": 21,
+                "base_attack_strength": 18,
                 "bonus_attack_strength": 0,
-                "base_defense_strength": 22
+                "base_defense_strength": 25
+            };
+            thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
+            e.push(thise);
+        }
+
+        for (var i=0; i<3; i++) {
+            var thise = {
+                "type": "enemy",
+                "image": "images/Draco_Grarrl00.jpg",
+                "name": "Dark Master Grarrl 0"+i,
+                "breed": "Grarrl",
+                "health": 21,
+                "base_attack_strength": 25,
+                "bonus_attack_strength": 0,
+                "base_defense_strength": 18
             };
             thise['bonus_attack_strength'] = attack_strength_bonus_calc(thise['base_attack_strength']);
             e.push(thise);
