@@ -1,3 +1,8 @@
+# General
+
+Halberd
+- Allows bearer to have 5 moves per turn. (However, skeith teleport locks skeith out from any additional moves)
+
 # Grundo
 
 Magic Force Spell
@@ -7,7 +12,7 @@ Magic Force Spell
 - Grundo cannot heal self
 - Exact amount healed is unknown. No guides specify numbers, and youtube videos unfortunately cropped out the numbers.
 - Java clone heals for 50% of the Grundo's attack value.
-- We will use Java clone's value.
+- We will use Java clone's value of 50% of the Grundo's attack value.
 
 Magic Lightning Spell
 - Is 'upgraded' healer item, better than Magic Force spell
@@ -18,35 +23,37 @@ Magic Lightning Spell
 - Java clone uses same logic for healing amount on this item, 1/2 of the Grundo's attack value.
 - However... this item's heal all allies in same column is not an 'upgrade' but rather a 'downgrade', as it still costs 1 turn per heal. Additionally, this item has 1 less attack. Those factors, combined with the fact that one guide notes it has increased healing power, makes me believe it should have a higher healing amount.
 - Based on that, we will make this heal for 100% of Grundo's attack value so it is an actual improvement.
+- Additionally, this spell allows a Grundo to attack a unit 2 spaces away (like Scorchio's bow)
 
 When a unit is healed...
 - Top of page displays: "Zap!!!<br><br>You've moved 2 out of 5"
 
+# Skeith
 
-Skeith
-- can teleport once(?) if has Amulets of Teleportation unless telesealed.
-- When a Skeith wears this Amulet, he can teleport to any unoccupied space in the bottom 7 rows of the board.
-- Equipping your Skeith with this item allows them to have an extra move after teleporting.
-- Allows the bearer to make 5 moves on your turn. (However, Skeiths cannot move again once they teleport)
-- The Amulet enables the Skeith to move ANYWHERE except the top 3 rows on the grid.
-- Teleport displays "Teleported!<br>You've moved 1 out of 5"
+Amulet of Teleportation
+- Allows teleporting once per turn.
+- Cannot teleport if enchanted.
+- If Skeith is not holding Berserker_Battleaxe, then teleporting consumes ALL of Skeith's moves for the turn.
+- Can teleport to any row except top 3 rows (put another way, can teleport to bottom 7 rows) that is unoccupied.
+- Top of page displays: "Teleported!<br>You've moved 1 out of 5"
 
-Techo
-- Can break a teleseal on a skeith with Sword of Deflection
-- Techos can use this to break any enchantments cast on your Skeith that keep him from teleporting. (Only in Missions 6 - 10)
-- Woosh!!! Enchantment banished!<br><br><br>You've moved 1 out of 5
+# Techo
+Sword of Deflection
+- Breaks enchantments on Skeiths, consumes a move, similar to healing by a grundo
+- Top of page displays: "Woosh!!! Enchantment banished!<br><br><br>You've moved 1 out of 5"
 
-Moehog
-- can break healseal with Counter Enchantment Helmet
-- Moehogs can use this to break any enchantments cast on your Grundo that stop him from healing. (Only in Missions 6 - 10)
+# Moehog
+Counter Enchantment Helmet
+- Breaks enchantments on Grundos, consumes a move, similar to healing by a grundo
+- Top of page displays: "Woosh!!! Enchantment banished!<br><br><br>You've moved 1 out of 5"
 
-Buzz
-- Can seal
+# Buzz
+- Can enchant both grundo AND skeith
 
-Graarl
-- Can seal
+# Graarl
+- Can enchant both grundo AND skeith
 
-Scorchio
+# Scorchio
 - can attack two spaces away with Bow (rangedatk)
 - Equip this to your Scorchio; once he reaches the rank of Soldier he can shoot his bow from 2 spaces away to attack.
 
