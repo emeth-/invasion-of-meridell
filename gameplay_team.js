@@ -16,15 +16,63 @@ function board_click(i, j) {
         }
         else { //Else...
 
-            // Unselect any other team members that were selected...
-            $('img[data-selected]').each(function(){
-                $(this).attr('src', $(this).attr('data-selected'));
-                $(this).removeAttr('data-selected');
-            });
+            var clicked_team_member_data = get_team_member_by_name(clicked_square_html.attr('data-name'));
 
-            // Select this team member
-            clicked_square_html.attr('data-selected', clicked_square_html.attr('src'));
-            clicked_square_html.attr('src', 'images/grey.png');
+            var selected_team_member = $('img[data-selected]');
+            var selected_team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
+console.log(selected_team_member_data)
+            if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Force_Spell') {
+
+                var max_health = 21;
+                if (mission <= 5) {
+                    max_health = 18;
+                }
+
+                var grundo_attack_value = selected_team_member_data.base_attack_strength + selected_team_member_data.bonus_attack_strength + get_item_bonus(selected_team_member_data.attack_item_name, selected_team_member_data.breed);
+                var heal_amount = parseInt(grundo_attack_value/2);
+                var max_health_gain_possible = max_health - clicked_team_member_data.health;
+
+                if(max_health_gain_possible < heal_amount) {
+                  heal_amount = max_health_gain_possible;
+                }
+
+                clicked_team_member_data.health += heal_amount;
+
+                // Unselect any other team members that were selected...
+                $('img[data-selected]').each(function(){
+                    $(this).attr('src', $(this).attr('data-selected'));
+                    $(this).removeAttr('data-selected');
+                });
+
+                var heal_message = selected_team_member.attr('data-name')+" <b>healed "+clicked_square_html.attr('data-name')+"</b> for "+heal_amount+" health.";
+
+                var htmlz = "";
+                htmlz += `
+                <center>
+                    <ul style='text-align:left'>
+                        ${heal_message}
+                    </ul>
+                    <br><br>
+                </center>
+                `;
+                $('#person_attack_text').html(htmlz);
+                render_pets_stats();
+                
+                window.turns_left = window.turns_left - 1;
+
+            }
+            else {
+                // Unselect any other team members that were selected...
+                $('img[data-selected]').each(function(){
+                    $(this).attr('src', $(this).attr('data-selected'));
+                    $(this).removeAttr('data-selected');
+                });
+
+                // Select this team member
+                clicked_square_html.attr('data-selected', clicked_square_html.attr('src'));
+                clicked_square_html.attr('src', 'images/grey.png');
+            }
+
         }
     }
 
