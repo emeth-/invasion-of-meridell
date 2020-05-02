@@ -153,13 +153,14 @@ console.log(selected_team_member_data)
                     //Allows teleporting once per turn.
                     error = is_invalid_move_teleport(selected_team_member_i, selected_team_member_j, i, j);
                     if (error) {
-                        alert(error);
+                        render_top_message("Cannot teleport to top 3 rows.<br>");
                         return;
                     }
                     selected_team_member_data.teleport_used = 1;
+                    special_top_message = 'Teleported!<br>';
                 }
                 else {
-                    alert(error);
+                    render_top_message("You can only move one square at a time<br>or target is out of range.<br>");
                     return;
                 }
             }
@@ -183,7 +184,7 @@ console.log(selected_team_member_data)
 
             var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
             if (error) {
-                alert(error);
+                render_top_message("You can only move one square at a time<br>or target is out of range.<br>");
                 return;
             }
 
@@ -282,7 +283,7 @@ console.log(selected_team_member_data)
 
             var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
             if (error) {
-                alert(error);
+                render_top_message("You can only move one square at a time<br>or target is out of range.<br>");
                 return;
             }
 
@@ -345,7 +346,7 @@ console.log(selected_team_member_data)
 
             var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
             if (error) {
-                alert(error);
+                render_top_message("You can only move one square at a time<br>or target is out of range.<br>");
                 return;
             }
 
@@ -412,14 +413,14 @@ console.log(selected_team_member_data)
             if(selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightening_Spell') {
                 var error = is_invalid_attack_twoblocks(selected_team_member_i, selected_team_member_j, i, j);
                 if (error) {
-                    alert(error);
+                    render_top_message("You can only move one square at a time<br>or target is out of range.<br>");
                     return;
                 }
             }
             else {
               var error = is_invalid_attack(selected_team_member_i, selected_team_member_j, i, j);
               if (error) {
-                  alert(error);
+                  render_top_message("You can only move one square at a time<br>or target is out of range.<br>");
                   return;
               }
             }
@@ -594,7 +595,7 @@ function is_invalid_attack_twoblocks(from_i, from_j, to_i, to_j) {
 
     //Confirm the movement is a max of 2 unit in any direction.
     if (Math.abs(from_i - to_i) > 2 || Math.abs(from_j - to_j) > 2) {
-        return "Unit cannot attack more than two squares in any direction."
+        return true;
     }
     return false;
 }
@@ -605,7 +606,7 @@ function is_invalid_attack(from_i, from_j, to_i, to_j) {
 
     //Confirm the movement is a max of 1 unit in any direction.
     if (Math.abs(from_i - to_i) > 1 || Math.abs(from_j - to_j) > 1) {
-        return "Unit cannot attack more than one square in any direction.";
+        return true;
     }
     return false;
 }
@@ -617,7 +618,7 @@ function is_invalid_move(from_i, from_j, to_i, to_j) {
 
     //Confirm the movement is a max of 1 unit in any direction.
     if (Math.abs(from_i - to_i) > 1 || Math.abs(from_j - to_j) > 1) {
-        return "Unit cannot move more than one square in any direction.";
+        return true;
     }
     return false;
 }
@@ -626,7 +627,7 @@ function is_invalid_move_teleport(from_i, from_j, to_i, to_j) {
     //- Can teleport to any row except top 3 rows (put another way, can teleport to bottom 7 rows) that is unoccupied.
     var error = "";
     if(to_i < 3) {
-        return "Unit cannot teleport to top 3 rows.";
+        return true;
     }
     return false;
 }
