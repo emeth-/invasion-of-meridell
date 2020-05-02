@@ -389,18 +389,25 @@ console.log(selected_team_member_data)
         var selected_team_member = $('img[data-selected]');
         if (selected_team_member.length) {
 
+            var selected_team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
+
             //Move them
             var selected_team_member_i = selected_team_member.attr('data-boardi');
             var selected_team_member_j = selected_team_member.attr('data-boardj');
-
-            //Commented out for ease of testing
-            /*
-            var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
-            if (error) {
-                alert(error);
-                return;
+            if(selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightening_Spell') {
+                var error = is_invalid_attack_twoblocks(selected_team_member_i, selected_team_member_j, i, j);
+                if (error) {
+                    alert(error);
+                    return;
+                }
             }
-            */
+            else {
+              var error = is_invalid_attack(selected_team_member_i, selected_team_member_j, i, j);
+              if (error) {
+                  alert(error);
+                  return;
+              }
+            }
             var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
             var enemy_data = get_enemy_by_name(clicked_square_html.attr('data-name'));
             console.log( team_member_data, enemy_data  );
@@ -564,6 +571,40 @@ function drop_item(item_name, item_img, item_type, i, j) {
     square_html.attr('src', item_img);
     square_html.attr('data-type', item_type);
     square_html.attr('data-name', item_name);
+}
+
+function is_invalid_attack_twoblocks(from_i, from_j, to_i, to_j) {
+    var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
+    var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
+    var error = "";
+
+    //Confirm the movement is a max of 2 unit in any direction.
+    if (Math.abs(from_i - to_i) > 2 || Math.abs(from_j - to_j) > 2) {
+        error = "Unit cannot attack more than two squares in any direction."
+    }
+    if (!error) {
+        return false;
+    }
+    else {
+        return error;
+    }
+}
+
+function is_invalid_attack(from_i, from_j, to_i, to_j) {
+    var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
+    var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
+    var error = "";
+
+    //Confirm the movement is a max of 1 unit in any direction.
+    if (Math.abs(from_i - to_i) > 1 || Math.abs(from_j - to_j) > 1) {
+        error = "Unit cannot attack more than one square in any direction."
+    }
+    if (!error) {
+        return false;
+    }
+    else {
+        return error;
+    }
 }
 
 function is_invalid_move(from_i, from_j, to_i, to_j) {

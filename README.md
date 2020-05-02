@@ -1,6 +1,15 @@
 # invasion-of-meridell
 clone of neopet's old game that they [removed](https://clraik.com/forum/showthread.php?30654-Invasion-of-Meridell/page2), rewritten
 
+
+source/src/meridor/MeriPet.java:		String battlelog=a.name+" heals "+d.name+" of "+net+
+source/src/meridor/MeriPet.java:		String battlelog=a.name+" seals "+d.name+"'s ability to teleport!";
+source/src/meridor/MeriPet.java:		String battlelog=a.name+" seals "+d.name+"'s ability to heal!";
+source/src/meridor/MeriPet.java:		String battlelog=a.name+" restores "+d.name+"'s ability to heal others!";
+source/src/meridor/MeriPet.java:		String battlelog=a.name+" restores "+d.name+"'s ability to teleport!";
+
+
+
 Things to do in the future:
 - Each member of your army can only gain one rank per Mission, and once they have been promoted any other Neopets they save will not count towards their total number of saves until the next Mission begins. For example, if your Scorchio saves its ninth invader in Mission 2 Battle 1 then it will rank up to become a Defender. However after this no matter how many invaders it vanquishes, its total number of saves will remain at 9 until you begin Mission 3 Battle 1, at which point its saves will resume being counted.
 - In each mission there are 4 of the main species. The main species are the same as those in the Wave 1, and in the same order. However, in each mission there are Buzzes OR Grarrls equal to the mission number + 1. So Mission 1 has 2 Buzzes OR Grarrls, Mission 2 has 3, etc.
