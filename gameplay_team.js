@@ -22,7 +22,63 @@ function board_click(i, j) {
             var selected_team_member = $('img[data-selected]');
             var selected_team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
 console.log(selected_team_member_data)
-            if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Force_Spell') {
+            if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightening_Spell') {
+              //Grundo Magic_Lightening_Spell healing (Column)
+
+              var max_health = 21;
+              if (mission <= 5) {
+                  max_health = 18;
+              }
+
+              var heal_amount_base = selected_team_member_data.base_attack_strength + selected_team_member_data.bonus_attack_strength + get_item_bonus(selected_team_member_data.attack_item_name, selected_team_member_data.breed);
+
+              special_top_message = 'Zzzap!!!<br><br>';
+              var heal_message = '';
+              var attack_text_htmlz = '';
+              attack_text_htmlz += `
+              <center>
+                  <ul style='text-align:left'>
+              `;
+
+              $("img[data-type='team'][data-boardj='"+clicked_square_html.attr('data-boardj')+"']").each(function(){
+                  var heal_amount = heal_amount_base;
+                  var ally_square = $(this);
+                  if(selected_team_member.attr('data-boardi') != ally_square.attr('data-boardi')) {
+                    //If ally we are looking at is NOT the grundo casting the heal... heal this ally
+
+                    var ally_data = get_team_member_by_name(ally_square.attr('data-name'));
+                    var max_health_gain_possible = max_health - ally_data.health;
+
+                    if(max_health_gain_possible < heal_amount) {
+                      heal_amount = max_health_gain_possible;
+                    }
+
+                    ally_data.health += heal_amount;
+
+                    attack_text_htmlz += "<li>"+selected_team_member.attr('data-name')+" <b>healed "+ally_square.attr('data-name')+"</b> for "+heal_amount+" health.</li>";
+
+                    window.turns_left = window.turns_left - 1;
+                  }
+              });
+
+              attack_text_htmlz += `
+                  </ul>
+                  <br><br>
+              </center>
+              `;
+              $('#person_attack_text').html(attack_text_htmlz);
+
+              // Unselect any other team members that were selected...
+              $('img[data-selected]').each(function(){
+                  $(this).attr('src', $(this).attr('data-selected'));
+                  $(this).removeAttr('data-selected');
+              });
+
+              render_pets_stats();
+
+            }
+            else if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Force_Spell') {
+              //Grundo Magic_Force_Spell healing (Single)
 
                 var max_health = 21;
                 if (mission <= 5) {
@@ -46,13 +102,13 @@ console.log(selected_team_member_data)
                 });
 
                 var heal_message = selected_team_member.attr('data-name')+" <b>healed "+clicked_square_html.attr('data-name')+"</b> for "+heal_amount+" health.";
-                special_top_message = 'Zap!!!';
+                special_top_message = 'Zap!!!<br><br>';
 
                 var htmlz = "";
                 htmlz += `
                 <center>
                     <ul style='text-align:left'>
-                        ${heal_message}
+                        <li>${heal_message}</li>
                     </ul>
                     <br><br>
                 </center>

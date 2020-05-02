@@ -18,7 +18,6 @@ function render_top_message(special_message) {
     <div style="display: inline-block; background: #DDDDDD">
         <b>
         ${special_message}
-        <br><br>
         You've moved ${moves_made} out of 5</b>
     </div><br><br>`;
     }
