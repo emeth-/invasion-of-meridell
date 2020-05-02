@@ -2,7 +2,7 @@
 //Team is kept in window.my_team
 //Enemies are kept in window.enemies
 
-function render_top_message() {
+function render_top_message(special_message) {
     var moves_made = 5-window.turns_left;
     var htmlz = "";
 
@@ -11,6 +11,15 @@ function render_top_message() {
     <div style="display: inline-block; background: #DDDDDD">
         <b>- Invaders Turn -<br>
         <a href='javascript: void(0)' onclick="move_enemies()">Click here to continue</a></b>
+    </div><br><br>`;
+    }
+    else if (special_message) {
+        htmlz += `
+    <div style="display: inline-block; background: #DDDDDD">
+        <b>
+        ${special_message}
+        <br><br>
+        You've moved ${moves_made} out of 5</b>
     </div><br><br>`;
     }
     else {

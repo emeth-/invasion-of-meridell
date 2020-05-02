@@ -1,5 +1,6 @@
 function board_click(i, j) {
 
+    var special_top_message = '';
     var clicked_square_html = $("#i"+i+"j"+j).find('img');
 
     console.log("board clicked", i, j, clicked_square_html);
@@ -45,6 +46,7 @@ console.log(selected_team_member_data)
                 });
 
                 var heal_message = selected_team_member.attr('data-name')+" <b>healed "+clicked_square_html.attr('data-name')+"</b> for "+heal_amount+" health.";
+                special_top_message = 'Zap!!!';
 
                 var htmlz = "";
                 htmlz += `
@@ -57,7 +59,7 @@ console.log(selected_team_member_data)
                 `;
                 $('#person_attack_text').html(htmlz);
                 render_pets_stats();
-                
+
                 window.turns_left = window.turns_left - 1;
 
             }
@@ -358,7 +360,7 @@ console.log(selected_team_member_data)
 
         }
     }
-    render_top_message();
+    render_top_message(special_top_message);
 }
 
 function convert_team_members_at_zero_health() {
