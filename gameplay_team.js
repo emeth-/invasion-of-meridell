@@ -145,11 +145,26 @@ console.log(selected_team_member_data)
             var selected_team_member_i = selected_team_member.attr('data-boardi');
             var selected_team_member_j = selected_team_member.attr('data-boardj');
 
-            var error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
+            var selected_team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
+            var error = '';
+            error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
             if (error) {
-                alert(error);
-                return;
+                if(selected_team_member_data.breed == 'Skeith' && selected_team_member_data.defense_item_name == 'Amulet_of_Teleportation' && selected_team_member_data.teleport_used == 0) {
+                    //Allows teleporting once per turn.
+                    error = is_invalid_move_teleport(selected_team_member_i, selected_team_member_j, i, j);
+                    if (error) {
+                        alert(error);
+                        return;
+                    }
+                    selected_team_member_data.teleport_used = 1;
+                }
+                else {
+                    alert(error);
+                    return;
+                }
             }
+
+
 
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
             window.turns_left = window.turns_left - 1;
@@ -576,35 +591,23 @@ function drop_item(item_name, item_img, item_type, i, j) {
 function is_invalid_attack_twoblocks(from_i, from_j, to_i, to_j) {
     var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
     var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
-    var error = "";
 
     //Confirm the movement is a max of 2 unit in any direction.
     if (Math.abs(from_i - to_i) > 2 || Math.abs(from_j - to_j) > 2) {
-        error = "Unit cannot attack more than two squares in any direction."
+        return "Unit cannot attack more than two squares in any direction."
     }
-    if (!error) {
-        return false;
-    }
-    else {
-        return error;
-    }
+    return false;
 }
 
 function is_invalid_attack(from_i, from_j, to_i, to_j) {
     var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
     var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
-    var error = "";
 
     //Confirm the movement is a max of 1 unit in any direction.
     if (Math.abs(from_i - to_i) > 1 || Math.abs(from_j - to_j) > 1) {
-        error = "Unit cannot attack more than one square in any direction."
+        return "Unit cannot attack more than one square in any direction.";
     }
-    if (!error) {
-        return false;
-    }
-    else {
-        return error;
-    }
+    return false;
 }
 
 function is_invalid_move(from_i, from_j, to_i, to_j) {
@@ -614,14 +617,18 @@ function is_invalid_move(from_i, from_j, to_i, to_j) {
 
     //Confirm the movement is a max of 1 unit in any direction.
     if (Math.abs(from_i - to_i) > 1 || Math.abs(from_j - to_j) > 1) {
-        error = "Unit cannot move more than one square in any direction."
+        return "Unit cannot move more than one square in any direction.";
     }
-    if (!error) {
-        return false;
+    return false;
+}
+
+function is_invalid_move_teleport(from_i, from_j, to_i, to_j) {
+    //- Can teleport to any row except top 3 rows (put another way, can teleport to bottom 7 rows) that is unoccupied.
+    var error = "";
+    if(to_i < 3) {
+        return "Unit cannot teleport to top 3 rows.";
     }
-    else {
-        return error;
-    }
+    return false;
 }
 
 function move_team_member(from_i, from_j, to_i, to_j) {

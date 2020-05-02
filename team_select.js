@@ -56,6 +56,7 @@ function generate_team_member(breed, name) {
         "attack_item_img": "",
         "defense_item_name": "",
         "defense_item_img": "",
+        "teleport_used": 0,
         "saves": 0,
         "type": "team"
     };

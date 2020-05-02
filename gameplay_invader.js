@@ -74,6 +74,9 @@ function move_enemies() {
     `;
     $('#person_attack_text').html(invaderz_htmlz);
     window.turns_left = 5;
+    for (var i=0; i<window.my_team.length; i++) {
+        window.my_team[i].teleport_used = 0;
+    }
     render_top_message();
 }
 
