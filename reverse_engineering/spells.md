@@ -47,11 +47,13 @@ Counter Enchantment Helmet
 - Breaks enchantments on Grundos, consumes a move, similar to healing by a grundo
 - Top of page displays: "Woosh!!! Enchantment banished!<br><br><br>You've moved 1 out of 5"
 
-# Buzz
-- Can enchant both grundo AND skeith
-
-# Graarl
-- Can enchant both grundo AND skeith
+# Buzz/Grarrl
+- Can enchant both grundo AND skeith (guide confirms both can cast either enchantment)
+- String battlelog=a.name+" seals "+d.name+"'s ability to teleport!";
+- String battlelog=a.name+" seals "+d.name+"'s ability to heal!";
+- Java clone has both casting both spells, equally, with a 1 in 2 chance of each invader casting a spell on a given turn.
+- I feel like the 1 in 2 chance is too frequent.
+- Demeanor's guide confirms that Buzz can cast both spells
 
 # Scorchio
 - can attack two spaces away with Bow (rangedatk)

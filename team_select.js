@@ -57,6 +57,8 @@ function generate_team_member(breed, name) {
         "defense_item_name": "",
         "defense_item_img": "",
         "teleport_used": 0,
+        "enchanted_no_teleport": 0,
+        "enchanted_no_heal": 0,
         "saves": 0,
         "type": "team"
     };

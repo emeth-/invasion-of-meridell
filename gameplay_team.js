@@ -21,7 +21,7 @@ function board_click(i, j) {
 
             var selected_team_member = $('img[data-selected]');
             var selected_team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
-console.log(selected_team_member_data)
+
             if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightening_Spell') {
               //Grundo Magic_Lightening_Spell healing (Column)
 
@@ -109,6 +109,62 @@ console.log(selected_team_member_data)
                 <center>
                     <ul style='text-align:left'>
                         <li>${heal_message}</li>
+                    </ul>
+                    <br><br>
+                </center>
+                `;
+                $('#person_attack_text').html(htmlz);
+                render_pets_stats();
+
+                window.turns_left = window.turns_left - 1;
+
+            }
+            else if(selected_team_member.length && selected_team_member_data.breed == 'Techo' && selected_team_member_data.attack_item_name == 'Sword_of_Deflection' && clicked_team_member_data.enchanted_no_teleport) {
+
+                clicked_team_member_data.enchanted_no_teleport = 0;
+
+                // Unselect any other team members that were selected...
+                $('img[data-selected]').each(function(){
+                    $(this).attr('src', $(this).attr('data-selected'));
+                    $(this).removeAttr('data-selected');
+                });
+
+                var banish_message = selected_team_member.attr('data-name')+" <b>banished the enchantment</b> on "+clicked_square_html.attr('data-name')+"</b>.";
+                special_top_message = 'Woosh!!! Enchantment banished!<br><br><br>';
+
+                var htmlz = "";
+                htmlz += `
+                <center>
+                    <ul style='text-align:left'>
+                        <li>${banish_message}</li>
+                    </ul>
+                    <br><br>
+                </center>
+                `;
+                $('#person_attack_text').html(htmlz);
+                render_pets_stats();
+
+                window.turns_left = window.turns_left - 1;
+
+            }
+            else if(selected_team_member.length && selected_team_member_data.breed == 'Moehog' && selected_team_member_data.defense_item_name == 'Counter_Enchantment_Helmet' && clicked_team_member_data.enchanted_no_heal) {
+
+                clicked_team_member_data.enchanted_no_heal = 0;
+
+                // Unselect any other team members that were selected...
+                $('img[data-selected]').each(function(){
+                    $(this).attr('src', $(this).attr('data-selected'));
+                    $(this).removeAttr('data-selected');
+                });
+
+                var banish_message = selected_team_member.attr('data-name')+" <b>banished the enchantment</b> on "+clicked_square_html.attr('data-name')+"</b>.";
+                special_top_message = 'Woosh!!! Enchantment banished!<br><br><br>';
+
+                var htmlz = "";
+                htmlz += `
+                <center>
+                    <ul style='text-align:left'>
+                        <li>${banish_message}</li>
                     </ul>
                     <br><br>
                 </center>

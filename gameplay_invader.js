@@ -5,8 +5,33 @@ function move_enemies() {
 
     var messages = [];
 
+    //Enemies cast enchantments
     for(var index=0; index<window.enemies.length; index++) {
         var e = window.enemies[index];
+
+        if(e.breed == 'Grarrl' || e.breed == 'Buzz') {
+            //Has chance to cast enchantment
+            var mti = rand(1,5) - 1;
+            console.log("**sb1", mti, window.my_team, window.my_team[mti]);
+            var mt = window.my_team[mti];
+            if(mt) {
+                if(mt.breed == 'Grundo' && !mt.enchanted_no_heal) {
+                    mt.enchanted_no_heal = 1;
+                    messages.push(`${e.name} <b>enchants</b> ${mt.name}, blocking their ability to <b>heal</b>!`);
+                }
+                if(mt.breed == 'Skeith' && !mt.enchanted_no_teleport) {
+                    mt.enchanted_no_teleport = 1;
+                    messages.push(`${e.name} <b>enchants</b> ${mt.name}, blocking their ability to <b>teleport</b>!`);
+                }
+            }
+        }
+    }
+
+    //Enemies move/sack villages/attack
+    for(var index=0; index<window.enemies.length; index++) {
+        var e = window.enemies[index];
+
+
         var e_square = $('img[data-name="'+window.enemies[index].name+'"]');
         var e_i = parseInt(e_square.attr('data-boardi'));
         var e_j = parseInt(e_square.attr('data-boardj'));
@@ -56,6 +81,7 @@ function move_enemies() {
         //var convert_square = $('img[data-name="'+window.enemies[i].name+'"]');
         //set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
     }
+
 
     console.log("****messages", messages);
     invaderz_htmlz += `
