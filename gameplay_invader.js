@@ -57,6 +57,25 @@ function move_enemies() {
         //set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
     }
 
+    if(e.breed == 'Grarrl' || e.breed == 'Buzz') {
+        //Has chance to cast enchantment
+        if(rand(1,3) == 3) {
+            //Will cast enchantment
+
+                for (var i=0; i<window.my_team.length; i++) {
+                    window.my_team[i].base_attack_strength += 1;
+                }
+            /*
+            - Randomly choose one from a list of friendly units who can be enchanted and are not currently enchanted.
+            - Set appropriate flag on that friendly unit
+            - Display message in feed
+
+            - String battlelog=a.name+" seals "+d.name+"'s ability to teleport!";
+            - String battlelog=a.name+" seals "+d.name+"'s ability to heal!";
+            */
+        }
+    }
+
     console.log("****messages", messages);
     invaderz_htmlz += `
     <center>
