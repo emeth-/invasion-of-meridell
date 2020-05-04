@@ -111,6 +111,9 @@ function generate_new_team() {
     soldiers.push(generate_team_member("Techo", "Soldier 2"));
     soldiers.push(generate_team_member("Scorchio", "Soldier 3"));
     soldiers.push(generate_team_member("Grundo", "Soldier 4"));
+    soldiers.push(generate_team_member("Moehog", "Computer 1"));
+    soldiers.push(generate_team_member("Moehog", "Computer 2"));
+    soldiers.push(generate_team_member("Moehog", "Computer 3"));
 
     return soldiers;
 }
@@ -144,8 +147,12 @@ var mission_to_wave_lookup = {
 function team_select() {
     var mission_text = mission_to_wave_lookup[mission];
     var invader_text = mission_to_enemy_name_lookup[mission];
+    var too_many_troops = `<br><span style='color:red'>You must have only 5 troops in order to enter onto the battlefield. <br>Please remove `+(window.my_team.length-5)+` fighter(s) in order to continue to the next battlefield.</span> <br>(Once you remove them, they're gone for good!)`;
+    if(window.my_team.length <= 5) {
+      too_many_troops = "<br><br><a href='javascript: void(0)' onclick='start_mission()'>Click here</a> when you are ready!";
+    }
     var htmlz = `<center><br>
-    <b>${mission_text}:</b> defeat the <b>${invader_text}s!</b> You are on Mission ${mission} Battle ${battle}.<br><br>
+    <b>${mission_text}:</b> defeat the <b>${invader_text}s!</b> You are on Mission ${mission} Battle ${battle}.${too_many_troops}<br><br>
     <table border=0 style="text-align:center;border: 2px solid #000000;" width="50%" cellpadding=4 bgcolor="#FFCC00">
         <tr>
             <td width=33%>
@@ -236,9 +243,14 @@ function team_select() {
                 </table>
             </td>
         </tr>
-    </table>
-    <table class='team_select' border=1 style="text-align:center" width="50%" cellpadding=4>
+    </table>`;
+    var remove_column = '';
+    if(window.my_team.length > 5) {
+      remove_column = `<td class='team_select' bgcolor="#DDDDDD">Remove</td>`;
+    }
+    htmlz += `<table class='team_select' border=1 style="text-align:center" width="50%" cellpadding=4>
         <tr>
+            ${remove_column}
             <td class='team_select' bgcolor="#DDDDDD">
                 Pet<br>
                 .:Rank:.
@@ -279,8 +291,16 @@ function team_select() {
             bonus_attack_strength_string = `<span style='font-size:12px'>(+${s['bonus_attack_strength']})</span>`;
         }
 
+        var remove_checkbox = '';
+        if(window.my_team.length > 5) {
+          remove_checkbox = `<td class='team_select'>
+            <input type='checkbox'>
+          </td>`;
+        }
+
         htmlz += `
          <tr>
+            ${remove_checkbox}
             <td class='team_select' bgcolor="#821B80" style="color:white">
                 <img src='${s['image']}'><br>
                 ${s['breed']}<br>
@@ -317,6 +337,10 @@ function team_select() {
 
     }
 
-    htmlz += `</table><br><button onclick='start_mission()'>Submit Team & Go To Next Mission</button></center>`;
+    htmlz += `</table><br>`;
+    if(window.my_team.length > 5) {
+      htmlz += `<button onclick='remove_selected_fighters()'>Remove Selected Fighters</button>`;
+    }
+    htmlz += `</center>`;
     $('#content').html(htmlz);
 }
