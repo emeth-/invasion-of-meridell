@@ -115,8 +115,37 @@ function generate_new_team() {
     return soldiers;
 }
 
+var mission_to_enemy_name_lookup = {
+  1: "Invader Moehog",
+  2: "Invader Techo",
+  3: "Invader Skeith",
+  4: "Invader Scorchio",
+  5: "Invader Grundo",
+  6: "Invader Moehog",
+  7: "Invader Techo",
+  8: "Invader Skeith",
+  9: "Invader Scorchio",
+  10: "Invader Grundo",
+}
+
+var mission_to_wave_lookup = {
+  1: "Mission",
+  2: "Mission",
+  3: "Mission",
+  4: "Mission",
+  5: "Mission",
+  6: "Second Wave Mission",
+  7: "Second Wave Mission",
+  8: "Second Wave Mission",
+  9: "Second Wave Mission",
+  10: "Second Wave Mission",
+}
+
 function team_select() {
-    var htmlz = `<center>
+    var mission_text = mission_to_wave_lookup[mission];
+    var invader_text = mission_to_enemy_name_lookup[mission];
+    var htmlz = `<center><br>
+    <b>${mission_text}:</b> defeat the <b>${invader_text}s!</b> You are on Mission ${mission} Battle ${battle}.<br><br>
     <table border=0 style="text-align:center;border: 2px solid #000000;" width="50%" cellpadding=4 bgcolor="#FFCC00">
         <tr>
             <td width=33%>
