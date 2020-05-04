@@ -6,7 +6,14 @@ function render_top_message(special_message) {
     var moves_made = 5-window.turns_left;
     var htmlz = "";
 
-    if (window.turns_left <= 0) {
+    if (window.enemies.length <= 0) {
+        htmlz += `
+    <div style="display: inline-block; background: #DDDDDD">
+        You converted all the invaders and won this battle!<br>
+        <a href='javascript: void(0)' onclick="team_select()">Click here to prepare for the next battle</a></b>
+    </div><br><br>`;
+    }
+    else if (window.turns_left <= 0) {
         htmlz += `
     <div style="display: inline-block; background: #DDDDDD">
         <b>- Invaders Turn -<br>
@@ -188,7 +195,7 @@ Maximum moves total per pet:
     <br><b>Peon</b>
     </td>
     <td>
-    Mission<br>1<br>Battle<br>3
+    Mission<br>${mission}<br>Battle<br>${battle}
     </td>
     </tr>
     <tr>
@@ -928,10 +935,3 @@ function set_up_items(board) {
 
     return board;
 }
-
-
-
-
-
-
-start_mission();

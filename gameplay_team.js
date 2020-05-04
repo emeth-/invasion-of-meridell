@@ -561,6 +561,16 @@ function convert_enemies_at_zero_health() {
             set_square_to_blank(treasure.attr('data-boardi'), treasure.attr('data-boardj'));
         }
     }
+
+    if (window.enemies.length <= 0) {
+        //If no enemies left, show 'won' message, decrease turns to 0, etc
+        window.turns_left = 0;
+        battle += 1;
+        if (battle > 3) {
+            battle = 1;
+            mission += 1;
+        }
+    }
 }
 
 function do_attack(team_member_data, enemy_data) {

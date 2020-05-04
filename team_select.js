@@ -242,8 +242,6 @@ function team_select() {
         </tr>
     `;
 
-    window.my_team = generate_new_team();
-
     for(var i=0; i<window.my_team.length; i++) {
         var s = window.my_team[i];
 
@@ -293,6 +291,3 @@ function team_select() {
     htmlz += `</table><br><button onclick='start_mission()'>Submit Team & Go To Next Mission</button></center>`;
     $('#content').html(htmlz);
 }
-
-
-team_select();
