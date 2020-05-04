@@ -111,9 +111,6 @@ function generate_new_team() {
     soldiers.push(generate_team_member("Techo", "Soldier 2"));
     soldiers.push(generate_team_member("Scorchio", "Soldier 3"));
     soldiers.push(generate_team_member("Grundo", "Soldier 4"));
-    soldiers.push(generate_team_member("Moehog", "Computer 1"));
-    soldiers.push(generate_team_member("Moehog", "Computer 2"));
-    soldiers.push(generate_team_member("Moehog", "Computer 3"));
 
     return soldiers;
 }
@@ -294,7 +291,7 @@ function team_select() {
         var remove_checkbox = '';
         if(window.my_team.length > 5) {
           remove_checkbox = `<td class='team_select'>
-            <input type='checkbox'>
+            <input type='checkbox' class='remove_fig_checkbox' data-petname='${s['name']}'>
           </td>`;
         }
 
@@ -343,4 +340,17 @@ function team_select() {
     }
     htmlz += `</center>`;
     $('#content').html(htmlz);
+}
+
+function remove_selected_fighters() {
+    $('.remove_fig_checkbox:checked').each(function() {
+        var pet_name_to_delete = $(this).attr('data-petname');
+        for (var i=0; i<window.my_team.length; i++) {
+            if (window.my_team[i].name == pet_name_to_delete) {
+                //Remove my team member
+                window.my_team.splice(i, 1);
+            }
+        }
+    });
+    team_select();
 }
