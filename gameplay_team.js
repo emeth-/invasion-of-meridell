@@ -578,9 +578,7 @@ function do_attack(team_member_data, enemy_data) {
     var damage_message = "";
 
     var roll = Math.floor(Math.random() * 20 + 1);
-    roll = 20;
     var weapon_bonus = get_item_bonus(team_member_data.attack_item_name, team_member_data.breed);
-    weapon_bonus = 10;
     var total_attack = team_member_data.bonus_attack_strength + weapon_bonus + roll;
     var total_damage = total_attack - enemy_data.base_defense_strength;
     if (total_damage < 0) {
