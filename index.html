@@ -45,15 +45,29 @@
 </script>
 
     <script>
-        var my_team, enemies, mission, battle, turns_left;
-        var lost_items_retrieved = [];
+        var my_team, enemies, mission, battle, turns_left, player_name;
+        var lost_items_retrieved_by_mission = {
+          "1": "",
+          "2": "",
+          "3": "",
+          "4": "",
+          "5": "",
+          "6": "",
+          "7": "",
+          "8": "",
+          "9": "",
+          "10": "",
+        }
 
         //mission = rand(1,10);
         //battle = rand(1,3);
 
+        player_name = "Guest #"+rand(1000, 9999);
         mission = 1;
         battle = 1;
-        
+        villages_unturned = 6;
+        villages_total = 6;
+
         turns_left = 5;
     </script>
     <script src='data.js?v=1'></script>

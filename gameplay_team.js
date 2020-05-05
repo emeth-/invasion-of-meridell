@@ -411,13 +411,14 @@ function board_click(i, j) {
             var treasure_name_formatted = treasure_name.replace(/[_]/g, ' ');
             var treasure_img = clicked_square_html.attr('src');
 
-            if (!lost_items_retrieved.includes(treasure_name)) {
-                for (var i=0; i<window.my_team.length; i++) {
-                    window.my_team[i].base_attack_strength += 1;
-                    window.my_team[i].bonus_attack_strength = attack_strength_bonus_calc(window.my_team[i].base_attack_strength);
-                    window.my_team[i].base_defense_strength += 1;
+            if (!window.lost_items_retrieved_by_mission[window.mission]) {
+                for (var indx=0; indx<window.my_team.length; indx++) {
+                    window.my_team[indx].base_attack_strength += 1;
+                    window.my_team[indx].bonus_attack_strength = attack_strength_bonus_calc(window.my_team[indx].base_attack_strength);
+                    window.my_team[indx].base_defense_strength += 1;
                 }
-                lost_items_retrieved.push(treasure_name);
+                window.lost_items_retrieved_by_mission[window.mission] = treasure_name;
+                $('.lost_item_found_text').text("Found");
             }
             console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
 
@@ -484,7 +485,11 @@ function board_click(i, j) {
             var enemy_data = get_enemy_by_name(clicked_square_html.attr('data-name'));
             console.log( team_member_data, enemy_data  );
             do_attack(team_member_data, enemy_data);
-            convert_enemies_at_zero_health();
+            var enemy_saved = convert_enemies_at_zero_health();
+            if(enemy_saved) {
+              //TODO, maxes out at X per mission
+              team_member_data.saves += 1;
+            }
             render_pets_stats();
             window.turns_left = window.turns_left - 1;
 
@@ -521,8 +526,10 @@ function convert_team_members_at_zero_health() {
 }
 
 function convert_enemies_at_zero_health() {
+    var enemy_converted = 0;
     for (var i=0; i<window.enemies.length; i++) {
         if (window.enemies[i].health <= 0) {
+          enemy_converted = 1;
           if(window.enemies[i].breed == 'Buzz' || window.enemies[i].breed == 'Grarrl') {
               //enemy location
               var convert_square = $('img[data-name="'+window.enemies[i].name+'"]');
@@ -570,7 +577,10 @@ function convert_enemies_at_zero_health() {
             battle = 1;
             mission += 1;
         }
+        villages_unturned += 6;
+        villages_total += 6;
     }
+    return enemy_converted;
 }
 
 function do_attack(team_member_data, enemy_data) {

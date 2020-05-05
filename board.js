@@ -185,6 +185,11 @@ Maximum moves total per pet:
 `;
     //stats
 
+    var lost_item_found = "Not found";
+    if(window.lost_items_retrieved_by_mission[window.mission]) {
+      lost_item_found = "Found";
+    }
+
     htmlz += `
     </div>
     <br><br>
@@ -200,7 +205,7 @@ Maximum moves total per pet:
     </tr>
     <tr>
     <td colspan=2>
-    Lost Item: Found for this mission!
+    Lost Item: <span class='lost_item_found_text'>${lost_item_found}</span> for this mission!
     </td>
     </tr>
     </table>
@@ -474,7 +479,7 @@ function set_up_treasure(board) {
         image = "images/"+name+".jpg";
     }
 
-    if (!lost_items_retrieved.includes(name)) {
+    if (!window.lost_items_retrieved_by_mission[window.mission]) {
         board[0][4] = {
             "type": "treasure",
             "image": image,

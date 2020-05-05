@@ -157,11 +157,11 @@ function team_select() {
             </td>
 
             <td width=33%>
-            <b>YOURNAME</b><br>
+            <b>${window.player_name}</b><br>
             <img src='images/Duke.jpg' border=2 style='border: 2px solid #000000;'><br>
             <b>Stablehand</b><br>
             <b>Villages Unturned: </b><br>
-            <b>6</b> (Out of 6)
+            <b>${window.villages_unturned}</b> (Out of ${window.villages_total})
 
             </td>
 
@@ -171,72 +171,41 @@ function team_select() {
                         <td class='lost_items' style="text-align:center" colspan=4>
                             <b>Lost Items Recovered</b>
                         </td>
-                    </tr>
-                    <tr>
+                    </tr>`;
+                        //window.lost_items_retrieved_by_mission[1]
+                        //"images/"+name+".jpg";
+                    for (var ind=0; ind<5; ind++) {
+                      var missionl = ind+1;
+                      htmlz += `
+                      <tr>
                         <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
                             Mission:<br>
-                            1
+                            `+(missionl)+`
                         </td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">6</td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
-                            Mission:<br>
-                            2
-                        </td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">7</td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
-                            Mission:<br>
-                            3
-                        </td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">8</td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                    <tr>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
-                            Mission:<br>
-                            4
-                        </td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">9</td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                    <tr>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">
-                            Mission:<br>
-                            5
-                        </td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">10</td>
-                        <td class='lost_items' width=32px>
-                            <img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>
-                        </td>
-                    </tr>
-                    </tr>
-                    </tr>
+                        <td class='lost_items' width=32px>`;
+                        if(window.lost_items_retrieved_by_mission[missionl]) {
+                            htmlz += `<img src='images/`+window.lost_items_retrieved_by_mission[missionl]+`.jpg' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
+                        }
+                        else {
+                            htmlz += `<img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
+                        }
+
+                      missionl = ind+6;
+                      htmlz += `</td>
+                        <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">`+(missionl)+`</td>
+                        <td class='lost_items' width=32px>`;
+                        if(window.lost_items_retrieved_by_mission[missionl]) {
+                            htmlz += `<img src='images/`+window.lost_items_retrieved_by_mission[missionl]+`.jpg' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
+                        }
+                        else {
+                            htmlz += `<img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
+                        }
+                        htmlz += `</td>
+                      </tr>
+                      `;
+                    }
+                        htmlz += `
+
                 </table>
             </td>
         </tr>

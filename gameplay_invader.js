@@ -28,7 +28,8 @@ function move_enemies() {
     }
 
     //Enemies move/sack villages/attack
-    for(var index=0; index<window.enemies.length; index++) {
+    var enemies_length = window.enemies.length;
+    for(var index=0; index<enemies_length; index++) {
         var e = window.enemies[index];
 
 
@@ -300,6 +301,7 @@ function invader_sack_attempt(i, j) {
     to_square_datatype = $("#i"+test_i+"j"+test_j).find('img').attr('data-type');
     if (to_square_datatype == "village") {
         invader_move_execute(i, j, test_i, test_j);
+        window.villages_unturned = window.villages_unturned - 1;
         return `${enemy_data.name} <b>sacked a village</b>!`;
     }
 
