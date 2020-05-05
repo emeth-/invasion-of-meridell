@@ -1,0 +1,13 @@
+/* Printability Style ~ Jellyneo.net */
+
+#navbar, #leftnav, #rightnav, .accountrow, #footer {
+display:none !important;
+}
+
+#contentshell, .content, #header {
+width:800px;
+}
+
+#header {
+background:none;
+}

@@ -1,0 +1,46 @@
+/* News Styles */
+
+.news_story {
+border: 1px solid #000;
+margin: 0px 5px 20px 5px;
+padding-top: 0px;
+width:695px;
+}
+.news_story .news_header {
+padding: 5px;
+border-bottom: 1px solid #000;
+}
+.news_story img {
+border:none;
+}
+.news_story div.icon {
+float: right;
+}
+.news_story div.title {
+font: bold 14pt "Verdana";
+letter-spacing: 0pt;
+margin-top:9px;
+}
+.news_story div.data {
+font: normal small-caps normal 10pt;
+}
+.news_story div.data li {
+list-style: none;
+padding:0px;
+margin:0px;
+display: block;
+}
+.news_story div.data ul {
+margin:0px;
+padding:0px;
+}
+.news_story div.article {
+clear: both;
+text-align: justify;
+padding: 7px 10px 7px 10px;
+}
+.news_story div.comments {
+border-top: 1px solid #000;
+text-align: right;
+padding: 3px 3px 3px 3px;
+}

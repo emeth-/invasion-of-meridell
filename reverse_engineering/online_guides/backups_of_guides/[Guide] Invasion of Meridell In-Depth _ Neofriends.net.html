@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<!-- saved from url=(0077)https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/ -->
+<html id="XenForo" lang="en-US" dir="LTR" class="Public LoggedOut NoSidebar RunDeferred Responsive hasCollapseNodes hasLoginModal not_hasTabLinks not_hasSidebarToggle hasSearch navStyle_0 pageStyle_0 hasJs NoTouch HasDragDrop js flexbox flexboxlegacy rgba borderradius cssanimations csstransforms csstransforms3d csstransitions scrollNotTouchingTop activeSmallLogo" xmlns:fb="http://www.facebook.com/2008/fbml" style=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+
+
+
+	
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+	
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+	
+	
+		<!--<base href="https://www.neofriends.net/">--><base href=".">
+		<script async="" src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/ga.js"></script><script>
+			var _b = document.getElementsByTagName('base')[0], _bH = "https://www.neofriends.net/";
+			if (_b && _b.href != _bH) _b.href = _bH;
+		</script>
+	
+
+	<title>[Guide] Invasion of Meridell In-Depth | Neofriends.net</title>
+	
+	
+	<link rel="stylesheet" href="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/css.php">
+	
+	<link rel="stylesheet" href="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/css(1).php">
+
+	
+	<link rel="stylesheet" href="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/css(2).php">
+
+	
+
+	
+
+	<script>
+
+	var _gaq = [['_setAccount', 'UA-42590656-2'], ['_trackPageview']];
+	!function(d, t)
+	{
+		var g = d.createElement(t),
+			s = d.getElementsByTagName(t)[0];	
+		g.async = true;
+		g.src = ('https:' == d.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		s.parentNode.insertBefore(g, s);
+	}
+	(document, 'script');
+
+	</script><script data-dapp-detection="">
+(function() {
+  let alreadyInsertedMetaTag = false
+
+  function __insertDappDetected() {
+    if (!alreadyInsertedMetaTag) {
+      const meta = document.createElement('meta')
+      meta.name = 'dapp-detected'
+      document.head.appendChild(meta)
+      alreadyInsertedMetaTag = true
+    }
+  }
+
+  if (window.hasOwnProperty('web3')) {
+    // Note a closure can't be used for this var because some sites like
+    // www.wnyc.org do a second script execution via eval for some reason.
+    window.__disableDappDetectionInsertion = true
+    // Likely oldWeb3 is undefined and it has a property only because
+    // we defined it. Some sites like wnyc.org are evaling all scripts
+    // that exist again, so this is protection against multiple calls.
+    if (window.web3 === undefined) {
+      return
+    }
+    __insertDappDetected()
+  } else {
+    var oldWeb3 = window.web3
+    Object.defineProperty(window, 'web3', {
+      configurable: true,
+      set: function (val) {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        oldWeb3 = val
+      },
+      get: function () {
+        if (!window.__disableDappDetectionInsertion)
+          __insertDappDetected()
+        return oldWeb3
+      }
+    })
+  }
+})()</script>
+	
+	
+
+
+	
+
+
+<link href="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/font-awesome.min.css" rel="stylesheet">
+
+
+<link href="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/css" rel="stylesheet" type="text/css">
+
+	<script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/jquery-1.11.0.min.js"></script>	
+		
+	<script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/xenforo.js"></script>
+	<script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/addtohomescreen.min.js"></script>
+
+
+<script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/zloader.js"></script>
+
+
+	
+
+
+
+<script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/modernizr.js"></script>
+
+
+<!--[if lt IE 9]>
+        <!-- HTML5 Shim -->
+        <script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/html5shiv.min.js"></script>
+        <!-- Media queries for IE8 -->
+        <script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/respond.min.js"></script>
+        <!-- CSS3 selectors for IE8 -->
+        <script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/selectivizr-min.js"></script>
+<!--[endif]---->
+
+
+<script>
+	uix = {
+		elm:{},
+		fn:{},
+		init: function(){
+			if (uix.betaMode) {
+				console.group('uix.%cinit()', 'color:#3498DB');
+			}
+			for(var x=0;x<uix.events.init.length;x++){
+				uix.events.init[x]()
+		  	}
+		  	console.groupEnd('uix.%cinit()','color:#3498DB')
+		},
+	  	events: {init:[]},
+	  	on: function(event, fn){
+	  		if(event=='init'){
+	  			uix.events.init.push(fn)
+	  		}
+	  	},
+	  
+		betaMode				: parseInt('0'),
+	  
+	  	version					: '1.4.5.1',
+	  	jsHeadVersion				: '1.4.5.1',
+	  
+		globalPadding 				: parseInt('16px'),
+		sidebarWidth				: parseInt('250px'),
+		mainContainerMargin  	        	: '266px',
+		maxResponsiveWideWidth   		: parseInt('800px'),
+		maxResponsiveMediumWidth 		: parseInt('610px'),
+		maxResponsiveNarrowWidth 		: parseInt('480px'),
+		sidebarMaxResponsiveWidth		: parseInt('800px'),
+		sidebarMaxResponsiveWidthStr		: '800px',
+	  
+		jumpToFixed_delayHide			: parseInt('1'),
+	  
+		stickyNavigation_minWidth 		: parseInt('0'),
+		stickyNavigation_minHeight		: parseInt('0'),
+		stickyNavigation_maxWidth 		: parseInt('0'),
+		stickyNavigation_maxHeight		: parseInt('0'),
+		stickySidebar 				: 0,
+		sidebar_innerFloat			: 'right',
+		stickyItems 				: {},
+		stickyGlobalMinimumPosition		: parseInt('500px'),
+		stickyGlobalScrollUp			: parseInt('0'),
+		stickyDisableIOSThirdParty		: parseInt('1'),
+		
+		searchMinimalSize			: parseInt('0'),
+		searchPosition				: parseInt('1'),
+		
+		nodeStyle				: parseInt('0'),
+		
+		enableStickyFooter 			: parseInt('1'),
+		stickyFooterBottomOffset 		: parseInt('16px') * 2,
+	  
+	  	
+			offCanvasSidebar			: 1,
+
+			
+				offCanvasSidebarVisitorTabs		: 1,
+			
+		
+		
+	  
+		reinsertWelcomeBlock			: parseInt('0'),
+	  
+		collapsibleSidebar_phrase_close 	: '',
+		collapsibleSidebar_phrase_open  	: '',
+		sidebarCookieExpire			: '',
+		canCollapseSidebar			: ''
+	};
+	
+	if(uix.stickyNavigation_maxWidth == 0){uix.stickyNavigation_maxWidth = 999999}
+	if(uix.stickyNavigation_maxHeight == 0){uix.stickyNavigation_maxHeight = 999999}
+	
+	
+	
+	
+		var zIndexVal = 250;
+		if (parseInt('1') == 0 || parseInt('1') == 2) zIndexVal = 251;
+		
+		uix.stickyItems['#navigation'] = {normalHeight:parseInt('50px'), stickyHeight:parseInt('42px')}
+		
+		var subElement = null;
+		
+			uix.stickyItems['#navigation'].options = {zIndex: zIndexVal, scrollSticky: uix.stickyGlobalScrollUp, maxWidth: uix.stickyNavigation_maxWidth, minWidth: uix.stickyNavigation_minWidth, maxHeight: uix.stickyNavigation_maxHeight, minHeight: uix.stickyNavigation_minHeight}
+		
+		
+	
+	
+	
+	$(document).ready(function() {
+		if ( $('#userBar').length ) {
+			var zIndexVal = 250;
+			if (parseInt('1') == 3) zIndexVal = 251;
+			uix.stickyItems['#userBar']= {normalHeight:parseInt('40px'), stickyHeight:parseInt('40px')}
+			
+			
+				
+					uix.stickyItems['#userBar'].options = {zIndex: zIndexVal, scrollSticky: uix.stickyGlobalScrollUp, maxWidth: uix.stickyNavigation_maxWidth, minWidth: parseInt('800px'), maxHeight: uix.stickyNavigation_maxHeight, minHeight: uix.stickyNavigation_minHeight}
+					
+			
+		}
+	});
+	
+	
+	$(document).ready(function(){
+	
+	//put jquery code here
+	
+
+	
+
+});
+	 
+</script>
+
+<script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/functions.min.js"></script>
+
+<script>
+	$(document).ready(function(){
+		
+																		
+			audentio.pagination.enabled = true;
+			
+				audentio.grid.parentEle = 'navigation';
+			
+			audentio.pagination.outOfPhrase = '<span id="audentio_postPaginationCurrent" class="uix_postPagination_x"></span> out of <span id="audentio_postPaginationTotal" class="uix_postPagination_y"></span>';
+			audentio.pagination.enterIndexPhrase = 'Enter Index';
+			audentio.pagination.offset = parseInt('0px');
+		
+		
+		uix.initFunc();
+	})
+</script>
+
+	
+	
+		<link href="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/font-awesome.min(1).css" rel="stylesheet">
+	
+
+	
+	
+	
+<link rel="apple-touch-icon" href="http://i.imgur.com/KGIDf5f.png">
+	
+	<meta name="apple-mobile-web-app-title" content="Neofriends">
+	
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="apple-touch-startup-image" href="https://www.neofriends.net/styles/default/xenforo/startup-image.png">
+	<link rel="alternate" type="application/rss+xml" title="RSS feed for Neofriends.net" href="https://www.neofriends.net/forums/-/index.rss">
+	
+	
+	<link rel="canonical" href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/">
+	<meta name="description" content="Invasion of Meridell
+[img]
+[img][img][img][img]
+
+An Overview
+Invasion of Meridell is a turn-based war strategy game, taking place on a 10x10 grid map....">
+	<meta property="og:site_name" content="Neofriends.net">
+	<meta property="og:image" content="https://www.neofriends.net/styles/uix/xenforo/avatars/avatar_m.png">
+	<meta property="og:image" content="http://i.imgur.com/KGIDf5f.png">
+	<meta property="og:type" content="article">
+	<meta property="og:url" content="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/">
+	<meta property="og:title" content="[Guide] Invasion of Meridell In-Depth">
+	<meta property="og:description" content="Invasion of Meridell
+[img]
+[img][img][img][img]
+
+An Overview
+Invasion of Meridell is a turn-based war strategy game, taking place on a 10x10 grid map....">
+	
+	<meta property="fb:app_id" content="181750316881">
+	<meta property="fb:admins" content="548835101">
+
+	<link rel="shortcut icon" href="http://www.iconj.com/ico/s/9/s9nhi9w37m.ico" type="image/x-icon">
+<script>
+    
+var ath = addToHomescreen({
+    debug: false,
+    skipFirstVisit: true,
+    startDelay: 0,
+    lifespan: 15,
+    modal: true,
+    icon: true,
+    
+    displayPace: 1440,
+    maxDisplayCount: 1
+});
+</script>
+
+
+
+
+
+<script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/sdk.js" async=""></script><script async="" src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/client_plusone.js"></script><script src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/sdk.js" async=""></script><script async="" src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/widgets.js"></script><script charset="utf-8" src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/button.93a0c25c2d2f3081c705c98c2d9dec0e.js"></script></head>
+
+<body class="node22 node67 node6 SelectQuotable" style="">
+	
+	
+	
+		
+
+<div id="loginBar">
+	<div class="pageContent">
+		<span class="helper"></span>
+	<form action="https://www.neofriends.net/login/login" method="post" class="xenForm eAuth" id="login" style="display:none">
+
+	
+		<ul id="eAuthUnit">
+			
+				
+				
+					
+					<li><a href="https://www.neofriends.net/register/facebook?reg=1" class="fbLogin" tabindex="110"><span>Log in with Facebook</span></a></li>
+				
+				
+				
+				
+				
+					
+					<li><span class="googleLogin GoogleLogin JsOnly" tabindex="110" data-client-id="264331724527.apps.googleusercontent.com" data-redirect-url="register/google?code=__CODE__&amp;csrf=s4b5-pnrgZHGfH13"><span>Log in with Google</span></span></li>
+				
+				
+			
+		</ul>
+	
+
+	<div class="ctrlWrapper">
+		<dl class="ctrlUnit">
+			<dt><label for="LoginControl">Your name or email address:</label></dt>
+			<dd><input type="text" name="login" id="LoginControl" class="textCtrl" tabindex="101"></dd>
+		</dl>
+	
+	
+		<dl class="ctrlUnit">
+			<dt>
+				<label for="ctrl_password">Do you already have an account?</label>
+			</dt>
+			<dd>
+				<ul>
+					<li><label for="ctrl_not_registered"><input type="radio" name="register" value="1" id="ctrl_not_registered" tabindex="105">
+						No, create an account now.</label></li>
+					<li><label for="ctrl_registered"><input type="radio" name="register" value="0" id="ctrl_registered" tabindex="105" checked="checked" class="Disabler">
+						Yes, my password is:</label></li>
+					<li id="ctrl_registered_Disabler">
+						<input type="password" name="password" class="textCtrl" id="ctrl_password" tabindex="102">
+						<div class="lostPassword"><a href="https://www.neofriends.net/lost-password/" class="OverlayTrigger OverlayCloser" tabindex="106">Forgot your password?</a></div>
+					</li>
+				</ul>
+			</dd>
+		</dl>
+	
+		
+		<dl class="ctrlUnit submitUnit">
+			<dt></dt>
+			<dd>
+				<input type="submit" class="button primary" value="Log in" tabindex="104" data-loginphrase="Log in" data-signupphrase="Sign up">
+				<label for="ctrl_remember" class="rememberPassword"><input type="checkbox" name="remember" value="1" id="ctrl_remember" tabindex="103"> Stay logged in</label>
+			</dd>
+		</dl>
+	</div>
+
+	<input type="hidden" name="cookie_check" value="1">
+	<input type="hidden" name="redirect" value="/threads/guide-invasion-of-meridell-in-depth.26528/">
+	<input type="hidden" name="_xfToken" value="">
+
+</form></div>
+	<div class="pageWidth">
+		
+		
+
+		
+	</div>
+</div>
+	
+	
+	
+	
+		<div id="uix_paneContainer" class="off-canvas-wrapper">
+			
+				<aside class="uix_sidePane left-off-canvas-content">
+	
+		<div class="uix_sidePane_content uix_offCanvasNavigation">
+<ul>
+	<!-- home -->
+	
+	
+	
+	<!-- extra tabs: home -->
+	
+	
+	
+	<!-- forums -->
+	
+		<li class="navTab forums selected active">
+		
+			<a href="https://www.neofriends.net/" class="navLink">Forums</a>
+			<a href="https://www.neofriends.net/" class="SplitCtrl" rel="subMenu"></a>
+			
+			<div class="subMenu" style="max-height: 70px;">
+				<ul class="blockLinksList">
+				
+					
+					<li><a href="https://www.neofriends.net/search/?type=post">Search Forums</a></li>
+					
+					<li><a href="https://www.neofriends.net/find-new/posts" rel="nofollow">Recent Posts</a></li>
+				
+				</ul>
+			</div>
+		</li>
+	
+	
+	
+	<!-- extra tabs: middle -->
+	
+	
+		
+			<li class="navTab taigachat ">
+				<a href="https://www.neofriends.net/shoutbox/" class="navLink">Shoutbox</a>
+			</li>
+		
+	
+		
+			<li class="navTab downloads ">
+		
+			<a href="https://www.neofriends.net/downloads/" class="navLink">Downloads</a>
+			<a href="https://www.neofriends.net/downloads/" class="SplitCtrl" rel="subMenu"></a>
+			
+			<div class="subMenu">
+				<ul class="secondaryContent blockLinksList">
+	<li><a href="https://www.neofriends.net/search/?type=resource_update">Search Resources</a></li>
+	
+	
+	
+	
+</ul>
+			</div>
+		</li>
+		
+	
+		
+			<li class="navTab guides ">
+		
+			<a href="https://www.neofriends.net/guides/" class="navLink">Guides</a>
+			<a href="https://www.neofriends.net/guides/" class="SplitCtrl" rel="subMenu"></a>
+			
+			<div class="subMenu">
+				<ul class="secondaryContent blockLinksList">
+	<li><a href="https://www.neofriends.net/search/?type=resource_update">Search Resources</a></li>
+	
+	
+	
+	
+</ul>
+			</div>
+		</li>
+		
+	
+	
+	
+	
+	<!-- members -->
+	
+		<li class="navTab members ">
+		
+			<a href="https://www.neofriends.net/members/" class="navLink">Members</a>
+			<a href="https://www.neofriends.net/members/" class="SplitCtrl" rel="subMenu"></a>
+			
+			<div class="subMenu">
+				<ul class="blockLinksList">
+				
+					<li><a href="https://www.neofriends.net/members/">Notable Members</a></li>
+					
+					<li><a href="https://www.neofriends.net/online/">Current Visitors</a></li>
+					<li><a href="https://www.neofriends.net/recent-activity/">Recent Activity</a></li>
+				<li><a href="https://www.neofriends.net/banlist/">Banned Users</a></li>
+				</ul>
+			</div>
+		</li>
+					
+	
+	<!-- extra tabs: end -->
+	
+	
+			
+
+</ul>
+</div>
+	
+</aside>
+			
+			
+				<aside class="uix_sidePane right-off-canvas-content">
+	
+		<script>
+	var uix_offCanvasCurrentTab = 'uix_offCanvasVisitorMenu';
+	var uix_offCanvasVisitorConvoLoad = true;
+	var uix_offCanvasVisitorAlertLoad = true;
+	function uix_offCanvasVisitorTab(ele, id) {
+		jQuery('#uix_offcanvasVisitorTabs .navTab').removeClass('selected');
+		jQuery('.uix_sidePane_content.uix_offCanvasVisitorTabs ul').removeClass('activeTab').removeClass('leftTab').removeClass('rightTab');
+		
+		jQuery(ele).parent().addClass('selected');
+		jQuery('#' + id).addClass('activeTab');
+		if (id == 'uix_offCanvasVisitorMenu') {
+			if (uix_offCanvasCurrentTab == 'uix_offCanvasVisitorAlert') {
+				jQuery('#uix_offCanvasVisitorConvo').css('opacity', 0)
+				window.setTimeout(function(){jQuery('#uix_offCanvasVisitorConvo').css('opacity', 1);}, 300);
+			}
+			jQuery('#uix_offCanvasVisitorConvo').addClass('rightTab');
+			jQuery('#uix_offCanvasVisitorAlert').addClass('rightTab');
+		} else if (id == 'uix_offCanvasVisitorConvo') {
+			if (uix_offCanvasVisitorConvoLoad){
+				uix_offCanvasVisitorConvoLoad = false;
+				$('#uix_offCanvasVisitorConvo .listPlaceholder').load('conversations/popup #content .secondaryContent li:lt(5)');
+			}
+			jQuery('#uix_offCanvasVisitorMenu').addClass('leftTab');
+			jQuery('#uix_offCanvasVisitorAlert').addClass('rightTab');
+			
+			XenForo.balloonCounterUpdate($('#VisitorExtraMenu_Counter'), 0);
+			XenForo.balloonCounterUpdate($('#uix_VisitorExtraMenu_Counter'), 0);
+			XenForo.balloonCounterUpdate($('#ConversationsMenu_Counter'), 0);
+			uix.fn.syncBaloon($('#ConversationsMenu_Counter'), $('#uix_ConversationsMenu_Counter'));
+		} else if (id == 'uix_offCanvasVisitorAlert') {
+			if (uix_offCanvasVisitorAlertLoad){
+				uix_offCanvasVisitorAlertLoad = false;
+				$('#uix_offCanvasVisitorAlert .listPlaceholder').load('account/alerts-popup #content .secondaryContent li:lt(5)');
+			}
+			
+			if (uix_offCanvasCurrentTab == 'uix_offCanvasVisitorMenu') {
+				jQuery('#uix_offCanvasVisitorConvo').css('opacity', 0)
+				window.setTimeout(function(){jQuery('#uix_offCanvasVisitorConvo').css('opacity', 1);}, 300);
+			}
+			jQuery('#uix_offCanvasVisitorConvo').addClass('leftTab');
+			jQuery('#uix_offCanvasVisitorMenu').addClass('leftTab');
+			
+			XenForo.balloonCounterUpdate($('#VisitorExtraMenu_Counter'), 0);
+			XenForo.balloonCounterUpdate($('#uix_VisitorExtraMenu_Counter'), 0);
+			XenForo.balloonCounterUpdate($('#AlertsMenu_Counter'), 0);
+			uix.fn.syncBaloon($('#AlertsMenu_Counter'), $('#uix_AlertsMenu_Counter'));
+		}
+		
+		uix_offCanvasCurrentTab = id;
+	}	
+</script>
+
+<div class="uix_sidePane_content uix_offCanvasVisitorTabs">
+	<ul id="uix_offcanvasVisitorTabs" class="uix_offcanvasTabs">
+		<li class="navTab selected active"><a class="navLink" onclick="uix_offCanvasVisitorTab(this, &#39;uix_offCanvasVisitorMenu&#39;)"></a></li>
+		<li class="navTab">
+			<a onclick="uix_offCanvasVisitorTab(this, &#39;uix_offCanvasVisitorConvo&#39;)" class="navLink">
+				<i class="uix_icon uix_icon-inbox"></i>
+				<strong class="itemCount Zero" id="uix_ConversationsMenu_Counter" data-text="You have %d new unread conversation(s).">
+					<span class="Total">0</span>
+				</strong>
+			</a>
+		</li>
+		<li class="navTab">
+			<a onclick="uix_offCanvasVisitorTab(this, &#39;uix_offCanvasVisitorAlert&#39;)" class="navLink">
+				<i class="uix_icon uix_icon-alerts"></i>
+				<strong class="itemCount Zero" id="uix_AlertsMenu_Counter" data-text="You have %d new alert(s).">
+					<span class="Total">0</span>
+				</strong>
+			</a>
+		</li>
+	</ul>
+	
+	<ul class="activeTab" id="uix_offCanvasVisitorMenu">
+	
+		<li class="navTab full">
+		<div class="primaryContent menuHeader">
+			<a class="avatar Av0m NoOverlay plainImage" title="View your profile" data-avatarhtml="true"><span class="img m" style="background-image: url(&#39;styles/uix/xenforo/avatars/avatar_m.png&#39;)"></span></a>
+				
+			<h3><a href="https://www.neofriends.net/members/0/" class="concealed" title="View your profile"></a></h3>
+				
+			<div class="muted">Guest</div>	
+			
+		</div>
+		</li>
+		
+		
+		
+		<li class="fl navTab"><a class="navLink" href="https://www.neofriends.net/members/0/">Your Profile Page</a></li>
+		
+		
+			
+			
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/contact-details">Contact Details</a></li>
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/privacy">Privacy</a></li>
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/preferences">Preferences</a></li>
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/alert-preferences">Alert Preferences</a></li>
+			
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/external-accounts">External Accounts</a></li>
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/security">Password</a></li>
+		
+			
+		
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/news-feed">Your News Feed</a></li>
+			
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/likes">Likes You've Received</a></li>
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/search/member?user_id=0">Your Content</a></li>
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/following">People You Follow</a></li>
+			<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/ignored">People You Ignore</a></li>
+			
+		
+		
+			<li class="navTab"><a href="https://www.neofriends.net/logout/" class="LogOut navLink">Log Out</a></li>
+		
+			<li class="navTab full">				
+				<form action="https://www.neofriends.net/account/toggle-visibility" method="post" class="AutoValidator visibilityForm navLink">
+					<label><input type="checkbox" name="visible" value="1" class="SubmitOnChange" checked="checked">
+						Show online status</label>
+					<input type="hidden" name="_xfToken" value="">
+				</form>
+			</li>
+	
+	</ul>
+	
+	<ul id="uix_offCanvasVisitorConvo" class="rightTab">
+		<div class="menuHeader primaryContent">
+			<h3>
+				<span class="Progress InProgress"></span>
+				<a href="https://www.neofriends.net/conversations/" class="concealed">Conversations</a>
+			</h3>						
+		</div>
+				
+		<div class="listPlaceholder"></div>
+				
+		
+		<li class="navTab"><a class="navLink" href="https://www.neofriends.net/conversations/">Show All...</a></li>
+
+	</ul>
+	
+	<ul id="uix_offCanvasVisitorAlert" class="rightTab">
+		<div class="menuHeader primaryContent">
+			<h3>
+				<span class="Progress InProgress"></span>
+				<a href="https://www.neofriends.net/account/alerts" class="concealed">Alerts</a>
+			</h3>
+		</div>
+				
+		<div class="listPlaceholder"></div>
+				
+		<li class="navTab"><a href="https://www.neofriends.net/account/alert-preferences" class="floatLink navLink">Alert Preferences</a></li>
+		<li class="navTab"><a class="navLink" href="https://www.neofriends.net/account/alerts">Show All...</a></li>
+	</ul>
+</div>
+	
+</aside>
+			
+			<div class="inner-wrapper">
+
+				
+				<a href="https://www.neofriends.net/#" class="exit-off-canvas"></a>
+		
+	
+
+	
+
+	<div class="uix_wrapperFix" style="height: 1px; margin-bottom: -1px;"></div>
+		<div id="uix_wrapper">
+
+<div id="headerMover">
+	<div id="headerProxy"></div>
+<header>
+	
+
+
+<div id="header">
+	
+
+
+
+	
+	
+	
+		<div id="logoBlock">
+
+	
+	<div class="pageWidth">
+		
+		
+		<div class="pageContent defaultBorderRadius">
+		
+		
+			
+		
+		<div id="logo"><a href="https://www.neofriends.net/">
+			<span></span>
+			<h2 class="uix_textLogo"><i class="uix_icon fa fa-comments"></i>Neofriends.net</h2>
+			
+		</a></div>
+		
+		
+		
+
+
+	<div id="uix_searchMinimal" class="navLink">
+	<form action="https://www.neofriends.net/index.php?search/search" method="post">
+		<i id="uix_searchMinimalClose" class="fa fa-times navLink" title="Close"></i>
+		<i id="uix_searchMinimalOptions" class="fa fa-cog navLink" title="Options"></i>
+		<div id="uix_searchMinimalInput">
+			<input type="search" name="keywords" value="" placeholder="Search..." results="0" title="Enter your search and hit enter">
+		</div>
+		<input type="hidden" name="_xfToken" value="">
+	</form>
+</div>
+
+
+<div id="searchBar" class="hasSearchButton">
+	
+	<i id="QuickSearchPlaceholder" class="uix_icon uix_icon-search" title="Search"></i>
+	<fieldset id="QuickSearch">
+		<form action="https://www.neofriends.net/search/search" method="post" class="formPopup">
+			
+			<div class="primaryControls">
+				<!-- block: primaryControls -->
+				<i class="uix_icon uix_icon-search"></i>
+				<input type="search" name="keywords" value="" class="textCtrl" placeholder="Search..." results="0" title="Enter your search and hit enter" id="QuickSearchQuery">				
+				<!-- end block: primaryControls -->
+			</div>
+			
+			<div class="secondaryControls">
+				<div class="controlsWrapper">
+				
+					<!-- block: secondaryControls -->
+					<dl class="ctrlUnit">
+						<dt></dt>
+						<dd><ul>
+							<li><label><input type="checkbox" name="title_only" value="1" id="search_bar_title_only" class="AutoChecker" data-uncheck="#search_bar_thread"> Search titles only</label></li>
+						</ul></dd>
+					</dl>
+				
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_users">Posted by Member:</label></dt>
+						<dd>
+							<input type="text" name="users" value="" class="textCtrl AutoComplete" id="searchBar_users" autocomplete="off">
+							<p class="explain">Separate names with a comma.</p>
+						</dd>
+					</dl>
+				
+					<dl class="ctrlUnit">
+						<dt><label for="searchBar_date">Newer Than:</label></dt>
+						<dd><input type="text" data-orig-type="date" name="date" value="" class="textCtrl date" id="searchBar_date"></dd>
+					</dl>
+					
+					
+					<dl class="ctrlUnit">
+						<dt></dt>
+						<dd><ul>
+								
+									<li><label title="Search only [Guide] Invasion of Meridell In-Depth"><input type="checkbox" name="type[post][thread_id]" value="26528" id="search_bar_thread" class="AutoChecker" data-uncheck="#search_bar_title_only, #search_bar_nodes"> Search this thread only</label></li>
+								
+									<li><label title="Search only Neopets Guides"><input type="checkbox" name="nodes[]" value="22" id="search_bar_nodes" class="Disabler AutoChecker" checked="checked" data-uncheck="#search_bar_thread"> Search this forum only</label>
+	<ul id="search_bar_nodes_Disabler">
+		<li><label><input type="checkbox" name="type[post][group_discussion]" value="1" id="search_bar_group_discussion" class="AutoChecker" data-uncheck="#search_bar_thread"> Display results as threads</label></li>
+	</ul></li>
+								
+						</ul></dd>
+					</dl>
+					
+				</div>
+				<!-- end block: secondaryControls -->
+				
+				<dl class="ctrlUnit submitUnit">
+					<dt></dt>
+					<dd>
+						<input type="submit" value="Search" class="button primary Tooltip">
+						<a href="https://www.neofriends.net/search/" class="button moreOptions Tooltip">More...</a>
+						<div class="Popup" id="commonSearches">
+							<a rel="Menu" class="button NoPopupGadget Tooltip PopupControl" data-tipclass="flipped"><span class="arrowWidget"></span></a>
+							
+						</div>
+					</dd>
+				</dl>
+				
+			</div>
+			
+			<input type="hidden" name="_xfToken" value="">
+		</form>		
+	</fieldset>
+	
+
+</div>
+		
+					
+		<span class="helper"></span>
+		</div>
+	</div>	
+</div>
+	
+	
+	
+
+<div id="navigation" class="stickyTop lastSticky activeSticky activePagination" style="height: 50px;"><div class="sticky_wrapper" style="top: 0px; z-index: 250;">
+	<div class="uix_navigationWrapper">
+	
+	<div class="pageWidth">
+	
+		<div class="pageContent defaultBorderRadius">
+			<nav>
+				<div class="navTabs">
+					
+						
+						<ul class="publicTabs left">
+
+						
+						<li id="logo_small">
+							<a href="https://www.neofriends.net/">
+							
+								<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/logo_small.png">
+							
+							</a>
+						</li>
+						
+						
+						<!-- home -->
+						
+							
+							
+							<!-- extra tabs: home -->
+							
+							
+							
+							<!-- forums -->
+							
+								<li class="navTab forums selected Popup PopupControl PopupClosed PopupContainerControl">
+								
+									<a href="https://www.neofriends.net/" class="navLink">Forums</a>
+									<a href="https://www.neofriends.net/" class="SplitCtrl" rel="Menu"></a>
+									
+									
+								</li>
+							
+							
+							
+							<!-- extra tabs: middle -->
+							
+							
+								
+									<li class="navTab taigachat PopupClosed">
+										<a href="https://www.neofriends.net/shoutbox/" class="navLink">Shoutbox</a>
+										
+									</li>
+								
+							
+								
+									<li class="navTab downloads  Popup PopupControl PopupClosed PopupContainerControl">
+								
+									<a href="https://www.neofriends.net/downloads/" class="navLink">Downloads</a>
+									<a href="https://www.neofriends.net/downloads/" class="SplitCtrl" rel="Menu"></a>
+									
+									
+								</li>
+								
+							
+								
+									<li class="navTab guides  Popup PopupControl PopupClosed PopupContainerControl">
+								
+									<a href="https://www.neofriends.net/guides/" class="navLink">Guides</a>
+									<a href="https://www.neofriends.net/guides/" class="SplitCtrl" rel="Menu"></a>
+									
+									
+								</li>
+								
+							
+							
+							
+							
+							<!-- members -->
+							
+								<li class="navTab members  Popup PopupControl PopupClosed PopupContainerControl">
+								
+									<a href="https://www.neofriends.net/members/" class="navLink">Members</a>
+									<a href="https://www.neofriends.net/members/" class="SplitCtrl" rel="Menu"></a>
+									
+									
+								</li>
+											
+							
+							<!-- extra tabs: end -->
+							
+							
+							<!-- responsive popup -->
+							<li class="navTab navigationHiddenTabs Popup PopupControl PopupClosed PopupContainerControl" style="display: none;">	
+											
+								<a rel="Menu" class="navLink NoPopupGadget"><i class="uix_icon uix_icon-navTrigger"></i><span class="uix_hide menuIcon">Menu</span></a>
+								
+								
+							</li>
+								
+							
+
+									
+
+						</ul>
+						
+						
+						
+							<ul class="left uix_offCanvasSidebarMenu">
+								<li class="navTab uix_offCanvasSidebarTrigger PopupClosed" id="uix_paneTriggerLeft"><a class="navLink left-off-canvas-trigger" href="https://www.neofriends.net/#"><i class="uix_icon uix_icon-navTrigger"></i> Menu</a></li>
+							</ul>
+						
+						
+						
+						
+						
+							
+								<ul class="visitorTabs right uix_offCanvasVisitorTabs">
+							
+							
+							
+							
+								
+									<li class="navTab audentio_postPagination" id="audentio_postPaginationOuter"><div class="navLink PopupControl" rel="Menu" style="display: block;"><a href="javascript: void(0)" onclick="audentio.pagination.scrollToPost(0)"><i class="fa fa-angle-double-up pointer fa-fw pagetop"></i></a><a href="javascript: void(0)" onclick="audentio.pagination.prevPost()"><i class="fa fa-angle-up pointer fa-fw pageup"></i></a><a href="javascript:void(0)" class="uix_paginationMenu">	<span><span id="audentio_postPaginationCurrent" class="uix_postPagination_x">2</span> out of <span id="audentio_postPaginationTotal" class="uix_postPagination_y">5</span></span></a><a href="javascript: void(0)" onclick="audentio.pagination.nextPost()"><i class="fa fa-angle-down pointer fa-fw pagedown"></i></a><a href="javascript: void(0)" onclick="audentio.pagination.scrollToPost(4)"><i class="fa fa-angle-double-down pointer fa-fw pagebottom"></i></a><div class="progress-container">	<div class="progress-bar" id="audentio_postPaginationBar" style="width: 40%;"></div></div>	<span class="arrowWidget"></span></div></li>
+								
+							
+								
+								
+								
+								
+								
+									
+
+	<li class="navTab login PopupClosed">
+		<label>
+			<a href="https://www.neofriends.net/login/" class="navLink OverlayTrigger">
+				<i class="uix_icon uix_icon-signIn"></i> 
+				<strong class="loginText">Log in</strong>
+			</a>	
+		</label>
+		
+	</li>
+	
+
+
+								
+						
+								
+
+								
+
+							
+							
+							</ul>
+							
+						
+						
+						
+						
+						
+						
+						
+						
+						
+						
+					
+
+				</div>
+
+			<span class="helper"></span>
+				
+			</nav>
+		</div>
+	</div>
+	</div>
+</div></div>
+	
+	
+</div>
+
+	
+	
+</header>
+
+<div id="content" class="thread_view">
+	<div class="pageWidth">
+		<div class="pageContent noBorderRadiusBottom">
+			<!-- main content area -->
+			
+			
+			
+			
+
+			
+			
+			<div class="breadBoxTop ">
+				
+				
+
+<nav>
+
+	
+	
+	
+		
+			
+				
+			
+		
+			
+				
+			
+		
+			
+				
+			
+		
+	
+
+	<fieldset class="breadcrumb" style="">
+		<a href="https://www.neofriends.net/misc/quick-navigation-menu?selected=node-22" class="OverlayTrigger jumpMenuTrigger" data-cacheoverlay="true" title="Open quick navigation"><i class="uix_icon uix_icon-sitemap"></i><!--Jump to...--></a>
+			
+		<div class="boardTitle"><strong>Neofriends.net</strong></div>
+		
+		<span class="crumbs">
+			
+			
+			
+				<span class="crust selectedTabCrumb" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+					<a href="https://www.neofriends.net/" class="crumb" rel="up" itemprop="url"><span itemprop="title"><i class="uix_icon uix_icon-home"></i></span></a>
+					<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+				</span>
+			
+			
+			
+				
+					<span class="crust" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+						<a href="https://www.neofriends.net/categories/neopets-discussion.67/" class="crumb" rel="up" itemprop="url"><span itemprop="title">Neopets Discussion</span></a>
+						<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+					</span>
+				
+					<span class="crust" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+						<a href="https://www.neofriends.net/forums/neopets-chit-chat.6/" class="crumb" rel="up" itemprop="url"><span itemprop="title">Neopets Chit-Chat</span></a>
+						<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+					</span>
+				
+					<span class="crust" itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+						<a href="https://www.neofriends.net/forums/neopets-guides.22/" class="crumb" rel="up" itemprop="url"><span itemprop="title">Neopets Guides</span></a>
+						<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+					</span>
+				
+			
+		</span>
+	</fieldset>
+</nav>
+			</div>
+			
+			
+						
+			
+			
+			
+			
+			
+				
+					
+					
+					
+					
+					
+					
+				
+			
+
+			
+			
+			
+				<div class="mainContainer_noSidebar">
+			
+					
+						<!--[if lt IE 8]>
+							<p class="importantMessage">You are using an out of date browser. It  may not display this or other websites correctly.<br />You should upgrade or use an <a href="https://www.google.com/chrome/browser/" target="_blank">alternative browser</a>.</p>
+						<![endif]-->
+
+						
+						
+
+
+
+
+<div class="PanelScroller" id="Notices" data-vertical="0" data-speed="400" data-interval="4000" style="display: block;">
+	<div class="scrollContainer">
+		<div class="PanelContainer">
+			<ol class="Panels" style="position: static;">
+				
+					<li class="panel Notice DismissParent notice_1">
+	<div class="baseHtml noticeContent">The forum has been upgraded to a more recent and user-friendly software, called "XenForo".<br>
+It will take some time to get everything set up and running smoothly, so please report any bug you may find to the forum staff.<br>
+Thank you for your patience.</div>
+	
+	
+</li>
+				
+			</ol>
+		</div>
+	</div>
+	
+	
+</div>
+
+						
+						
+
+						
+						
+											
+								<!-- h1 title, description -->
+								<div class="titleBar">
+									
+									<h1>[Guide] Invasion of Meridell In-Depth</h1>
+									
+									<p id="pageDescription" class="muted ">
+	Discussion in '<a href="https://www.neofriends.net/forums/neopets-guides.22/">Neopets Guides</a>' started by <a href="https://www.neofriends.net/members/jubixion.16768/" class="username"><span class="style14">Jubixion</span></a>, <a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/"><span class="DateTime" title="Jun 13, 2009 at 4:39 PM">Jun 13, 2009</span></a>.
+</p>
+								</div>
+							
+						
+						
+						
+						
+						
+						<!-- main template -->
+						
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+<div class="pageNavLinkGroup">
+	<div class="linkGroup SelectionCountContainer">
+		
+		
+	</div>
+
+	
+</div>
+
+
+
+
+
+<form action="https://www.neofriends.net/inline-mod/post/switch" method="post" class="InlineModForm section" data-cookiename="posts" data-controls="#InlineModControls" data-imodoptions="#ModerationSelect option">
+
+	<ol class="messageList" id="messageList">
+		
+			
+				
+
+
+<li id="post-292536" class="sectionMain message    " data-author="Jubixion">
+
+	<div class="uix_message ">
+		
+
+<div class="messageUserInfo" itemscope="itemscope" itemtype="http://data-vocabulary.org/Person">	
+<div class="messageUserBlock ">	
+	
+		<div class="avatarHolder">
+			<div class="uix_avatarHolderInner">
+			<span class="helper"></span>
+			<a href="https://www.neofriends.net/members/jubixion.16768/" class="avatar Av16768m" data-avatarhtml="true"><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/avatar_m.png" width="96" height="96" alt="Jubixion"></a>
+			
+			
+			<!-- slot: message_user_info_avatar -->
+
+
+
+			</div>
+		</div>
+		
+
+	
+		<h3 class="userText">
+
+			<div class="uix_userTextInner">
+				<a href="https://www.neofriends.net/members/jubixion.16768/" class="username" itemprop="name"><span class="style14">Jubixion</span></a>
+				<em class="userTitle" itemprop="title">Level II</em>
+			</div>
+			
+			<!-- slot: message_user_info_text -->
+		</h3>
+	
+	
+	
+		<div class="extraUserInfo">
+			
+			
+				
+					<dl class="pairsJustified">
+						<dt>Joined:</dt>
+						<dd>Jun 11, 2009</dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Messages:</dt>
+						<dd><a href="https://www.neofriends.net/search/member?user_id=16768" class="concealed" rel="nofollow">205</a></dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Likes Received:</dt>
+						<dd>14</dd>
+					</dl>
+				
+				
+				
+			
+				
+				
+				
+				
+				
+			
+				
+							
+						
+			
+			
+		</div>
+	
+
+		
+
+
+	<span class="arrow"><span></span></span>
+</div>
+</div>
+	
+		<div class="messageInfo primaryContent">
+			
+			
+			
+			<div class="messageContent">
+					
+				<article>
+					<blockquote class="messageText SelectQuoteContainer ugc baseHtml">
+						
+						<div style="text-align: center"><span style="font-size: 18px"><span style="color: #FF0000"><span style="text-decoration: underline">Invasion of Meridell</span></span></span><br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/icon_182.gif" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://images.neopets.com//games/clicktoplay/icon_182.gif" style=""><br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/182_1.gif" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://images.neopets.com/trophies/182_1.gif" style=""><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/182_2.gif" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://images.neopets.com/trophies/182_2.gif" style=""><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/182_3.gif" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://images.neopets.com/trophies/182_3.gif" style=""><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/182_4.gif" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://images.neopets.com/trophies/182_4.gif" style="">​</div><br>
+<span style="text-decoration: underline"><span style="color: #FF0000"><span style="font-size: 18px">An Overview</span></span></span><br>
+<b><span style="color: #FF8000">Invasion of Meridell is a turn-based war strategy game, taking place on a 10x10 grid map.<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/Species.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/Species.jpg" style=""><br>
+<br>
+Things there are randomly placed over the map are:<br>
+<br>
+    * Items - Healing Potions, Weapons, Armours, and the Lost Item<br>
+    * Mountains - They are just obstacles that you cannot pass through<br>
+    * Villages - Six of these are placed on the map. Your goal is to defend these Villages. It is game over if you lose 4 villages.<br>
+<br>
+Also, you'll find 2 sides on this map :<br>
+<br>
+Your Army - Your army will be made up of 5 different species of neopets, fighting for their homes. When each of your army soldier has been defeated, it will turn into an enemy troop and turn against you. It is also game over if you lose all your soldiers.<br>
+<br>
+Enemy's Army - This army are made up of ferious Draconians who want to destroy your villages and you. However, defeating one soldier would turn it into a fellow villager, allowing you to control it.<br>
+<br>
+There is altogether 10 missions in this game, increasing in difficulty as you get higher and higher. Each mission is only saved at the beginning, so if you lose any battle, you'll have to restart at the beginning of the mission again. ( However, if you have retrieved the Lost Item, it will still be safe with you)<br>
+<br>
+The battle is only won when all of the enemy troops have been converted into friendly neopets.</span></b><br>
+<br>
+<span style="color: #FF0000"><span style="text-decoration: underline"><span style="font-size: 18px">Characters</span></span></span><br>
+<b><span style="color: #FF8000">Each character has a standard statistic:<br>
+<br>
+Hitpoints - The amount of life a soldier has. Max = 21.<br>
+Attack - The strength of the soldier. Max = 19<br>
+Moves - Each species has a different amount of moves available. This includes: teleporting, healing, attacking, or moving to another square.<br>
+Defences - This determines how much damage is reduced when an enemy attacks your troops.<br>
+<br>
+Characters are also able to equip ONE Defense item and ONE Attack item.<br>
+<br>
+Enemy troop's stats may exceed the maximum of your troop's but they cannot weild weapons. Also, they can only move once for each soldier they have. When an enemy soldier is converted, his stats will no longer exceed the max.<br>
+<br>
+Characters have different rankings in this game, determined by the number of conversions they make. They gain a point each for attack and defense everytime they rank up. Here's the ranking list :<br>
+<br>
+Villager &gt; Defender &gt; Soldier &gt; Captain &gt; Lieutenant &gt; Corporal<br>
+<br>
+However, if one of your character has been converted into a draconian and you managed to convert him back, he will lose his rank and start out once again as a villager, thus you must ensure that you look out for everyone's hp.<br>
+<br>
+<br>
+<span style="text-decoration: underline">Species</span> :<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/Skeith.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/Skeith.jpg" style="">Skeith - 1 move per turn. Special items: Teleportation Amulet and Bezerker Battleaxe. The Amulet enables the Skeith to move ANYWHERE except the top 3 rows on the grid. The battleaxe gives the skeith an extra move to attack ONLY, and only after teleporting.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/Moehog.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/Moehog.jpg" style="">Moehog - 3 moves per turn. Strategically speaking, this Moehogs are only good as distractions or blockers, keeping the enemy wave from coming closer. This is because when armed with a Helmt or Plate Armour, they get extra defense points. They are weak in attacking, thus not making good fighters.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/Grundo.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/Grundo.jpg" style="">Grundo - 2 moves per turn. Special items : Magic Spell of Force, Magic Lightning Spell, Magic Staff of Thunder and Magic Cloak of Invisibility, . The first three items increases your Grundo's attacking power and also enables them to heal your other soldiers! The cloak of invisibility increase a grundo's defense by a lot, but it does not literally make them invisible. Their main role in the game is to ensure that the other soldiers stay alive by healing them. Make sure to keep your Grundos safe at all costs!<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/Techo.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/Techo.jpg" style="">Techo - 2 moves per turn. Special items: Broadsword, Double Sword and Shield. The swords increases your Techo's attack while the shield increases its defences. Most of the time, they are placed on the front lines as they can deal high damage and also resist damage from the enemy.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/Scorchio.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/Scorchio.jpg" style="">Scorchio - 2 moves per turn. Special items: Longbow. This item allows your Scorchio to be able to attack far range without having to come in contact with the enemy! But it must first have a rank of Soldier before you can start attacking from a distance. Boosting a Scorchio's defense will make it almost unstoppable!<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/DariganMoehog.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/DariganMoehog.jpg" style=""><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/DariganTecho.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/DariganTecho.jpg" style=""><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/DariganSkeith.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/DariganSkeith.jpg" style=""><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/DariganScorchio.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/DariganScorchio.jpg" style=""><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/DariganBuzz.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/DariganBuzz.jpg" style=""><br>
+The Draconians - Every mission comes with a new species of Draconian neopets.<br>
+Mission 1 - Draco Moehogs<br>
+Mission 2 - Draco Techos<br>
+Mission 3 - Draco Skeith<br>
+Mission 4 - Draco Scorchio<br>
+Mission 5 - Draco Grundos<br>
+Mission 6 - Draco Moehogs + Draco Buzz<br>
+Mission 7 - Draco Moehogs + Draco Buzz<br>
+Mission 8 - Draco Grarrl<br>
+Mission 9 - (sorry haven't come this far yet)<br>
+Mission 10 - (sorry haven't come this far yet)<br>
+<br>
+Unlike the other species, defeating Draco Buzz and Draco Grarrl does not turn them into friendly soldiers. Instead, they turn into some pile of ash which acts as an impassable square like the mountains.</span></b><br>
+<br>
+<br>
+<span style="font-size: 18px"><span style="color: #FF0000"><span style="text-decoration: underline">Game Mechanics</span></span></span><br>
+<br>
+<span style="color: #FF8000"><b><span style="text-decoration: underline">Game</span><br>
+This game is turn-based, meaning you have to strategise your every move. The enemy would not move until you click on "Invader's Turn" after finishing your 5 moves. Also, you can click on "End Turn Now", to end your turn though you have not finished your 5 moves.<br>
+<br>
+Messages will be written below the playing grid, telling you what did the invaders do in their turn and how much damage has been done everytime you attack an invader. Eg. "Soldier01 attacks Draco-Scorchio for 7 points of damage!"<br>
+<br>
+<span style="text-decoration: underline">Damage Chart</span><br>
+This chart shows you just exactly how the points were added up in an attack. This is how it works: It adds any of the attacking character's bonus strength (if any) to the weapon bonus strength. That total is then added to a random number between one and twenty. If the resulting total is less than the defense of the enemy, your attack will miss. If the number is greater than the enemy's defense, then the difference is subtracted, point for point, from the enemy's hit points.</b><br>
+</span><br>
+<br>
+<span style="font-size: 18px"><span style="color: #FF0000"><span style="text-decoration: underline">Tips and Hints</span></span></span><br>
+<span style="color: #FF8000"><br>
+<b><span style="text-decoration: underline">Your Characters</span><br>
+It isn't a rule that your characters must all be of different species. The only rule for your line up is that only 5 are allowed, regardless of their species. For me, I would suggest that you take away the Techo and replace it with another Grundo. Reason? Your Techo doesnt consistantly give good hits, unlike Scorchio or Grundo. Even though its attack is a lot higher than Moehog, your Moehog is the main character that goes up and get that Lost Item. Besides, having 2 Grundos is an excellent advantage, giving you 2 healers on your team!<br>
+<br>
+*Tip by Salia - To get the avatar, keep all 5 of the different species in your mission.<br>
+<br>
+<span style="text-decoration: underline">First Few Moves</span><br>
+I'll usually teleport my Skeith to the front of the village nearest to the invaders. Since Skeiths are able to tank quite a lot of damage, it slows down the invasion and gives time for you to move up the rest of your troops. Never ever leave one character alone to defend a village, even if its just one village. It'll never be able to take on the swarm of villagers. Sometimes sacrificing villages are necessary to prevent any of your troops from converting and losing their ranks.<br>
+<br>
+Always focus every attack from your troops onto one invader ONLY. This converts the invaders faster and gives you more characters to block the invaders from attacking your main troop. Dont forget that you can always run off to safety instead of wasting multiple moves just to heal that one troop. This causes the invaders to switch target, they will not chase after the one thats dying, thus giving you more turns to focus on attacking the invaders.<br>
+<br>
+<span style="text-decoration: underline">Things to Avoid</span><br>
+Do NOT try to rank up your troops by letting the invaders convert a villager and then you converting it back again just to gain conversions. An unlucky dice roll could cause the darigan invader to hit really hard on one of your main character, converting them too into an invader. This is a total waste of your training and may also cause you to lose the entire battle!<br>
+<br>
+Do not avoid picking up items. Even though it may cause you to drop your species-related weapon, but if moving to the spot will save a character/village, just move and drop the weapon. At the most you'll only lose a few points of defense or attack,but you could always move back to retrieve the item once your done.<br>
+<br>
+Do not hesitate to let an enemy destroy a village. If it requires one of your troop to move away from the group and defend that village alone, don't bother. It is not worth risking that main troop just to defend a village which will ultimate only give u 5np. Of course, if you are left with 1 or 2 villages, then go all out to save the villages you can!</b></span><br>
+<br>
+<div style="text-align: center"><span style="font-size: 18px"><span style="color: #FF0000"><span style="text-decoration: underline">Walkthrough</span></span></span><br>
+<br>
+<span style="color: #FF8000"><br>
+<b><br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/1.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/1.jpg" style=""><br>
+In this round, there are 3 specific groupings of villages. One's surround by the mountains, another in the middle and the last one at the bottom left. Because the middle villages are more exposed to the enemies compared to the ones surrounded by the mountains, I'll plan to move 3 characters to the middle and 2 to the mountains. You may ask, "what about the last group of villages?" That last group of villages is my sacrificial villages, I'll sacrifice those villages to help me win the game, as you'll see later on.<br>
+<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/2.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/2.jpg" style=""><br>
+As you can see, I teleport my Skeith to the village nearest to the enemy for my first move. The rest of the characters just move a step up.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/3.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/3.jpg" style=""><br>
+Enemies move one step down, I take one step up. Moehog and Grundo defends the mountain villages, Techo, Scorchio and Skeith defends the middle portion. Because Skeiths are able to tank damage while Techo and Scorchio deals high damage, I'll place them in the middle where there's gonna be a large amount of invaders coming down.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/4.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/4.jpg" style=""><br>
+Lol. My Techo shouldnt be there. My browser suddenly jerked downwards when I pressed and it pressed the wrong square -.- Technically, it should be in between Skeith and Scorchio, forming a nice line defence. I wasted no turns moving Moehog and Grundo as the invaders going towards their area are still quite a distance away. I also started attacking the middle invader, since both Scorchio and Skeith will be able to attack, it'll be much faster to convert compared to hitting the other invader which Scorchio can't reach.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/5.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/5.jpg" style=""><br>
+Enemies are getting much and much closer. I used my Grundo to health Skeith since he's taking quite a lot of damage.<br>
+<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/6.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/6.jpg" style=""><br>
+Finally got Techo into proper position. I tried converting the invader right in front of Techo this turn but I was unlucky and all missed :/<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/7.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/7.jpg" style=""><br>
+Actually, if you ever get into such a situation like this, its pretty risky since every invader gets one move, unlike us who only gets a total of 5 moves. This gives the invaders the advantage of converting our characters in just one turn since 3 invaders are in contact with the same character when in a line. The damage done in the picture is towards the one right above Scorchio. I chose to attack him first because both Techo and Scorchio are in contact with him, making it a lot easier to convert.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/8.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/8.jpg" style=""><br>
+Awesome! Another invader converted! But now I start to face another problem. My Moehog is currently on its own because I want to keep Grundo safe to heal my other characters. If you read my guide, I did mention having 2 Grundos are better. Sadly, there aren't any scrolls lying around so its pretty pointless having a Grundo that can't heal.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/9.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/9.jpg" style=""><br>
+Currently, Moehog has been taking a lot of damage and I'm wasting a lot of time healing him, thus leaving me no choice but to move Grundo up. Also, you may noticed that I shifted the converted invader downwards too. This is to increase the number of contact points I have with the invader, thus giving more choices for it to attack and less unlikely for it to focus all attacks on the same character.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/10.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/10.jpg" style=""><br>
+I shifted Skeith downwards because it was taking too much damage and Grundo could not keep wasting 2 turns to heal it, thus moving it down makes it only have contact with just one invader.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/11.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/11.jpg" style=""><br>
+On the left side, you can see that the invaders are starting to move towards the villages. I'll leave them to sack the villages since there are only 2 there. I also moved Moehog in as he, too, was receiving a lot of damage for Grundo to heal.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/12.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/12.jpg" style=""><br>
+Well I was pretty unlucky here, the invaders did a large amount of damage on my converted grundo and converted him back again. You can also see that I moved another converted grundo towards the invaders on the right, once again to increase the number of characters in contact of the invaders.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/13.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/13.jpg" style=""><br>
+There goes one village! Also, I managed to convert back the invader into a villager once again. At this point, I'm trying to convert the invader two spaces away to the right of Scorchio. This will keep my healer safe and avoid any worries to keep it alive<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/14.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/14.jpg" style=""><br>
+Another village gone! But its alright, still need 2 more before its game over. Now you notice, the invader that has just sacked both villages will practically be immobilised for the entire game. This is because invaders never move backwards (according to my observations) and there are also no villages nearby. Thus you can worry bout that invader last. I also moved Grundo up beside Moehog to lessen the amount of damage Moehog has been receiving.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/15.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/15.jpg" style=""><br>
+Managed to convert the invader next to Skeith, but in return, they converted my villager again! However, still trying to convert that invader thats two spaces away from Scorchio.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/16.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/16.jpg" style=""><br>
+Alright! Finally got the invader to convert. Now, the grundo right above Scorchio is reaching the verge of conversion. Also, I'm making Techo convert the last invader in contact with him to allow the grundo thats almost that to run away.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/17.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/17.jpg" style=""><br>
+By moving the dying grundo away from the enemy, it saves turns that would be used to heal it and also prevents it from getting attacked any further. In place of that dying grundo, I teleported Skeith to ensure that there is still an equal amount of characters in contact with the invaders so that Grundo and Scorchio will not run the risk of getting converted.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/18.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/18.jpg" style=""><br>
+As you can see, it is already a definite win for me since I've totally outnumbered their invaders. So all I have to do now is just continue attacking one by one. Also, I'm slowly moving Techo towards the last one at the bottom, remember the game ends only when all invaders have been defeated!<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/19.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/19.jpg" style=""><br>
+Another invader converted! Now techo is finally in contact with the bottom invader. Just slowly attack and I'll eventually win.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/20.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/20.jpg" style=""><br>
+Teleported Skeith beside Techo to help him out since there is already a lot of villagers to help out with the one left on top.<br>
+<br>
+<img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/21.jpg" class="bbCodeImage LbImage" alt="[​IMG]" data-url="http://i188.photobucket.com/albums/z148/joelyeozhiwe/21.jpg" style=""><br>
+And there we go! This game is actually quite already until you reach around level 7 or so. From there onwards, invaders are much stronger and have higher defense. However, this is a game of patience. As long as you watch out for every single character you have and know how to sacrifice at times, it is possible to complete the game!</b></span>​</div><br>
+<span style="font-size: 18px"><span style="color: #FF0000"><span style="text-decoration: underline">Q&amp;A</span></span></span><br>
+<span style="color: #FF8000"><b>Q.I've just lost a main soldier of Level x, should I restart the mission or continue on?<br>
+A. It is best that you restart the mission. Though soldiers are always easy to replace, the species-related equipment and armour are not. Things like the teleportation amulet may not be available in future missions, giving you a HUGE disadvantage if you were to continue on.<br>
+<br>
+Q: When should I get the Lost Item?<br>
+A: There is no solid answer to this question. If you retrieve the Lost Item on the first battle, you run the risk of losing on a later battle, before the save, and, although you get to keep the item, the bonus strength and defense will be lost. Likewise with the second battle. Mostly, it is safe to say, that you shouldn't need the Lost Item's power to complete a mission, so don't feel guilty if you don't pick it up immediately. I recommend the end of the second battle, but it's really up to you, and your own scenario's opportunity.<br>
+<br>
+<br>
+<br>
+If you were to post a screenshot here and ask for my help, I can't guarantee a win from my inputs since this game is 70% based on luck and chance, all damage given out are just dice rolls which I can't control. Hopefully this guide has helped you gain a better understanding of this game(though I know it might have been UBER long to read, sorry bout that xD)<br>
+<br>
+Credits: Surikia for <i>her</i> Invasion of Meridell guide that helped me out when I was noob.</b></span><br>
+<br>
+<br>
+<span style="color: #FF8000">PS. If you saw this guide on some other forum from a user called worshiphim, thats me, so please do not say I ripped the guide.</span>
+						<div class="messageTextEndMarker">&nbsp;</div>
+					</blockquote>
+				</article>
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="messageDetails">
+			
+				
+		
+		
+		
+		<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/" title="Permalink" class="item muted postNumber hashPermalink OverlayTrigger" data-href="posts/292536/permalink">#1</a>
+		
+		<span class="item muted">
+			<span class="authorEnd"><a href="https://www.neofriends.net/members/jubixion.16768/" class="username author"><span class="style14">Jubixion</span></a>,</span>
+			<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/" title="Permalink" class="datePermalink"><span class="DateTime" title="Jun 13, 2009 at 4:39 PM">Jun 13, 2009</span></a>
+		</span>
+	
+	
+			
+				
+				
+			</div>
+			
+			
+			
+		
+		 
+	
+	
+			
+			<div id="likes-post-292536">
+	
+	<div class="likesSummary secondaryContent">
+		<span class="LikeText">
+			<a href="https://www.neofriends.net/members/commy.3962/" class="username"><span class="style4">Commy</span></a> and <a href="https://www.neofriends.net/members/cacklenub.6334/" class="username"><span class="style15">Cacklenub</span></a> like this.
+		</span>
+	</div>
+</div>
+		</div>
+	
+	</div> 
+
+	
+	
+	
+	
+</li>
+			
+		
+			
+				
+
+
+<li id="post-293465" class="sectionMain message    " data-author="Anfan">
+
+	<div class="uix_message ">
+		
+
+<div class="messageUserInfo" itemscope="itemscope" itemtype="http://data-vocabulary.org/Person">	
+<div class="messageUserBlock ">	
+	
+		<div class="avatarHolder">
+			<div class="uix_avatarHolderInner">
+			<span class="helper"></span>
+			<a href="https://www.neofriends.net/members/anfan.11591/" class="avatar Av11591m" data-avatarhtml="true"><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/11591.jpg" width="96" height="96" alt="Anfan"></a>
+			
+			
+			<!-- slot: message_user_info_avatar -->
+
+
+
+			</div>
+		</div>
+		
+
+	
+		<h3 class="userText">
+
+			<div class="uix_userTextInner">
+				<a href="https://www.neofriends.net/members/anfan.11591/" class="username" itemprop="name"><span class="style15">Anfan</span></a>
+				<em class="userTitle" itemprop="title">Level IV</em>
+			</div>
+			
+			<!-- slot: message_user_info_text -->
+		</h3>
+	
+	
+	
+		<div class="extraUserInfo">
+			
+			
+				
+					<dl class="pairsJustified">
+						<dt>Joined:</dt>
+						<dd>Feb 12, 2009</dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Messages:</dt>
+						<dd><a href="https://www.neofriends.net/search/member?user_id=11591" class="concealed" rel="nofollow">1,327</a></dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Likes Received:</dt>
+						<dd>105</dd>
+					</dl>
+				
+				
+				
+			
+				
+				
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Location:</dt>
+						<dd><a href="https://www.neofriends.net/misc/location-info?location=USA" target="_blank" rel="nofollow" itemprop="address" class="concealed">USA</a></dd>
+					</dl>
+				
+			
+				
+							
+						
+			
+			
+		</div>
+	
+
+		
+
+
+	<span class="arrow"><span></span></span>
+</div>
+</div>
+	
+		<div class="messageInfo primaryContent">
+			
+			
+			
+			<div class="messageContent">
+					
+				<article>
+					<blockquote class="messageText SelectQuoteContainer ugc baseHtml">
+						
+						Nice guide. Found it when I was debating making a guide for here. xP<br>
+<br>
+Anyways, a few suggestions - <br>
+
+
+
+<div class="bbCodeBlock bbCodeQuote">
+	<aside>
+		
+		<blockquote class="quoteContainer"><div class="quote">Do NOT try to rank up your troops by letting the invaders convert a villager and then you converting it back again just to gain conversions. An unlucky dice roll could cause the darigan invader to hit really hard on one of your main character, converting them too into an invader. This is a total waste of your training and may also cause you to lose the entire battle!</div><div class="quoteExpand">Click to expand...</div></blockquote>
+	</aside>
+</div>Although that is true, it's also extremely useful in some situations. For example, the Soldier rank for the Scorchio giving the Scorchio range - that's something you want to try to take advantage of as soon as possible. If you're at the end of a battle, troops converted except for maybe one or two, training your troops...especially if it's at the end of a battle. <br>
+<br>
+And another note for ranks - maybe consider adding the fact that 3 conversions goes to Defender, 9 to Soldier, etc.?<br>
+<br>
+
+
+
+<div class="bbCodeBlock bbCodeQuote">
+	<aside>
+		
+		<blockquote class="quoteContainer"><div class="quote">Hitpoints - The amount of life a soldier has. Max = 21.</div><div class="quoteExpand">Click to expand...</div></blockquote>
+	</aside>
+</div>Only after you reach the second wave of defenders. During missions 1-5 each soldier only has 18 max HP.<br>
+<br>
+Also add that you receive the medal after defeating the first 5 missions, perhaps? (Recommendation for the trophy would be to defeat the entire game without losing ANY soldiers on the first of a month. Actually, I once was playing out of boredom on January 1st....last year, I think, and got to mission 6. I still got the 3rd place trophy.)<br>
+<br>
+Oh, and before I forget again - add that one soldier can only go up in rank once per round of missions. So, for example, if in mission 1 all your troops go to the rank of Defender, and they make any more conversions after that, it'll still say they only have 3 conversions. (Even if they actually convert 4, 5, or 6 invaders.) Starting in mission 2, however, they'll then be able to increase in rank again, a good time to up your Scorchio to Soldier.<br>
+<br>
+And a note on dropping your techo for two grundos - I know some people never get their troops have spells casted on them by the enemy, but invader buzzes can cast a very nasty spell (I don't remember which it is...the grundos-can't-use-heal-anymore or the skeith-can't-teleport-anymore one) that's only breakable by a techo with a Sword of Deflection. (If I remember the name right. The other spell is only breakable by a Moehog with a particular helmet, but Moehogs are too useful to drop, anyways.) Being unable to teleport your skeith, or unable to heal with your grundo, is a hinderance most would rather do without.<br>
+<br>
+And one last thing (I think =P) - if you're shooting for the Invasion of Meridell avatar, remember that you have to defeat Mission 7 <span style="text-decoration: underline">within the same month</span> you started your game.<br>
+<br>
+Oh, wait, THIS really is the last thing - perhaps add a chart for invader attack priority? (So you know that if one troop has really low health, but you can't heal it, you can move another troop into a particular location to take damage instead.)<br>
+<br>
+Invaders always target villages to sack them first, but if there's no village adjacent (even diagonally) to them they'll always attack your army with the same priorities (assume <b>X</b> is the invader) -<br>
+3 1 6<br>
+4 <b>X</b> 7<br>
+5 2 8<br>
+<br>
+For example, an invader at position X would first target the troop (if there is one) at location 1, if that troop is one of yours, not another invader. Their next priority to attack would be the troop at position 2, then 3, then 4, etc.
+						<div class="messageTextEndMarker">&nbsp;</div>
+					</blockquote>
+				</article>
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="messageDetails">
+			
+				
+		
+		
+		
+		<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293465" title="Permalink" class="item muted postNumber hashPermalink OverlayTrigger" data-href="posts/293465/permalink">#2</a>
+		
+		<span class="item muted">
+			<span class="authorEnd"><a href="https://www.neofriends.net/members/anfan.11591/" class="username author"><span class="style15">Anfan</span></a>,</span>
+			<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293465" title="Permalink" class="datePermalink"><span class="DateTime" title="Jun 16, 2009 at 4:07 AM">Jun 16, 2009</span></a>
+		</span>
+	
+	
+			
+				
+				
+			</div>
+			
+			
+			
+		
+		 
+	
+	
+			
+			<div id="likes-post-293465"></div>
+		</div>
+	
+	</div> 
+
+	
+	
+	
+	
+</li>
+			
+		
+			
+				
+
+
+<li id="post-293478" class="sectionMain message    " data-author="Rhett">
+
+	<div class="uix_message ">
+		
+
+<div class="messageUserInfo" itemscope="itemscope" itemtype="http://data-vocabulary.org/Person">	
+<div class="messageUserBlock ">	
+	
+		<div class="avatarHolder">
+			<div class="uix_avatarHolderInner">
+			<span class="helper"></span>
+			<a href="https://www.neofriends.net/members/rhett.5033/" class="avatar Av5033m" data-avatarhtml="true"><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/5033.jpg" width="96" height="96" alt="Rhett"></a>
+			
+			
+			<!-- slot: message_user_info_avatar -->
+
+
+
+			</div>
+		</div>
+		
+
+	
+		<h3 class="userText">
+
+			<div class="uix_userTextInner">
+				<a href="https://www.neofriends.net/members/rhett.5033/" class="username" itemprop="name"><span class="style15">Rhett</span></a>
+				<em class="userTitle" itemprop="title">Level IV</em>
+			</div>
+			
+			<!-- slot: message_user_info_text -->
+		</h3>
+	
+	
+	
+		<div class="extraUserInfo">
+			
+			
+				
+					<dl class="pairsJustified">
+						<dt>Joined:</dt>
+						<dd>Dec 2, 2007</dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Messages:</dt>
+						<dd><a href="https://www.neofriends.net/search/member?user_id=5033" class="concealed" rel="nofollow">1,429</a></dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Likes Received:</dt>
+						<dd>76</dd>
+					</dl>
+				
+				
+				
+			
+				
+				
+				
+				
+				
+			
+				
+							
+						
+			
+			
+		</div>
+	
+
+		
+
+
+	<span class="arrow"><span></span></span>
+</div>
+</div>
+	
+		<div class="messageInfo primaryContent">
+			
+			
+			
+			<div class="messageContent">
+					
+				<article>
+					<blockquote class="messageText SelectQuoteContainer ugc baseHtml">
+						
+						<div class="bbCodeBlock bbCodeQuote">
+	<aside>
+		
+		<blockquote class="quoteContainer"><div class="quote">Do NOT try to rank up your troops by letting the invaders convert a villager and then you converting it back again just to gain conversions. An unlucky dice roll could cause the darigan invader to hit really hard on one of your main character, converting them too into an invader. This is a total waste of your training and may also cause you to lose the entire battle!</div><div class="quoteExpand">Click to expand...</div></blockquote>
+	</aside>
+</div>I've actually found this as the BEST tip for leveling up. Wow, if you do this responsibly (having it set up where there is only one enemy, converting one villager, but the villager is surrounded by your soldiers, giving you a total of five turns to re-convert the villager, and continue this cycle) you can beast the rest of the same. start this strategy early and with all of your characters and you'll just beast your way through the first few levels. The later levels require a lot more skill though. x)
+						<div class="messageTextEndMarker">&nbsp;</div>
+					</blockquote>
+				</article>
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="messageDetails">
+			
+				
+		
+		
+		
+		<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293478" title="Permalink" class="item muted postNumber hashPermalink OverlayTrigger" data-href="posts/293478/permalink">#3</a>
+		
+		<span class="item muted">
+			<span class="authorEnd"><a href="https://www.neofriends.net/members/rhett.5033/" class="username author"><span class="style15">Rhett</span></a>,</span>
+			<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293478" title="Permalink" class="datePermalink"><span class="DateTime" title="Jun 16, 2009 at 5:24 AM">Jun 16, 2009</span></a>
+		</span>
+	
+	
+			
+				
+				
+			</div>
+			
+			
+			
+		
+		 
+	
+	
+			
+			<div id="likes-post-293478"></div>
+		</div>
+	
+	</div> 
+
+	
+	
+	
+	
+</li>
+			
+		
+			
+				
+
+
+<li id="post-293481" class="sectionMain message    " data-author="Anfan">
+
+	<div class="uix_message ">
+		
+
+<div class="messageUserInfo" itemscope="itemscope" itemtype="http://data-vocabulary.org/Person">	
+<div class="messageUserBlock ">	
+	
+		<div class="avatarHolder">
+			<div class="uix_avatarHolderInner">
+			<span class="helper"></span>
+			<a href="https://www.neofriends.net/members/anfan.11591/" class="avatar Av11591m" data-avatarhtml="true"><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/11591.jpg" width="96" height="96" alt="Anfan"></a>
+			
+			
+			<!-- slot: message_user_info_avatar -->
+
+
+
+			</div>
+		</div>
+		
+
+	
+		<h3 class="userText">
+
+			<div class="uix_userTextInner">
+				<a href="https://www.neofriends.net/members/anfan.11591/" class="username" itemprop="name"><span class="style15">Anfan</span></a>
+				<em class="userTitle" itemprop="title">Level IV</em>
+			</div>
+			
+			<!-- slot: message_user_info_text -->
+		</h3>
+	
+	
+	
+		<div class="extraUserInfo">
+			
+			
+				
+					<dl class="pairsJustified">
+						<dt>Joined:</dt>
+						<dd>Feb 12, 2009</dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Messages:</dt>
+						<dd><a href="https://www.neofriends.net/search/member?user_id=11591" class="concealed" rel="nofollow">1,327</a></dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Likes Received:</dt>
+						<dd>105</dd>
+					</dl>
+				
+				
+				
+			
+				
+				
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Location:</dt>
+						<dd><a href="https://www.neofriends.net/misc/location-info?location=USA" target="_blank" rel="nofollow" itemprop="address" class="concealed">USA</a></dd>
+					</dl>
+				
+			
+				
+							
+						
+			
+			
+		</div>
+	
+
+		
+
+
+	<span class="arrow"><span></span></span>
+</div>
+</div>
+	
+		<div class="messageInfo primaryContent">
+			
+			
+			
+			<div class="messageContent">
+					
+				<article>
+					<blockquote class="messageText SelectQuoteContainer ugc baseHtml">
+						
+						Actually, to be honest that point is one thing that is VERY debatable. <br>
+<br>
+It's amazingly useful, and something that I, at least, would definitely encourage you to do, at the beginning of the game. At the beginning of the game your enemies are extremely weak, so converting and reconverting the invaders to level up is VERY useful.<br>
+<br>
+Keep in mind, though, that after you get to the second wave of Invaders and there are Invader Buzzes with...what, 25 attack-ish (If I remember correctly; haven't played for a while), an unlucky roll of the dice could force you to re-do an entire mission. <br>
+<br>
+So, it's a point that's situational specific. I'd recommend doing this until your troops' attack/defense are maxed, perhaps...<br>
+<br>
+Oh, another thing to add to the guide - when you get to the second round of invaders, you might want to consider, for example in mission 6, dropping your Moehog and picking up one of the converted invader Moehogs with 15 defense.
+						<div class="messageTextEndMarker">&nbsp;</div>
+					</blockquote>
+				</article>
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="messageDetails">
+			
+				
+		
+		
+		
+		<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293481" title="Permalink" class="item muted postNumber hashPermalink OverlayTrigger" data-href="posts/293481/permalink">#4</a>
+		
+		<span class="item muted">
+			<span class="authorEnd"><a href="https://www.neofriends.net/members/anfan.11591/" class="username author"><span class="style15">Anfan</span></a>,</span>
+			<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293481" title="Permalink" class="datePermalink"><span class="DateTime" title="Jun 16, 2009 at 5:29 AM">Jun 16, 2009</span></a>
+		</span>
+	
+	
+			
+				
+				
+			</div>
+			
+			
+			
+		
+		 
+	
+	
+			
+			<div id="likes-post-293481"></div>
+		</div>
+	
+	</div> 
+
+	
+	
+	
+	
+</li>
+			
+		
+			
+				
+
+
+<li id="post-293510" class="sectionMain message    " data-author="Jubixion">
+
+	<div class="uix_message ">
+		
+
+<div class="messageUserInfo" itemscope="itemscope" itemtype="http://data-vocabulary.org/Person">	
+<div class="messageUserBlock ">	
+	
+		<div class="avatarHolder">
+			<div class="uix_avatarHolderInner">
+			<span class="helper"></span>
+			<a href="https://www.neofriends.net/members/jubixion.16768/" class="avatar Av16768m" data-avatarhtml="true"><img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/avatar_m.png" width="96" height="96" alt="Jubixion"></a>
+			
+			
+			<!-- slot: message_user_info_avatar -->
+
+
+
+			</div>
+		</div>
+		
+
+	
+		<h3 class="userText">
+
+			<div class="uix_userTextInner">
+				<a href="https://www.neofriends.net/members/jubixion.16768/" class="username" itemprop="name"><span class="style14">Jubixion</span></a>
+				<em class="userTitle" itemprop="title">Level II</em>
+			</div>
+			
+			<!-- slot: message_user_info_text -->
+		</h3>
+	
+	
+	
+		<div class="extraUserInfo">
+			
+			
+				
+					<dl class="pairsJustified">
+						<dt>Joined:</dt>
+						<dd>Jun 11, 2009</dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Messages:</dt>
+						<dd><a href="https://www.neofriends.net/search/member?user_id=16768" class="concealed" rel="nofollow">205</a></dd>
+					</dl>
+				
+				
+				
+					<dl class="pairsJustified">
+						<dt>Likes Received:</dt>
+						<dd>14</dd>
+					</dl>
+				
+				
+				
+			
+				
+				
+				
+				
+				
+			
+				
+							
+						
+			
+			
+		</div>
+	
+
+		
+
+
+	<span class="arrow"><span></span></span>
+</div>
+</div>
+	
+		<div class="messageInfo primaryContent">
+			
+			
+			
+			<div class="messageContent">
+					
+				<article>
+					<blockquote class="messageText SelectQuoteContainer ugc baseHtml">
+						
+						Well thanks a lot for all your comments/contributions. Once again this game is more or less solely based on one's opinion and whatever tactic you choose may also work for you. It's pretty subjective. My guide here is only for those who just started and more or less just to help them win the mission. Not allowing reconversions is just a safe measure for new players so that they wouldn't accidently cause their entire mission to fail because of one mistake in reconverting.<br>
+<br>
+About the Techo's Sword of Deflection, I'm sorry but I totally forgot about the invader buzz stuff, I'll remove it <img src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/clear.png" class="mceSmilieSprite mceSmilie1" alt=":)" title="Smile    :)"> Thanks for reminding! Fyi it is disabling your skeith's teleporting and not grundo's healing.
+						<div class="messageTextEndMarker">&nbsp;</div>
+					</blockquote>
+				</article>
+				
+				
+			</div>
+			
+			
+			
+			
+			<div class="messageDetails">
+			
+				
+		
+		
+		
+		<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293510" title="Permalink" class="item muted postNumber hashPermalink OverlayTrigger" data-href="posts/293510/permalink">#5</a>
+		
+		<span class="item muted">
+			<span class="authorEnd"><a href="https://www.neofriends.net/members/jubixion.16768/" class="username author"><span class="style14">Jubixion</span></a>,</span>
+			<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#post-293510" title="Permalink" class="datePermalink"><span class="DateTime" title="Jun 16, 2009 at 12:59 PM">Jun 16, 2009</span></a>
+		</span>
+	
+	
+			
+				
+				
+			</div>
+			
+			
+			
+		
+		 
+	
+	
+			
+			<div id="likes-post-293510"></div>
+		</div>
+	
+	</div> 
+
+	
+	
+	
+	
+</li>
+			
+		
+		
+	</ol>
+
+	
+
+	<input type="hidden" name="_xfToken" value="">
+
+</form>
+
+
+	<div class="pageNavLinkGroup">
+		
+			
+				<div class="linkGroup">
+					
+						<label><a href="https://www.neofriends.net/login/" class="concealed element OverlayTrigger">(You must log in or sign up to reply here.)</a></label>
+					
+				</div>
+			
+			<div class="linkGroup" style="display: none"><a href="javascript:" class="muted JsOnly DisplayIgnoredContent Tooltip">Show Ignored Content</a></div>
+
+			
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+	
+
+	<div class="sharePage">
+		<h3 class="textHeading larger">Share This Page</h3>
+		
+			
+			
+				<div class="tweet shareControl">
+					<iframe id="twitter-widget-0" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" class="twitter-share-button twitter-share-button-rendered twitter-tweet-button" style="position: static; visibility: visible; width: 60px; height: 20px;" title="Twitter Tweet Button" src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/tweet_button.c63890edc4243ee77048d507b181eeec.en.html" data-url="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/"></iframe>
+				</div>
+			
+			
+				<div class="plusone shareControl">
+					<div class="g-plusone" data-size="medium" data-count="true" data-href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/"></div>
+				</div>
+			
+			
+				<div class="facebookLike shareControl">
+					
+					<fb:like href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/" show_faces="true" width="400" action="like" font="trebuchet ms" colorscheme="light"></fb:like>
+				</div>
+			
+			
+		
+	</div>
+
+						
+						
+						
+						
+							<!-- login form, to be moved to the upper drop-down -->
+							
+
+
+
+
+
+
+
+
+						
+						
+			
+				</div>
+			
+			
+			
+						
+				
+					<div class="breadBoxBottom">
+
+<nav>
+
+	
+	
+	
+
+	<fieldset class="breadcrumb" style="">
+		<a href="https://www.neofriends.net/misc/quick-navigation-menu?selected=node-22" class="OverlayTrigger jumpMenuTrigger" data-cacheoverlay="true" title="Open quick navigation"><i class="uix_icon uix_icon-sitemap"></i><!--Jump to...--></a>
+			
+		<div class="boardTitle"><strong>Neofriends.net</strong></div>
+		
+		<span class="crumbs">
+			
+			
+			
+				<span class="crust selectedTabCrumb">
+					<a href="https://www.neofriends.net/" class="crumb"><span><i class="uix_icon uix_icon-home"></i></span></a>
+					<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+				</span>
+			
+			
+			
+				
+					<span class="crust">
+						<a href="https://www.neofriends.net/categories/neopets-discussion.67/" class="crumb"><span>Neopets Discussion</span></a>
+						<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+					</span>
+				
+					<span class="crust">
+						<a href="https://www.neofriends.net/forums/neopets-chit-chat.6/" class="crumb"><span>Neopets Chit-Chat</span></a>
+						<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+					</span>
+				
+					<span class="crust">
+						<a href="https://www.neofriends.net/forums/neopets-guides.22/" class="crumb"><span>Neopets Guides</span></a>
+						<span class="arrow"><i class="uix_icon uix_icon-breadcrumbSeparator"></i></span>
+					</span>
+				
+			
+		</span>
+	</fieldset>
+</nav></div>
+				
+			
+			
+
+
+			
+						
+			
+						
+		</div>
+	</div>
+</div>
+
+</div>
+
+<footer>
+	
+
+
+
+
+
+
+
+
+
+
+
+<div class="footer">
+	<div class="pageWidth">
+		<div class="pageContent noBorderRadiusTop">
+			
+			
+				
+				
+				
+				
+				
+				<ul class="footerLinks">
+					
+						<li><a href="https://www.neofriends.net/" class="homeLink">Home</a></li>
+						
+							<li><a href="https://www.neofriends.net/misc/contact" class="OverlayTrigger" data-overlayoptions="{&quot;fixed&quot;:false}">Contact Us</a></li>
+						
+						<li><a href="https://www.neofriends.net/help/">Help</a></li>
+					
+					
+						<li><a href="https://www.neofriends.net/help/terms">Terms and Rules</a></li>
+						
+					
+					<li class="topLink"><a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#XenForo"><i class="uix_icon uix_icon-jumpToTop"></i> <span class="uix_hide">Top</span></a></li>
+				</ul>
+				
+				
+			
+			
+			<span class="helper"></span>
+		</div>
+	</div>
+</div>
+
+
+
+
+	
+		
+	
+
+
+	
+	
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+
+
+
+<div id="uix_footer_columns">
+	<div class="pageWidth">
+		<div class="pageContent defaultBorderRadius">
+			
+			
+			
+			
+			
+			<ul class="uix_footer_columns_container uix_footer_columns_3">
+				<li class="uix_footer_columns_col1">
+					<div class="uix_footer_columnWrapper">
+			
+						
+							<h3>
+								<i class="uix_icon fa fa-globe"></i> 
+								About Neofriends
+							</h3>
+						
+							Neofriends is a friendly and worldwide community which focuses on Neopets, both for cheating and for general support. It has been around for quite some time (we're talking 2006) and, despite some ups and downs, it's still open to anyone who wishes to have a good talk with nice people.
+						
+				
+					</div>
+				</li>
+				<li class="uix_footer_columns_col2">
+					<div class="uix_footer_columnWrapper">
+			
+						
+							<h3>
+								<i class="uix_icon fa fa-info-circle"></i> 
+								Quick Navigation
+							</h3>
+						
+							<ul class="footerMenu">
+<li><a href="https://www.neofriends.net/">Home</a></li>
+<li><a href="https://www.neofriends.net/downloads/">Downloads</a></li>
+<li><a href="https://www.neofriends.net/misc/contact">Contact</a></li>
+</ul>
+<p>Open the <a href="https://www.neofriends.net/misc/quick-navigation-menu" class="OverlayTrigger jumpMenuTrigger" data-cacheoverlay="true" title="Open quick navigation">Quick Navigation</a></p>
+						
+				
+					</div>
+				</li>
+				
+				<li class="uix_footer_columns_col4">
+					<div class="uix_footer_columnWrapper">
+			
+						
+							<h3>
+								<i class="uix_icon fa fa-star"></i> 
+								Help keep the site alive
+							</h3>
+						
+							Neofriends is an Ad-free community and we only rely on self-funding and members donations. We're grateful for every single donation made towards mantaining the site.
+<br><br>
+<a class="callToAction" href="https://www.neofriends.net/#"><span>Donate to us!</span></a>
+						
+				
+					</div>
+				</li>
+			</ul>
+			
+			
+			
+		</div>
+	</div>
+</div>
+
+
+<div class="footerLegal">
+	<div class="pageWidth">
+		<div class="pageContent defaultBorderRadius">
+			
+			<div id="copyright">
+				<a href="http://xenforo.com/" class="concealed">Forum software by XenForo™ <span>©2010-2014 XenForo Ltd.</span></a> 
+            <br><div id="waindigoCopyrightNotice" class="">
+	
+	
+	<a href="https://waindigo.org/" class="concealed" target="_blank">XenForo add-ons by Waindigo™</a> <span>©2015 <a href="https://waindigo.org/" class="concealed" target="_blank">Waindigo Ltd</a>.</span>
+</div>
+            
+            
+            
+            
+            
+            
+            
+				<div class="adCopyrightNoticeStyle">XenForo design framework crafted by <a href="http://www.audentio.com/shop/xenforo-themes" title="Premium XenForo Themes" rel="nofollow" target="_blank">Audentio Design</a>.</div>
+			</div>
+			
+				
+			
+
+			<span class="helper"></span>
+		</div>
+	</div>	
+</div>
+
+
+
+
+	<div id="uix_jumpToFixed" style="display: block; opacity: 1;">
+		
+			<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#content" title="Top" data-position="top"><i class="uix_icon uix_icon-jumpToTop"></i></a>
+		
+		
+			<a href="https://www.neofriends.net/threads/guide-invasion-of-meridell-in-depth.26528/#copyright" title="Bottom" data-position="bottom"><i class="uix_icon uix_icon-jumpToBottom"></i></a>
+		
+	</div>
+
+
+
+	
+
+</footer>
+
+<script>
+
+
+jQuery.extend(true, XenForo,
+{
+	visitor: { user_id: 0 },
+	serverTimeInfo:
+	{
+		now: 1588697603,
+		today: 1588633200,
+		todayDow: 2
+	},
+	_lightBoxUniversal: "0",
+	_enableOverlays: "1",
+	_animationSpeedMultiplier: "0.5",
+	_overlayConfig:
+	{
+		top: "10%",
+		speed: 100,
+		closeSpeed: 50,
+		mask:
+		{
+			color: "rgb(255, 255, 255)",
+			opacity: "0.6",
+			loadSpeed: 100,
+			closeSpeed: 50
+		}
+	},
+	_ignoredUsers: [],
+	_loadedScripts: {"thread_view":true,"message":true,"bb_code":true,"message_user_info":true,"likes_summary":true,"share_page":true,"SV_addtoHomeScreenDefault":true,"bbm_buttons":true,"login_bar":true,"moderator_bar":true,"panel_scroller":true,"facebook":true,"google":true,"js\/addtohomesceen\/addtohomescreen.min.js?_v=3e287283":true},
+	_cookieConfig: { path: "/", domain: "", prefix: "xf_"},
+	_csrfToken: "",
+	_csrfRefreshUrl: "login/csrf-token-refresh",
+	_jsVersion: "3e287283"
+});
+jQuery.extend(XenForo.phrases,
+{
+	cancel: "Cancel",
+
+	a_moment_ago:    "A moment ago",
+	one_minute_ago:  "1 minute ago",
+	x_minutes_ago:   "%minutes% minutes ago",
+	today_at_x:      "Today at %time%",
+	yesterday_at_x:  "Yesterday at %time%",
+	day_x_at_time_y: "%day% at %time%",
+
+	day0: "Sunday",
+	day1: "Monday",
+	day2: "Tuesday",
+	day3: "Wednesday",
+	day4: "Thursday",
+	day5: "Friday",
+	day6: "Saturday",
+
+	_months: "January,February,March,April,May,June,July,August,September,October,November,December",
+	_daysShort: "Sun,Mon,Tue,Wed,Thu,Fri,Sat",
+
+	following_error_occurred: "The following error occurred",
+	server_did_not_respond_in_time_try_again: "The server did not respond in time. Please try again.",
+	logging_in: "Logging in",
+	click_image_show_full_size_version: "Click this image to show the full-size version.",
+	show_hidden_content_by_x: "Show hidden content by {names}"
+});
+
+// Facebook Javascript SDK
+XenForo.Facebook.appId = "181750316881";
+XenForo.Facebook.forceInit = true;
+
+
+</script>
+
+
+
+
+
+
+</div> 
+<div class="uix_wrapperFix" style="height: 1px; margin-top: -1px;"></div>
+
+
+
+		</div> 
+	</div> 
+
+
+<script>
+
+</script>
+
+<!-- UI.X Version: 1.4.5.1 //-->
+
+
+<div id="calroot" style="display: none; position: absolute;"><div id="calhead"><a id="calprev">←</a><div id="caltitle"></div><a id="calnext">→</a></div><div id="calbody"><div id="caldays"><span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span></div><div id="calweeks"></div></div></div><div class="Menu" id="XenForoUniq0" style="display: none;">
+								<div class="primaryContent menuHeader">
+									<h3>Useful Searches</h3>
+								</div>
+								<ul class="secondaryContent blockLinksList">
+									<!-- block: useful_searches -->
+									<li><a href="https://www.neofriends.net/find-new/posts?recent=1" rel="nofollow">Recent Posts</a></li>
+									
+									<!-- end block: useful_searches -->
+								</ul>
+							</div><div class="Menu JsOnly tabMenu forumsTabLinks" id="XenForoUniq1" style="display: none;">
+										<div class="primaryContent menuHeader">
+											<h3>Forums</h3>
+											<div class="muted">Quick Links</div>
+										</div>
+										<ul class="secondaryContent blockLinksList">
+										
+											
+											<li><a href="https://www.neofriends.net/search/?type=post">Search Forums</a></li>
+											
+											<li><a href="https://www.neofriends.net/find-new/posts" rel="nofollow">Recent Posts</a></li>
+										
+										</ul>
+									</div><div class="Menu JsOnly tabMenu downloadsTabLinks" id="XenForoUniq2" style="display: none;">
+										<div class="primaryContent menuHeader">
+											<h3>Downloads</h3>
+											<div class="muted">Quick Links</div>
+										</div>
+										<ul class="secondaryContent blockLinksList">
+	<li><a href="https://www.neofriends.net/search/?type=resource_update">Search Resources</a></li>
+	
+	
+	
+	
+</ul>
+									</div><div class="Menu JsOnly tabMenu guidesTabLinks" id="XenForoUniq3" style="display: none;">
+										<div class="primaryContent menuHeader">
+											<h3>Guides</h3>
+											<div class="muted">Quick Links</div>
+										</div>
+										<ul class="secondaryContent blockLinksList">
+	<li><a href="https://www.neofriends.net/search/?type=resource_update">Search Resources</a></li>
+	
+	
+	
+	
+</ul>
+									</div><div class="Menu JsOnly tabMenu membersTabLinks" id="XenForoUniq4" style="display: none;">
+										<div class="primaryContent menuHeader">
+											<h3>Members</h3>
+											<div class="muted">Quick Links</div>
+										</div>
+										<ul class="secondaryContent blockLinksList">
+										
+											<li><a href="https://www.neofriends.net/members/">Notable Members</a></li>
+											
+											<li><a href="https://www.neofriends.net/online/">Current Visitors</a></li>
+											<li><a href="https://www.neofriends.net/recent-activity/">Recent Activity</a></li>
+											<li><a href="https://www.neofriends.net/find-new/profile-posts">New Profile Posts</a></li>
+										<li><a href="https://www.neofriends.net/banlist/">Banned Users</a></li>
+										</ul>
+									</div><div class="Menu JsOnly blockLinksList primaryContent" id="NavigationHiddenMenu" style="display: none;"></div><div class="Menu" id="audentio_postPaginationDropdown" style="display: none;">		<div class="primaryContent">			<input type="text" id="audentio_postPaginationInput" class="textCtrl" placeholder="Enter Index">		</div>	</div><iframe scrolling="no" frameborder="0" allowtransparency="true" src="./[Guide] Invasion of Meridell In-Depth _ Neofriends.net_files/widget_iframe.c63890edc4243ee77048d507b181eeec.html" title="Twitter settings iframe" style="display: none;"></iframe><div class="xenTooltip bbCodeImageTip" style="display: none;">Click this image to show the full-size version.</div></body></html>
