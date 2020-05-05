@@ -76,6 +76,9 @@ function board_click(i, j) {
               $('#person_attack_text').html(attack_text_htmlz);
 
               selected_team_member_data.moves_left -= 1;
+              if(selected_team_member_data.attack_item_name == 'Halberd') {
+                selected_team_member_data.moves_left += 1;
+              }
 
               // Unselect any other team members that were selected...
               $('img[data-selected]').each(function(){
@@ -126,6 +129,9 @@ function board_click(i, j) {
                 render_pets_stats();
 
                 selected_team_member_data.moves_left -= 1;
+                if(selected_team_member_data.attack_item_name == 'Halberd') {
+                  selected_team_member_data.moves_left += 1;
+                }
                 window.turns_left = window.turns_left - 1;
 
             }
@@ -155,6 +161,9 @@ function board_click(i, j) {
                 render_pets_stats();
 
                 selected_team_member_data.moves_left -= 1;
+                if(selected_team_member_data.attack_item_name == 'Halberd') {
+                  selected_team_member_data.moves_left += 1;
+                }
                 window.turns_left = window.turns_left - 1;
 
             }
@@ -184,6 +193,9 @@ function board_click(i, j) {
                 render_pets_stats();
 
                 selected_team_member_data.moves_left -= 1;
+                if(selected_team_member_data.attack_item_name == 'Halberd') {
+                  selected_team_member_data.moves_left += 1;
+                }
                 window.turns_left = window.turns_left - 1;
 
             }
@@ -237,6 +249,9 @@ function board_click(i, j) {
 
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
             selected_team_member_data.moves_left -= 1;
+            if(selected_team_member_data.attack_item_name == 'Halberd') {
+              selected_team_member_data.moves_left += 1;
+            }
             window.turns_left = window.turns_left - 1;
         }
     }
@@ -305,6 +320,9 @@ function board_click(i, j) {
             //Move my character
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
             team_member_data.moves_left -= 1;
+            if(team_member_data.attack_item_name == 'Halberd') {
+              team_member_data.moves_left += 1;
+            }
             window.turns_left = window.turns_left - 1;
 
             //Drop old item (if necessary)
@@ -384,6 +402,9 @@ function board_click(i, j) {
             //Move my character
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
             selected_team_member_data.moves_left -= 1;
+            if(selected_team_member_data.attack_item_name == 'Halberd') {
+              selected_team_member_data.moves_left += 1;
+            }
             window.turns_left = window.turns_left - 1;
 
             var htmlz = "";
@@ -464,6 +485,9 @@ function board_click(i, j) {
             $('#person_attack_text').html(htmlz);
 
             selected_team_member_data.moves_left -= 1;
+            if(selected_team_member_data.attack_item_name == 'Halberd') {
+              selected_team_member_data.moves_left += 1;
+            }
             window.turns_left = window.turns_left - 1;
 
 
@@ -532,6 +556,9 @@ function board_click(i, j) {
             }
             render_pets_stats();
             selected_team_member_data.moves_left -= 1;
+            if(selected_team_member_data.attack_item_name == 'Halberd') {
+              selected_team_member_data.moves_left += 1;
+            }
             window.turns_left = window.turns_left - 1;
 
 
@@ -541,6 +568,8 @@ function board_click(i, j) {
 
         }
     }
+
+
     render_top_message(special_top_message);
 }
 
