@@ -221,6 +221,8 @@ function board_click(i, j) {
         var selected_team_member = $('img[data-selected]');
         if (selected_team_member.length) {
 
+            var was_a_teleport_move = 0;
+
             //Move them
             var selected_team_member_i = selected_team_member.attr('data-boardi');
             var selected_team_member_j = selected_team_member.attr('data-boardj');
@@ -237,6 +239,7 @@ function board_click(i, j) {
                         return;
                     }
                     selected_team_member_data.teleport_used = 1;
+                    was_a_teleport_move = 1;
                     special_top_message = 'Teleported!<br>';
                 }
                 else {
@@ -249,8 +252,13 @@ function board_click(i, j) {
 
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
             selected_team_member_data.moves_left -= 1;
+            if(was_a_teleport_move) {
+              if(selected_team_member_data.breed == 'Skeith' && selected_team_member_data.attack_item_name == 'Berserker_Battleaxe') {
+                  selected_team_member_data.moves_left += 1;
+              }
+            }
             if(selected_team_member_data.attack_item_name == 'Halberd') {
-              selected_team_member_data.moves_left += 1;
+                selected_team_member_data.moves_left += 1;
             }
             window.turns_left = window.turns_left - 1;
         }
