@@ -474,6 +474,13 @@ function board_click(i, j) {
                     return;
                 }
             }
+            else if(selected_team_member_data.breed == 'Scorchio' && selected_team_member_data.attack_item_name == 'Bow' && selected_team_member_data.saves >= 9) {
+                var error = is_invalid_attack_twoblocks(selected_team_member_i, selected_team_member_j, i, j);
+                if (error) {
+                    render_top_message("You can only move one square at a time<br>or target is out of range.<br>");
+                    return;
+                }
+            }
             else {
               var error = is_invalid_attack(selected_team_member_i, selected_team_member_j, i, j);
               if (error) {
@@ -483,7 +490,7 @@ function board_click(i, j) {
             }
             var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
             var enemy_data = get_enemy_by_name(clicked_square_html.attr('data-name'));
-            console.log( team_member_data, enemy_data  );
+
             do_attack(team_member_data, enemy_data);
             var enemy_saved = convert_enemies_at_zero_health();
             if(enemy_saved) {
@@ -633,6 +640,19 @@ function do_attack(team_member_data, enemy_data) {
     if (total_damage < 0) {
         total_damage = 0;
     }
+
+    if(team_member_data.attack_item_name == 'Double_Sword') {
+        if(total_damage > 0 && total_damage < 6) {
+            total_damage = 6;
+        }
+    }
+
+    if(team_member_data.attack_item_name == 'Double_Axe') {
+        if(total_damage > 0 && total_damage < 5) {
+            total_damage = 5;
+        }
+    }
+
     enemy_data.health = enemy_data.health - total_damage;
     if (enemy_data.health < 0) {
         enemy_data.health = 0;
