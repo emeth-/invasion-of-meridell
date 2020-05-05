@@ -3,7 +3,6 @@ clone of neopet's old game that they [removed](https://clraik.com/forum/showthre
 
 Things to do in the future:
 - Each member of your army can only gain one rank per Mission, and once they have been promoted any other Neopets they save will not count towards their total number of saves until the next Mission begins. For example, if your Scorchio saves its ninth invader in Mission 2 Battle 1 then it will rank up to become a Defender. However after this no matter how many invaders it vanquishes, its total number of saves will remain at 9 until you begin Mission 3 Battle 1, at which point its saves will resume being counted.
-- Any enchantments cast on your Grundo or Skeith will carry over from one Battle to the next, so make sure you break them before finishing off the last invader otherwise you'll have to waste a turn at the start of the next Battle.
 - There's a healing bonus at the end of each round applied to all pets (noted in the team select screen)
 - add lose condition: How you lose: when the invading Neopets destroy four out of your six villages, or when all of your troops are defeated.
 

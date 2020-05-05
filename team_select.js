@@ -141,12 +141,53 @@ var mission_to_wave_lookup = {
   10: "Second Wave Mission",
 }
 
+function validate_names(callback) {
+  //callback function will be executed if validation passes.
+  /*
+  - loop through everything with .pet_name_input
+  - attr('data-previousvalue')
+  - .val()
+  - update previous pet 'name' value to this new pet 'name' value
+  - throw error and stop everything if all names aren't unique
+  */
+  var unique_names = {};
+  var pass = 1;
+  $('.pet_name_input').each(function(){
+    var tv = $(this).val();
+    if(tv in unique_names) {
+      pass = 0;
+    }
+    else {
+      unique_names[tv] = 1;
+    }
+  });
+  if(pass) {
+    //update all names based on values
+    $('.pet_name_input').each(function(){
+      var tv = $(this).val();
+      var pv = $(this).attr('data-previousvalue');
+      if(tv != pv) {
+          for(var i=0; i<window.my_team.length; i++) {
+              var s = window.my_team[i];
+              if (s.name == pv) {
+                s.name = tv;
+              }
+          }
+      }
+    });
+    callback();
+  }
+  else {
+    alert("Error! All names must be unique!");
+  }
+}
+
 function team_select() {
     var mission_text = mission_to_wave_lookup[mission];
     var invader_text = mission_to_enemy_name_lookup[mission];
     var too_many_troops = `<br><span style='color:red'>You must have only 5 troops in order to enter onto the battlefield. <br>Please remove `+(window.my_team.length-5)+` fighter(s) in order to continue to the next battlefield.</span> <br>(Once you remove them, they're gone for good!)`;
     if(window.my_team.length <= 5) {
-      too_many_troops = "<br><br><a href='javascript: void(0)' onclick='start_mission()'>Click here</a> when you are ready!";
+      too_many_troops = "<br><br><a href='javascript: void(0)' onclick='validate_names(start_mission)'>Click here</a> when you are ready!";
     }
     var current_shield = get_current_shield();
     var htmlz = `<center><br>
@@ -274,7 +315,7 @@ function team_select() {
                 .:${s['rank']}:.
             </td>
             <td class='team_select' style="text-align:left">
-                <input type='text' value='${s['name']}'>
+                <input type='text' value='${s['name']}' class='pet_name_input' data-previousvalue='${s['name']}'>
             </td>
             <td class='team_select'>
                 ${s['health']}
