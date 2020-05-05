@@ -55,7 +55,7 @@ var item_lookup = {
 	"Bow": {
 		"image": "images/Bow_large.jpg",
 		"title": "Bow",
-		"text": "Once a Scorchio gains the experience of a Warrior, he can shoot his bow from 2 spaces away!",
+		"text": "Once a Scorchio gains the experience of a Soldier, he can shoot his bow from 2 spaces away!",
 		"bonuses": {
 			"All": 2,
 			"Scorchio": 4
@@ -229,13 +229,6 @@ var item_lookup = {
 		"image": "images/Gold_Ixi.jpg",
 		"title": "Gold Ixi",
 		"text": "This is the lost item for Mission 2!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
-		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
-	},
-
-	"Goblet": {
-		"image": "images/Goblet.jpg",
-		"title": "Goblet",
-		"text": "This is the lost item for Mission 1!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
 		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
 	},
 

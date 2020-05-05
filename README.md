@@ -2,10 +2,10 @@
 clone of neopet's old game that they [removed](https://clraik.com/forum/showthread.php?30654-Invasion-of-Meridell/page2), rewritten
 
 Things to do in the future:
-- Each member of your army can only gain one rank per Mission, and once they have been promoted any other Neopets they save will not count towards their total number of saves until the next Mission begins. For example, if your Scorchio saves its ninth invader in Mission 2 Battle 1 then it will rank up to become a Defender. However after this no matter how many invaders it vanquishes, its total number of saves will remain at 9 until you begin Mission 3 Battle 1, at which point its saves will resume being counted.
 - There's a healing bonus at the end of each round applied to all pets (noted in the team select screen)
 - add lose condition: How you lose: when the invading Neopets destroy four out of your six villages, or when all of your troops are defeated.
-
+- Once you recover a Lost Item, it is saved forever! It'll never reappear, no matter how many times you restart a level.
+- show avatar win after mission 7
 
 
 Old guides:
