@@ -190,14 +190,16 @@ Maximum moves total per pet:
       lost_item_found = "Found";
     }
 
+    var current_shield = get_current_shield();
+
     htmlz += `
     </div>
     <br><br>
     <table id='bottomright'>
     <tr>
     <td>
-    <img src='images/Peon.jpg'>
-    <br><b>Peon</b>
+    <img src='images/${current_shield}.jpg'>
+    <br><b>${current_shield}</b>
     </td>
     <td>
     Mission<br>${mission}<br>Battle<br>${battle}

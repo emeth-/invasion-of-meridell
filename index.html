@@ -46,6 +46,15 @@
 
     <script>
         var my_team, enemies, mission, battle, turns_left, player_name;
+        var shields = ["Stablehand","Serf","Peon","Page","Squire","Guard","High Guard","Knight","Baron","Earl","Duke","Lord"];
+        function get_current_shield(){
+          if(mission == 1) {
+            return shields[battle-1];
+          }
+          else {
+            return shields[mission - 1 + 2];
+          }
+        }
         var lost_items_retrieved_by_mission = {
           "1": "",
           "2": "",

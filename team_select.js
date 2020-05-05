@@ -148,6 +148,7 @@ function team_select() {
     if(window.my_team.length <= 5) {
       too_many_troops = "<br><br><a href='javascript: void(0)' onclick='start_mission()'>Click here</a> when you are ready!";
     }
+    var current_shield = get_current_shield();
     var htmlz = `<center><br>
     <b>${mission_text}:</b> defeat the <b>${invader_text}s!</b> You are on Mission ${mission} Battle ${battle}.${too_many_troops}<br><br>
     <table border=0 style="text-align:center;border: 2px solid #000000;" width="50%" cellpadding=4 bgcolor="#FFCC00">
@@ -158,8 +159,8 @@ function team_select() {
 
             <td width=33%>
             <b>${window.player_name}</b><br>
-            <img src='images/Duke.jpg' border=2 style='border: 2px solid #000000;'><br>
-            <b>Stablehand</b><br>
+            <img src='images/${current_shield}.jpg' border=2 style='border: 2px solid #000000;'><br>
+            <b>${current_shield}</b><br>
             <b>Villages Unturned: </b><br>
             <b>${window.villages_unturned}</b> (Out of ${window.villages_total})
 
