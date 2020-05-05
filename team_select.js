@@ -49,7 +49,7 @@ function generate_enemy_from_conversion(breed, name) {
 function generate_team_member(breed, name) {
     var new_team_member = {
         "breed": breed,
-        "rank": "Corporal",
+        "rank": "Villager",
         "name": name,
         "bonus_attack_strength": 0,
         "attack_item_name": "",
