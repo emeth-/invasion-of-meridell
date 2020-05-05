@@ -3,6 +3,7 @@ clone of neopet's old game that they [removed](https://clraik.com/forum/showthre
 
 Things to do in the future:
 - There's a healing bonus at the end of each round applied to all pets (noted in the team select screen)
+-- "The health of the troops may have received a boost since the last battle.<br><br>" (above Mission: text) 
 - add lose condition: How you lose: when the invading Neopets destroy four out of your six villages, or when all of your troops are defeated.
 - Once you recover a Lost Item, it is saved forever! It'll never reappear, no matter how many times you restart a level.
 - show avatar win after mission 7

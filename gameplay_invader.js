@@ -102,6 +102,21 @@ function move_enemies() {
     $('#person_attack_text').html(invaderz_htmlz);
     window.turns_left = 5;
     for (var i=0; i<window.my_team.length; i++) {
+        if(window.my_team[i].breed == 'Moehog') {
+            window.my_team[i].moves_left = 4;
+        }
+        if(window.my_team[i].breed == 'Skeith') {
+            window.my_team[i].moves_left = 1;
+        }
+        if(window.my_team[i].breed == 'Techo') {
+            window.my_team[i].moves_left = 2;
+        }
+        if(window.my_team[i].breed == 'Scorchio') {
+            window.my_team[i].moves_left = 2;
+        }
+        if(window.my_team[i].breed == 'Grundo') {
+            window.my_team[i].moves_left = 2;
+        }
         window.my_team[i].teleport_used = 0;
     }
     render_top_message();

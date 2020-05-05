@@ -10,14 +10,21 @@ function board_click(i, j) {
     //If a member of my team was clicked
     if (clicked_square_html.attr('data-type') == 'team') {
 
+        var clicked_team_member_data = get_team_member_by_name(clicked_square_html.attr('data-name'));
+
+        if(window.turns_left <= 0) {
+           return;
+        }
+        if(clicked_team_member_data.moves_left <= 0) {
+           return;
+        }
+
         //If they were previously selected, unselect them.
         if (clicked_square_html.attr('data-selected')) {
-            clicked_square_html.attr('src', clicked_square_html.attr('data-selected'));
-            clicked_square_html.removeAttr('data-selected');
+             clicked_square_html.attr('src', clicked_square_html.attr('data-selected'));
+             clicked_square_html.removeAttr('data-selected');
         }
         else { //Else...
-
-            var clicked_team_member_data = get_team_member_by_name(clicked_square_html.attr('data-name'));
 
             var selected_team_member = $('img[data-selected]');
             var selected_team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
@@ -68,6 +75,8 @@ function board_click(i, j) {
               `;
               $('#person_attack_text').html(attack_text_htmlz);
 
+              selected_team_member_data.moves_left -= 1;
+
               // Unselect any other team members that were selected...
               $('img[data-selected]').each(function(){
                   $(this).attr('src', $(this).attr('data-selected'));
@@ -116,6 +125,7 @@ function board_click(i, j) {
                 $('#person_attack_text').html(htmlz);
                 render_pets_stats();
 
+                selected_team_member_data.moves_left -= 1;
                 window.turns_left = window.turns_left - 1;
 
             }
@@ -144,6 +154,7 @@ function board_click(i, j) {
                 $('#person_attack_text').html(htmlz);
                 render_pets_stats();
 
+                selected_team_member_data.moves_left -= 1;
                 window.turns_left = window.turns_left - 1;
 
             }
@@ -172,6 +183,7 @@ function board_click(i, j) {
                 $('#person_attack_text').html(htmlz);
                 render_pets_stats();
 
+                selected_team_member_data.moves_left -= 1;
                 window.turns_left = window.turns_left - 1;
 
             }
@@ -224,6 +236,7 @@ function board_click(i, j) {
 
 
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
+            selected_team_member_data.moves_left -= 1;
             window.turns_left = window.turns_left - 1;
         }
     }
@@ -291,6 +304,7 @@ function board_click(i, j) {
 
             //Move my character
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
+            team_member_data.moves_left -= 1;
             window.turns_left = window.turns_left - 1;
 
             //Drop old item (if necessary)
@@ -369,6 +383,7 @@ function board_click(i, j) {
 
             //Move my character
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
+            selected_team_member_data.moves_left -= 1;
             window.turns_left = window.turns_left - 1;
 
             var htmlz = "";
@@ -448,6 +463,7 @@ function board_click(i, j) {
             `;
             $('#person_attack_text').html(htmlz);
 
+            selected_team_member_data.moves_left -= 1;
             window.turns_left = window.turns_left - 1;
 
 
@@ -515,6 +531,7 @@ function board_click(i, j) {
 
             }
             render_pets_stats();
+            selected_team_member_data.moves_left -= 1;
             window.turns_left = window.turns_left - 1;
 
 

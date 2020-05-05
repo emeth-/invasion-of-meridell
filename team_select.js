@@ -61,6 +61,7 @@ function generate_team_member(breed, name) {
         "enchanted_no_heal": 0,
         "saves": 0,
         "max_saves": 3,
+        "moves_left": 0,
         "type": "team"
     };
 
@@ -69,6 +70,7 @@ function generate_team_member(breed, name) {
         new_team_member['health'] = 15 + rand(0, 3); //15-18
         new_team_member['base_attack_strength'] = 7 + rand(0, 2); //7-9
         new_team_member['base_defense_strength'] = 9 + rand(0, 2); //9-11
+        new_team_member['moves_left'] = 4;
     }
 
     if (breed == "Skeith") {
@@ -76,6 +78,7 @@ function generate_team_member(breed, name) {
         new_team_member['health'] = 15 + rand(0, 3); //15-18
         new_team_member['base_attack_strength'] = 15 + rand(0, 3); //15-18
         new_team_member['base_defense_strength'] = 8 + rand(0, 4); //8-12
+        new_team_member['moves_left'] = 1;
     }
 
     if (breed == "Techo") {
@@ -83,6 +86,7 @@ function generate_team_member(breed, name) {
         new_team_member['health'] = 15 + rand(0, 3); //15-18
         new_team_member['base_attack_strength'] = 7 + rand(0, 4); //7-11
         new_team_member['base_defense_strength'] = 10 + rand(0, 2); //10-12
+        new_team_member['moves_left'] = 2;
     }
 
     if (breed == "Scorchio") {
@@ -90,6 +94,7 @@ function generate_team_member(breed, name) {
         new_team_member['health'] = 15 + rand(0, 3); //15-18
         new_team_member['base_attack_strength'] = 11 + rand(0, 2); //11-13
         new_team_member['base_defense_strength'] = 10 + rand(0, 2); //10-12
+        new_team_member['moves_left'] = 2;
     }
 
     if (breed == "Grundo") {
@@ -97,6 +102,7 @@ function generate_team_member(breed, name) {
         new_team_member['health'] = 15 + rand(0, 3); //15-18
         new_team_member['base_attack_strength'] = 12 + rand(0, 2); //12-14
         new_team_member['base_defense_strength'] = 11 + rand(0, 4); //11-14
+        new_team_member['moves_left'] = 2;
     }
 
     new_team_member['bonus_attack_strength'] = attack_strength_bonus_calc(new_team_member['base_attack_strength']);
