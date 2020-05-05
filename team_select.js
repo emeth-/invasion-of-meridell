@@ -49,7 +49,7 @@ function generate_enemy_from_conversion(breed, name) {
 function generate_team_member(breed, name) {
     var new_team_member = {
         "breed": breed,
-        "rank": "Villager",
+        "rank": "Corporal",
         "name": name,
         "bonus_attack_strength": 0,
         "attack_item_name": "",
@@ -60,6 +60,7 @@ function generate_team_member(breed, name) {
         "enchanted_no_teleport": 0,
         "enchanted_no_heal": 0,
         "saves": 0,
+        "max_saves": 3,
         "type": "team"
     };
 
@@ -309,7 +310,7 @@ function team_select() {
         htmlz += `
          <tr>
             ${remove_checkbox}
-            <td class='team_select' bgcolor="#821B80" style="color:white">
+            <td class='team_select' bgcolor="`+rank_to_color[s['rank']]+`" style="color:white">
                 <img src='${s['image']}'><br>
                 ${s['breed']}<br>
                 .:${s['rank']}:.

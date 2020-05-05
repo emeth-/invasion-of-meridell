@@ -487,8 +487,25 @@ function board_click(i, j) {
             do_attack(team_member_data, enemy_data);
             var enemy_saved = convert_enemies_at_zero_health();
             if(enemy_saved) {
-              //TODO, maxes out at X per mission
-              team_member_data.saves += 1;
+              if (team_member_data.saves == team_member_data.max_saves) {
+                  //Do nothing, saves maxed out for this unit until next mission
+              }
+              else {
+                  team_member_data.saves += 1;
+                  console.log("sb1");
+                  if (team_member_data.saves == team_member_data.max_saves) {
+                      //upgrade unit
+                      team_member_data.base_attack_strength += 1;
+                      team_member_data.bonus_attack_strength = attack_strength_bonus_calc(team_member_data.base_attack_strength);
+                      team_member_data.base_defense_strength += 1;
+                      team_member_data.rank = saves_to_pet_rank(team_member_data.saves);
+                      console.log("sb2");
+                      var after_htmlz = `<li>${team_member_data.name}'s rank has upgraded to ${team_member_data.rank}, gaining a boost to attack and defence strength by 1 point!</li>`;
+                      console.log("sb3", after_htmlz);
+                      $('#saved_invader_text').after(after_htmlz);
+                  }
+              }
+
             }
             render_pets_stats();
             window.turns_left = window.turns_left - 1;
@@ -576,6 +593,28 @@ function convert_enemies_at_zero_health() {
         if (battle > 3) {
             battle = 1;
             mission += 1;
+
+            for(var i=0; i<window.my_team.length; i++) {
+                var s = window.my_team[i];
+                if (s.saves == s.max_saves) {
+                  if(s.max_saves == 3) {
+                    s.max_saves = 9;
+                  }
+                  if(s.max_saves == 9) {
+                    s.max_saves = 32;
+                  }
+                  if(s.max_saves == 32) {
+                    s.max_saves = 64;
+                  }
+                  if(s.max_saves == 64) {
+                    s.max_saves = 96;
+                  }
+                  if(s.max_saves == 96) {
+                    s.max_saves = 999;
+                  }
+                }
+            }
+
         }
         villages_unturned += 6;
         villages_total += 6;
@@ -609,7 +648,7 @@ function do_attack(team_member_data, enemy_data) {
     var saved_message = "";
     if (enemy_data.health == 0) {
         saved_message = `<ul style='text-align:left'>
-            <li>${team_member_data.name} has saved an Invader!</li>
+            <li id='saved_invader_text'>${team_member_data.name} has saved an Invader!</li>
         </ul>`;
     }
 

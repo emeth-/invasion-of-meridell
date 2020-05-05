@@ -312,7 +312,7 @@ function render_pets_stats() {
             </td>
             <td>
                 ${pet.name}<br>
-                .:${pet.rank}:.
+                <span style='color:`+rank_to_color[pet.rank]+`'>${pet.rank}</span>
             </td>
             <td>
                 ${pet.health}
