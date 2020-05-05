@@ -332,7 +332,7 @@ function render_pets_stats() {
                 ${defense_image_html}
             </td>
             <td>
-                0
+                ${pet.saves}
             </td>
         </tr>
         `;
