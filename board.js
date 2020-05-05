@@ -36,6 +36,9 @@ function render_top_message(special_message) {
 }
 
 function start_mission() {
+
+    refresh_myteam_moves();
+
     var board = [];
     for($i=0; $i<10; $i++) {
         board[$i] = [];
@@ -87,7 +90,7 @@ function start_mission() {
             }
 
 
-            htmlz += "<img src='"+image+"' border=2 data-type='"+data_type+"' data-name='"+name+"' height=32 width=32 onclick='board_click("+i+", "+j+")' data-boardi='"+i+"' data-boardj='"+j+"'>";
+            htmlz += "<img src='"+image+"' border=2 data-type='"+data_type+"' data-name='"+name+"' height=32 width=32 onclick='board_click("+i+", "+j+")' data-boardi='"+i+"' data-boardj='"+j+"' title='"+name+"'>";
 
             htmlz += `</td>`;
         }

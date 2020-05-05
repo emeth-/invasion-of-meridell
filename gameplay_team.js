@@ -642,6 +642,14 @@ function convert_enemies_at_zero_health() {
         }
         villages_unturned += 6;
         villages_total += 6;
+
+        var max_health = 21;
+        if (mission <= 5) {
+            max_health = 18;
+        }
+        for (var indx=0; indx<window.my_team.length; indx++) {
+            window.my_team[indx].health = max_health;
+        }
     }
     return enemy_converted;
 }
@@ -807,4 +815,27 @@ function set_square_to_blank(i, j) {
     square_html.attr('data-type', 'blank');
     square_html.attr('data-name', '');
     square_html.removeAttr('data-selected');
+}
+
+
+function refresh_myteam_moves() {
+  window.turns_left = 5;
+  for (var i=0; i<window.my_team.length; i++) {
+      if(window.my_team[i].breed == 'Moehog') {
+          window.my_team[i].moves_left = 4;
+      }
+      if(window.my_team[i].breed == 'Skeith') {
+          window.my_team[i].moves_left = 1;
+      }
+      if(window.my_team[i].breed == 'Techo') {
+          window.my_team[i].moves_left = 2;
+      }
+      if(window.my_team[i].breed == 'Scorchio') {
+          window.my_team[i].moves_left = 2;
+      }
+      if(window.my_team[i].breed == 'Grundo') {
+          window.my_team[i].moves_left = 2;
+      }
+      window.my_team[i].teleport_used = 0;
+  }
 }

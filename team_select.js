@@ -197,7 +197,12 @@ function team_select() {
       too_many_troops = "<br><br><a href='javascript: void(0)' onclick='validate_names(start_mission)'>Click here</a> when you are ready!";
     }
     var current_shield = get_current_shield();
+    var heal_text = 'The health of the troops may have received a boost since the last battle.<br><br>';
+    if(window.mission == 1 && window.battle == 1) {
+        heal_text = '';
+    }
     var htmlz = `<center><br>
+    ${heal_text}
     <b>${mission_text}:</b> defeat the <b>${invader_text}s!</b> You are on Mission ${mission} Battle ${battle}.${too_many_troops}<br><br>
     <table border=0 style="text-align:center;border: 2px solid #000000;" width="50%" cellpadding=4 bgcolor="#FFCC00">
         <tr>
