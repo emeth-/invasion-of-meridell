@@ -106,7 +106,6 @@ function move_enemies() {
 
 
 function invader_move_execute(from_i, from_j, to_i, to_j) {
-    console.log("invader_move_execute", from_i, from_j, to_i, to_j);
     var to_square_html = $("#i"+to_i+"j"+to_j).find('img');
     var from_square_html = $("#i"+from_i+"j"+from_j).find('img');
 

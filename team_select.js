@@ -201,7 +201,31 @@ function team_select() {
     if(window.mission == 1 && window.battle == 1) {
         heal_text = '';
     }
+
+    var avatar_text = '';
+    if(window.mission == 8 && window.battle == 1) {
+      avatar_text = `
+      <table>
+      <tr>
+        <td colspan=2 style="background-color:#ffffcb">
+          <center><b>Something Has Happened!</b></center>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <img src='images/avatar.gif'>
+        </td>
+        <td>
+          You are now eligible to use '<b>IOM Moehog</b>' as an<br>
+          avatar on the <a href='#' style='text-decoration: none; font-weight: bold;'>Neoboards</a>!
+        </td>
+      </tr>
+      </table><br><br>
+      `;
+    }
+
     var htmlz = `<center><br>
+    ${avatar_text}
     ${heal_text}
     <b>${mission_text}:</b> defeat the <b>${invader_text}s!</b> You are on Mission ${mission} Battle ${battle}.${too_many_troops}<br><br>
     <table border=0 style="text-align:center;border: 2px solid #000000;" width="50%" cellpadding=4 bgcolor="#FFCC00">
