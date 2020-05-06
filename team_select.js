@@ -391,12 +391,14 @@ function team_select() {
 
 function remove_selected_fighters() {
     $('.remove_fig_checkbox:checked').each(function() {
-        var pet_name_to_delete = $(this).attr('data-petname');
-        for (var i=0; i<window.my_team.length; i++) {
-            if (window.my_team[i].name == pet_name_to_delete) {
-                //Remove my team member
-                window.my_team.splice(i, 1);
-            }
+        if(window.my_team.length > 5) {
+          var pet_name_to_delete = $(this).attr('data-petname');
+          for (var i=0; i<window.my_team.length; i++) {
+              if (window.my_team[i].name == pet_name_to_delete) {
+                  //Remove my team member
+                  window.my_team.splice(i, 1);
+              }
+          }
         }
     });
     team_select();
