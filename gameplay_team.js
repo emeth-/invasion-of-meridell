@@ -594,7 +594,7 @@ function convert_team_members_at_zero_health() {
     for (var i=0; i<window.my_team.length; i++) {
         if (window.my_team[i].health <= 0) {
             //Add enemy
-            var new_soldier = generate_enemy_from_conversion(window.my_team[i].breed, window.my_team[i].name)
+            var new_soldier = generate_enemy_from_conversion(window.my_team[i].breed, get_next_available_enemy_name(window.my_team[i].breed))
             window.enemies.push(new_soldier);
 
             //my team member location
@@ -605,6 +605,7 @@ function convert_team_members_at_zero_health() {
             convert_square.attr('src', new_soldier['image']);
             convert_square.attr('data-type', new_soldier['type']);
             convert_square.attr('data-name', new_soldier['name']);
+            convert_square.attr('title', new_soldier['name']);
 
             //Remove my team member
             window.my_team.splice(i, 1);
@@ -625,6 +626,7 @@ function convert_enemies_at_zero_health() {
               //insert a smoking crater at this blank square
               convert_square.attr('src', 'images/Smoking_Crater.jpg');
               convert_square.attr('data-type', 'crater');
+              convert_square.attr('title', 'Smoking Crater');
 
               //Remove enemy
               window.enemies.splice(i, 1);
@@ -642,6 +644,7 @@ function convert_enemies_at_zero_health() {
             convert_square.attr('src', new_soldier['image']);
             convert_square.attr('data-type', new_soldier['type']);
             convert_square.attr('data-name', new_soldier['name']);
+            convert_square.attr('title', new_soldier['name']);
 
             //Remove enemy
             window.enemies.splice(i, 1);

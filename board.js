@@ -879,7 +879,7 @@ function set_up_items(board) {
         7: "Potion_of_Fortitude",
         8: "Mega_Potion",
         9: "Potion_of_Well-Being",
-        10: "Potion_of_Fortitude",
+        10: "Health_Potion",
     };
 
     attack_items_by_mission = {

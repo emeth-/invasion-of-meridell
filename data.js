@@ -379,3 +379,23 @@ function get_next_available_team_name(start){
     }
     return "Soldier "+(start+100).toString();
 }
+
+function get_next_available_enemy_name(breed){
+    for(var i=0; i<20; i++) {
+				var num_str = i;
+				if(num_str < 10) {
+					num_str = "0" + num_str.toString();
+				}
+        var test_name = "Invader "+breed+" "+num_str;
+        var is_available = true;
+        for(var j=0; j<window.enemies.length; j++) {
+            if(window.enemies[j].name == test_name) {
+                is_available = false;
+            }
+        }
+        if (is_available) {
+            return test_name;
+        }
+    }
+    return "Soldier "+(100).toString();
+}
