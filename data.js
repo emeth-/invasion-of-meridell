@@ -221,7 +221,7 @@ var item_lookup = {
 	"Goblet": {
 		"image": "images/Goblet.jpg",
 		"title": "Goblet",
-		"text": "This is the lost item for Mission 1!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
+		"text": "This is the lost item for Mission 1!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appear in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
 		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
 	},
 
