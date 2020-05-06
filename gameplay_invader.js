@@ -83,8 +83,6 @@ function move_enemies() {
         //set_square_to_blank(convert_square.attr('data-boardi'), convert_square.attr('data-boardj'));
     }
 
-
-    console.log("****messages", messages);
     invaderz_htmlz += `
     <center>
         <ul style='text-align:left'>
@@ -100,7 +98,10 @@ function move_enemies() {
     </center>
     `;
     $('#person_attack_text').html(invaderz_htmlz);
-    refresh_myteam_moves();
+
+    if ($('img[data-type="village"]').length >= 2) {
+        refresh_myteam_moves();
+    }
     render_top_message();
 }
 

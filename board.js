@@ -6,7 +6,23 @@ function render_top_message(special_message) {
     var moves_made = 5-window.turns_left;
     var htmlz = "";
 
-    if (window.enemies.length <= 0) {
+    if ($('img[data-type="village"]').length <= 2) {
+        htmlz += `
+    <div style="display: inline-block; background: #DDDDDD">
+        You lost too many villages, losing the battle!<br>
+        <a href='javascript: void(0)' onclick="restart_mission()">Click here to restart the current Mission at Battle 1</a></b>
+    </div><br><br>`;
+        window.turns_left = 0;
+    }
+    else if (window.my_team.length <= 0) {
+        htmlz += `
+    <div style="display: inline-block; background: #DDDDDD">
+        You lost all your troops, losing the battle!<br>
+        <a href='javascript: void(0)' onclick="restart_mission()">Click here to restart the current Mission at Battle 1</a></b>
+    </div><br><br>`;
+        window.turns_left = 0;
+    }
+    else if (window.enemies.length <= 0) {
         htmlz += `
     <div style="display: inline-block; background: #DDDDDD">
         You converted all the invaders and won this battle!<br>
