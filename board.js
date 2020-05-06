@@ -216,7 +216,12 @@ Maximum moves total per pet:
     </td>
     </tr>
     </table>
-
+<br><br>
+<center>
+<span style="font-size:12px;line-height: 10px;">
+<a class="plain_link" href='javascript: void(0)' onclick="restart_mission()">Restart at Mission ${mission} Battle 1</a>
+</span>
+</center>
     </td></tr></table>`;
 
     $('#content').html(htmlz);

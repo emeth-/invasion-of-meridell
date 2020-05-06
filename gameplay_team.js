@@ -685,6 +685,9 @@ function convert_enemies_at_zero_health() {
                 }
             }
 
+            window.saved_details['my_team'] = JSON.stringify(window.my_team);
+            window.saved_details['villages_unturned'] = window.villages_unturned;
+            window.saved_details['villages_total'] = window.villages_total;
         }
         villages_unturned += 6;
         villages_total += 6;
@@ -891,4 +894,13 @@ function refresh_myteam_moves() {
   for (var i=0; i<window.my_team.length; i++) {
       $('img[data-name="'+window.my_team[i].name+'"]').attr('style', "");
   }
+}
+
+
+function restart_mission() {
+  window.battle = 1;
+  window.my_team = JSON.parse(window.saved_details['my_team']);
+  window.villages_unturned = window.saved_details['villages_unturned'];
+  window.villages_total = window.saved_details['villages_total'];
+  start_mission();
 }

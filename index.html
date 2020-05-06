@@ -45,6 +45,13 @@
 </script>
 
     <script>
+
+        var saved_details = {
+          'my_team': [],
+          'villages_unturned': 6,
+          'villages_total': 6,
+        };
+
         var my_team, enemies, mission, battle, turns_left, player_name;
 
         var rank_to_color = {
@@ -114,6 +121,7 @@
     <script src='team_select.js?v=1'></script>
     <script>
         window.my_team = generate_new_team();
+        window.saved_details['my_team'] = JSON.stringify(window.my_team);
         team_select();
     </script>
     <script src='gameplay_invader.js?v=1'></script>
