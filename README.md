@@ -2,7 +2,7 @@
 clone of neopet's old game that they [removed](https://clraik.com/forum/showthread.php?30654-Invasion-of-Meridell/page2), rewritten
 
 Things to do in the future:
-- reset mission may bring back converted units or something? Some kind of glitch.
+- reset mission may bring back converted units or something? Some kind of glitch. (duplicate by getting to mission 2, then clicking reset mission several times)
 - release game with link to github source
 - github contains issue for each unknown
 - github contains link in readme to reverse engineering app
