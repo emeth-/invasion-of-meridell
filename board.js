@@ -71,11 +71,13 @@ function start_mission() {
     for(var i=0; i<10; i++) {
         htmlz += `<tr>`;
         for(var j=0; j<10; j++) {
+
             htmlz += `<td id='i${i}j${j}'>`;
 
             var image = "images/blank.png";
             var data_type = "blank";
             var name = "";
+            var background_color = "";
 
             if (board[i][j]['image']) {
                 image = board[i][j]['image'];

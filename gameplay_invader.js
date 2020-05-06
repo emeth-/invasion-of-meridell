@@ -116,6 +116,7 @@ function invader_move_execute(from_i, from_j, to_i, to_j) {
     to_square_html.attr('src', from_square_html.attr('src'));
     to_square_html.attr('data-type', from_square_html.attr('data-type'));
     to_square_html.attr('data-name', from_square_html.attr('data-name'));
+    to_square_html.attr('title', from_square_html.attr('title'));
 
     //Old square is set to blank
     set_square_to_blank(from_i, from_j);

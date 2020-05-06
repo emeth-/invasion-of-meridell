@@ -409,9 +409,9 @@ function board_click(i, j) {
 
             //Move my character
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
-            selected_team_member_data.moves_left -= 1;
-            if(selected_team_member_data.attack_item_name == 'Halberd') {
-              selected_team_member_data.moves_left += 1;
+            team_member_data.moves_left -= 1;
+            if(team_member_data.attack_item_name == 'Halberd') {
+              team_member_data.moves_left += 1;
             }
             window.turns_left = window.turns_left - 1;
 
@@ -492,9 +492,9 @@ function board_click(i, j) {
             `;
             $('#person_attack_text').html(htmlz);
 
-            selected_team_member_data.moves_left -= 1;
-            if(selected_team_member_data.attack_item_name == 'Halberd') {
-              selected_team_member_data.moves_left += 1;
+            team_member_data.moves_left -= 1;
+            if(team_member_data.attack_item_name == 'Halberd') {
+              team_member_data.moves_left += 1;
             }
             window.turns_left = window.turns_left - 1;
 
@@ -563,9 +563,9 @@ function board_click(i, j) {
 
             }
             render_pets_stats();
-            selected_team_member_data.moves_left -= 1;
-            if(selected_team_member_data.attack_item_name == 'Halberd') {
-              selected_team_member_data.moves_left += 1;
+            team_member_data.moves_left -= 1;
+            if(team_member_data.attack_item_name == 'Halberd') {
+              team_member_data.moves_left += 1;
             }
             window.turns_left = window.turns_left - 1;
 
@@ -577,6 +577,15 @@ function board_click(i, j) {
         }
     }
 
+
+    /*
+    Loop through all team members... any with moves_left <= 0, set their background to red
+    */
+    for (var i=0; i<window.my_team.length; i++) {
+        if (window.my_team[i].moves_left <= 0 || window.turns_left <= 0) {
+            $('img[data-name="'+window.my_team[i].name+'"]').attr('style', "border-color: red;");
+        }
+    }
 
     render_top_message(special_top_message);
 }
@@ -836,6 +845,7 @@ function move_team_member(from_i, from_j, to_i, to_j) {
     to_square_html.attr('src', from_square_html.attr('data-selected'));
     to_square_html.attr('data-type', from_square_html.attr('data-type'));
     to_square_html.attr('data-name', from_square_html.attr('data-name'));
+    to_square_html.attr('title', from_square_html.attr('title'));
 
     //Old square is set to blank
     set_square_to_blank(from_i, from_j);
@@ -851,6 +861,8 @@ function set_square_to_blank(i, j) {
     square_html.attr('src', 'images/blank.png');
     square_html.attr('data-type', 'blank');
     square_html.attr('data-name', '');
+    square_html.attr('style', '');
+    square_html.attr('title', '');
     square_html.removeAttr('data-selected');
 }
 
@@ -874,5 +886,9 @@ function refresh_myteam_moves() {
           window.my_team[i].moves_left = 2;
       }
       window.my_team[i].teleport_used = 0;
+  }
+
+  for (var i=0; i<window.my_team.length; i++) {
+      $('img[data-name="'+window.my_team[i].name+'"]').attr('style', "");
   }
 }

@@ -2,12 +2,12 @@
 clone of neopet's old game that they [removed](https://clraik.com/forum/showthread.php?30654-Invasion-of-Meridell/page2), rewritten
 
 Things to do in the future:
-- There's a healing bonus at the end of each round applied to all pets (noted in the team select screen)
--- "The health of the troops may have received a boost since the last battle.<br><br>" (above Mission: text) 
 - add lose condition: How you lose: when the invading Neopets destroy four out of your six villages, or when all of your troops are defeated.
 - Once you recover a Lost Item, it is saved forever! It'll never reappear, no matter how many times you restart a level.
-- show avatar win after mission 7
-
+- save/restart a mission
+- release game with link to github source
+- github contains issue for each unknown
+- github contains link in readme to reverse engineering app
 
 Old guides:
 http://www.jellyneo.net/?go=invasion_of_meridell
