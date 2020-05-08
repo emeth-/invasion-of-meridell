@@ -51,6 +51,13 @@ function render_top_message(special_message) {
     $("#moves_left_text_area").html(htmlz);
 }
 
+function save_team_and_start_mission() {
+    window.saved_details['my_team'] = JSON.stringify(window.my_team);
+    window.saved_details['villages_unturned'] = window.villages_unturned;
+    window.saved_details['villages_total'] = window.villages_total;
+    start_mission();
+}
+
 function start_mission() {
 
     refresh_myteam_moves();

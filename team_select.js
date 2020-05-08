@@ -194,7 +194,7 @@ function team_select() {
     var invader_text = mission_to_enemy_name_lookup[mission];
     var too_many_troops = `<br><span style='color:red'>You must have only 5 troops in order to enter onto the battlefield. <br>Please remove `+(window.my_team.length-5)+` fighter(s) in order to continue to the next battlefield.</span> <br>(Once you remove them, they're gone for good!)`;
     if(window.my_team.length <= 5) {
-      too_many_troops = "<br><br><a href='javascript: void(0)' onclick='validate_names(start_mission)'>Click here</a> when you are ready!";
+      too_many_troops = "<br><br><a href='javascript: void(0)' onclick='validate_names(save_team_and_start_mission)'>Click here</a> when you are ready!";
     }
     var current_shield = get_current_shield();
     var heal_text = 'The health of the troops may have received a boost since the last battle.<br><br>';

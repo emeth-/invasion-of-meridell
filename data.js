@@ -399,3 +399,43 @@ function get_next_available_enemy_name(breed){
     }
     return "Soldier "+(100).toString();
 }
+
+var rank_to_color = {
+  "Corporal": "#547c43",
+  "Lieutenant": "#aa0f11",
+  "Captain": "#6b83ba",
+  "Soldier": "#4c447e",
+  "Defender": "#d3997e",
+  "Villager": "#821B80",
+}
+
+function saves_to_pet_rank(saves) {
+  if(saves >= 96) {
+    return "Corporal";
+  }
+  else if(saves >= 64) {
+    return "Lieutenant";
+  }
+  else if(saves >= 32) {
+    return "Captain";
+  }
+  else if(saves >= 9) {
+    return "Soldier";
+  }
+  else if(saves >= 3) {
+    return "Defender";
+  }
+  else {
+    return "Villager";
+  }
+}
+
+var shields = ["Stablehand","Serf","Peon","Page","Squire","Guard","High Guard","Knight","Baron","Earl","Duke","Lord"];
+function get_current_shield(){
+  if(mission == 1) {
+    return shields[battle-1];
+  }
+  else {
+    return shields[mission - 1 + 2];
+  }
+}
