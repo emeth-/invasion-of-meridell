@@ -52,6 +52,8 @@ function render_top_message(special_message) {
 }
 
 function save_team_and_start_mission() {
+    window.villages_unturned += 6;
+    window.villages_total += 6;
     window.saved_details['my_team'] = JSON.stringify(window.my_team);
     window.saved_details['villages_unturned'] = window.villages_unturned;
     window.saved_details['villages_total'] = window.villages_total;

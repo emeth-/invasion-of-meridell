@@ -3,10 +3,6 @@ function board_click(i, j) {
     var special_top_message = '';
     var clicked_square_html = $("#i"+i+"j"+j).find('img');
 
-    console.log("board clicked", i, j, clicked_square_html);
-
-    console.log(clicked_square_html.attr('data-type'), " CLICKED");
-
     //If a member of my team was clicked
     if (clicked_square_html.attr('data-type') == 'team') {
 
@@ -281,7 +277,6 @@ function board_click(i, j) {
             }
 
             var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
-            console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
 
             var drop_item_name = "";
             var drop_item_img = "";
@@ -384,7 +379,6 @@ function board_click(i, j) {
             }
 
             var team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
-            console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
 
             var pickup_message = "";
             var tm_health = team_member_data.health;
@@ -464,7 +458,6 @@ function board_click(i, j) {
                 window.lost_items_retrieved_by_mission[window.mission] = treasure_name;
                 $('.lost_item_found_text').text("Found");
             }
-            console.log("Selected team member...", selected_team_member.attr('data-name'), team_member_data)
 
             render_pets_stats();
             move_team_member(selected_team_member_i, selected_team_member_j, i, j);
@@ -547,16 +540,13 @@ function board_click(i, j) {
               }
               else {
                   team_member_data.saves += 1;
-                  console.log("sb1");
                   if (team_member_data.saves == team_member_data.max_saves) {
                       //upgrade unit
                       team_member_data.base_attack_strength += 1;
                       team_member_data.bonus_attack_strength = attack_strength_bonus_calc(team_member_data.base_attack_strength);
                       team_member_data.base_defense_strength += 1;
                       team_member_data.rank = saves_to_pet_rank(team_member_data.saves);
-                      console.log("sb2");
                       var after_htmlz = `<li>${team_member_data.name}'s rank has upgraded to ${team_member_data.rank}, gaining a boost to attack and defence strength by 1 point!</li>`;
-                      console.log("sb3", after_htmlz);
                       $('#saved_invader_text').after(after_htmlz);
                   }
               }
@@ -673,23 +663,21 @@ function convert_enemies_at_zero_health() {
                   if(s.max_saves == 3) {
                     s.max_saves = 9;
                   }
-                  if(s.max_saves == 9) {
+                  else if(s.max_saves == 9) {
                     s.max_saves = 32;
                   }
-                  if(s.max_saves == 32) {
+                  else if(s.max_saves == 32) {
                     s.max_saves = 64;
                   }
-                  if(s.max_saves == 64) {
+                  else if(s.max_saves == 64) {
                     s.max_saves = 96;
                   }
-                  if(s.max_saves == 96) {
+                  else if(s.max_saves == 96) {
                     s.max_saves = 999;
                   }
                 }
             }
         }
-        villages_unturned += 6;
-        villages_total += 6;
 
         var max_health = 21;
         if (mission <= 5) {

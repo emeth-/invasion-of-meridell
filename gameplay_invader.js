@@ -12,7 +12,6 @@ function move_enemies() {
         if(e.breed == 'Grarrl' || e.breed == 'Buzz') {
             //Has chance to cast enchantment
             var mti = rand(1,5) - 1;
-            console.log("**sb1", mti, window.my_team, window.my_team[mti]);
             var mt = window.my_team[mti];
             if(mt) {
                 if(mt.breed == 'Grundo' && !mt.enchanted_no_heal) {
@@ -128,7 +127,6 @@ function do_invader_attack(enemy_data, team_member_data) {
     var damage_message = " ";
 
     var roll = Math.floor(Math.random() * 20 + 1);
-    console.log("enemy_data", enemy_data);
     var total_attack = enemy_data.bonus_attack_strength + roll;
     var total_damage = total_attack - team_member_data.base_defense_strength;
 
@@ -280,7 +278,6 @@ function invader_attack_attempt(i, j) {
 }
 
 function invader_sack_attempt(i, j) {
-    console.log("invader_sack", i, j);
     //Invader move pattern
     //1 = i+1
     //2 = i+1, j + or - 1 (random)
@@ -348,7 +345,6 @@ function invader_sack_attempt(i, j) {
 }
 
 function invader_move_attempt(i, j) {
-    console.log("invader_move", i, j);
     //Invader move pattern
     //1 = i+1
     //2 = i+1, j + or - 1 (random)
