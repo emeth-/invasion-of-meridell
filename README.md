@@ -5,11 +5,11 @@ As I reviewed the guides still available, I noted something unexpected.
 
 There appear to have been multiple iterations of IOM. 
 
-The first version was just what we now call 'wave 1', missing missions 6-10.
+The first version was just what we now call 'wave 1', missing missions 6-10. It seemed to last for only a short time, as it's only mentioned briefly in a single guide.
 
-The second version added 'wave 2', and it's state is best described in [this guide](http://www.neopets.com/~GoldEyeGriffin) - it's divergences from version 3 (the final version) are that it appears Grarrl/Buzz couldn't enchant and block skeith teleport and grundo heal, and as a result moehog/techo couldn't disenchant those enchantments, and thus it made more sense to ditch your weak units (as opposed to version 3, where you virtually always keep your original units). 
+The second version added 'wave 2', and it's state is best described in [this guide](http://www.neopets.com/~GoldEyeGriffin) - it's divergences from version 3 (the final version) are that it appears Grarrl/Buzz couldn't enchant and block skeith teleport and grundo heal, and as a result moehog/techo couldn't disenchant those enchantments, and thus it made more sense to ditch your weak units (as opposed to version 3, where you virtually always keep your original units). This second version seemed to exist for some time, as I found 2 guides explicitly following it, and a few others that could be pointing to it.
 
-The third version appears to have added the enchantment concept, and made a slight tweak to item spawns. Additionally, I *think* but cannot verify that Grarrl/Buzz stats were changed - instead of being identical, Buzz was changed to strong defense / weak attack, and Grarrl was made strong attack / weak defense.
+The third version appears to have added the enchantment concept, and made a slight tweak to item spawns. Additionally, I *think* but cannot verify that Grarrl/Buzz stats were changed - instead of being identical, Buzz was changed to strong defense / weak attack, and Grarrl was made strong attack / weak defense. This third version also existed for a while, as it has the most guides describing it.
 
 This clone attempts to match the third version of the game. 
 
