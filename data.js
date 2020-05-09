@@ -401,12 +401,12 @@ function get_next_available_enemy_name(breed){
 }
 
 var rank_to_color = {
-  "Corporal": "#547c43",
-  "Lieutenant": "#aa0f11",
-  "Captain": "#6b83ba",
-  "Soldier": "#FF5733",
-  "Defender": "#d3997e",
-  "Villager": "#821B80",
+  "Corporal": "#000000",
+  "Lieutenant": "#339900",
+  "Captain": "#0066ff",
+  "Soldier": "#000099",
+  "Defender": "#ff9900",
+  "Villager": "#800080",
 }
 
 function saves_to_pet_rank(saves) {
