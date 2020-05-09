@@ -1,4 +1,21 @@
 # invasion-of-meridell
+
+### A note on IOM Versions
+As I reviewed the guides still available, I noted something unexpected.
+
+There appear to have been multiple iterations of IOM. 
+
+The first version was just what we now call 'wave 1', missing missions 6-10.
+
+The second version added 'wave 2', and it's state is best described in [this guide](http://www.neopets.com/~GoldEyeGriffin) - it's divergences from version 3 (the final version) are that it appears Grarrl/Buzz couldn't enchant and block skeith teleport and grundo heal, and as a result moehog/techo couldn't disenchant those enchantments, and thus it made more sense to ditch your weak units (as opposed to version 3, where you virtually always keep your original units). 
+
+The third version appears to have added the enchantment concept, and made a slight tweak to item spawns. Additionally, I *think* but cannot verify that Grarrl/Buzz stats were changed - instead of being identical, Buzz was changed to strong defense / weak attack, and Grarrl was made strong attack / weak defense.
+
+This clone attempts to match the third version of the game. 
+
+### Old 
+
+
 clone of neopet's old game that they [removed](https://clraik.com/forum/showthread.php?30654-Invasion-of-Meridell/page2), rewritten
 
 Things to do in the future:
