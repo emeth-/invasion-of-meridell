@@ -77,6 +77,15 @@
         villages_total = 6;
 
         turns_left = 5;
+
+//Shortcut key, hit P to 'pass', equivalent to clicking 'End Turn Now'
+function doc_keyUp(e) {
+    if (e.keyCode == 80) { // 'p'
+        move_enemies();
+    }
+}
+document.addEventListener('keyup', doc_keyUp, false);
+
     </script>
     <script src='data.js?v=1'></script>
     <script src='team_select.js?v=1'></script>

@@ -404,7 +404,7 @@ var rank_to_color = {
   "Corporal": "#547c43",
   "Lieutenant": "#aa0f11",
   "Captain": "#6b83ba",
-  "Soldier": "#4c447e",
+  "Soldier": "#FF5733",
   "Defender": "#d3997e",
   "Villager": "#821B80",
 }

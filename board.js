@@ -205,7 +205,7 @@ Maximum moves total per pet:
 <br><br>
 
 <span style="font-size:12px;line-height: 10px;">
-<a href='#' class='plain_link' onclick='move_enemies();'>End Turn Now</a>
+<a href='#' class='plain_link' onclick='move_enemies();' title='Shortcut: Tap the P key'>End Turn Now</a>
 </span>
         </center>
         </td>
