@@ -385,6 +385,14 @@ function team_select() {
     if(window.my_team.length > 5) {
       htmlz += `<button onclick='remove_selected_fighters()'>Remove Selected Fighters</button>`;
     }
+    htmlz += `
+<span style="font-size:12px;line-height: 10px;font-weight:bold;">
+<hr>
+Need a refresher on how to play the game?<br><br>
+<a target='_blank' href='https://emeth-.github.io/iom-reverse-engineering/online_guides/backups_of_guides/happylark.html' class='plain_link'>HappyLark's Guide</a> | <a href='https://emeth-.github.io/iom-reverse-engineering/online_guides/backups_of_guides/demeanours%20got%20their%20homepage%20at%20Neopets.com.html' class='plain_link' target='_blank'>Demeanor's Guide</a> | <a href='http://www.jellyneo.net/?go=invasion_of_meridell' class='plain_link' target='_blank'>JellyNeo's Guide</a>
+<br><br>
+</span>
+    `;
     htmlz += `</center>`;
     $('#content').html(htmlz);
 }

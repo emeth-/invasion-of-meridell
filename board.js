@@ -199,7 +199,7 @@ Maximum moves total per pet:
 </table>
 
 <span style="font-size:12px;line-height: 10px;font-weight:bold;">
-<a href='#' class='plain_link'>Instructions</a> | <a href='#' class='plain_link'>Strategy Guide</a> | <a href='#' class='plain_link'>Troops</a>
+<a target='_blank' href='https://emeth-.github.io/iom-reverse-engineering/online_guides/backups_of_guides/happylark.html' class='plain_link'>HappyLark's Guide</a> | <a href='https://emeth-.github.io/iom-reverse-engineering/online_guides/backups_of_guides/demeanours%20got%20their%20homepage%20at%20Neopets.com.html' class='plain_link' target='_blank'>Demeanor's Guide</a> | <a href='http://www.jellyneo.net/?go=invasion_of_meridell' class='plain_link' target='_blank'>JellyNeo's Guide</a>
 </span>
 
 <br><br>
