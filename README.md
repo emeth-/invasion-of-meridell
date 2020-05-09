@@ -13,6 +13,8 @@ The third version appears to have added the enchantment concept, and made a slig
 
 This clone attempts to match the third version of the game. 
 
+Note, the Java Clone author also [notes these differences](https://tdnforums.com/topic/45831-im-rebuilding-invasion-of-meridell-as-its-own-program/), saying "There have been multiple versions of Invasion of Meridell over the years, with different mechanics and items sets."
+
 ### Old 
 
 
