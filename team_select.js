@@ -250,8 +250,6 @@ function team_select() {
                             <b>Lost Items Recovered</b>
                         </td>
                     </tr>`;
-                        //window.lost_items_retrieved_by_mission[1]
-                        //"images/"+name+".jpg";
                     for (var ind=0; ind<5; ind++) {
                       var missionl = ind+1;
                       htmlz += `
@@ -261,8 +259,8 @@ function team_select() {
                             `+(missionl)+`
                         </td>
                         <td class='lost_items' width=32px>`;
-                        if(window.lost_items_retrieved_by_mission[missionl]) {
-                            htmlz += `<img src='images/`+window.lost_items_retrieved_by_mission[missionl]+`.jpg' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
+                        if(window.saved_details.lost_items_retrieved_by_mission[missionl]) {
+                            htmlz += `<img src='images/`+window.saved_details.lost_items_retrieved_by_mission[missionl]+`.jpg' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
                         }
                         else {
                             htmlz += `<img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
@@ -272,8 +270,8 @@ function team_select() {
                       htmlz += `</td>
                         <td class='lost_items' style="text-align:center" bgcolor="#DDDDDD">`+(missionl)+`</td>
                         <td class='lost_items' width=32px>`;
-                        if(window.lost_items_retrieved_by_mission[missionl]) {
-                            htmlz += `<img src='images/`+window.lost_items_retrieved_by_mission[missionl]+`.jpg' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
+                        if(window.saved_details.lost_items_retrieved_by_mission[missionl]) {
+                            htmlz += `<img src='images/`+window.saved_details.lost_items_retrieved_by_mission[missionl]+`.jpg' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;
                         }
                         else {
                             htmlz += `<img src='images/questionmark.png' border=1 style='border: 1px solid #000000;' width=32px height=32px>`;

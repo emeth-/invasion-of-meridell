@@ -298,28 +298,28 @@ var item_lookup = {
         "image": "images/Health_Potion.jpg",
         "title": "Health Potion",
         "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
-        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+        "stats": "<table><tr><td>Heals Pet</td><td>100%</td></tr></table>"
     },
 
     "Potion_of_Fortitude": {
         "image": "images/Potion_of_Fortitude.jpg",
         "title": "Potion of Fortitude",
         "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
-        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+        "stats": "<table><tr><td>Heals Pet</td><td>100%</td></tr></table>"
     },
 
     "Mega_Potion": {
         "image": "images/Mega_Potion.jpg",
         "title": "Mega Potion",
         "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
-        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+        "stats": "<table><tr><td>Heals Pet</td><td>100%</td></tr></table>"
     },
 
     "Potion_of_Well-Being": {
         "image": "images/Potion_of_Well-Being.jpg",
         "title": "Potion of Well-Being",
         "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
-        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+        "stats": "<table><tr><td>Heals Pet</td><td>100%</td></tr></table>"
     },
 };
 

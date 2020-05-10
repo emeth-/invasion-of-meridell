@@ -52,13 +52,16 @@ function render_top_message(special_message) {
 }
 
 function save_team_and_start_mission() {
-    window.villages_unturned += 6;
-    window.villages_total += 6;
-    window.saved_details['my_team'] = JSON.stringify(window.my_team);
-    window.saved_details['villages_unturned'] = window.villages_unturned;
-    window.saved_details['villages_total'] = window.villages_total;
-    window.saved_details['mission'] = window.mission;
-    localStorage.setItem('saved_ls_session', JSON.stringify(window.saved_details));
+    if(window.battle == 1) {
+        //Only save team on beginning of battle 1 in a mission
+        window.villages_unturned += 6;
+        window.villages_total += 6;
+        window.saved_details['my_team'] = JSON.stringify(window.my_team);
+        window.saved_details['villages_unturned'] = window.villages_unturned;
+        window.saved_details['villages_total'] = window.villages_total;
+        window.saved_details['mission'] = window.mission;
+        localStorage.setItem('saved_ls_session', JSON.stringify(window.saved_details));
+    }
     start_mission();
 }
 
@@ -218,7 +221,7 @@ Maximum moves total per pet:
     //stats
 
     var lost_item_found = "Not found";
-    if(window.lost_items_retrieved_by_mission[window.mission]) {
+    if(window.saved_details.lost_items_retrieved_by_mission[window.mission]) {
       lost_item_found = "Found";
     }
 
@@ -261,7 +264,7 @@ Maximum moves total per pet:
 function reset_game_completely() {
     if(window.confirm("Are you absolutely sure? This will completely reset your game, starting from scratch!")) {
         localStorage.removeItem("saved_ls_session");
-        window.location.href = window.location.href;
+        window.location.href = '?reset='+Date.now();
     }
 }
 
@@ -469,7 +472,19 @@ function clicked_item_popup(item_name) {
 function add_item_help_links() {
 
     var items = {};
-    $('img[data-type=potion], img[data-type=treasure], img[data-type=attack_item], img[data-type=defense_item]').each(function() {
+
+    $('img[data-type=treasure], img[data-type=potion]').each(function() {
+        var item_image_url = $(this).attr('src');
+        var item_name = $(this).attr('data-name');
+
+        if (!items[item_image_url]) { //only want to show each item once
+            var htmlz = `<img src='${item_image_url}' border=2 height=32 width=32 style='border: 1px solid #0000FF;' onclick='clicked_item_popup("${item_name}")' class='clickable'>&nbsp;`;
+            $('#items_on_map').append(htmlz);
+            items[item_image_url] = 1;
+        }
+    });
+
+    $('img[data-type=attack_item], img[data-type=defense_item]').each(function() {
         var item_image_url = $(this).attr('src');
         var item_name = $(this).attr('data-name');
 
@@ -527,7 +542,7 @@ function set_up_treasure(board) {
         image = "images/"+name+".jpg";
     }
 
-    if (!window.lost_items_retrieved_by_mission[window.mission]) {
+    if (!window.saved_details.lost_items_retrieved_by_mission[window.mission]) {
         board[0][4] = {
             "type": "treasure",
             "image": image,

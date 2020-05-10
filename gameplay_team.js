@@ -449,13 +449,13 @@ function board_click(i, j) {
             var treasure_name_formatted = treasure_name.replace(/[_]/g, ' ');
             var treasure_img = clicked_square_html.attr('src');
 
-            if (!window.lost_items_retrieved_by_mission[window.mission]) {
+            if (!window.saved_details.lost_items_retrieved_by_mission[window.mission]) {
                 for (var indx=0; indx<window.my_team.length; indx++) {
                     window.my_team[indx].base_attack_strength += 1;
                     window.my_team[indx].bonus_attack_strength = attack_strength_bonus_calc(window.my_team[indx].base_attack_strength);
                     window.my_team[indx].base_defense_strength += 1;
                 }
-                window.lost_items_retrieved_by_mission[window.mission] = treasure_name;
+                window.saved_details.lost_items_retrieved_by_mission[window.mission] = treasure_name;
                 $('.lost_item_found_text').text("Found");
             }
 

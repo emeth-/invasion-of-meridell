@@ -53,22 +53,21 @@
           'my_team': [],
           'villages_unturned': 6,
           'villages_total': 6,
+          'lost_items_retrieved_by_mission': {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": "",
+          }
         };
 
         var my_team, enemies, mission, battle, turns_left, player_name;
-
-        var lost_items_retrieved_by_mission = {
-          "1": "",
-          "2": "",
-          "3": "",
-          "4": "",
-          "5": "",
-          "6": "",
-          "7": "",
-          "8": "",
-          "9": "",
-          "10": "",
-        }
 
         //mission = rand(1,10);
         //battle = rand(1,3);
@@ -90,15 +89,15 @@ function doc_keyUp(e) {
 document.addEventListener('keyup', doc_keyUp, false);
 
     </script>
-    <script src='data.js?v=1'></script>
-    <script src='team_select.js?v=1'></script>
+    <script src='data.js?v=2'></script>
+    <script src='team_select.js?v=2'></script>
     <script>
         window.my_team = generate_new_team();
         team_select();
     </script>
-    <script src='gameplay_invader.js?v=1'></script>
-    <script src='gameplay_team.js?v=1'></script>
-    <script src='board.js?v=1'></script>
+    <script src='gameplay_invader.js?v=2'></script>
+    <script src='gameplay_team.js?v=2'></script>
+    <script src='board.js?v=2'></script>
     <script>
     var saved_ls_session = localStorage.getItem('saved_ls_session');
     if(saved_ls_session) {
