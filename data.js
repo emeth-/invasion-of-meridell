@@ -287,6 +287,40 @@ var item_lookup = {
 		"text": "This is the lost item for Mission 10!<br><br>It grants a permanent stat bonus to your troops. This stat bonus will only be saved if you go on to complete the mission. Lost items will re-appears in all three battles in a given mission until you collect it. It will disappear in a battle once less than two invaders are left.",
 		"stats": "<table><tr><td>Permanent Attack Bonus:</td><td>+1</td></tr><tr><td>Permanent Defence Bonus:</td><td>+1</td></tr></table>"
 	},
+
+
+//////////////////////////////
+//Potions
+//////////////////////////////
+
+
+    "Health_Potion": {
+        "image": "images/Health_Potion.jpg",
+        "title": "Health Potion",
+        "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
+        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+    },
+
+    "Potion_of_Fortitude": {
+        "image": "images/Potion_of_Fortitude.jpg",
+        "title": "Potion of Fortitude",
+        "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
+        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+    },
+
+    "Mega_Potion": {
+        "image": "images/Mega_Potion.jpg",
+        "title": "Mega Potion",
+        "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
+        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+    },
+
+    "Potion_of_Well-Being": {
+        "image": "images/Potion_of_Well-Being.jpg",
+        "title": "Potion of Well-Being",
+        "text": "When consumed by a pet, this healing potion will boost your pet to full health.",
+        "stats": "<table><tr><td>Health Boost</td><td>100%</td></tr></table>"
+    },
 };
 
 function attack_strength_bonus_calc(base_attack_strength) {

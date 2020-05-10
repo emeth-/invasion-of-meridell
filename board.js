@@ -469,7 +469,7 @@ function clicked_item_popup(item_name) {
 function add_item_help_links() {
 
     var items = {};
-    $('img[data-type=treasure], img[data-type=attack_item], img[data-type=defense_item]').each(function() {
+    $('img[data-type=potion], img[data-type=treasure], img[data-type=attack_item], img[data-type=defense_item]').each(function() {
         var item_image_url = $(this).attr('src');
         var item_name = $(this).attr('data-name');
 
