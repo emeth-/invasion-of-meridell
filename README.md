@@ -4,7 +4,7 @@ Save Meridell from invading Darigan troops! This is a turn-based strategy game t
 
 This repo attempts to clone the game exactly as it exactly right before being shut down.
 
-[Play here!](https://emeth-.github.io/invasion-of-meridell/)
+[Play here!](https://emeth-.github.io/invasion-of-meridell/) (short url: tinyurl.com/iomgame)
 
 (Code is released under the MIT license, but actual images/etc are property of Neopets.com)
 
