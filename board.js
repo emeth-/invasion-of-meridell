@@ -57,6 +57,8 @@ function save_team_and_start_mission() {
     window.saved_details['my_team'] = JSON.stringify(window.my_team);
     window.saved_details['villages_unturned'] = window.villages_unturned;
     window.saved_details['villages_total'] = window.villages_total;
+    window.saved_details['mission'] = window.mission;
+    localStorage.setItem('saved_ls_session', JSON.stringify(window.saved_details));
     start_mission();
 }
 
@@ -244,7 +246,9 @@ Maximum moves total per pet:
 <br><br>
 <center>
 <span style="font-size:12px;line-height: 10px;">
-<a class="plain_link" href='javascript: void(0)' onclick="restart_mission()">Restart at Mission ${mission} Battle 1</a>
+<a class="plain_link" href='javascript: void(0)' onclick="restart_mission()">Restart THIS Mission</a>
+<br><br>
+<a class="plain_link" href='javascript: void(0)' onclick="reset_game_completely()">Restart at Mission 1</a>
 </span>
 </center>
     </td></tr></table>`;
@@ -252,6 +256,13 @@ Maximum moves total per pet:
     $('#content').html(htmlz);
     render_pets_stats();
     add_item_help_links();
+}
+
+function reset_game_completely() {
+    if(window.confirm("Are you absolutely sure? This will completely reset your game, starting from scratch!")) {
+        localStorage.removeItem("saved_ls_session");
+        window.location.href = window.location.href;
+    }
 }
 
 function render_pets_stats() {

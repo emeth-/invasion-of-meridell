@@ -100,7 +100,13 @@ document.addEventListener('keyup', doc_keyUp, false);
     <script src='gameplay_team.js?v=1'></script>
     <script src='board.js?v=1'></script>
     <script>
-    //start_mission();
+    var saved_ls_session = localStorage.getItem('saved_ls_session');
+    if(saved_ls_session) {
+        start_mission();
+        window.saved_details = JSON.parse(saved_ls_session);
+        window.mission = window.saved_details['mission'];
+        restart_mission();
+    }
     </script>
 </body>
 </html>
