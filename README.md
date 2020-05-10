@@ -6,6 +6,7 @@ This repo attempts to clone the game exactly as it exactly right before being sh
 
 [Play here!](https://emeth-.github.io/invasion-of-meridell/)
 
+(Code is released under the MIT license, but actual images/etc are property of Neopets.com)
 
 ## Game Timeline
 * <2005: Neopets released Invasion of Meridell v1 (first wave / first five missions only)
