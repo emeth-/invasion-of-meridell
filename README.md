@@ -8,7 +8,7 @@ This repo attempts to clone the game exactly as it exactly right before being sh
 
 (Code is released under the MIT license, but actual images/etc are property of Neopets.com)
 
-## Game Timeline
+## Timeline
 * <2005: Neopets released Invasion of Meridell v1 (first wave / first five missions only)
 * ~2005: Neopets released Invasion of Meridell v2 (second wave added, no concept of enchantments)
 * ~2006-2011: Neopets released Invasion of Meridell v3 (enchantments added, Buzz/Grarrl stats changed with Buzz defense-heavy and Grarrl attack-heavy)
