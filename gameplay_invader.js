@@ -102,6 +102,7 @@ function move_enemies() {
         refresh_myteam_moves();
     }
     render_top_message();
+    add_item_help_links();
 }
 
 

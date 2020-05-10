@@ -258,7 +258,6 @@ Maximum moves total per pet:
 
     $('#content').html(htmlz);
     render_pets_stats();
-    add_item_help_links();
 }
 
 function reset_game_completely() {
@@ -471,6 +470,7 @@ function clicked_item_popup(item_name) {
 
 function add_item_help_links() {
 
+    $('#items_on_map').html('');
     var items = {};
 
     $('img[data-type=treasure], img[data-type=potion]').each(function() {

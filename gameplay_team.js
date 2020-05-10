@@ -578,6 +578,7 @@ function board_click(i, j) {
     }
 
     render_top_message(special_top_message);
+    add_item_help_links();
 }
 
 function convert_team_members_at_zero_health() {
