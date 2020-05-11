@@ -258,6 +258,7 @@ Maximum moves total per pet:
 
     $('#content').html(htmlz);
     render_pets_stats();
+    add_item_help_links();
 }
 
 function reset_game_completely() {
