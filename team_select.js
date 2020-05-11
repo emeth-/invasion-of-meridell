@@ -197,6 +197,7 @@ function team_select() {
       too_many_troops = "<br><br><a href='javascript: void(0)' onclick='validate_names(save_team_and_start_mission)'>Click here</a> when you are ready!";
     }
     var current_shield = get_current_shield();
+    var current_shield_image = current_shield.replace(' ', '_')+".jpg";
     var heal_text = 'The health of the troops may have received a boost since the last battle.<br><br>';
     if(window.mission == 1 && window.battle == 1) {
         heal_text = '';
@@ -236,7 +237,7 @@ function team_select() {
 
             <td width=33%>
             <b>${window.player_name}</b><br>
-            <img src='images/${current_shield}.jpg' border=2 style='border: 2px solid #000000;'><br>
+            <img src='images/${current_shield_image}' border=2 style='border: 2px solid #000000;'><br>
             <b>${current_shield}</b><br>
             <b>Villages Unturned: </b><br>
             <b>${window.villages_unturned}</b> (Out of ${window.villages_total})

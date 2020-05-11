@@ -226,6 +226,7 @@ Maximum moves total per pet:
     }
 
     var current_shield = get_current_shield();
+    var current_shield_image = current_shield.replace(' ', '_')+".jpg";
 
     htmlz += `
     </div>
@@ -233,7 +234,7 @@ Maximum moves total per pet:
     <table id='bottomright'>
     <tr>
     <td>
-    <img src='images/${current_shield}.jpg'>
+    <img src='images/${current_shield_image}'>
     <br><b>${current_shield}</b>
     </td>
     <td>
