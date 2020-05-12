@@ -122,7 +122,7 @@ function start_mission() {
             }
 
 
-            htmlz += "<img src='"+image+"' border=2 data-type='"+data_type+"' data-name='"+name+"' height=32 width=32 onclick='board_click("+i+", "+j+")' data-boardi='"+i+"' data-boardj='"+j+"' title='"+name+"'>";
+            htmlz += "<img src='"+image+"' border=2 data-type='"+data_type+"' data-name='"+name+"' height=32 width=32 onclick='board_click("+i+", "+j+")' data-boardi='"+i+"' data-boardj='"+j+"' title='"+name.split('_').join(' ')+"'>";
 
             htmlz += `</td>`;
         }
@@ -270,6 +270,10 @@ function reset_game_completely() {
 }
 
 function render_pets_stats() {
+    var max_health = 21;
+    if (mission <= 5) {
+        max_health = 18;
+    }
     var htmlz = '';
     htmlz += `
             <!--////////////////////////////
@@ -289,12 +293,11 @@ function render_pets_stats() {
                     </td>
                     <td>
                         Name<br>
-                        .:Rank:.
+                        Rank
                     </td>
                     <td>
                         Health<br>
-                        max<br>
-                        18
+                        max ${max_health}
                     </td>
                     <td>
                         Attack<br>

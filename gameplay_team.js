@@ -28,6 +28,11 @@ function board_click(i, j) {
             if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightening_Spell') {
               //Grundo Magic_Lightening_Spell healing (Column)
 
+              if(selected_team_member_data.enchanted_no_heal) {
+                    render_top_message("Error - Grundo is enchanted and cannot heal!<br>");
+                    return;
+              }
+
               var max_health = 21;
               if (mission <= 5) {
                   max_health = 18;
@@ -87,6 +92,11 @@ function board_click(i, j) {
             }
             else if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Force_Spell') {
               //Grundo Magic_Force_Spell healing (Single)
+
+                if(selected_team_member_data.enchanted_no_heal) {
+                      render_top_message("Error - Grundo is enchanted and cannot heal!<br>");
+                      return;
+                }
 
                 var max_health = 21;
                 if (mission <= 5) {
@@ -228,6 +238,10 @@ function board_click(i, j) {
             error = is_invalid_move(selected_team_member_i, selected_team_member_j, i, j);
             if (error) {
                 if(selected_team_member_data.breed == 'Skeith' && selected_team_member_data.defense_item_name == 'Amulet_of_Teleportation' && selected_team_member_data.teleport_used == 0) {
+                    if(selected_team_member_data.enchanted_no_teleport) {
+                          render_top_message("Error - Skeith is enchanted and cannot teleport!<br>");
+                          return;
+                    }
                     //Allows teleporting once per turn.
                     error = is_invalid_move_teleport(selected_team_member_i, selected_team_member_j, i, j);
                     if (error) {
