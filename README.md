@@ -2,7 +2,7 @@
 
 Save Meridell from invading Darigan troops! This is a turn-based strategy game that used to exist on Neopets until 2011, when it was removed due to it being exploited. Despite incessant pleas, it's never come back - so after a decade of waiting, here it is rebooted by fans.
 
-This repo attempts to clone the game exactly as it exactly right before being shut down.
+This repo attempts to clone the game exactly as it was right before being shut down.
 
 [Play here!](https://emeth-.github.io/invasion-of-meridell/) (short url: tinyurl.com/iomgame)
 
