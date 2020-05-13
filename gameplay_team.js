@@ -701,6 +701,11 @@ function convert_enemies_at_zero_health() {
         for (var indx=0; indx<window.my_team.length; indx++) {
             window.my_team[indx].health = max_health;
         }
+        if(mission == 11) {
+          alert("Congrats... you won the game!");
+          mission = 1;
+          battle = 1;
+        }
     }
     return enemy_converted;
 }
