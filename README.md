@@ -10,7 +10,7 @@ This repo attempts to clone the game exactly as it exactly right before being sh
 
 See any discrepancies from what you recall of the original game? Open an issue and let's resolve it!
 
-Got ideas of new features you'd like to see added to a reboot of this game? Let me know your ideas in an issue!
+Got ideas of new features you'd like to see added to a reboot of this game (same board/tactics, but new items, enemies, etc)? Let me know your ideas in an issue!
 
 ## Timeline
 * <2005: Neopets released Invasion of Meridell v1 (first wave / first five missions only)
