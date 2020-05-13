@@ -8,6 +8,10 @@ This repo attempts to clone the game exactly as it exactly right before being sh
 
 (Code is released under the MIT license, but actual images/etc are property of Neopets.com)
 
+See any discrepancies from what you recall of the original game? Open an issue and let's resolve it!
+
+Got ideas of new features you'd like to see added to a reboot of this game? Let me know your ideas in an issue!
+
 ## Timeline
 * <2005: Neopets released Invasion of Meridell v1 (first wave / first five missions only)
 * ~2005: Neopets released Invasion of Meridell v2 (second wave added, no concept of enchantments)
