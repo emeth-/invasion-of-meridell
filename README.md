@@ -15,7 +15,7 @@ Got ideas of new features you'd like to see added to a reboot of this game (same
 ## Timeline
 * <2005: Neopets released Invasion of Meridell v1 (first wave / first five missions only)
 * ~2005: Neopets released Invasion of Meridell v2 (second wave added, no concept of enchantments)
-* ~2006-2011: Neopets released Invasion of Meridell v3 (enchantments added, Buzz/Grarrl stats changed with Buzz defense-heavy and Grarrl attack-heavy)
+* <2011: Neopets released Invasion of Meridell v3 (enchantments added, Buzz/Grarrl stats changed with Buzz defense-heavy and Grarrl attack-heavy)
 * 2011: Invasion of Meridell is [taken down](http://www.neopets.com/games/play.phtml?game_id=182), game page is replaced with message "Invasion of Meridell is down for maintenance. We apologize for the inconvenience. Why not try one of our many other games?"
 * Sept 2011: TheNeopetsTeam breaks radio silence and in [NT Editorial #511](http://www.jellyneo.net/index.php?go=editorialdb&type=id&query=14495) explains why the game was taken down: "We talked to a programmer and there was some kind of glitch with it. It's been taken down indefinitely. We'll talk amongst ourselves to figure out if we want to put the time in to fix the game. If not, we may release the associated avatar in a different way, or retire it. We'll update you once we reach a decision."
 * Jan 2012: An XSS attack/exploit was found on IoM and [published publicly](http://xssed.com/mirror/64791/). Had been found in 2009, and remained unpublished until Neopets removed the game. Unclear if Neopets became aware of it and it contributed to their decision to take the game down.
