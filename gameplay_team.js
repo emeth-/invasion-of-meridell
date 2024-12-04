@@ -51,8 +51,9 @@ function board_click(i, j) {
               $("img[data-type='team'][data-boardj='"+clicked_square_html.attr('data-boardj')+"']").each(function(){
                   var heal_amount = heal_amount_base;
                   var ally_square = $(this);
-                  if(selected_team_member.attr('data-boardi') != ally_square.attr('data-boardi')) {
-                    //If ally we are looking at is NOT the grundo casting the heal... heal this ally
+
+                  //If ally we are looking at is NOT the grundo casting the heal... heal this ally
+                  if(selected_team_member.attr('data-boardi') != ally_square.attr('data-boardi') || selected_team_member.attr('data-boardj') != ally_square.attr('data-boardj') ) {
 
                     var ally_data = get_team_member_by_name(ally_square.attr('data-name'));
                     var max_health_gain_possible = max_health - ally_data.health;
