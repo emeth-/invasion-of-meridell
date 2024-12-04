@@ -930,9 +930,9 @@ function set_up_items(board) {
         5: ["Berserker_Battleaxe", "Berserker_Battleaxe"],
         6: ["Sword_of_Deflection", "Sword_of_Deflection"],
         7: ["Double_Sword", "Halberd"],
-        8: ["Magic_Lightning_Spell", "Magic_Lightning_Spell"],
+        8: ["Magic_Lightening_Spell", "Magic_Lightening_Spell"],
         9: ["Double_Axe", "Double_Axe"],
-        10: ["Double_Axe", "Magic_Lightning_Spell"],
+        10: ["Double_Axe", "Magic_Lightening_Spell"],
     };
 
     defense_items_by_mission = {

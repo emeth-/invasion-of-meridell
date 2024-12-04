@@ -25,8 +25,8 @@ function board_click(i, j) {
             var selected_team_member = $('img[data-selected]');
             var selected_team_member_data = get_team_member_by_name(selected_team_member.attr('data-name'));
 
-            if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightning_Spell') {
-              //Grundo Magic_Lightning_Spell healing (Column)
+            if(selected_team_member.length && selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightening_Spell') {
+              //Grundo Magic_Lightening_Spell healing (Column)
 
               if(selected_team_member_data.enchanted_no_heal) {
                     render_top_message("Error - Grundo is enchanted and cannot heal!<br>");
@@ -523,7 +523,7 @@ function board_click(i, j) {
             //Move them
             var selected_team_member_i = selected_team_member.attr('data-boardi');
             var selected_team_member_j = selected_team_member.attr('data-boardj');
-            if(selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightning_Spell') {
+            if(selected_team_member_data.breed == 'Grundo' && selected_team_member_data.attack_item_name == 'Magic_Lightening_Spell') {
                 var error = is_invalid_attack_twoblocks(selected_team_member_i, selected_team_member_j, i, j);
                 if (error) {
                     render_top_message("You can only move one square at a time<br>or target is out of range.<br>");

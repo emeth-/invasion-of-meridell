@@ -105,8 +105,8 @@ var item_lookup = {
 		"stats": "<table><tr><td>Attack Bonus:</td><td>+5</td></tr><tr><td>Defence Bonus:</td><td>+0</td></tr></table>"
 	},
 
-	"Magic_Lightning_Spell": {
-		"image": "images/Magic_Lightning_Spell.jpg",
+	"Magic_Lightening_Spell": {
+		"image": "images/Magic_Lightening_Spell.jpg",
 		"title": "Magic Lightning Spell",
 		"text": "Zap Invaders with a lightning bolt! <br><br>When used by Grundos, this powerful spell can attack Invaders from 2 spaces away! It can also heal multiple fellow fighters in the same column! To use the healing power, click a fellow fighter in the column you wish to target. (Costs 1 move per healing).",
 		"bonuses": {
